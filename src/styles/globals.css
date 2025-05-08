@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Use font-display: swap to ensure text remains visible during webfont loads */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  /* Optimize for mobile viewports */
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px; /* Slightly smaller base font size on mobile */
+    }
+  }
+
+  /* Fix for iOS Safari 100vh issue */
+  .h-screen {
+    height: 100vh; /* Fallback */
+    height: -webkit-fill-available;
+  }
+  
+  /* Improve tap target sizes on mobile */
+  button, 
+  a.inline-block,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Better font performance */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2') format('woff2');
+}
+
+/* Prevent layout shifts from images */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Improve video container performance */
+.video-container {
+  will-change: opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Hover effects */
+a:hover, .hover-text:hover {
+  color: #0066CC !important;
+}
+
+/* Fix for any potential CLS from buttons/hover states */
+.hover\:bg-\[\#004C99\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 90 0 / var(--tw-bg-opacity));
+}
+
+/* Make sure button text is visible during state changes */
+button, a.inline-block {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mask-stripes {
+  -webkit-mask-image: url('https://i.imgur.com/xYBtnf5.png');
+  -webkit-mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: url('https://i.imgur.com/xYBtnf5.png');
+  mask-position: center center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
