@@ -116,7 +116,7 @@ export default function BookNow() {
                       
                       <button
                         type="submit"
-                        className="w-full py-3 px-6 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 transition-colors"
+                        className="w-full py-3 px-6 bg-black text-white font-medium rounded-md hover:bg-gray-800 transition-colors"
                       >
                         Check Availability
                       </button>
@@ -143,10 +143,10 @@ export default function BookNow() {
                           Luxury accommodation with stunning panoramic mountain views from the top floor. Featuring a premium king bed, full kitchen, and private balcony.
                         </p>
                         <div className="flex justify-between items-center">
-                          <p className="text-lg font-bold text-blue-600">From $349/night</p>
+                          <p className="text-lg font-bold text-white">From $349/night</p>
                           <Link
                             href="/listings/mountain-view---top-floor"
-                            className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                            className="inline-block px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
                           >
                             View Details
                           </Link>
@@ -169,10 +169,10 @@ export default function BookNow() {
                           Comfortable rooms with beautiful mountain views, queen bed, kitchenette, and all the amenities you need for a relaxing stay.
                         </p>
                         <div className="flex justify-between items-center">
-                          <p className="text-lg font-bold text-blue-600">From $289/night</p>
+                          <p className="text-lg font-bold text-white">From $289/night</p>
                           <Link
                             href="/listings/mountain-view-rooms"
-                            className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                            className="inline-block px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
                           >
                             View Details
                           </Link>
@@ -195,10 +195,10 @@ export default function BookNow() {
                           Serene rooms overlooking the peaceful forest, featuring a queen bed, sofa bed, kitchenette, and cozy atmosphere.
                         </p>
                         <div className="flex justify-between items-center">
-                          <p className="text-lg font-bold text-blue-600">From $249/night</p>
+                          <p className="text-lg font-bold text-white">From $249/night</p>
                           <Link
                             href="/listings/forest-view-cascade-room"
-                            className="inline-block px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                            className="inline-block px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
                           >
                             View Details
                           </Link>
@@ -247,12 +247,12 @@ export default function BookNow() {
                     </li>
                   </ul>
                   
-                  <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-                    <h3 className="font-bold text-blue-800 mb-2">Need Help?</h3>
+                  <div className="mt-8 p-4 bg-gray-100 rounded-lg">
+                    <h3 className="font-bold text-white mb-2">Need Help?</h3>
                     <p className="text-gray-700 mb-4">Our concierge team is ready to assist with your booking and answer any questions.</p>
                     <Link
                       href="/contact-us"
-                      className="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                      className="inline-block w-full text-center px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors"
                     >
                       Contact Us
                     </Link>

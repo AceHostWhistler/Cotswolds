@@ -1,0 +1,44 @@
+:root {
+  /* Brand Colors */
+  --color-blue: #5d87a1;
+  --color-cream: #f1e3c5;
+  --color-gold: #ba9765;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  
+  /* Typography */
+  --font-heading: 'Acumin Pro Thin', sans-serif;
+  --font-body: 'Futura PT Light', sans-serif;
+}
+
+/* Brand Typography Classes */
+.heading-font {
+  font-family: var(--font-heading);
+  font-weight: 300;
+}
+
+.body-font {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+/* Brand Color Classes */
+.text-brand-blue { color: var(--color-blue); }
+.text-brand-cream { color: var(--color-cream); }
+.text-brand-gold { color: var(--color-gold); }
+
+.bg-brand-blue { background-color: var(--color-blue); }
+.bg-brand-cream { background-color: var(--color-cream); }
+.bg-brand-gold { background-color: var(--color-gold); }
+
+.border-brand-blue { border-color: var(--color-blue); }
+.border-brand-cream { border-color: var(--color-cream); }
+.border-brand-gold { border-color: var(--color-gold); }
+
+/* Art Deco Pattern Background */
+.bg-art-deco {
+  background-color: #000000;
+  background-image: url('/brand/art-deco-pattern.svg');
+  background-size: 400px;
+  background-repeat: repeat;
+} 

@@ -34,7 +34,7 @@ export default function BlogRelatedArticles({ currentArticleLink, count = 3 }: B
                   </div>
                 </div>
                 <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="text-xl font-semibold mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-semibold mb-3 line-clamp-2 group-hover:text-white transition-colors">
                     {article.title}
                   </h3>
                   {article.description && (
@@ -46,7 +46,7 @@ export default function BlogRelatedArticles({ currentArticleLink, count = 3 }: B
                     <span className="text-xs text-gray-500">
                       {article.readTime}
                     </span>
-                    <span className="inline-flex items-center text-blue-600 font-medium text-sm transition-all group-hover:translate-x-1">
+                    <span className="inline-flex items-center text-white font-medium text-sm transition-all group-hover:translate-x-1">
                       Read article
                       <ArrowRight className="ml-1 w-4 h-4" />
                     </span>

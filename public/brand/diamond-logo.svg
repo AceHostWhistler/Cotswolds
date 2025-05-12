@@ -1,0 +1,12 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diamond background -->
+  <path d="M250 20 L480 250 L250 480 L20 250 Z" fill="#000000"/>
+  <!-- Gold border -->
+  <path d="M250 20 L480 250 L250 480 L20 250 Z" stroke="#ba9765" stroke-width="6" fill="none"/>
+  <!-- Inner diamond border -->
+  <path d="M250 50 L450 250 L250 450 L50 250 Z" stroke="#ba9765" stroke-width="3" fill="none"/>
+  <!-- Circular R logo element -->
+  <circle cx="250" cy="250" r="120" stroke="#ba9765" stroke-width="3" fill="none"/>
+  <!-- R letter - fixed proportions -->
+  <path d="M190 170 L190 340 M190 170 Q240 170 260 195 Q280 220 260 245 Q240 270 190 270 M190 245 L245 245 M260 245 L300 340" stroke="#ba9765" stroke-width="4" fill="none"/>
+</svg> 

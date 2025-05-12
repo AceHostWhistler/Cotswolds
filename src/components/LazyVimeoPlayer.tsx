@@ -15,6 +15,7 @@ interface LazyVimeoPlayerProps {
   onPause?: () => void;
   onEnd?: () => void;
   playsinline?: boolean;
+  controls?: boolean;
 }
 
 // Add type declaration for Vimeo Player API
@@ -40,7 +41,8 @@ const LazyVimeoPlayer = ({
   onPlay,
   onPause,
   onEnd,
-  playsinline = true
+  playsinline = true,
+  controls = false
 }: LazyVimeoPlayerProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const playerRef = useRef<any>(null);
@@ -100,7 +102,7 @@ const LazyVimeoPlayer = ({
       loading: 'eager', // Pre-fetch video data
       quality: isMobileRef.current ? '720p' : '1080p', // Reduced quality on mobile for faster loading
       autopause: false, // Prevent auto-pausing when another video plays
-      controls: false, // Hide video controls for background videos
+      controls, // Show or hide video controls
       preload: true, // Preload video data
     });
     
@@ -148,7 +150,7 @@ const LazyVimeoPlayer = ({
         aspectRatio: '16/9', // Explicitly set aspect ratio for better layout stability
         background: 'black', // Black background while video loads
       }}
-      aria-label="Background video"
+      aria-label={controls ? "Video player" : "Background video"}
     />
   );
 };

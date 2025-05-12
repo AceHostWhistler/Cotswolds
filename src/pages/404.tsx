@@ -53,10 +53,10 @@ export default function Custom404() {
             
             {suggestedPath && (
               <div className="bg-blue-50 p-4 rounded-lg mb-8 border border-blue-200">
-                <p className="text-blue-800 mb-2">Did you mean to visit:</p>
+                <p className="text-white mb-2">Did you mean to visit:</p>
                 <Link 
                   href={suggestedPath}
-                  className="text-blue-600 underline font-medium hover:text-blue-800"
+                  className="text-white underline font-medium hover:text-gray-200"
                 >
                   {suggestedPath}
                 </Link>

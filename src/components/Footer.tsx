@@ -31,7 +31,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://www.instagram.com/ace_cascade_lodge?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                href="https://www.instagram.com/reelroom.yvr/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-gray-800 transition-colors"
@@ -131,7 +131,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="https://www.instagram.com/ace_cascade_lodge?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  href="https://www.instagram.com/reelroom.yvr/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
