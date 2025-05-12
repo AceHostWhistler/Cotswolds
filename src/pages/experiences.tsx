@@ -45,19 +45,137 @@ export default function Experiences() {
           </div>
         </div>
         
-        {/* Experience Categories */}
+        {/* Main Venue Rates */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Our Experiences</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">Event Venue Rates</h2>
             
-            {/* Film Release Experience */}
-            <div className="mb-20">
+            <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md mb-16">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold mb-2">Base Rental Rate</h3>
+                <p className="text-4xl font-light text-brand-gold">$2,100</p>
+                <p className="text-gray-600 mt-2">for a 4-hour rental time slot</p>
+                <div className="mt-4 pt-4 border-t border-gray-300">
+                  <p className="text-gray-700">+ Event Manager ($255) + Cleaning Fee ($300)</p>
+                  <p className="text-gray-700 mt-2">Subtotal: $2,655</p>
+                  <p className="text-gray-700">+ 5% Tax: $132.75</p>
+                  <p className="text-gray-700 mt-2 font-semibold">Final Price: $2,787.75</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h4 className="text-lg font-bold mb-3">Additional Hours</h4>
+                  <p className="text-gray-600 mb-2">Need more time for your event?</p>
+                  <p className="text-xl font-semibold text-brand-gold">$500/hour</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm">
+                  <h4 className="text-lg font-bold mb-3">Food & Beverage</h4>
+                  <p className="text-gray-600">Food and beverage service is an additional cost. We'll connect you with our catering partners once your date is reserved.</p>
+                </div>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
+                <h4 className="text-lg font-bold mb-3">Catering Suggestions</h4>
+                <p className="text-gray-600 mb-4">
+                  We suggest hors d'oeuvres/small bites, cocktails, & refreshments to pair with your event or celebration. Once the venue is reserved for your requested date, we will put you in touch with our catering partners for menu development and next steps.
+                </p>
+                <p className="text-gray-600">
+                  Depending on your event, we are able to sell drink tickets in advance for your guests, create a cash bar where guests pay for their own drinks upon ordering at the bar, billed all together, etc... We are flexible and open to working with your event style.
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <Link
+                  href="/reservations"
+                  className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
+                >
+                  Reserve Your Date
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Summer Promotion */}
+        <div className="py-8 bg-gradient-to-r from-amber-50 to-yellow-50">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white p-6 rounded-xl shadow-md border-2 border-amber-200 transform scale-75 mx-auto">
+              <div className="text-center mb-4">
+                <h2 className="text-2xl font-bold text-amber-600">Summer Special!</h2>
+                <div className="flex justify-center my-3">
+                  <div className="h-1 w-12 bg-amber-400 rounded"></div>
+                </div>
+                <p className="text-lg text-gray-700">
+                  Enjoy <span className="text-xl font-bold text-amber-600">35% OFF</span> our venue fee all summer long!
+                </p>
+              </div>
+              
+              <div className="bg-amber-50 p-4 rounded-lg mb-4 text-sm">
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-gray-700">Base Venue Fee:</span>
+                  <span className="text-gray-700">$2,100</span>
+                </div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-amber-700 font-medium">Summer Discount (35%):</span>
+                  <span className="text-amber-700 font-medium">-$735</span>
+                </div>
+                <div className="flex justify-between items-center mb-1 pt-1 border-t border-amber-200">
+                  <span className="text-gray-700">Discounted Venue Fee:</span>
+                  <span className="text-gray-700">$1,365</span>
+                </div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-gray-700">+ Event Manager:</span>
+                  <span className="text-gray-700">$255</span>
+                </div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-gray-700">+ Cleaning Fee:</span>
+                  <span className="text-gray-700">$300</span>
+                </div>
+                <div className="flex justify-between items-center mb-1 pt-1 border-t border-amber-200">
+                  <span className="text-gray-700 font-medium">Subtotal:</span>
+                  <span className="text-gray-700 font-medium">$1,920</span>
+                </div>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-gray-700">+ 5% Tax:</span>
+                  <span className="text-gray-700">$96</span>
+                </div>
+                <div className="flex justify-between items-center pt-1 border-t border-amber-200">
+                  <span className="text-amber-700 font-bold">Final Price:</span>
+                  <span className="text-amber-700 font-bold">$2,016</span>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <p className="text-xs text-gray-500 mb-3">Offer valid May 1 - October 1, 2025. Cannot be combined with other promotions.</p>
+                <Link
+                  href="/reservations"
+                  className="inline-block bg-amber-600 text-white px-6 py-2 rounded-md text-sm transition-colors hover:bg-amber-700"
+                >
+                  Book Your Summer Event
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Event Types */}
+        <div className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold mb-12 text-center">Event Types</h2>
+            
+            {/* DCP Film Release Events */}
+            <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4">Film Release Events</h3>
+                  <h3 className="text-2xl font-bold mb-4">DCP Film Release Events</h3>
                   <p className="text-gray-600 mb-6">
                     Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At The Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
                   </p>
+                  <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
+                    <p className="text-gray-800 italic">DCP Available upon request.</p>
+                  </div>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
                     <li>Private theatre experience for your film</li>
                     <li>Customizable food and drink options</li>
@@ -65,14 +183,11 @@ export default function Experiences() {
                     <li>High-quality projection and sound system</li>
                     <li>Lounge area for mingling before and after the screening</li>
                   </ul>
-                  <p className="font-semibold mb-6">
-                    Starting from $2,500 for a 4-hour event
-                  </p>
                   <Link
                     href="/reservations"
                     className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                   >
-                    Book Now
+                    Book Your Film Event
                   </Link>
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
@@ -81,14 +196,14 @@ export default function Experiences() {
               </div>
             </div>
             
-            {/* Halloween/Sports Game Experience */}
-            <div className="mb-20">
+            {/* Private Parties */}
+            <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="relative h-96 rounded-lg overflow-hidden">
                   <LazyVimeoPlayer videoId="1082926490" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">Parties & Sports Events</h3>
+                  <h3 className="text-2xl font-bold mb-4">Private Parties & Sports Events</h3>
                   <p className="text-gray-600 mb-6">
                     At the Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference. Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
                   </p>
@@ -99,21 +214,18 @@ export default function Experiences() {
                     <li>Customizable food and drink packages</li>
                     <li>Full venue rental options</li>
                   </ul>
-                  <p className="font-semibold mb-6">
-                    Starting from $1,800 for a 4-hour event
-                  </p>
                   <Link
                     href="/reservations"
                     className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                   >
-                    Book Now
+                    Book Your Party
                   </Link>
                 </div>
               </div>
             </div>
             
             {/* Corporate Events */}
-            <div className="mb-20">
+            <div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
                   <h3 className="text-2xl font-bold mb-4">Corporate Events</h3>
@@ -128,14 +240,11 @@ export default function Experiences() {
                     <li>Brand activations</li>
                     <li>Networking opportunities</li>
                   </ul>
-                  <p className="font-semibold mb-6">
-                    Starting from $2,200 for a 4-hour event
-                  </p>
                   <Link
                     href="/reservations"
                     className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                   >
-                    Book Now
+                    Book Your Corporate Event
                   </Link>
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
@@ -152,7 +261,80 @@ export default function Experiences() {
           </div>
         </div>
         
-        {/* Photo Gallery Section - Updated to clean collage layout */}
+        {/* Additional Options */}
+        <div className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold mb-12 text-center">Additional Options</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Food Options */}
+              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+                <div className="h-48 mb-6 rounded overflow-hidden">
+                  <img
+                    src="/photos/homepage-originals/DSC03505-Enhanced-NR.jpg"
+                    alt="Food Options"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Catering Services</h3>
+                <p className="text-gray-600 mb-4">
+                  Enhance your event with our premium catering options, featuring a variety of customizable menus to suit your preferences and dietary requirements.
+                </p>
+                <p className="font-semibold text-gray-800">Prices starting from $25 per person</p>
+              </div>
+              
+              {/* Drink Options */}
+              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+                <div className="h-48 mb-6 rounded overflow-hidden">
+                  <img
+                    src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg"
+                    alt="Bar Services"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Bar Services</h3>
+                <p className="text-gray-600 mb-4">
+                  Including bartenders, drinks, and glassware rentals. Drinks can be purchased as a cash bar and split amongst invited guests for your private event booking.
+                </p>
+                <p className="font-semibold text-gray-800">Typically $1,400-$3,500 depending on consumption</p>
+              </div>
+              
+              {/* AV Options */}
+              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+                <div className="h-48 mb-6 rounded overflow-hidden">
+                  <img
+                    src="/photos/homepage-originals/DSC03696-Enhanced-NR.jpg"
+                    alt="DCP Audio-Visual Options"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-3">DCP Audio-Visual Enhancements</h3>
+                <p className="text-gray-600 mb-4">
+                  Take advantage of our state-of-the-art audio-visual system, with options for specialized lighting, sound, and projection enhancements.
+                </p>
+                <p className="font-semibold text-gray-800">$100 per hour</p>
+              </div>
+              
+              {/* Photo Booth */}
+              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
+                <div className="h-48 mb-6 rounded overflow-hidden">
+                  <img
+                    src="/photos/homepage-originals/DSC03296-Enhanced-NR.jpg"
+                    alt="Photo Booth"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-3">Photo Booth</h3>
+                <p className="text-gray-600 mb-4">
+                  Add a fun and memorable photo booth experience to your event. Includes professional equipment, staff assistance, and printed photos for your guests.
+                </p>
+                <p className="font-semibold text-gray-800">$1,000 for 4 hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Photo Gallery Section */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-12 text-center">Event Space Gallery</h2>
@@ -217,152 +399,6 @@ export default function Experiences() {
           </div>
         </div>
         
-        {/* Additional Options */}
-        <div className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Additional Options</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Food Options */}
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03505-Enhanced-NR.jpg"
-                    alt="Food Options"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Catering Services</h3>
-                <p className="text-gray-600 mb-4">
-                  Enhance your event with our premium catering options, featuring a variety of customizable menus to suit your preferences and dietary requirements.
-                </p>
-                <p className="font-semibold">Starting from $35 per person</p>
-              </div>
-              
-              {/* Drink Options */}
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg"
-                    alt="Drink Options"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Bar Services</h3>
-                <p className="text-gray-600 mb-4">
-                  Our bar services include a selection of premium spirits, wines, beers, and custom cocktails. We can create a specialized drink menu for your event.
-                </p>
-                <p className="font-semibold">Custom packages available</p>
-              </div>
-              
-              {/* AV Options */}
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03696-Enhanced-NR.jpg"
-                    alt="DCP Audio-Visual Options"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3">DCP Audio-Visual Enhancements</h3>
-                <p className="text-gray-600 mb-4">
-                  Take advantage of our state-of-the-art audio-visual system, with options for specialized lighting, sound, and projection enhancements.
-                </p>
-                <p className="font-semibold">$100 per hour</p>
-              </div>
-              
-              {/* Photo Booth */}
-              <div className="bg-white p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03296-Enhanced-NR.jpg"
-                    alt="Photo Booth"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Photo Booth</h3>
-                <p className="text-gray-600 mb-4">
-                  Add a fun and memorable photo booth experience to your event. Includes professional equipment, staff assistance, and printed photos for your guests.
-                </p>
-                <p className="font-semibold">$1,000 for 4 hours</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Features Section */}
-        <div className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Venue Features</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="flex flex-col md:flex-row gap-6 items-center bg-gray-50 p-6 rounded-lg">
-                <div className="w-full md:w-1/3 h-48 rounded-lg overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03644-Enhanced-NR.jpg"
-                    alt="Comfortable Seating"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-2/3">
-                  <h3 className="text-xl font-bold mb-2">Premium Screening Area</h3>
-                  <p className="text-gray-600">
-                    Our theatre features premium comfortable seating with excellent sightlines, ensuring every guest has the perfect view of the screen.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col md:flex-row gap-6 items-center bg-gray-50 p-6 rounded-lg">
-                <div className="w-full md:w-1/3 h-48 rounded-lg overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03633-Enhanced-NR.jpg"
-                    alt="Social Lounge"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-2/3">
-                  <h3 className="text-xl font-bold mb-2">Elegant Social Lounge</h3>
-                  <p className="text-gray-600">
-                    Our lounge area provides a sophisticated space for mingling, networking, or enjoying drinks before and after your main event.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col md:flex-row gap-6 items-center bg-gray-50 p-6 rounded-lg">
-                <div className="w-full md:w-1/3 h-48 rounded-lg overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03344-Enhanced-NR.jpg"
-                    alt="Bar Service"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-2/3">
-                  <h3 className="text-xl font-bold mb-2">Premium Bar Service</h3>
-                  <p className="text-gray-600">
-                    Featuring a selection of craft cocktails, fine wines, and premium spirits, our bar service elevates any event into an extraordinary experience.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col md:flex-row gap-6 items-center bg-gray-50 p-6 rounded-lg">
-                <div className="w-full md:w-1/3 h-48 rounded-lg overflow-hidden">
-                  <img
-                    src="/photos/homepage-originals/DSC03360-Enhanced-NR.jpg"
-                    alt="Professional Equipment"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="md:w-2/3">
-                  <h3 className="text-xl font-bold mb-2">Professional Equipment</h3>
-                  <p className="text-gray-600">
-                    State-of-the-art projection and sound systems ensure your content looks and sounds its absolute best to impress your guests.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
         {/* CTA Section */}
         <div className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -379,7 +415,7 @@ export default function Experiences() {
                 Make a Reservation
               </Link>
               <Link
-                href="/contact"
+                href="/reservations"
                 className="inline-block bg-transparent border border-white text-white px-6 py-3 rounded-md transition-colors hover:bg-white hover:text-black"
               >
                 Contact Us

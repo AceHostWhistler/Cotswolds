@@ -55,11 +55,6 @@ const ReelRoomFooter: React.FC = () => {
                   Blog
                 </Link>
               </li>
-              <li>
-                <Link href="/videos" className="body-font text-gray-400 hover:text-brand-gold transition-colors">
-                  Videos
-                </Link>
-              </li>
             </ul>
           </div>
           
