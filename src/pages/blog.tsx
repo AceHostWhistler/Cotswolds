@@ -83,7 +83,7 @@ export default function Blog() {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto bg-gradient-to-r from-black to-[#1a1a1a] rounded-lg shadow-xl overflow-hidden border border-brand-gold/20">
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2">
+                <div className="md:w-1/2 relative group">
                   <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block h-full">
                     <div className="relative aspect-[4/3] md:h-full">
                       <Image
@@ -93,15 +93,18 @@ export default function Blog() {
                         priority
                         sizes="(max-width: 768px) 100vw, 50vw"
                         style={{ objectFit: "cover", objectPosition: "center" }}
-                        className="transition-all duration-700 ease-in-out hover:scale-105 brightness-90"
+                        className="transition-all duration-700 ease-in-out group-hover:scale-105 brightness-90"
                       />
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"></div>
+                    </div>
+                    {/* Featured article tag that appears on the image */}
+                    <div className="absolute top-4 left-4 px-4 py-2 bg-black/70 backdrop-blur-sm border-l-4 border-brand-gold">
+                      <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
                     </div>
                   </Link>
                 </div>
                 <div className="md:w-1/2 p-8 md:p-10 text-white">
-                  <div className="p-4 border-l-4 border-brand-gold mb-4 bg-black/40 backdrop-blur-sm">
-                    <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
-                  </div>
                   <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block group">
                     <h2 className="heading-font text-3xl md:text-4xl font-light mb-4 text-white group-hover:text-brand-gold transition-colors">DCP and Movie Premieres at The Reel Room</h2>
                   </Link>
