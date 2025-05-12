@@ -224,7 +224,7 @@ export default function Home() {
                     ></iframe>
                   </div>
                 </div>
-                <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
+                <h3 className="heading-font text-2xl font-bold mt-8 text-black bg-white py-2 px-4 rounded shadow-md">Film Release Event Parties</h3>
                 <p className="body-font text-gray-300">
                   Experience the elegance of The Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
                 </p>
@@ -244,7 +244,7 @@ export default function Home() {
                     ></iframe>
                   </div>
                 </div>
-                <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
+                <h3 className="heading-font text-2xl font-bold mt-8 text-black bg-white py-2 px-4 rounded shadow-md">General Parties & Sporting Event Venue</h3>
                 <p className="body-font text-gray-300">
                   From themed celebrations to sports viewing parties, The Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
                 </p>
