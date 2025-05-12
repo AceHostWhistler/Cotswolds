@@ -41,7 +41,7 @@ const Testimonials = () => {
           </div>
           <div className="ml-4">
             <h3 className="font-serif text-lg">{review.name}</h3>
-            <p className="text-blue-200/90 text-sm">{review.role}</p>
+            <p className="text-white/90 text-sm">{review.role}</p>
           </div>
         </div>
         <div className="flex gap-1 mb-3">

@@ -26,7 +26,7 @@ const Navigation = ({
   showActions = true,
   transparent = false,
 }: NavigationProps) => {
-  const { push } = useRouter();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
   const [showMobileResourcesDropdown, setShowMobileResourcesDropdown] =
@@ -175,7 +175,7 @@ const Navigation = ({
                             </Link>
                           </div>
                           <Link href={allArticles[0].link} onClick={() => setShowResourcesDropdown(false)}>
-                            <h4 className="text-base font-bold leading-tight hover:text-blue-600 transition-colors duration-300">
+                            <h4 className="text-base font-bold leading-tight hover:text-white transition-colors duration-300">
                               {allArticles[0].title}
                             </h4>
                           </Link>
@@ -232,7 +232,7 @@ const Navigation = ({
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-white transition-colors duration-300">
                                 Acehost Whistler Property Management Services
                               </h4>
                               <p className="text-xs text-gray-600 leading-tight">
@@ -259,7 +259,7 @@ const Navigation = ({
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-white transition-colors duration-300">
                                 Discover the Ultimate Ski-in Ski-out Luxury
                                 Chalet Homes in Whistler, Canada
                               </h4>
@@ -287,7 +287,7 @@ const Navigation = ({
                               />
                             </div>
                             <div className="flex-grow">
-                              <h4 className="font-semibold text-sm mb-1 group-hover:text-blue-600 transition-colors duration-300">
+                              <h4 className="font-semibold text-sm mb-1 group-hover:text-white transition-colors duration-300">
                                 Luxury Whistler Vacation Redefined: How AceHost
                                 Whistler Caters to the 1% in Canada's
                                 Ultimate Playground
@@ -328,7 +328,7 @@ const Navigation = ({
                               ></iframe>
                               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
                             </div>
-                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-blue-600 transition-colors">
+                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-white transition-colors">
                               The Dream Luxury Whistler Vacation!
                             </h5>
                             <p className="text-[10px] text-gray-500">
@@ -354,7 +354,7 @@ const Navigation = ({
                               ></iframe>
                               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
                             </div>
-                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-blue-600 transition-colors">
+                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-white transition-colors">
                               Tour a Luxury Ski Chalet in Whistler
                             </h5>
                             <p className="text-[10px] text-gray-500">
@@ -380,7 +380,7 @@ const Navigation = ({
                               ></iframe>
                               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity"></div>
                             </div>
-                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-blue-600 transition-colors">
+                            <h5 className="text-xs font-medium leading-tight mt-1 group-hover:text-white transition-colors">
                               The Ultimate Luxury Whistler Chalet Winter Road
                               Trip
                             </h5>

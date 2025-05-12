@@ -15,8 +15,9 @@ const LanguageSelector = () => {
   ];
 
   const changeLanguage = (locale: string) => {
-    const { pathname, asPath, query } = router;
-    router.push({ pathname, query }, asPath, { locale });
+    // Use window.location directly as a workaround
+    const path = router.asPath || '/';
+    window.location.href = `/${locale}${path}`;
     setIsOpen(false);
   };
 

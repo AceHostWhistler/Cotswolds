@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "compress-images": "node scripts/compress-images.js"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",

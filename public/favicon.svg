@@ -1,0 +1,8 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Diamond background -->
+  <path d="M16 1 L31 16 L16 31 L1 16 Z" fill="#000000"/>
+  <!-- Gold border -->
+  <path d="M16 1 L31 16 L16 31 L1 16 Z" stroke="#ba9765" stroke-width="1" fill="none"/>
+  <!-- R letter -->
+  <path d="M12 10 L12 22 M12 10 Q18 10 18 14 Q18 18 12 18 M12 16 L16 16 M18 18 L20 22" stroke="#ba9765" stroke-width="1" fill="none"/>
+</svg> 

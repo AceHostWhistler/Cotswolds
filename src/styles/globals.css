@@ -80,18 +80,117 @@ img, video {
 
 /* Hover effects */
 a:hover, .hover-text:hover {
-  color: #0066CC !important;
+  color: #ba9765 !important;
 }
 
 /* Fix for any potential CLS from buttons/hover states */
 .hover\:bg-\[\#004C99\]:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(230 90 0 / var(--tw-bg-opacity));
+  background-color: rgba(186, 151, 101, var(--tw-bg-opacity));
 }
 
-/* Make sure button text is visible during state changes */
-button, a.inline-block {
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* Force all blue colors to be replaced */
+[class*="text-blue"],
+.text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400, 
+.text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900,
+.text-blue-50, .text-blue-950,
+[style*="color: rgb(37, 99, 235)"], 
+[style*="color: rgb(59, 130, 246)"], 
+[style*="color: rgb(96, 165, 250)"],
+[style*="color: rgb(147, 197, 253)"],
+[style*="color: rgb(191, 219, 254)"],
+[style*="color: rgb(219, 234, 254)"],
+[style*="color:#0066CC"],
+[style*="color: #0066CC"],
+[style*="color:#004C99"],
+[style*="color: #004C99"],
+.text-ace-blue,
+.text-ace-blue-dark {
+  color: white !important;
+}
+
+/* Override hover states */
+[class*="hover:text-blue"]:hover,
+.hover\:text-blue-100:hover, .hover\:text-blue-200:hover, .hover\:text-blue-300:hover,
+.hover\:text-blue-400:hover, .hover\:text-blue-500:hover, .hover\:text-blue-600:hover,
+.hover\:text-blue-700:hover, .hover\:text-blue-800:hover, .hover\:text-blue-900:hover,
+.hover\:text-blue-50:hover, .hover\:text-blue-950:hover,
+.hover\:text-ace-blue:hover,
+.hover\:text-ace-blue-dark:hover {
+  color: white !important;
+}
+
+/* Force background colors */
+[class*="bg-blue"],
+.bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400, 
+.bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900,
+.bg-blue-50, .bg-blue-950,
+[style*="background-color: rgb(37, 99, 235)"], 
+[style*="background-color: rgb(59, 130, 246)"], 
+[style*="background-color: rgb(96, 165, 250)"],
+[style*="background-color: rgb(147, 197, 253)"],
+[style*="background-color: rgb(191, 219, 254)"],
+[style*="background-color: rgb(219, 234, 254)"],
+[style*="background-color:#0066CC"],
+[style*="background-color: #0066CC"],
+[style*="background-color:#004C99"],
+[style*="background-color: #004C99"],
+.bg-ace-blue,
+.bg-ace-blue-dark {
+  background-color: black !important;
+}
+
+/* Override hover background states */
+[class*="hover:bg-blue"]:hover,
+.hover\:bg-blue-100:hover, .hover\:bg-blue-200:hover, .hover\:bg-blue-300:hover,
+.hover\:bg-blue-400:hover, .hover\:bg-blue-500:hover, .hover\:bg-blue-600:hover,
+.hover\:bg-blue-700:hover, .hover\:bg-blue-800:hover, .hover\:bg-blue-900:hover,
+.hover\:bg-blue-50:hover, .hover\:bg-blue-950:hover,
+.hover\:bg-ace-blue:hover,
+.hover\:bg-ace-blue-dark:hover,
+.hover\:bg-\[\#0066CC\]:hover,
+.hover\:bg-\[\#004C99\]:hover {
+  background-color: #333333 !important;
+}
+
+/* Force border colors */
+[class*="border-blue"],
+.border-blue-100, .border-blue-200, .border-blue-300, .border-blue-400, 
+.border-blue-500, .border-blue-600, .border-blue-700, .border-blue-800, .border-blue-900,
+.border-blue-50, .border-blue-950,
+.border-ace-blue,
+.border-ace-blue-dark {
+  border-color: white !important;
+}
+
+/* Override focus ring colors */
+[class*="focus:ring-blue"],
+.focus\:ring-blue-100:focus, .focus\:ring-blue-200:focus, .focus\:ring-blue-300:focus,
+.focus\:ring-blue-400:focus, .focus\:ring-blue-500:focus, .focus\:ring-blue-600:focus,
+.focus\:ring-blue-700:focus, .focus\:ring-blue-800:focus, .focus\:ring-blue-900:focus,
+.focus\:ring-blue-50:focus, .focus\:ring-blue-950:focus {
+  --tw-ring-color: black !important;
+}
+
+/* Apple-style clean UI overrides */
+.heading-font {
+  letter-spacing: 0.05em;
+  font-weight: 300;
+}
+
+.body-font {
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Sleek button styling like Apple */
+button, 
+a.inline-block,
+input[type="button"],
+input[type="submit"] {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
 }
 
 .mask-stripes {
@@ -103,4 +202,125 @@ button, a.inline-block {
   mask-position: center center;
   mask-repeat: no-repeat;
   mask-size: contain;
+}
+
+/* TOTAL ELIMINATION OF BLUE - NUCLEAR OPTION */
+/* This will completely remove any blue text or background from the website */
+
+/* Target everything with style attribute containing blue but maintain proper contrast */
+[style*="color:blue"],
+[style*="color: blue"],
+[style*="color:#00"],
+[style*="color: #00"],
+[style*="color:rgb(0, 0,"],
+[style*="color: rgb(0, 0,"],
+[style*="color:rgba(0, 0,"],
+[style*="color: rgba(0, 0,"] {
+  color: var(--contrast-color, #333333) !important;
+}
+
+/* Directly target elements by tag with better contrast handling */
+a, span, p, h1, h2, h3, h4, h5, h6, div, button {
+  /* Don't override all colors, just ensure proper contrast */
+  color: inherit;
+}
+
+/* Fix specifically for navigation links in screenshots */
+.heading-font.text-2xl,
+.tracking-widest,
+a[href="/experiences"],
+a[href="/reservations"],
+a[href="/media"],
+a[href="/blog"],
+a[href="/videos"],
+a[href="/contact"],
+a[href="/"] {
+  /* Ensure these elements have proper contrast on dark backgrounds */
+  color: white !important;
+}
+
+span.relative.z-10 {
+  /* This is for the top navigation links which are on a dark background */
+  color: white !important;
+}
+
+/* Replace specific blue values seen in screenshots */
+a.heading-font,
+.heading-font.text-2xl.uppercase,
+span.relative.z-10,
+a.inline-block,
+.experiences,
+.media,
+.reservations,
+.heading-font.text-2xl {
+  /* These elements need to be white as they're on dark backgrounds */
+  color: white !important;
+}
+
+/* Modify the filter to be less aggressive and maintain better contrast */
+html {
+  /* Use a very subtle filter that still removes blue but maintains contrast */
+  filter: hue-rotate(340deg) !important;
+}
+
+/* Override any text that contains the string blue with better contrast handling */
+[class*="blue"] {
+  /* Instead of forcing white, use a conditional approach */
+  color: var(--contrast-color, #333333) !important;
+  background-color: transparent !important;
+  border-color: currentColor !important;
+}
+
+/* Custom contrast helper classes */
+.on-dark { --contrast-color: white !important; }
+.on-light { --contrast-color: #333333 !important; }
+
+/* Replace blue in the UI with gold accent instead of white for better contrast */
+[class*="text-blue"],
+.text-blue-100, .text-blue-200, .text-blue-300, .text-blue-400, 
+.text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900,
+.text-blue-50, .text-blue-950 {
+  /* Use gold color for accents instead of white for better contrast */
+  color: #ba9765 !important;
+}
+
+/* Force background colors with better contrast handling */
+[class*="bg-blue"],
+.bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400, 
+.bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900,
+.bg-blue-50, .bg-blue-950 {
+  /* Use black instead of transparent for better contrast */
+  background-color: black !important;
+  color: white !important;
+}
+
+/* In case the site uses SVGs with blue */
+svg {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* Catch any possible RGB blue values */
+[style*="rgb(0,"],
+[style*="rgb(10,"],
+[style*="rgb(20,"],
+[style*="rgb(30,"],
+[style*="rgb(40,"],
+[style*="rgb(50,"],
+[style*="rgb(60,"],
+[style*="rgb(70,"],
+[style*="rgb(80,"],
+[style*="rgb(90,"],
+[style*="rgb(0, "],
+[style*="rgb(10, "],
+[style*="rgb(20, "],
+[style*="rgb(30, "],
+[style*="rgb(40, "],
+[style*="rgb(50, "],
+[style*="rgb(60, "],
+[style*="rgb(70, "],
+[style*="rgb(80, "],
+[style*="rgb(90, "] {
+  color: white !important;
+  background-color: transparent !important;
 }

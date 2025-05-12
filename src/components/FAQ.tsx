@@ -50,7 +50,7 @@ const FAQ = () => {
                     <summary className="flex justify-between text-lg items-center font-medium cursor-pointer list-none text-slate-900">
                       <span>{faq.question}</span>
                       <span className="transition group-open:rotate-180">
-                        <ArrowRight className="h-5 w-5 text-blue-400" />
+                        <ArrowRight className="h-5 w-5 text-white" />
                       </span>
                     </summary>
                     <p className="text-slate-600 mt-3 group-open:animate-fadeIn">
