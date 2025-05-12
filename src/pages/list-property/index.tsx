@@ -57,7 +57,7 @@ interface Step {
   number: number;
   title: string;
   description: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<any>;
 }
 
 const steps: Step[] = [
@@ -95,7 +95,7 @@ const steps: Step[] = [
 interface Feature {
   title: string;
   description: string;
-  icon: React.ElementType;
+  icon: React.ComponentType<any>;
 }
 
 const features: Feature[] = [

@@ -16,7 +16,7 @@ import {
   Tag,
   FileText,
 } from "lucide-react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 // Define a type for the form data
 interface PropertyFormData {
