@@ -363,97 +363,6 @@ export default function Experiences() {
           </div>
         </div>
         
-        {/* Image Showcase - Updated to clean mosaic layout */}
-        <div className="py-16 bg-gray-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center text-white">Explore Our Space</h2>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-              <div className="col-span-1 md:col-span-2 md:row-span-2 overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03339-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="aspect-square overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03411-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="aspect-square overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03287-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="aspect-square overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03406-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="aspect-square overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03696-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="col-span-2 overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03747-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="col-span-2 overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03643-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="aspect-square overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03683-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="aspect-square overflow-hidden">
-                <div className="w-full h-full">
-                  <img 
-                    src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
-                    alt="Reel Room Experience"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
         {/* CTA Section */}
         <div className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -465,7 +374,7 @@ export default function Experiences() {
             <div className="flex justify-center gap-4 flex-wrap">
               <Link
                 href="/reservations"
-                className="inline-block bg-white text-black px-6 py-3 rounded-md transition-colors hover:bg-gray-200"
+                className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
               >
                 Make a Reservation
               </Link>
