@@ -261,7 +261,17 @@ export default function Media() {
             </div>
           </div>
           <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
-            <h3 className="heading-font text-2xl font-extrabold mt-2 text-black">Film Release Event Parties</h3>
+            <h3 
+              className="heading-font text-xl font-semibold mt-2 video-title-text" 
+              style={{ 
+                color: '#000000 !important', 
+                backgroundColor: 'white !important',
+                textShadow: '0 0 0 black',
+                WebkitTextFillColor: 'black'
+              }}
+            >
+              <span className="black-text video-title-text">Film Release Event Parties</span>
+            </h3>
           </div>
           <p className="body-font text-black bg-white p-5 rounded-b-lg shadow-md">
             Experience the elegance of The Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
@@ -283,7 +293,17 @@ export default function Media() {
             </div>
           </div>
           <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
-            <h3 className="heading-font text-2xl font-extrabold mt-2 text-black">General Parties & Sporting Event Venue</h3>
+            <h3 
+              className="heading-font text-xl font-semibold mt-2 video-title-text" 
+              style={{ 
+                color: '#000000 !important', 
+                backgroundColor: 'white !important',
+                textShadow: '0 0 0 black',
+                WebkitTextFillColor: 'black'
+              }}
+            >
+              <span className="black-text video-title-text">General Parties & Sporting Event Venue</span>
+            </h3>
           </div>
           <p className="body-font text-black bg-white p-5 rounded-b-lg shadow-md">
             From themed celebrations to sports viewing parties, The Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
@@ -404,6 +424,22 @@ export default function Media() {
       <Head>
         <title>Media & FAQs | The Reel Room</title>
         <meta name="description" content="Explore our photo gallery, videos, and find answers to frequently asked questions about The Reel Room in Vancouver, BC." />
+        <style>{`
+          .black-text {
+            color: #000000 !important;
+            text-shadow: 0 0 0 #000000;
+            -webkit-text-fill-color: #000000;
+          }
+          .heading-font {
+            color: #000000 !important;
+          }
+          .video-title-text {
+            color: #000000 !important;
+            font-weight: 600 !important;
+            text-shadow: 0 0 0 #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
+          }
+        `}</style>
       </Head>
       
       <ReelRoomNavigation />
