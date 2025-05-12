@@ -99,7 +99,7 @@ export default function Experiences() {
         </div>
         
         {/* Summer Promotion */}
-        <div className="py-8 bg-gradient-to-r from-amber-50 to-yellow-50">
+        <div className="py-8 bg-white">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white p-6 rounded-xl shadow-md border-2 border-amber-200 transform scale-75 mx-auto">
               <div className="text-center mb-4">
@@ -112,7 +112,7 @@ export default function Experiences() {
                 </p>
               </div>
               
-              <div className="bg-amber-50 p-4 rounded-lg mb-4 text-sm">
+              <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
                 <div className="flex justify-between items-center mb-1">
                   <span className="text-gray-700">Base Venue Fee:</span>
                   <span className="text-gray-700">$2,100</span>
@@ -121,7 +121,7 @@ export default function Experiences() {
                   <span className="text-amber-700 font-medium">Summer Discount (35%):</span>
                   <span className="text-amber-700 font-medium">-$735</span>
                 </div>
-                <div className="flex justify-between items-center mb-1 pt-1 border-t border-amber-200">
+                <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
                   <span className="text-gray-700">Discounted Venue Fee:</span>
                   <span className="text-gray-700">$1,365</span>
                 </div>
@@ -133,7 +133,7 @@ export default function Experiences() {
                   <span className="text-gray-700">+ Cleaning Fee:</span>
                   <span className="text-gray-700">$300</span>
                 </div>
-                <div className="flex justify-between items-center mb-1 pt-1 border-t border-amber-200">
+                <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
                   <span className="text-gray-700 font-medium">Subtotal:</span>
                   <span className="text-gray-700 font-medium">$1,920</span>
                 </div>
@@ -141,20 +141,14 @@ export default function Experiences() {
                   <span className="text-gray-700">+ 5% Tax:</span>
                   <span className="text-gray-700">$96</span>
                 </div>
-                <div className="flex justify-between items-center pt-1 border-t border-amber-200">
+                <div className="flex justify-between items-center pt-1 border-t border-gray-200">
                   <span className="text-amber-700 font-bold">Final Price:</span>
                   <span className="text-amber-700 font-bold">$2,016</span>
                 </div>
               </div>
               
               <div className="text-center">
-                <p className="text-xs text-gray-500 mb-3">Offer valid May 1 - October 1, 2025. Cannot be combined with other promotions.</p>
-                <Link
-                  href="/reservations"
-                  className="inline-block bg-amber-600 text-white px-6 py-2 rounded-md text-sm transition-colors hover:bg-amber-700"
-                >
-                  Book Your Summer Event
-                </Link>
+                <p className="text-xs text-gray-500">Offer valid May 1 - October 1, 2025. Cannot be combined with other promotions.</p>
               </div>
             </div>
           </div>
