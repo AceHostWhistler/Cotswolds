@@ -27,7 +27,7 @@ export default function Experiences() {
         {/* Hero Section */}
         <div className="relative h-[500px] overflow-hidden">
           <OptimizedImage
-            src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
+            src="/photos/homepage-originals/DSC03097-Enhanced-NR.jpg"
             alt="The Reel Room Experience"
             fill
             style={{ objectFit: "cover" }}
@@ -265,7 +265,7 @@ export default function Experiences() {
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
                 <div className="h-48 mb-6 rounded overflow-hidden">
                   <img
-                    src="/photos/homepage-originals/DSC03505-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03070-Enhanced-NR.jpg"
                     alt="Food Options"
                     className="w-full h-full object-cover"
                   />
@@ -281,7 +281,7 @@ export default function Experiences() {
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
                 <div className="h-48 mb-6 rounded overflow-hidden">
                   <img
-                    src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
                     alt="Bar Services"
                     className="w-full h-full object-cover"
                   />
@@ -297,7 +297,7 @@ export default function Experiences() {
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
                 <div className="h-48 mb-6 rounded overflow-hidden">
                   <img
-                    src="/photos/homepage-originals/DSC03696-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03106-Enhanced-NR.jpg"
                     alt="DCP Audio-Visual Options"
                     className="w-full h-full object-cover"
                   />
@@ -313,7 +313,7 @@ export default function Experiences() {
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
                 <div className="h-48 mb-6 rounded overflow-hidden">
                   <img
-                    src="/photos/homepage-originals/DSC03296-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03124-Enhanced-NR.jpg"
                     alt="Photo Booth"
                     className="w-full h-full object-cover"
                   />
@@ -338,7 +338,7 @@ export default function Experiences() {
               <div className="col-span-2 row-span-2 aspect-square overflow-hidden rounded-lg">
                 <div className="w-full h-full">
                   <img 
-                    src="/photos/homepage-originals/DSC03509-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03198-Enhanced-NR.jpg"
                     alt="Reel Room Space"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -347,7 +347,7 @@ export default function Experiences() {
               <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
                 <div className="w-full h-full">
                   <img 
-                    src="/photos/homepage-originals/DSC03531-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03217-Enhanced-NR.jpg"
                     alt="Reel Room Space"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -356,7 +356,7 @@ export default function Experiences() {
               <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
                 <div className="w-full h-full">
                   <img 
-                    src="/photos/homepage-originals/DSC03507-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg"
                     alt="Reel Room Space"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -365,7 +365,7 @@ export default function Experiences() {
               <div className="col-span-2 row-span-2 aspect-square overflow-hidden rounded-lg">
                 <div className="w-full h-full">
                   <img 
-                    src="/photos/homepage-originals/DSC03529-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03287-Enhanced-NR.jpg"
                     alt="Reel Room Space"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -374,7 +374,7 @@ export default function Experiences() {
               <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
                 <div className="w-full h-full">
                   <img 
-                    src="/photos/homepage-originals/DSC03705-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03313-Enhanced-NR.jpg"
                     alt="Reel Room Space"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
@@ -383,7 +383,7 @@ export default function Experiences() {
               <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
                 <div className="w-full h-full">
                   <img 
-                    src="/photos/homepage-originals/DSC03663-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03389-Enhanced-NR.jpg"
                     alt="Reel Room Space"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   />
