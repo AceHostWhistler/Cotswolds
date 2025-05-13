@@ -268,7 +268,7 @@ export default function Home() {
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
                 <img 
-                  src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
+                  src="/photos/homepage-originals/DSC03124-Enhanced-NR.jpg" 
                   alt="Reel Room Space" 
                   className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
@@ -284,7 +284,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
                 <img 
-                  src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg" 
+                  src="/photos/homepage-originals/DSC03236-Enhanced-NR.jpg" 
                   alt="Reel Room Parties" 
                   className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
@@ -326,7 +326,7 @@ export default function Home() {
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
                 <img 
-                  src="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg" 
+                  src="/photos/homepage-originals/DSC03236-Enhanced-NR.jpg" 
                   alt="Reel Room Private Events" 
                   className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
@@ -369,7 +369,7 @@ export default function Home() {
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
                   <img 
-                    src="/photos/homepage-originals/DSC03264.jpg" 
+                    src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
                     alt="Film & Screenings" 
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
@@ -380,7 +380,7 @@ export default function Home() {
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
                   <img 
-                    src="/photos/homepage-originals/DSC03275-Enhanced-NR.jpg" 
+                    src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
                     alt="Event Flexibility" 
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
@@ -391,7 +391,7 @@ export default function Home() {
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
                   <img 
-                    src="/photos/homepage-originals/DSC03659-Enhanced-NR.jpg" 
+                    src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
                     alt="Upscale theatre experience" 
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
@@ -402,7 +402,7 @@ export default function Home() {
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
                   <img 
-                    src="/photos/homepage-originals/DSC03469-Enhanced-NR.jpg" 
+                    src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
                     alt="Catering Services" 
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
@@ -413,7 +413,7 @@ export default function Home() {
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
                   <img 
-                    src="/photos/homepage-originals/DSC03436-Enhanced-NR.jpg" 
+                    src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                     alt="Bar Services" 
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
@@ -424,7 +424,7 @@ export default function Home() {
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
                   <img 
-                    src="/photos/homepage-originals/DSC03339.jpg" 
+                    src="/photos/homepage-originals/DSC03113-Enhanced-NR.jpg" 
                     alt="Curated Food & Alcohol Menus" 
                     className="w-full h-full object-cover object-center"
                     loading="lazy"

@@ -20,28 +20,28 @@ export default function Blog() {
       title: "DCP and Movie Premieres at The Reel Room Private Event Space",
       slug: "/blog-articles/dcp-and-movie-premieres-at-the-reel-room",
       excerpt: "Learn about DCP (Digital Cinema Package) format and how The Reel Room can host your premium movie premiere events with professional screening capabilities.",
-      image: "/photos/homepage-originals/DSC03222-Enhanced-NR-1.jpg",
+      image: "/photos/homepage-originals/DSC03086-Enhanced-NR.jpg",
     },
     {
       id: 2,
       title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Hottest Private Theatre Event Space!",
       slug: "/blog-articles/lights-camera-action-welcome-to-reel-room",
       excerpt: "Discover Vancouver's most exclusive private theatre venue for film screenings, corporate events, and special celebrations.",
-      image: "/photos/homepage-originals/DSC03505-Enhanced-NR.jpg",
+      image: "/photos/homepage-originals/DSC03138-Enhanced-NR.jpg",
     },
     {
       id: 3,
       title: "The Ultimate Canucks Game Day Experience at The Reel Room",
       slug: "/blog-articles/canucks-hockey-games-at-the-reel-room",
       excerpt: "Experience Vancouver Canucks hockey games like never before at The Reel Room. Our luxurious private theatre venue offers the ultimate sports viewing experience.",
-      image: "/photos/homepage-originals/DSC03389-Enhanced-NR.jpg",
+      image: "/photos/homepage-originals/DSC03672-Enhanced-NR.jpg",
     },
     {
       id: 4,
       title: "Bold and Colourful Wedding with Iris Apfel Vibes",
       slug: "",
       excerpt: "See how The Reel Room was transformed for a bold and colorful wedding photoshoot inspired by fashion icon Iris Apfel. Recently featured in Magpie Wedding.",
-      image: "/photos/homepage-originals/DSC03571-Enhanced-NR.jpg",
+      image: "/photos/homepage-originals/DSC03106-Enhanced-NR.jpg",
       externalLink: "https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
     }
   ];
@@ -59,7 +59,7 @@ export default function Blog() {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <Image
-            src="/photos/homepage-originals/DSC03469-Enhanced-NR.jpg"
+            src="/photos/homepage-originals/DSC03097-Enhanced-NR.jpg"
             alt="The Reel Room Blog"
             fill
             priority
@@ -87,7 +87,7 @@ export default function Blog() {
                   <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block h-full">
                     <div className="relative aspect-[4/3] md:h-full">
                       <Image
-                        src="/photos/homepage-originals/DSC03222-Enhanced-NR-1.jpg"
+                        src="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
                         alt="DCP and Movie Premieres at The Reel Room"
                         fill
                         priority
@@ -198,7 +198,7 @@ export default function Blog() {
               </div>
               <div className="overflow-hidden rounded-lg shadow-md">
                 <Image 
-                  src="/photos/homepage-originals/DSC03275-Enhanced-NR.jpg" 
+                  src="/photos/homepage-originals/DSC03078-Enhanced-NR.jpg" 
                   alt="Reel Room Detail" 
                   width={400}
                   height={300}
@@ -207,7 +207,7 @@ export default function Blog() {
               </div>
               <div className="overflow-hidden rounded-lg shadow-md">
                 <Image 
-                  src="/photos/homepage-originals/DSC03469-Enhanced-NR.jpg" 
+                  src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg" 
                   alt="Reel Room Bar" 
                   width={400}
                   height={300}
@@ -216,7 +216,7 @@ export default function Blog() {
               </div>
               <div className="overflow-hidden rounded-lg shadow-md">
                 <Image 
-                  src="/photos/homepage-originals/DSC03436-Enhanced-NR.jpg" 
+                  src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                   alt="Reel Room Seating" 
                   width={400}
                   height={300}
@@ -225,7 +225,7 @@ export default function Blog() {
               </div>
               <div className="overflow-hidden rounded-lg shadow-md">
                 <Image 
-                  src="/photos/homepage-originals/DSC03659-Enhanced-NR.jpg" 
+                  src="/photos/homepage-originals/DSC03198-Enhanced-NR.jpg" 
                   alt="Reel Room Event" 
                   width={400}
                   height={300}
