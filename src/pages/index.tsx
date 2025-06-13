@@ -11,6 +11,8 @@ export default function Home() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [videoFailed, setVideoFailed] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -28,6 +30,65 @@ export default function Home() {
       }
     };
   }, []);
+  
+  // Add a separate useEffect to handle video playback
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (videoElement && isPageLoaded) {
+      // Set the source programmatically after component is mounted
+      // This helps with production environments where the video might not load directly
+      const source = document.createElement('source');
+      source.src = '/photos/Video Home Page/Reel Room Website.mp4';
+      source.type = 'video/mp4';
+      
+      // Clear any existing sources
+      while (videoElement.firstChild) {
+        videoElement.removeChild(videoElement.firstChild);
+      }
+      
+      // Add the new source
+      videoElement.appendChild(source);
+      
+      // Load and play the video
+      videoElement.load();
+      
+      // Force video load and play
+      const playPromise = videoElement.play();
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("Video playback started successfully");
+            setVideoLoaded(true);
+          })
+          .catch(error => {
+            console.error("Error playing video:", error);
+            // Try again with a delay
+            setTimeout(() => {
+              videoElement.play()
+                .then(() => setVideoLoaded(true))
+                .catch(err => {
+                  console.error("Second attempt failed:", err);
+                  // If second attempt fails, show fallback image
+                  setVideoFailed(true);
+                });
+            }, 1000);
+          });
+      }
+      
+      // Add error event listener to video element
+      const handleVideoError = () => {
+        console.error("Video error event triggered");
+        setVideoFailed(true);
+      };
+      
+      videoElement.addEventListener('error', handleVideoError);
+      
+      return () => {
+        videoElement.removeEventListener('error', handleVideoError);
+      };
+    }
+  }, [isPageLoaded]);
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -88,18 +149,29 @@ export default function Home() {
           <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1100px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover opacity-80"
-                onLoadedData={() => setVideoLoaded(true)}
-              >
-                <source src="/photos/Video Home Page/Reel Room Website.mp4" type="video/mp4" />
-                <source src="/photos/Video Home Page/Reel Room Website.mov" type="video/quicktime" />
-                Your browser does not support the video tag.
-              </video>
+              {videoFailed ? (
+                // Fallback image if video fails to load
+                <img
+                  src="/photos/Video Home Page/video-poster.jpg"
+                  alt="Reel Room Background"
+                  className="w-full h-full object-cover opacity-80"
+                />
+              ) : (
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  poster="/photos/Video Home Page/video-poster.jpg"
+                  className="w-full h-full object-cover opacity-80"
+                  onLoadedData={() => setVideoLoaded(true)}
+                  ref={videoRef}
+                >
+                  {/* Sources will be added programmatically in useEffect */}
+                  Your browser does not support the video tag.
+                </video>
+              )}
               
               {/* Content Overlay - Responsive text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 sm:px-10">
