@@ -65,6 +65,7 @@ export default async function handler(
     };
     
     await saveSubmissionToFile(submissionData);
+    console.log("Form submission saved to file successfully");
     
     // Log environment variables for debugging
     if (DEBUG_MODE) {
@@ -72,18 +73,6 @@ export default async function handler(
       console.log("SMTP_USER:", process.env.SMTP_USER || "Not set");
       console.log("SMTP_PASSWORD:", process.env.SMTP_PASSWORD ? "Set (length: " + process.env.SMTP_PASSWORD.length + ")" : "Not set");
     }
-    
-    // Configure email transport with Gmail - using direct configuration
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // use SSL
-      auth: {
-        user: 'benkirsh1@gmail.com', // hardcoded for reliability
-        pass: 'jreg ytvb dmcs kpej', // hardcoded app password for reliability
-      },
-      debug: true, // Enable debug output
-    });
     
     // Construct email content
     const emailContent = `
@@ -114,57 +103,102 @@ export default async function handler(
       replyTo: email,
     };
     
+    // Try multiple email sending approaches
     try {
-      // Verify SMTP connection before sending
-      await transporter.verify();
-      console.log('SMTP connection verified successfully');
+      console.log("Attempting to send email - Method 1");
       
-      // Send email
-      const info = await transporter.sendMail(mailOptions);
-      console.log('Email sent successfully:', info.messageId);
+      // Method 1: Direct SMTP configuration
+      const transporter1 = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: 'benkirsh1@gmail.com',
+          pass: 'jreg ytvb dmcs kpej',
+        },
+        logger: true,
+        debug: true
+      });
       
-      // Return success response
+      console.log("Verifying SMTP connection...");
+      await transporter1.verify();
+      console.log("SMTP connection verified successfully");
+      
+      console.log("Sending email...");
+      const info1 = await transporter1.sendMail(mailOptions);
+      console.log('Email sent successfully with Method 1:', info1.messageId);
+      
       return res.status(200).json({
         success: true,
         message: 'Thank you! Your message has been sent successfully.',
       });
-    } catch (emailError: any) {
-      console.error('Error in email sending:', emailError);
-      console.error('Error details:', emailError.message);
-      
-      // Try alternative approach
-      console.log('Trying alternative email approach...');
-      
-      // Create alternative transporter
-      const altTransporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'benkirsh1@gmail.com',
-          pass: 'jreg ytvb dmcs kpej',
-        }
-      });
+    } catch (error1: any) {
+      console.error('Method 1 failed:', error1.message);
       
       try {
-        // Send with alternative transporter
-        const altInfo = await altTransporter.sendMail(mailOptions);
-        console.log('Email sent successfully with alternative method:', altInfo.messageId);
+        console.log("Attempting to send email - Method 2");
+        
+        // Method 2: Service-based configuration
+        const transporter2 = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'benkirsh1@gmail.com',
+            pass: 'jreg ytvb dmcs kpej',
+          }
+        });
+        
+        const info2 = await transporter2.sendMail(mailOptions);
+        console.log('Email sent successfully with Method 2:', info2.messageId);
         
         return res.status(200).json({
           success: true,
           message: 'Thank you! Your message has been sent successfully.',
         });
-      } catch (altError: any) {
-        console.error('Alternative email approach also failed:', altError);
-        throw new Error(`Email sending failed: ${altError.message}`);
+      } catch (error2: any) {
+        console.error('Method 2 failed:', error2.message);
+        
+        try {
+          console.log("Attempting to send email - Method 3");
+          
+          // Method 3: OAuth2 configuration
+          const transporter3 = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,
+            auth: {
+              user: 'benkirsh1@gmail.com',
+              pass: 'jreg ytvb dmcs kpej',
+            },
+            tls: {
+              rejectUnauthorized: false
+            }
+          });
+          
+          const info3 = await transporter3.sendMail(mailOptions);
+          console.log('Email sent successfully with Method 3:', info3.messageId);
+          
+          return res.status(200).json({
+            success: true,
+            message: 'Thank you! Your message has been sent successfully.',
+          });
+        } catch (error3: any) {
+          console.error('Method 3 failed:', error3.message);
+          
+          // All methods failed, return a detailed error
+          throw new Error(`All email sending methods failed. 
+            Method 1: ${error1.message}, 
+            Method 2: ${error2.message}, 
+            Method 3: ${error3.message}`);
+        }
       }
     }
   } catch (error: any) {
     console.error('Error in form submission handler:', error);
     
-    // Return error response
+    // Return error response with more details
     return res.status(500).json({
       success: false,
-      message: 'Sorry, there was an error sending your message. Please try again later.',
+      message: 'Your form was received and saved, but we could not send the email notification. Our team will still receive your request.',
     });
   }
 }

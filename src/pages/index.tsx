@@ -11,6 +11,7 @@ export default function Home() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -21,11 +22,36 @@ export default function Home() {
     script.async = true;
     document.body.appendChild(script);
     
+    // Ensure video plays on all browsers
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.play().catch(error => {
+          console.log('Auto-play was prevented:', error);
+          // We'll show the poster image instead
+        });
+      }
+    };
+    
+    // Try to play the video after a short delay
+    setTimeout(playVideo, 1000);
+    
+    // Try to play on user interaction (required by some browsers)
+    const handleInteraction = () => {
+      playVideo();
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+    };
+    
+    document.addEventListener('click', handleInteraction);
+    document.addEventListener('touchstart', handleInteraction);
+    
     return () => {
       // Clean up script when component unmounts
       if (script.parentNode) {
         script.parentNode.removeChild(script);
       }
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
     };
   }, []);
   
@@ -91,16 +117,30 @@ export default function Home() {
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
               <video
+                ref={videoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="w-full h-full object-cover opacity-80"
-                src="/photos/Video Home Page/Reel Room Website.mov"
                 onLoadedData={() => setVideoLoaded(true)}
+                poster="/photos/Video Home Page/video-poster.jpg"
+                style={{ objectFit: 'cover' }}
               >
+                <source src="/photos/Video Home Page/Reel Room Website.mp4" type="video/mp4" />
+                <source src="/photos/Video Home Page/Reel Room Website.mov" type="video/quicktime" />
                 Your browser does not support the video tag.
               </video>
+              
+              {/* Fallback image if video doesn't load */}
+              {!videoLoaded && (
+                <img 
+                  src="/photos/Video Home Page/video-poster.jpg"
+                  alt="Reel Room"
+                  className="absolute inset-0 w-full h-full object-cover opacity-80"
+                />
+              )}
               
               {/* Content Overlay - Responsive text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 sm:px-10">
