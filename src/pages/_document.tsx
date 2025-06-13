@@ -4,9 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Mobile viewport optimization */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
-        
         {/* Early connection hints for critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -25,23 +22,6 @@ export default function Document() {
         <link rel="preload" href="/photos/whistler-hotel.jpg" as="image" />
         <link rel="preload" href="/favicon-32x32.png" as="image" />
 
-        {/* Font optimization - using display swap to prevent FOIT */}
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-          rel="stylesheet"
-        />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
-        
         {/* Font display optimization */}
         <style
           dangerouslySetInnerHTML={{
@@ -139,9 +119,6 @@ export default function Document() {
             })
           }}
         />
-        
-        {/* Load Vimeo Player script asynchronously and defer */}
-        <script src="https://player.vimeo.com/api/player.js" async defer />
       </Head>
       <body>
         <Main />

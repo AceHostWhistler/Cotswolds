@@ -2,10 +2,31 @@ import "@/styles/globals.css";
 import "@/styles/brand.css";
 import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
-import { appWithTranslation } from "next-i18next";
+import { appWithTranslation, useTranslation } from "next-i18next";
 import GlobalStyles from "@/components/GlobalStyles";
 import { useEffect } from "react";
 import Head from "next/head";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+// Initialize i18next
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: {
+        translation: {
+          // Add any translation keys here
+          "key": "value"
+        }
+      }
+    },
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false
+    }
+  });
 
 function App({ Component, pageProps }: AppProps) {
   // Add passive event listeners for better scrolling performance
@@ -98,7 +119,27 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0" />
+        
+        {/* Font optimization - using display swap to prevent FOIT */}
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+          rel="stylesheet"
+        />
+        
+        {/* Add Montserrat font which was previously in index.tsx */}
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" 
+          rel="stylesheet" 
+        />
+        
+        {/* Load Vimeo Player script asynchronously and defer */}
+        <script src="https://player.vimeo.com/api/player.js" async defer />
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
