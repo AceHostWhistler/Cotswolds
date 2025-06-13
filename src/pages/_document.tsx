@@ -119,6 +119,9 @@ export default function Document() {
             })
           }}
         />
+
+        {/* Video loader script */}
+        <script src="/video-loader.js" async></script>
       </Head>
       <body>
         <Main />
