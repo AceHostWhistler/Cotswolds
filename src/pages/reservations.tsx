@@ -74,10 +74,11 @@ export default function Reservations() {
       } else {
         setFormError(true);
         setErrorMessage(data.message || 'Failed to submit the form. Please try again.');
+        console.error('Form submission error:', data);
       }
-    } catch (error) {
+    } catch (error: any) {
       setFormError(true);
-      setErrorMessage('A network error occurred. Please try again.');
+      setErrorMessage('A network error occurred. Please try again or contact us directly at info@reelroom.ca');
       console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);
