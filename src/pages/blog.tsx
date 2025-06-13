@@ -82,29 +82,11 @@ export default function Blog() {
         <section className="py-16 bg-[#f5f5f5]">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto bg-gradient-to-r from-black to-[#1a1a1a] rounded-lg shadow-xl overflow-hidden border border-brand-gold/20">
-              <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2 relative group">
-                  <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block h-full">
-                    <div className="relative aspect-[4/3] md:h-full">
-                      <Image
-                        src="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
-                        alt="DCP and Movie Premieres at The Reel Room"
-                        fill
-                        priority
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        style={{ objectFit: "cover", objectPosition: "center" }}
-                        className="transition-all duration-700 ease-in-out group-hover:scale-105 brightness-90"
-                      />
-                      {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none"></div>
-                    </div>
-                    {/* Featured article tag that appears on the image */}
-                    <div className="absolute top-4 left-4 px-4 py-2 bg-black/70 backdrop-blur-sm border-l-4 border-brand-gold">
-                      <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
-                    </div>
-                  </Link>
-                </div>
-                <div className="md:w-1/2 p-8 md:p-10 text-white">
+              <div className="flex flex-col">
+                <div className="p-8 md:p-10 text-white">
+                  <div className="mb-6 px-4 py-2 bg-black/70 backdrop-blur-sm border-l-4 border-brand-gold inline-block">
+                    <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
+                  </div>
                   <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block group">
                     <h2 className="heading-font text-3xl md:text-4xl font-light mb-4 text-white group-hover:text-brand-gold transition-colors">DCP and Movie Premieres at The Reel Room</h2>
                   </Link>
@@ -184,52 +166,147 @@ export default function Blog() {
         <section className="py-16 bg-[#f5f5f5]">
           <div className="container mx-auto px-4">
             <h2 className="heading-font text-3xl font-light mb-12 text-center">The Reel Room Gallery</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="col-span-2 row-span-2 overflow-hidden rounded-lg shadow-md">
-                <div className="w-full relative">
-                  <Image 
-                    src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg" 
-                    alt="Reel Room Space" 
-                    width={800}
-                    height={600}
-                    className="w-full transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-              </div>
-              <div className="overflow-hidden rounded-lg shadow-md">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1">
+              {/* Large feature images - row 1 */}
+              <div className="col-span-2 row-span-2 overflow-hidden">
                 <Image 
-                  src="/photos/homepage-originals/DSC03078-Enhanced-NR.jpg" 
+                  src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg" 
+                  alt="Reel Room Interior" 
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03676-Enhanced-NR.jpg" 
                   alt="Reel Room Detail" 
                   width={400}
-                  height={300}
-                  className="w-full transition-transform duration-700 hover:scale-105"
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-              <div className="overflow-hidden rounded-lg shadow-md">
+              <div className="overflow-hidden">
                 <Image 
-                  src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg" 
-                  alt="Reel Room Bar" 
+                  src="/photos/originals/homepage/DSC03406-Enhanced-NR.jpg" 
+                  alt="Reel Room Feature" 
                   width={400}
-                  height={300}
-                  className="w-full transition-transform duration-700 hover:scale-105"
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-              <div className="overflow-hidden rounded-lg shadow-md">
+              <div className="overflow-hidden row-span-2">
                 <Image 
-                  src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
-                  alt="Reel Room Seating" 
+                  src="/photos/originals/homepage/DSC03339-Enhanced-NR.jpg" 
+                  alt="Reel Room Vertical" 
                   width={400}
-                  height={300}
-                  className="w-full transition-transform duration-700 hover:scale-105"
+                  height={800}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
-              <div className="overflow-hidden rounded-lg shadow-md">
+              <div className="overflow-hidden">
                 <Image 
-                  src="/photos/homepage-originals/DSC03198-Enhanced-NR.jpg" 
-                  alt="Reel Room Event" 
+                  src="/photos/originals/homepage/DSC03672-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
                   width={400}
-                  height={300}
-                  className="w-full transition-transform duration-700 hover:scale-105"
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              
+              {/* Row 2 */}
+              <div className="col-span-2 overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03289-Enhanced-NR.jpg" 
+                  alt="Reel Room Wide Shot" 
+                  width={800}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03459-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              
+              {/* Row 3 */}
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03301-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03529-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="col-span-2 overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03315-Enhanced-NR.jpg" 
+                  alt="Reel Room Wide Shot" 
+                  width={800}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              
+              {/* Row 4 */}
+              <div className="col-span-2 row-span-2 overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03464-Enhanced-NR.jpg" 
+                  alt="Reel Room Feature" 
+                  width={800}
+                  height={800}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03643-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03327-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03369-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <Image 
+                  src="/photos/originals/homepage/DSC03571-Enhanced-NR.jpg" 
+                  alt="Reel Room Detail" 
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>
             </div>
