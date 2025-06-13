@@ -22,36 +22,59 @@ export default function Home() {
     script.async = true;
     document.body.appendChild(script);
     
-    // Ensure video plays on all browsers
-    const playVideo = () => {
+    // Force video to play immediately
+    const forceVideoPlay = () => {
       if (videoRef.current) {
-        videoRef.current.play().catch(error => {
-          console.log('Auto-play was prevented:', error);
-          // We'll show the poster image instead
-        });
+        // Set the current time to 0 to ensure it starts from the beginning
+        videoRef.current.currentTime = 0;
+        
+        // Set video to play
+        const playPromise = videoRef.current.play();
+        
+        // Handle play promise
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log('Video playback started successfully');
+              setVideoLoaded(true);
+            })
+            .catch(error => {
+              console.error('Video playback was prevented:', error);
+              // Try again with user interaction
+              document.addEventListener('click', handleUserInteraction, { once: true });
+              document.addEventListener('touchstart', handleUserInteraction, { once: true });
+            });
+        }
       }
     };
     
-    // Try to play the video after a short delay
-    setTimeout(playVideo, 1000);
-    
-    // Try to play on user interaction (required by some browsers)
-    const handleInteraction = () => {
-      playVideo();
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
+    // Handle user interaction to play video
+    const handleUserInteraction = () => {
+      if (videoRef.current) {
+        videoRef.current.play()
+          .then(() => {
+            console.log('Video started after user interaction');
+            setVideoLoaded(true);
+          })
+          .catch(err => console.error('Still cannot play video:', err));
+      }
     };
     
-    document.addEventListener('click', handleInteraction);
-    document.addEventListener('touchstart', handleInteraction);
+    // Try to play video immediately and after a short delay
+    forceVideoPlay();
+    setTimeout(forceVideoPlay, 500);
+    
+    // Add event listeners for user interaction
+    document.addEventListener('click', handleUserInteraction, { once: true });
+    document.addEventListener('touchstart', handleUserInteraction, { once: true });
     
     return () => {
-      // Clean up script when component unmounts
+      // Clean up script and event listeners when component unmounts
       if (script.parentNode) {
         script.parentNode.removeChild(script);
       }
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('touchstart', handleUserInteraction);
     };
   }, []);
   
@@ -125,22 +148,12 @@ export default function Home() {
                 preload="auto"
                 className="w-full h-full object-cover opacity-80"
                 onLoadedData={() => setVideoLoaded(true)}
-                poster="/photos/Video Home Page/video-poster.jpg"
+                onCanPlay={() => videoRef.current?.play()}
                 style={{ objectFit: 'cover' }}
               >
-                <source src="/photos/Video Home Page/Reel Room Website.mp4" type="video/mp4" />
-                <source src="/photos/Video Home Page/Reel Room Website.mov" type="video/quicktime" />
+                <source src="/videos/homepage-bg.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              
-              {/* Fallback image if video doesn't load */}
-              {!videoLoaded && (
-                <img 
-                  src="/photos/Video Home Page/video-poster.jpg"
-                  alt="Reel Room"
-                  className="absolute inset-0 w-full h-full object-cover opacity-80"
-                />
-              )}
               
               {/* Content Overlay - Responsive text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 sm:px-10">
