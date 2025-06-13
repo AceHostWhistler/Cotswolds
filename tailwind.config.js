@@ -8,6 +8,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px',
+      },
+      height: {
+        'screen-ios': '-webkit-fill-available',
+      },
+      minHeight: {
+        'screen-ios': '-webkit-fill-available',
+      },
       colors: {
         'ace-blue': '#333333',
         'ace-blue-dark': '#222222',
@@ -65,6 +74,15 @@ module.exports = {
           900: '#1f1f1f',
           950: '#0d0d0d',
         },
+      },
+      spacing: {
+        'tap': '44px',
+      },
+      padding: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+        'safe-left': 'env(safe-area-inset-left)',
+        'safe-right': 'env(safe-area-inset-right)',
       },
     },
   },

@@ -56,32 +56,38 @@ export default function Home() {
           backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px"
         }}></div>
         
-        {/* Top Navigation Links - Improved styling */}
-        <div className="absolute top-10 left-0 w-full z-30 flex justify-center space-x-16 text-white">
-          <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-8 py-3 transition-all shadow-lg">
-            <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
-            <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">EXPERIENCES & PRICING</span>
-          </Link>
-          <Link href="/reservations" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-8 py-3 transition-all shadow-lg">
-            <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
-            <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">RESERVATIONS</span>
-          </Link>
+        {/* Top Navigation Links - Responsive improvements */}
+        <div className="absolute top-10 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
+          <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-4 sm:space-x-8 md:space-x-16">
+            <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
+              <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">EXPERIENCES & PRICING</span>
+            </Link>
+            <Link href="/reservations" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
+              <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
+              <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">RESERVATIONS</span>
+            </Link>
+          </div>
         </div>
         
-        {/* Menu Button */}
-        <div className="absolute top-10 right-10 z-40">
-          <button className="text-brand-gold" onClick={toggleMenu}>
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        {/* Menu Button - Adjusted for better mobile UX */}
+        <div className="absolute top-6 sm:top-10 right-4 sm:right-10 z-40">
+          <button 
+            className="text-brand-gold p-2 bg-black/50 backdrop-blur-sm rounded-md" 
+            onClick={toggleMenu}
+            aria-label="Menu"
+          >
+            <svg className="w-6 sm:w-8 h-6 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
         
-        {/* Circular Content Area */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-[1100px] h-[1100px] rounded-full overflow-hidden border-4 border-brand-gold/20">
+        {/* Circular Content Area - Responsive for all devices */}
+        <div className="absolute inset-0 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1100px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
               <video
@@ -96,32 +102,32 @@ export default function Home() {
                 Your browser does not support the video tag.
               </video>
               
-              {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-10">
+              {/* Content Overlay - Responsive text */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 sm:px-10">
                 {/* Logo */}
-                <div className="mb-6">
-                  <div className="border border-brand-gold p-6 inline-block bg-black">
+                <div className="mb-4 sm:mb-6">
+                  <div className="border border-brand-gold p-3 sm:p-6 inline-block bg-black">
                     <img 
                       src="/favicons/Logo Reel Room.png" 
                       alt="Reel Room" 
-                      className="h-28 w-auto object-contain"
+                      className="h-16 sm:h-28 w-auto object-contain"
                       loading="eager"
                       style={{ backgroundColor: 'black', display: 'block' }}
                     />
                   </div>
                 </div>
                 
-                <p className="heading-font text-sm tracking-widest uppercase mb-16 font-extralight">
+                <p className="heading-font text-xs sm:text-sm tracking-widest uppercase mb-4 sm:mb-16 font-extralight">
                   LOCATED IN MOUNT PLEASANT, BC
                 </p>
                 
-                <h1 className="heading-font text-6xl font-extralight tracking-widest mb-2 uppercase">
+                <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase">
                   PRIVATE THEATRE
                 </h1>
-                <h1 className="heading-font text-6xl font-extralight tracking-widest mb-2 uppercase">
+                <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase">
                   EVENT VENUE
                 </h1>
-                <h1 className="heading-font text-6xl font-extralight tracking-widest mb-12 uppercase">
+                <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-4 sm:mb-12 uppercase">
                   VANCOUVER
                 </h1>
               </div>
@@ -129,11 +135,11 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Featured Content Box - Updated to match screenshot with correct image */}
-        <div className="absolute bottom-8 right-8 z-20 bg-black text-white p-0 max-w-md rounded-sm overflow-hidden">
+        {/* Featured Content Box - Responsive */}
+        <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20 bg-black text-white p-0 max-w-[90%] sm:max-w-md rounded-sm overflow-hidden">
           <div className="border border-brand-gold">
-            <div className="flex">
-              <div className="w-1/2">
+            <div className="flex flex-col xs:flex-row">
+              <div className="w-full xs:w-1/2 aspect-video xs:aspect-auto">
                 {/* Using the exact image from the screenshot */}
                 <img 
                   src="/photos/Blogs/Screen Shot 2025-05-09 at 1.49.41 PM.png" 
@@ -141,19 +147,19 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="w-1/2 p-5">
-                <h3 className="heading-font text-xl font-light mb-3">
+              <div className="w-full xs:w-1/2 p-3 sm:p-5">
+                <h3 className="heading-font text-base sm:text-xl font-light mb-2 sm:mb-3">
                   Reel Room featured in Elle Magazine & Magpie Wedding
                 </h3>
-                <p className="body-font text-sm mb-4">
+                <p className="body-font text-xs sm:text-sm mb-2 sm:mb-4">
                   Click here to view the article for your wedding inspiration
                 </p>
                 
-                <div className="mt-2">
+                <div className="mt-1 sm:mt-2">
                   <Link
                     href="https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
                     target="_blank"
-                    className="text-brand-gold uppercase tracking-widest text-sm font-light hover:text-brand-cream transition-colors"
+                    className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm font-light hover:text-brand-cream transition-colors"
                   >
                     View Articles →
                   </Link>
@@ -164,28 +170,52 @@ export default function Home() {
         </div>
       </div>
       
-      {/* Mobile Navigation Menu */}
-      <div className={`fixed inset-0 bg-black bg-opacity-90 z-50 transition-all duration-300 ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-        <div className="h-full flex flex-col items-center justify-center text-white space-y-8">
-          <Link href="/" className="heading-font text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors">
+      {/* Mobile Navigation Menu - Enhanced for better UX */}
+      <div className={`fixed inset-0 bg-black bg-opacity-95 z-50 transition-all duration-300 ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        <div className="h-full flex flex-col items-center justify-center text-white space-y-6 sm:space-y-8 py-16 px-4">
+          <Link 
+            href="/" 
+            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
             Home
           </Link>
-          <Link href="/experiences" className="heading-font text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors">
+          <Link 
+            href="/experiences" 
+            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
             Experiences & Pricing
           </Link>
-          <Link href="/reservations" className="heading-font text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors">
+          <Link 
+            href="/reservations" 
+            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
             Reservations
           </Link>
-          <Link href="/media" className="heading-font text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors">
+          <Link 
+            href="/media" 
+            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
             Media & FAQs
           </Link>
-          <Link href="/blog" className="heading-font text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors">
+          <Link 
+            href="/blog" 
+            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
             Reel Room Blog
           </Link>
         </div>
         
-        <button className="absolute top-8 right-8 text-brand-gold" onClick={toggleMenu}>
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <button 
+          className="absolute top-6 right-4 sm:top-8 sm:right-8 text-brand-gold p-2 bg-black/50 backdrop-blur-sm rounded-md" 
+          onClick={toggleMenu}
+          aria-label="Close menu"
+        >
+          <svg className="w-6 sm:w-8 h-6 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -268,7 +298,7 @@ export default function Home() {
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
                 <img 
-                  src="/photos/homepage-originals/DSC03124-Enhanced-NR.jpg" 
+                  src="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg" 
                   alt="Reel Room Space" 
                   className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
@@ -284,7 +314,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
                 <img 
-                  src="/photos/homepage-originals/DSC03236-Enhanced-NR.jpg" 
+                  src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg" 
                   alt="Reel Room Parties" 
                   className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
@@ -326,7 +356,7 @@ export default function Home() {
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
                 <img 
-                  src="/photos/homepage-originals/DSC03236-Enhanced-NR.jpg" 
+                  src="/photos/originals/homepage/DSC03060-Enhanced-NR.jpg" 
                   alt="Reel Room Private Events" 
                   className="w-full h-full object-cover rounded-lg"
                   loading="lazy"
