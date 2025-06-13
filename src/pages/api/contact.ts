@@ -1,6 +1,5 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import nodemailer from "nodemailer";
-import smtpTransport from 'nodemailer-smtp-transport';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import nodemailer from 'nodemailer';
 import fs from 'fs';
 import path from 'path';
 
@@ -30,90 +29,14 @@ const saveSubmissionToFile = async (data: any) => {
   }
 };
 
-// Function to create a nodemailer transport using environment variables
-const createTransport = () => {
-  // Log all environment variables for debugging
-  if (DEBUG_MODE) {
-    console.log("Environment Variables Available:");
-    console.log("SMTP_USER:", process.env.SMTP_USER);
-    console.log("SMTP_PASSWORD:", process.env.SMTP_PASSWORD ? "Set (length: " + process.env.SMTP_PASSWORD.length + ")" : "Not Set");
-    console.log("SMTP_HOST:", process.env.SMTP_HOST);
-    console.log("SMTP_PORT:", process.env.SMTP_PORT);
-    console.log("SMTP_SECURE:", process.env.SMTP_SECURE);
-    console.log("NODE_ENV:", process.env.NODE_ENV);
-  }
-
-  // Hardcode credentials as fallback
-  const smtpUser = process.env.SMTP_USER || 'ben@acehost.ca';
-  const smtpPass = process.env.SMTP_PASSWORD || 'jreg ytvb dmcs kpej'; // App password for Gmail
-  
-  // Use explicit Gmail SMTP configuration
-  const smtpConfig = {
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
-    port: process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT) : 465,
-    secure: process.env.SMTP_SECURE === 'true', // Use SSL
-    auth: {
-      user: smtpUser,
-      pass: smtpPass,
-    },
-    debug: true, // Enable debug output
-    logger: true // Log information to console
-  };
-
-  // Always send to ben@acehost.ca as requested
-  const recipientEmail = "ben@acehost.ca";
-
-  if (DEBUG_MODE) {
-    console.log("SMTP Configuration:", {
-      host: smtpConfig.host,
-      port: smtpConfig.port,
-      secure: smtpConfig.secure,
-      user: smtpUser,
-      pass: smtpPass ? "PASSWORD SET (length: " + smtpPass.length + ")" : "NOT SET",
-      recipient: recipientEmail,
-    });
-  }
-
-  if (!smtpPass) {
-    console.error("SMTP_PASSWORD not set in environment variables or hardcoded fallback");
-    return null;
-  }
-  
-  try {
-    // Create transport with detailed options
-    const transport = nodemailer.createTransport(smtpTransport(smtpConfig));
-    return {
-      transport,
-      recipient: recipientEmail,
-    };
-  } catch (err) {
-    console.error("Failed to create transport:", err);
-    
-    // Try an alternative approach with direct nodemailer
-    try {
-      console.log("Attempting alternative transport creation...");
-      const alternativeTransport = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: smtpUser,
-          pass: smtpPass,
-        },
-      });
-      
-      return {
-        transport: alternativeTransport,
-        recipient: recipientEmail,
-      };
-    } catch (altErr) {
-      console.error("Failed to create alternative transport:", altErr);
-      return null;
-    }
-  }
+type ResponseData = {
+  success: boolean;
+  message: string;
 };
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<{ success: boolean; message: string }>
+  res: NextApiResponse<ResponseData>
 ) {
   // Only allow POST method
   if (req.method !== 'POST') {
@@ -127,6 +50,29 @@ export default async function handler(
     // Basic validation
     if (!fullName || !email || !phone) {
       return res.status(400).json({ success: false, message: 'Please provide all required fields' });
+    }
+    
+    // First, always save to file as backup
+    const submissionData = {
+      fullName,
+      email,
+      phone,
+      showingTime,
+      guestCount,
+      preferredDate,
+      bookingDetails,
+      submittedAt: new Date().toISOString(),
+    };
+    
+    await saveSubmissionToFile(submissionData);
+    
+    // Log environment variables for debugging
+    if (DEBUG_MODE) {
+      console.log("Email Environment Variables:");
+      console.log("EMAIL_USER:", process.env.EMAIL_USER || "Not set");
+      console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Set (length: " + process.env.EMAIL_PASS.length + ")" : "Not set");
+      console.log("EMAIL_HOST:", process.env.EMAIL_HOST || "Not set");
+      console.log("EMAIL_PORT:", process.env.EMAIL_PORT || "Not set");
     }
     
     // Configure email transport with Microsoft Outlook SMTP
