@@ -69,20 +69,16 @@ export default async function handler(
     // Log environment variables for debugging
     if (DEBUG_MODE) {
       console.log("Email Environment Variables:");
-      console.log("EMAIL_USER:", process.env.EMAIL_USER || "Not set");
-      console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Set (length: " + process.env.EMAIL_PASS.length + ")" : "Not set");
-      console.log("EMAIL_HOST:", process.env.EMAIL_HOST || "Not set");
-      console.log("EMAIL_PORT:", process.env.EMAIL_PORT || "Not set");
+      console.log("SMTP_USER:", process.env.SMTP_USER || "Not set");
+      console.log("SMTP_PASSWORD:", process.env.SMTP_PASSWORD ? "Set (length: " + process.env.SMTP_PASSWORD.length + ")" : "Not set");
     }
     
-    // Configure email transport with Microsoft Outlook SMTP
+    // Configure email transport with Gmail
     const transporter = nodemailer.createTransport({
-      host: process.env.EMAIL_HOST || 'smtp.office365.com',
-      port: parseInt(process.env.EMAIL_PORT || '587'),
-      secure: false, // true for 465, false for other ports
+      service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER || 'info@reelroom.ca',
-        pass: process.env.EMAIL_PASS || '',
+        user: process.env.SMTP_USER || 'benkirsh1@gmail.com',
+        pass: process.env.SMTP_PASSWORD || 'jreg ytvb dmcs kpej', // Using existing app password from .env
       },
     });
     
@@ -108,8 +104,8 @@ export default async function handler(
     
     // Setup email data
     const mailOptions = {
-      from: `"Reel Room Website" <${process.env.EMAIL_USER || 'info@reelroom.ca'}>`,
-      to: process.env.EMAIL_USER || 'info@reelroom.ca',
+      from: '"Reel Room Website" <benkirsh1@gmail.com>',
+      to: 'benkirsh1@gmail.com', // Send to Gmail account
       subject: `New Booking Request from ${fullName}`,
       html: emailContent,
       replyTo: email,
