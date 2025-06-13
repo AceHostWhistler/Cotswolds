@@ -75,6 +75,14 @@ function App({ Component, pageProps }: AppProps) {
       .text-white { color: #ffffff !important; }
       .text-black { color: #000000 !important; }
       .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 { color: inherit !important; }
+      
+      /* Fix for any potential scrolling issues */
+      html, body {
+        overflow-x: hidden;
+        position: relative;
+        height: auto;
+        min-height: 100%;
+      }
     `;
     document.head.appendChild(antiBlueStyle);
     
@@ -88,14 +96,14 @@ function App({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
+    <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       </Head>
       <GlobalStyles />
       <Component {...pageProps} />
       <Analytics />
-    </div>
+    </>
   );
 }
 

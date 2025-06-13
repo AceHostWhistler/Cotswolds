@@ -98,57 +98,112 @@ export default function Experiences() {
           </div>
         </div>
         
-        {/* Summer Promotion */}
+        {/* Promotions Section */}
         <div className="py-8 bg-white">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white p-6 rounded-xl shadow-md border-2 border-amber-200 transform scale-75 mx-auto">
-              <div className="text-center mb-4">
-                <h2 className="text-2xl font-bold text-amber-600">Summer Special!</h2>
-                <div className="flex justify-center my-3">
-                  <div className="h-1 w-12 bg-amber-400 rounded"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Summer Promotion */}
+              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-amber-200 transform scale-90 mx-auto">
+                <div className="text-center mb-4">
+                  <h2 className="text-2xl font-bold text-amber-600">Summer Special!</h2>
+                  <div className="flex justify-center my-3">
+                    <div className="h-1 w-12 bg-amber-400 rounded"></div>
+                  </div>
+                  <p className="text-lg text-gray-700">
+                    Enjoy <span className="text-xl font-bold text-amber-600">35% OFF</span> our venue fee all summer long!
+                  </p>
                 </div>
-                <p className="text-lg text-gray-700">
-                  Enjoy <span className="text-xl font-bold text-amber-600">35% OFF</span> our venue fee all summer long!
-                </p>
+                
+                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">Base Venue Fee:</span>
+                    <span className="text-gray-700">$2,100</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-amber-700 font-medium">Summer Discount (35%):</span>
+                    <span className="text-amber-700 font-medium">-$735</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700">Discounted Venue Fee:</span>
+                    <span className="text-gray-700">$1,365</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Event Manager:</span>
+                    <span className="text-gray-700">$255</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Cleaning Fee:</span>
+                    <span className="text-gray-700">$300</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700 font-medium">Subtotal:</span>
+                    <span className="text-gray-700 font-medium">$1,920</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ 5% Tax:</span>
+                    <span className="text-gray-700">$96</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
+                    <span className="text-amber-700 font-bold">Final Price:</span>
+                    <span className="text-amber-700 font-bold">$2,016</span>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <p className="text-xs text-gray-500">Offer valid May 1 - October 15, 2025. Cannot be combined with other promotions.</p>
+                </div>
               </div>
               
-              <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-700">Base Venue Fee:</span>
-                  <span className="text-gray-700">$2,100</span>
+              {/* Lunch Rates Promotion */}
+              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-200 transform scale-90 mx-auto">
+                <div className="text-center mb-4">
+                  <h2 className="text-2xl font-bold text-blue-600">Lunch Rates!</h2>
+                  <div className="flex justify-center my-3">
+                    <div className="h-1 w-12 bg-blue-400 rounded"></div>
+                  </div>
+                  <p className="text-lg text-gray-700">
+                    Enjoy <span className="text-xl font-bold text-blue-600">25% OFF</span> for bookings ending before 4pm!
+                  </p>
                 </div>
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-amber-700 font-medium">Summer Discount (35%):</span>
-                  <span className="text-amber-700 font-medium">-$735</span>
+                
+                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">Base Venue Fee:</span>
+                    <span className="text-gray-700">$2,100</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-blue-700 font-medium">Lunch Discount (25%):</span>
+                    <span className="text-blue-700 font-medium">-$525</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700">Discounted Venue Fee:</span>
+                    <span className="text-gray-700">$1,575</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Event Manager:</span>
+                    <span className="text-gray-700">$255</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Cleaning Fee:</span>
+                    <span className="text-gray-700">$300</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700 font-medium">Subtotal:</span>
+                    <span className="text-gray-700 font-medium">$2,130</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ 5% Tax:</span>
+                    <span className="text-gray-700">$106.50</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
+                    <span className="text-blue-700 font-bold">Final Price:</span>
+                    <span className="text-blue-700 font-bold">$2,236.50</span>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                  <span className="text-gray-700">Discounted Venue Fee:</span>
-                  <span className="text-gray-700">$1,365</span>
+                
+                <div className="text-center">
+                  <p className="text-xs text-gray-500">All bookings must end before 4:00 PM. Cannot be combined with other promotions.</p>
                 </div>
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-700">+ Event Manager:</span>
-                  <span className="text-gray-700">$255</span>
-                </div>
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-700">+ Cleaning Fee:</span>
-                  <span className="text-gray-700">$300</span>
-                </div>
-                <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                  <span className="text-gray-700 font-medium">Subtotal:</span>
-                  <span className="text-gray-700 font-medium">$1,920</span>
-                </div>
-                <div className="flex justify-between items-center mb-1">
-                  <span className="text-gray-700">+ 5% Tax:</span>
-                  <span className="text-gray-700">$96</span>
-                </div>
-                <div className="flex justify-between items-center pt-1 border-t border-gray-200">
-                  <span className="text-amber-700 font-bold">Final Price:</span>
-                  <span className="text-amber-700 font-bold">$2,016</span>
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <p className="text-xs text-gray-500">Offer valid May 1 - October 1, 2025. Cannot be combined with other promotions.</p>
               </div>
             </div>
           </div>

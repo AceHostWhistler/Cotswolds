@@ -30,6 +30,8 @@ export default function Reservations() {
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -39,25 +41,46 @@ export default function Reservations() {
     }));
   };
   
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would typically send the form data to your server
+    setIsSubmitting(true);
+    setFormError(false);
+    setErrorMessage('');
+    
     try {
-      // Simulate form submission
-      setFormSubmitted(true);
-      setFormError(false);
-      // Reset form after submission
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        showingTime: '',
-        guestCount: '',
-        preferredDate: '',
-        bookingDetails: ''
+      // Send form data to API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+      
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        setFormSubmitted(true);
+        // Reset form after submission
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          showingTime: '',
+          guestCount: '',
+          preferredDate: '',
+          bookingDetails: ''
+        });
+      } else {
+        setFormError(true);
+        setErrorMessage(data.message || 'Failed to submit the form. Please try again.');
+      }
     } catch (error) {
       setFormError(true);
+      setErrorMessage('A network error occurred. Please try again.');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
   
@@ -250,22 +273,25 @@ export default function Reservations() {
                   <div>
                     <button
                       type="submit"
-                      className="w-full bg-black text-white py-3 px-6 hover:bg-gray-800 transition-colors uppercase tracking-widest text-sm"
+                      className={`w-full bg-black text-white py-3 px-6 hover:bg-gray-800 transition-colors uppercase tracking-widest text-sm ${
+                        isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
+                      }`}
+                      disabled={isSubmitting}
                     >
-                      Submit
+                      {isSubmitting ? 'Submitting...' : 'Submit'}
                     </button>
                   </div>
                   
                   {/* Form Submission Messages */}
                   {formSubmitted && !formError && (
                     <div className="p-4 bg-green-50 text-green-800 rounded-md">
-                      Thank you! Your submission has been received!
+                      Thank you! Your booking request has been sent to info@reelroom.ca. We'll be in touch shortly.
                     </div>
                   )}
                   
                   {formError && (
                     <div className="p-4 bg-red-50 text-red-800 rounded-md">
-                      Oops! Something went wrong while submitting the form.
+                      {errorMessage || 'Oops! Something went wrong while submitting the form. Please try again.'}
                     </div>
                   )}
                 </form>

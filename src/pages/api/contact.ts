@@ -112,164 +112,77 @@ const createTransport = () => {
 };
 
 export default async function handler(
-  request: NextApiRequest,
-  response: NextApiResponse<{ message: string } | { error: string, details?: string }>
+  req: NextApiRequest,
+  res: NextApiResponse<{ success: boolean; message: string }>
 ) {
-  // First, save all form submissions to disk regardless of what happens
-  const submissionTimestamp = new Date().toISOString();
+  // Only allow POST method
+  if (req.method !== 'POST') {
+    return res.status(405).json({ success: false, message: 'Method not allowed' });
+  }
   
-  if (request.method === "POST") {
-    try {
-      // Extract form data
-      const formData = request.body;
-      const {
-        name = '',
-        email = '',
-        phone = '',
-        message = '',
-        inquiryType = "Website Inquiry",
-        dates,
-        propertyInterest,
-        guests,
-      } = formData;
-
-      // Always log the raw request for debugging
-      if (DEBUG_MODE) {
-        console.log("Request headers:", request.headers);
-        console.log("Raw form data:", formData);
-      }
-
-      // Validate required fields
-      if (!name || !email || !phone || !message) {
-        return response.status(400).json({
-          error: "Missing required fields",
-          details: `Required: name, email, phone, message. Missing: ${!name ? 'name ' : ''}${!email ? 'email ' : ''}${!phone ? 'phone ' : ''}${!message ? 'message' : ''}`
-        });
-      }
-
-      // Create a data object with all submission information
-      const submissionData = {
-        name,
-        email,
-        phone,
-        message,
-        inquiryType,
-        dates,
-        propertyInterest,
-        guests,
-        submittedAt: submissionTimestamp,
-      };
-
-      // First, always save to file as backup
-      const savedToFile = await saveSubmissionToFile(submissionData);
-      if (!savedToFile) {
-        console.warn("Failed to save submission to file");
-      }
-      
-      console.log("Form submission received and saved to file:", JSON.stringify(submissionData, null, 2));
-
-      // ----------------------------------------------------------------
-      // Try the main email transport method first
-      // ----------------------------------------------------------------
-      let isEmailSent = false;
-      let transportInfo = createTransport();
-      
-      if (transportInfo) {
-        const { transport, recipient } = transportInfo;
-        
-        try {
-          // Configure email
-          const mailOptions = {
-            from: `"AceHost Website" <${process.env.SMTP_USER || 'ben@acehost.ca'}>`,
-            to: recipient,
-            subject: `[AceHost Contact] New ${inquiryType} Inquiry from ${name}`,
-            html: generateEmail(submissionData),
-            replyTo: email,
-            text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nInquiry: ${inquiryType}\nMessage: ${message}`,
-          };
-
-          console.log("Preparing to send email with options:", {
-            from: mailOptions.from,
-            to: mailOptions.to,
-            subject: mailOptions.subject,
-            replyTo: mailOptions.replyTo,
-          });
-
-          // Verify SMTP connection before attempting to send
-          try {
-            await transport.verify();
-            console.log("SMTP connection verified successfully");
-            
-            // Send email
-            const info = await transport.sendMail(mailOptions);
-            console.log("Email sent successfully:", info.messageId, info.response);
-            isEmailSent = true;
-          } catch (verifyError: any) {
-            console.error("SMTP connection failed:", verifyError.message);
-          }
-        } catch (emailError: any) {
-          console.error("Error in main email sending attempt:", emailError.message);
-        }
-      }
-
-      // ----------------------------------------------------------------
-      // If the main method failed, try a direct simple approach
-      // ----------------------------------------------------------------
-      if (!isEmailSent) {
-        console.log("Main email method failed, trying fallback approach...");
-        try {
-          // Create a simple transport with minimal config
-          const fallbackTransport = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-              user: 'ben@acehost.ca',
-              pass: process.env.SMTP_PASSWORD || 'jreg ytvb dmcs kpej',
-            }
-          });
-          
-          const fallbackMailOptions = {
-            from: 'ben@acehost.ca',
-            to: 'ben@acehost.ca',
-            subject: `[AceHost] Form Submission from ${name}`,
-            text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Inquiry Type: ${inquiryType}
-Property Interest: ${propertyInterest || 'Not specified'}
-Dates: ${dates || 'Not specified'}
-Guests: ${guests || 'Not specified'}
-Message:
-${message}
-            `,
-          };
-          
-          const info = await fallbackTransport.sendMail(fallbackMailOptions);
-          console.log("Fallback email sent successfully:", info.messageId);
-          isEmailSent = true;
-        } catch (fallbackError: any) {
-          console.error("Fallback email method also failed:", fallbackError.message);
-        }
-      }
-      
-      // Return success response - even if email failed, we saved the data
-      return response.status(200).json({ 
-        message: isEmailSent 
-          ? "Your message has been sent successfully. We'll be in touch soon!" 
-          : "Your inquiry has been recorded. Our team will review it shortly."
-      });
-    } catch (error: any) {
-      // Log detailed error information
-      console.error("Error processing contact form:", error);
-      
-      // Return error response with details if available
-      return response.status(500).json({
-        error: "We couldn't process your request at this time",
-        details: error.message || "Unknown error occurred"
-      });
+  try {
+    // Get form data from request body
+    const { fullName, email, phone, showingTime, guestCount, preferredDate, bookingDetails } = req.body;
+    
+    // Basic validation
+    if (!fullName || !email || !phone) {
+      return res.status(400).json({ success: false, message: 'Please provide all required fields' });
     }
-  } else {
-    return response.status(405).json({ error: "Method not allowed" });
+    
+    // Configure email transport
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER || 'noreply@reelroom.ca',
+        pass: process.env.EMAIL_PASSWORD || '',
+      },
+    });
+    
+    // Construct email content
+    const emailContent = `
+      <h1>New Booking Request from ${fullName}</h1>
+      
+      <h2>Contact Information:</h2>
+      <p><strong>Name:</strong> ${fullName}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone}</p>
+      
+      <h2>Booking Details:</h2>
+      <p><strong>Showing Time:</strong> ${showingTime || 'Not specified'}</p>
+      <p><strong>Guest Count:</strong> ${guestCount || 'Not specified'}</p>
+      <p><strong>Preferred Date & Time:</strong> ${preferredDate || 'Not specified'}</p>
+      
+      <h2>Additional Information:</h2>
+      <p>${bookingDetails || 'No additional details provided.'}</p>
+      
+      <p>This message was sent from the contact form on the Reel Room website.</p>
+    `;
+    
+    // Setup email data
+    const mailOptions = {
+      from: '"Reel Room Website" <noreply@reelroom.ca>',
+      to: 'info@reelroom.ca',
+      subject: `New Booking Request from ${fullName}`,
+      html: emailContent,
+      replyTo: email,
+    };
+    
+    // Send email
+    await transporter.sendMail(mailOptions);
+    
+    // Return success response
+    return res.status(200).json({
+      success: true,
+      message: 'Thank you! Your message has been sent successfully.',
+    });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    
+    // Return error response
+    return res.status(500).json({
+      success: false,
+      message: 'Sorry, there was an error sending your message. Please try again later.',
+    });
   }
 }
 
