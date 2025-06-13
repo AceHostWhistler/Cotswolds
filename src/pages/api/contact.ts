@@ -129,12 +129,14 @@ export default async function handler(
       return res.status(400).json({ success: false, message: 'Please provide all required fields' });
     }
     
-    // Configure email transport
+    // Configure email transport with Microsoft Outlook SMTP
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: process.env.EMAIL_HOST || 'smtp.office365.com',
+      port: parseInt(process.env.EMAIL_PORT || '587'),
+      secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL_USER || 'noreply@reelroom.ca',
-        pass: process.env.EMAIL_PASSWORD || '',
+        user: process.env.EMAIL_USER || 'info@reelroom.ca',
+        pass: process.env.EMAIL_PASS || '',
       },
     });
     
@@ -160,15 +162,20 @@ export default async function handler(
     
     // Setup email data
     const mailOptions = {
-      from: '"Reel Room Website" <noreply@reelroom.ca>',
-      to: 'info@reelroom.ca',
+      from: `"Reel Room Website" <${process.env.EMAIL_USER || 'info@reelroom.ca'}>`,
+      to: process.env.EMAIL_USER || 'info@reelroom.ca',
       subject: `New Booking Request from ${fullName}`,
       html: emailContent,
       replyTo: email,
     };
     
+    // Verify SMTP connection before sending
+    await transporter.verify();
+    console.log('SMTP connection verified successfully');
+    
     // Send email
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully:', info.messageId);
     
     // Return success response
     return res.status(200).json({
