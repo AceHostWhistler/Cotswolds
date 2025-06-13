@@ -1,36 +1,50 @@
 # Next Steps for Email Setup
 
-The environment files have been created, but you still need to:
+The environment files have been created and configured to use Gmail for form submissions.
 
-1. **Update your Microsoft app password**:
-   - Open the `.env.local` file
-   - Replace `your-app-password-here` with your actual Microsoft app password
-   - If you don't have an app password yet, follow these steps:
-     - Go to [account.microsoft.com](https://account.microsoft.com)
-     - Navigate to Security > Advanced security options
-     - Under "App passwords", create a new app password
-     - Use this generated password in your .env.local file
+## Current Configuration
 
-2. **Test the form submission**:
+The system is now set up to:
+- Use Gmail SMTP for sending emails
+- Send all form submissions to benkirsh1@gmail.com
+- Save all submissions to the 'contact-submissions' folder as backup
+
+## Testing the Form
+
+1. **Test the form submission**:
    - Start your development server: `npm run dev`
    - Navigate to the Reservations page
    - Fill out and submit the form
-   - Check if you receive the email at info@reelroom.ca
+   - Check if you receive the email at benkirsh1@gmail.com
 
-3. **Deploy to production**:
-   - If using Vercel, add these environment variables to your project:
-     - `NEXT_PUBLIC_SITE_URL=https://reelroom.ca`
-     - `EMAIL_USER=info@reelroom.ca`
-     - `EMAIL_PASS=[your-app-password]`
-     - `EMAIL_HOST=smtp.office365.com`
-     - `EMAIL_PORT=587`
-   - Deploy your application
+## Deployment to Production
+
+When deploying to production:
+
+1. **Add these environment variables to your Vercel project**:
+   - `NEXT_PUBLIC_SITE_URL=https://reelroom.ca`
+   - `SMTP_USER=benkirsh1@gmail.com`
+   - `SMTP_PASSWORD=jreg ytvb dmcs kpej`
+
+2. **Deploy your application**
+
+## Switching to Outlook in the Future
+
+If you want to switch to using info@reelroom.ca with Outlook in the future:
+
+1. Get an app password for your Microsoft account
+2. Update the API endpoint in src/pages/api/contact.ts
+3. Update your environment variables to:
+   - `EMAIL_USER=info@reelroom.ca`
+   - `EMAIL_PASS=[your-outlook-app-password]`
+   - `EMAIL_HOST=smtp.office365.com`
+   - `EMAIL_PORT=587`
 
 ## Troubleshooting
 
 If emails aren't being sent:
 
 1. Check your server logs for error messages
-2. Verify that your Microsoft account allows SMTP access
-3. Try using your regular Microsoft password instead of an app password (less secure)
-4. Contact your email administrator if you continue having issues 
+2. Verify that Gmail's "Less secure app access" is enabled for your account
+3. Make sure your Gmail app password is correct
+4. Check your spam folder for test emails 
