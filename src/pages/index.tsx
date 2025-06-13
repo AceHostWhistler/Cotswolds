@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -11,7 +11,6 @@ export default function Home() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -22,59 +21,11 @@ export default function Home() {
     script.async = true;
     document.body.appendChild(script);
     
-    // Force video to play immediately
-    const forceVideoPlay = () => {
-      if (videoRef.current) {
-        // Set the current time to 0 to ensure it starts from the beginning
-        videoRef.current.currentTime = 0;
-        
-        // Set video to play
-        const playPromise = videoRef.current.play();
-        
-        // Handle play promise
-        if (playPromise !== undefined) {
-          playPromise
-            .then(() => {
-              console.log('Video playback started successfully');
-              setVideoLoaded(true);
-            })
-            .catch(error => {
-              console.error('Video playback was prevented:', error);
-              // Try again with user interaction
-              document.addEventListener('click', handleUserInteraction, { once: true });
-              document.addEventListener('touchstart', handleUserInteraction, { once: true });
-            });
-        }
-      }
-    };
-    
-    // Handle user interaction to play video
-    const handleUserInteraction = () => {
-      if (videoRef.current) {
-        videoRef.current.play()
-          .then(() => {
-            console.log('Video started after user interaction');
-            setVideoLoaded(true);
-          })
-          .catch(err => console.error('Still cannot play video:', err));
-      }
-    };
-    
-    // Try to play video immediately and after a short delay
-    forceVideoPlay();
-    setTimeout(forceVideoPlay, 500);
-    
-    // Add event listeners for user interaction
-    document.addEventListener('click', handleUserInteraction, { once: true });
-    document.addEventListener('touchstart', handleUserInteraction, { once: true });
-    
     return () => {
-      // Clean up script and event listeners when component unmounts
+      // Clean up script when component unmounts
       if (script.parentNode) {
         script.parentNode.removeChild(script);
       }
-      document.removeEventListener('click', handleUserInteraction);
-      document.removeEventListener('touchstart', handleUserInteraction);
     };
   }, []);
   
@@ -140,18 +91,14 @@ export default function Home() {
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
               <video
-                ref={videoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="auto"
                 className="w-full h-full object-cover opacity-80"
+                src="/photos/Video Home Page/Reel Room Website.mov"
                 onLoadedData={() => setVideoLoaded(true)}
-                onCanPlay={() => videoRef.current?.play()}
-                style={{ objectFit: 'cover' }}
               >
-                <source src="/videos/homepage-bg.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               

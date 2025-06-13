@@ -24,7 +24,6 @@ export default function Document() {
         {/* Resource hints for critical assets */}
         <link rel="preload" href="/photos/whistler-hotel.jpg" as="image" />
         <link rel="preload" href="/favicon-32x32.png" as="image" />
-        <link rel="preload" href="/videos/homepage-bg.mp4" as="video" type="video/mp4" />
 
         {/* Font optimization - using display swap to prevent FOIT */}
         <link
