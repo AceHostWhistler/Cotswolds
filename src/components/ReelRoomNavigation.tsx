@@ -48,16 +48,13 @@ const ReelRoomNavigation: React.FC = () => {
       }
     };
     
-    // Prevent body scroll when menu is open
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    // Remove the body scroll lock to fix scrolling issues
+    // We'll use a different approach for the mobile menu
     
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      // Ensure overflow is restored when component unmounts
       document.body.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
@@ -129,55 +126,43 @@ const ReelRoomNavigation: React.FC = () => {
         </div>
       </div>
       
-      {/* Mobile Menu - Improved animation and accessibility */}
-      <div 
-        className={`
-          md:hidden fixed inset-0 z-40 bg-black transform transition-transform duration-300 ease-in-out
-          ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
-        `}
-        style={{
-          paddingTop: 'env(safe-area-inset-top)',
-          paddingBottom: 'env(safe-area-inset-bottom)'
-        }}
-        aria-hidden={!isMobileMenuOpen}
-      >
-        <div className="flex justify-end p-4">
-          <button 
-            onClick={closeMobileMenu}
-            className="text-white p-2 w-10 h-10 flex items-center justify-center"
-            aria-label="Close menu"
-          >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor" 
-              className="h-6 w-6"
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-md z-40 flex flex-col"
+          style={{
+            paddingTop: 'calc(env(safe-area-inset-top) + 5rem)',
+            paddingBottom: 'env(safe-area-inset-bottom)',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 40,
+            overflowY: 'auto'
+          }}
+        >
+          <nav className="flex flex-col items-center space-y-6 p-6 text-center">
+            <NavLink href="/" mobile onClick={closeMobileMenu}>Home</NavLink>
+            <NavLink href="/experiences" mobile onClick={closeMobileMenu}>Experiences</NavLink>
+            <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Reservations</NavLink>
+            <NavLink href="/media" mobile onClick={closeMobileMenu}>Media & FAQs</NavLink>
+            <NavLink href="/blog" mobile onClick={closeMobileMenu}>Blog</NavLink>
+          </nav>
+          
+          <div className="mt-auto p-6 text-center">
+            <p className="text-white/70 text-sm mb-4">
+              The Reel Room | Vancouver's Premier Private Theatre
+            </p>
+            <a 
+              href="mailto:info@reelroom.ca"
+              className="text-white/90 hover:text-brand-gold transition-colors text-lg"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M6 18L18 6M6 6l12 12" 
-              />
-            </svg>
-          </button>
+              info@reelroom.ca
+            </a>
+          </div>
         </div>
-        
-        <nav className="flex flex-col mt-8 px-4">
-          <NavLink href="/" mobile onClick={closeMobileMenu}>Home</NavLink>
-          <NavLink href="/experiences" mobile onClick={closeMobileMenu}>Experiences & Pricing</NavLink>
-          <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Reservations</NavLink>
-          <NavLink href="/media" mobile onClick={closeMobileMenu}>Media & FAQs</NavLink>
-          <NavLink href="/blog" mobile onClick={closeMobileMenu}>Reel Room Blog</NavLink>
-        </nav>
-        
-        <div className="mt-8 px-8 py-4 text-center md:text-left">
-          <p className="text-gray-300 mb-2">Contact:</p>
-          <a href="mailto:info@reelroom.ca" className="text-white hover:text-brand-gold hover:underline transition-colors block py-2">info@reelroom.ca</a>
-          <p className="text-gray-300 mt-4">Located in Mount Pleasant, BC</p>
-        </div>
-      </div>
+      )}
     </header>
   );
 };
