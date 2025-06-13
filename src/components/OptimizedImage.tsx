@@ -30,6 +30,7 @@ export default function OptimizedImage({
   defaultSrc = DEFAULT_FALLBACK,
   onLoad,
   onError,
+  fetchPriority,
   ...props 
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
