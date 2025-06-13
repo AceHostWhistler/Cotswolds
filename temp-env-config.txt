@@ -1,0 +1,5 @@
+NEXT_PUBLIC_SITE_URL=https://reelroom.ca
+EMAIL_USER=info@reelroom.ca
+EMAIL_PASS=your-app-password-here
+EMAIL_HOST=smtp.office365.com
+EMAIL_PORT=587 
