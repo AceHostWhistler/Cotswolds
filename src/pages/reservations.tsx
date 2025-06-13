@@ -78,7 +78,7 @@ export default function Reservations() {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <OptimizedImage
-            src="/photos/homepage-originals/DSC03406-Enhanced-NR.jpg"
+            src="/photos/originals/homepage/DSC03406-Enhanced-NR.jpg"
             alt="The Reel Room Reservations"
             fill
             style={{ objectFit: "cover" }}
@@ -300,7 +300,7 @@ export default function Reservations() {
                 
                 <div className="rounded-lg overflow-hidden mb-8">
                   <OptimizedImage
-                    src="/photos/homepage-originals/DSC03078-Enhanced-NR.jpg"
+                    src="/photos/originals/homepage/DSC03078-Enhanced-NR.jpg"
                     alt="Reel Room dining space"
                     width={600}
                     height={400}
