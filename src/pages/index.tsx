@@ -96,9 +96,10 @@ export default function Home() {
                 loop
                 playsInline
                 className="w-full h-full object-cover opacity-80"
-                src="/photos/Video Home Page/Reel Room Website.mov"
                 onLoadedData={() => setVideoLoaded(true)}
               >
+                <source src="/photos/Video Home Page/Reel Room Website.mp4" type="video/mp4" />
+                <source src="/photos/Video Home Page/Reel Room Website.mov" type="video/quicktime" />
                 Your browser does not support the video tag.
               </video>
               
