@@ -1,21 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, CSSProperties } from 'react';
 
 interface LazyVimeoPlayerProps {
-  videoId: string | number;
-  autoplay?: boolean;
-  loop?: boolean;
-  muted?: boolean;
-  background?: boolean;
-  responsive?: boolean;
-  width?: string | number;
-  height?: string | number;
+  videoId: string;
   className?: string;
-  onReady?: () => void;
-  onPlay?: () => void;
-  onPause?: () => void;
-  onEnd?: () => void;
-  playsinline?: boolean;
-  controls?: boolean;
+  autoplay?: boolean;
+  muted?: boolean;
+  loop?: boolean;
+  responsive?: boolean;
+  background?: boolean;
 }
 
 // Add type declaration for Vimeo Player API
@@ -29,129 +21,79 @@ declare global {
 
 const LazyVimeoPlayer = ({
   videoId,
-  autoplay = true,
-  loop = true,
-  muted = true,
-  background = true,
-  responsive = true,
-  width = '100%',
-  height = '100%',
   className = '',
-  onReady,
-  onPlay,
-  onPause,
-  onEnd,
-  playsinline = true,
-  controls = false
+  autoplay = false,
+  muted = false,
+  loop = false,
+  responsive = true,
+  background = false
 }: LazyVimeoPlayerProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const playerRef = useRef<any>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const initializedRef = useRef(false);
-  const isMobileRef = useRef(typeof window !== 'undefined' && window.innerWidth < 768);
-
-  // Load Vimeo Player Script dynamically if not already loaded
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
-    if (typeof window !== 'undefined' && !window.Vimeo) {
-      const script = document.createElement('script');
-      script.src = 'https://player.vimeo.com/api/player.js';
-      script.async = true;
-      script.onload = () => {
-        // Initialize player immediately after script loads
-        initializePlayer();
-      };
-      document.body.appendChild(script);
-    } else if (typeof window !== 'undefined' && window.Vimeo) {
-      // If script already loaded, initialize immediately
-      initializePlayer();
-    }
+    if (!ref.current) return;
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      {
+        rootMargin: '100px',
+      }
+    );
+    
+    observer.observe(ref.current);
     
     return () => {
-      // Clean up player
-      if (playerRef.current) {
-        playerRef.current.off('loaded');
-        if (onPlay) playerRef.current.off('play');
-        if (onPause) playerRef.current.off('pause');
-        if (onEnd) playerRef.current.off('ended');
-        playerRef.current.destroy();
-        playerRef.current = null;
-        initializedRef.current = false;
-      }
+      observer.disconnect();
     };
-  }, [videoId]);
+  }, []);
   
-  const initializePlayer = () => {
-    if (initializedRef.current || !containerRef.current || typeof window === 'undefined' || !window.Vimeo) {
-      return;
-    }
+  // Build the URL with parameters
+  const buildVimeoUrl = () => {
+    let url = `https://player.vimeo.com/video/${videoId}?`;
     
-    initializedRef.current = true;
+    if (autoplay) url += 'autoplay=1&';
+    if (muted) url += 'muted=1&';
+    if (loop) url += 'loop=1&';
+    if (background) url += 'background=1&controls=0&';
     
-    // Optimized config for faster loading
-    const vimeoPlayer = new window.Vimeo.Player(containerRef.current, {
-      id: videoId,
-      autoplay,
-      loop,
-      muted,
-      background,
-      responsive,
-      width,
-      height,
-      dnt: true, // Do not track - improves privacy and reduces cookies
-      playsinline, // Important for mobile - prevents fullscreen takeover
-      loading: 'eager', // Pre-fetch video data
-      quality: isMobileRef.current ? '720p' : '1080p', // Reduced quality on mobile for faster loading
-      autopause: false, // Prevent auto-pausing when another video plays
-      controls, // Show or hide video controls
-      preload: true, // Preload video data
-    });
+    url += 'title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&dnt=1';
     
-    playerRef.current = vimeoPlayer;
-    
-    // Set up event listeners
-    vimeoPlayer.on('loaded', () => {
-      setIsLoaded(true);
-      onReady && onReady();
-    });
-    
-    // Force play on mobile if autoplay is true
-    if (autoplay) {
-      vimeoPlayer.ready().then(() => {
-        vimeoPlayer.play().catch(() => {
-          console.log('Autoplay blocked by browser policy');
-          // Try to play on first user interaction as fallback
-          const playOnInteraction = () => {
-            vimeoPlayer.play();
-            document.removeEventListener('click', playOnInteraction);
-            document.removeEventListener('touchstart', playOnInteraction);
-          };
-          document.addEventListener('click', playOnInteraction);
-          document.addEventListener('touchstart', playOnInteraction);
-        });
-      });
-    }
-    
-    if (onPlay) vimeoPlayer.on('play', onPlay);
-    if (onPause) vimeoPlayer.on('pause', onPause);
-    if (onEnd) vimeoPlayer.on('ended', onEnd);
+    return url;
   };
-
+  
+  const iframeStyle: CSSProperties = responsive 
+    ? { 
+        position: 'absolute' as const, 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '100%' 
+      } 
+    : {};
+    
+  const containerStyle: CSSProperties = responsive 
+    ? { 
+        padding: '56.25% 0 0 0', 
+        position: 'relative' as const 
+      } 
+    : {};
+  
   return (
-    <div
-      ref={containerRef}
-      className={`video-container ${className}`}
-      data-vimeo-initialized="true"
-      style={{
-        width,
-        height,
-        opacity: isLoaded ? 1 : 0,
-        transition: 'opacity 0.3s ease',
-        position: 'relative',
-        aspectRatio: '16/9', // Explicitly set aspect ratio for better layout stability
-        background: 'black', // Black background while video loads
-      }}
-      aria-label={controls ? "Video player" : "Background video"}
-    />
+    <div ref={ref} className={className} style={containerStyle}>
+      {(isIntersecting || autoplay) && (
+        <iframe
+          src={buildVimeoUrl()}
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          style={iframeStyle}
+          title={`Vimeo Player ${videoId}`}
+          loading="lazy"
+        ></iframe>
+      )}
+    </div>
   );
 };
 

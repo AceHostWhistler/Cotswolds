@@ -161,34 +161,22 @@ export default function Home() {
         {/* Circular Content Area - Responsive for all devices */}
         <div className="absolute inset-0 flex items-center justify-center p-4">
           <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1100px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
-            {/* Background Video */}
+            {/* Background Video - Now using Vimeo */}
             <div className="absolute inset-0 bg-black">
-              {videoFailed ? (
-                // Fallback image if video fails to load
-                <img
-                  src="/photos/Video Home Page/video-poster.jpg"
-                  alt="Reel Room Background"
-                  className="w-full h-full object-cover opacity-80"
+              <div className="relative w-full h-full">
+                <div className="absolute inset-0 z-10 bg-black opacity-30"></div>
+                <LazyVimeoPlayer 
+                  videoId="1082926490" 
+                  autoplay={true}
+                  loop={true}
+                  muted={true}
+                  responsive={true}
+                  background={true}
                 />
-              ) : (
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  poster="/photos/Video Home Page/video-poster.jpg"
-                  className="w-full h-full object-cover opacity-80"
-                  onLoadedData={() => setVideoLoaded(true)}
-                  ref={videoRef}
-                >
-                  <source src="/videos/homepage-bg.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              )}
+              </div>
               
               {/* Content Overlay - Responsive text */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 sm:px-10">
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 sm:px-10 z-20">
                 {/* Logo */}
                 <div className="mb-4 sm:mb-6">
                   <div className="border border-brand-gold p-3 sm:p-6 inline-block bg-black">
