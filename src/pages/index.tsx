@@ -6,6 +6,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import ReelRoomFooter from '@/components/ReelRoomFooter';
 import Image from 'next/image';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
+import Script from 'next/script';
 
 export default function Home() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -35,10 +36,13 @@ export default function Home() {
   useEffect(() => {
     const videoElement = videoRef.current;
     if (videoElement && isPageLoaded) {
+      // Create a video URL that works in both development and production
+      // In production, we need to make sure the video path is correct
+      const videoUrl = '/videos/homepage-bg.mp4';
+      
       // Set the source programmatically after component is mounted
-      // This helps with production environments where the video might not load directly
       const source = document.createElement('source');
-      source.src = '/photos/Video Home Page/Reel Room Website.mp4';
+      source.src = videoUrl;
       source.type = 'video/mp4';
       
       // Clear any existing sources
@@ -49,36 +53,41 @@ export default function Home() {
       // Add the new source
       videoElement.appendChild(source);
       
-      // Load and play the video
+      // Load the video
       videoElement.load();
       
-      // Force video load and play
-      const playPromise = videoElement.play();
+      // Try to play the video
+      const playVideo = () => {
+        const playPromise = videoElement.play();
+        
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log("Video playback started successfully");
+              setVideoLoaded(true);
+            })
+            .catch(error => {
+              console.error("Error playing video:", error);
+              // Try again with a delay
+              setTimeout(() => {
+                videoElement.play()
+                  .then(() => setVideoLoaded(true))
+                  .catch(err => {
+                    console.error("Second attempt failed:", err);
+                    // If second attempt fails, show fallback image
+                    setVideoFailed(true);
+                  });
+              }, 1000);
+            });
+        }
+      };
       
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            console.log("Video playback started successfully");
-            setVideoLoaded(true);
-          })
-          .catch(error => {
-            console.error("Error playing video:", error);
-            // Try again with a delay
-            setTimeout(() => {
-              videoElement.play()
-                .then(() => setVideoLoaded(true))
-                .catch(err => {
-                  console.error("Second attempt failed:", err);
-                  // If second attempt fails, show fallback image
-                  setVideoFailed(true);
-                });
-            }, 1000);
-          });
-      }
+      // Wait a bit to ensure the video is properly loaded
+      setTimeout(playVideo, 100);
       
       // Add error event listener to video element
-      const handleVideoError = () => {
-        console.error("Video error event triggered");
+      const handleVideoError = (e: Event) => {
+        console.error("Video error event triggered", e);
         setVideoFailed(true);
       };
       
@@ -105,7 +114,12 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        {/* Preload the video for better performance */}
+        <link rel="preload" href="/videos/homepage-bg.mp4" as="video" type="video/mp4" />
       </Head>
+
+      {/* Include our video loader helper script */}
+      <Script src="/video-loader.js" strategy="afterInteractive" />
       
       <div className="relative min-h-screen bg-black">
         {/* Gold Diamond Pattern Background */}
@@ -168,7 +182,7 @@ export default function Home() {
                   onLoadedData={() => setVideoLoaded(true)}
                   ref={videoRef}
                 >
-                  {/* Sources will be added programmatically in useEffect */}
+                  <source src="/videos/homepage-bg.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               )}

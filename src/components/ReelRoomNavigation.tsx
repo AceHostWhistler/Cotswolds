@@ -96,7 +96,7 @@ const ReelRoomNavigation: React.FC = () => {
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/experiences">Experiences</NavLink>
-            <NavLink href="/reservations">Reservations</NavLink>
+            <NavLink href="/reservations">Book Now</NavLink>
             <NavLink href="/media">Media & FAQs</NavLink>
             <NavLink href="/blog">Blog</NavLink>
           </nav>
@@ -145,7 +145,7 @@ const ReelRoomNavigation: React.FC = () => {
           <nav className="flex flex-col items-center space-y-6 p-6 text-center">
             <NavLink href="/" mobile onClick={closeMobileMenu}>Home</NavLink>
             <NavLink href="/experiences" mobile onClick={closeMobileMenu}>Experiences</NavLink>
-            <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Reservations</NavLink>
+            <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Book Now</NavLink>
             <NavLink href="/media" mobile onClick={closeMobileMenu}>Media & FAQs</NavLink>
             <NavLink href="/blog" mobile onClick={closeMobileMenu}>Blog</NavLink>
           </nav>
