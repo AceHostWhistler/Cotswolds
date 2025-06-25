@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import OptimizedImage from '../components/OptimizedImage';
+import CalendlyWidget from '../components/CalendlyWidget';
 
 // Define form data interface
 interface FormData {
@@ -105,11 +106,22 @@ export default function Reservations() {
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
-        <title>Book an Experience | The Reel Room</title>
+        <title>Book Now | The Reel Room</title>
         <meta name="description" content="Book your event at The Reel Room. Fill out our reservation form to secure your date for film screenings, private parties, or corporate events." />
       </Head>
       
       <ReelRoomNavigation />
+      
+      {/* Calendly Widget - Fixed Position with Enhanced Visibility */}
+      <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
+        <div className="bg-amber-500 text-black p-3 text-center">
+          <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
+          <p className="text-sm">Check availability & schedule instantly</p>
+        </div>
+        <div className="relative">
+          <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" />
+        </div>
+      </div>
       
       <main className="pt-20">
         {/* Hero Section */}
@@ -124,7 +136,7 @@ export default function Reservations() {
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Book an Experience</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4">Book Now</h1>
                 <p className="text-xl mb-8">
                   Create unforgettable memories at The Reel Room, Vancouver's premier private theatre venue.
                 </p>
@@ -377,6 +389,26 @@ export default function Reservations() {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile Calendly Widget with Enhanced Visibility */}
+        <div className="py-12 bg-gray-50 lg:hidden">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-amber-500">
+              <div className="bg-amber-500 text-black p-4 text-center">
+                <h2 className="text-3xl font-bold mb-1 uppercase tracking-wider">BOOK YOUR EVENT</h2>
+                <p className="text-black">Check availability & schedule instantly</p>
+              </div>
+              <div className="animate-pulse absolute right-4 top-20 h-16 w-16 flex items-center justify-center rounded-full bg-amber-500 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+              <div className="w-full h-[600px] overflow-hidden pt-4">
+                <CalendlyWidget height={600} className="border-t border-gray-200" />
               </div>
             </div>
           </div>
