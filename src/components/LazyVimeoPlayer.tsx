@@ -8,6 +8,7 @@ interface LazyVimeoPlayerProps {
   loop?: boolean;
   responsive?: boolean;
   background?: boolean;
+  coverMode?: boolean;
 }
 
 // Add type declaration for Vimeo Player API
@@ -26,7 +27,8 @@ const LazyVimeoPlayer = ({
   muted = false,
   loop = false,
   responsive = true,
-  background = false
+  background = false,
+  coverMode = true
 }: LazyVimeoPlayerProps) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -64,7 +66,18 @@ const LazyVimeoPlayer = ({
     return url;
   };
   
-  const iframeStyle: CSSProperties = responsive 
+  const defaultContainerStyle: CSSProperties = responsive 
+    ? { 
+        padding: '56.25% 0 0 0', 
+        position: 'relative' as const 
+      } 
+    : {};
+    
+  const containerStyle = coverMode 
+    ? { ...defaultContainerStyle, position: 'relative' as const, overflow: 'hidden' }
+    : defaultContainerStyle;
+    
+  const defaultIframeStyle: CSSProperties = responsive 
     ? { 
         position: 'absolute' as const, 
         top: 0, 
@@ -74,15 +87,22 @@ const LazyVimeoPlayer = ({
       } 
     : {};
     
-  const containerStyle: CSSProperties = responsive 
+  const iframeStyle = coverMode 
     ? { 
-        padding: '56.25% 0 0 0', 
-        position: 'relative' as const 
+        ...defaultIframeStyle, 
+        position: 'absolute' as const,
+        top: '50%',
+        left: '50%',
+        width: '100%',
+        height: '100%',
+        minHeight: '100%',
+        minWidth: '100%',
+        transform: 'translate(-50%, -50%) scale(1.2)'
       } 
-    : {};
+    : defaultIframeStyle;
   
   return (
-    <div ref={ref} className={className} style={containerStyle}>
+    <div ref={ref} className={`vimeo-player-wrapper ${className}`} style={containerStyle}>
       {(isIntersecting || autoplay) && (
         <iframe
           src={buildVimeoUrl()}
@@ -91,6 +111,7 @@ const LazyVimeoPlayer = ({
           style={iframeStyle}
           title={`Vimeo Player ${videoId}`}
           loading="lazy"
+          className={coverMode ? "vimeo-cover" : ""}
         ></iframe>
       )}
     </div>
