@@ -39,6 +39,46 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## Calendly Widget Component
+
+The `CalendlyWidget` component provides a convenient way to embed Calendly scheduling on various pages. The widget is optimized for both desktop and mobile viewing.
+
+### Usage
+
+```jsx
+import CalendlyWidget from "@/components/CalendlyWidget";
+
+// In your page component:
+const MyPage = () => {
+  return (
+    <div>
+      <CalendlyWidget 
+        url="https://calendly.com/your-account" 
+        height={600} 
+        className="border border-gray-200 rounded-lg" 
+      />
+    </div>
+  );
+};
+```
+
+### Props
+
+- `url` (optional): Your Calendly URL with any parameters (defaults to reelroom-info)
+- `height` (optional): Height of the widget in pixels (defaults to 700)
+- `className` (optional): Additional CSS classes to apply to the widget container
+
+## Homepage Video
+
+The homepage uses a Vimeo video background for the main circular hero section. The video is embedded using the `LazyVimeoPlayer` component, which optimizes loading and playback.
+
+### Implementation Details
+
+- The video is loaded only when it's in the viewport (lazy loading)
+- A fallback image is displayed if video loading fails
+- Playback is muted and loops continuously
+- The player is embedded in background mode for a cleaner UI
+
 ## Property Gallery Component
 
 The `PropertyGallery` component can be used to display a grid of property photos with a fullscreen viewer. This component is designed to be reused across all property listing pages.
