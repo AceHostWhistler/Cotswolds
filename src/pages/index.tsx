@@ -163,16 +163,19 @@ export default function Home() {
           <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1100px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video - Now using Vimeo */}
             <div className="absolute inset-0 bg-black">
-              <div className="relative w-full h-full">
+              <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 z-10 bg-black opacity-30"></div>
-                <LazyVimeoPlayer 
-                  videoId="1082926490" 
-                  autoplay={true}
-                  loop={true}
-                  muted={true}
-                  responsive={true}
-                  background={true}
-                />
+                <div className="absolute inset-0 scale-[1.5]">
+                  <LazyVimeoPlayer 
+                    videoId="1082926490" 
+                    autoplay={true}
+                    loop={true}
+                    muted={true}
+                    responsive={true}
+                    background={true}
+                    className="w-full h-full object-cover scale-[1.2]"
+                  />
+                </div>
               </div>
               
               {/* Content Overlay - Responsive text */}
