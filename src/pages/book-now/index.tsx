@@ -59,21 +59,18 @@ export default function BookNow() {
         <main className="pt-20">
           {/* Hero Section */}
           <div className="relative h-[50vh]">
-            <Image
+            <img
               src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
-              alt="Ace Cascade Lodge exterior"
-              fill
-              priority
-              quality={90}
-              style={{ objectFit: "cover" }}
+              alt="Reel Room Booking"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <div className="text-center max-w-4xl px-4">
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent flex items-center justify-center">
+              <div className="text-center max-w-4xl px-4 drop-shadow-lg">
                 <h1 className="text-4xl font-bold text-white mb-4">
-                  Book Your Mountain Getaway
+                  Book Now
                 </h1>
                 <p className="text-xl text-white">
-                  Experience luxury accommodations in the heart of Whistler Village
+                  Create unforgettable memories at The Reel Room, Vancouver's premier private theatre venue.
                 </p>
               </div>
             </div>
