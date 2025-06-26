@@ -7,97 +7,8 @@ import ReelRoomFooter from '../components/ReelRoomFooter';
 import OptimizedImage from '../components/OptimizedImage';
 import CalendlyWidget from '../components/CalendlyWidget';
 
-// Define form data interface
-interface FormData {
-  fullName: string;
-  email: string;
-  phone: string;
-  showingTime: string;
-  guestCount: string;
-  preferredDate: string;
-  bookingDetails: string;
-}
-
 export default function Reservations() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    email: '',
-    phone: '',
-    showingTime: '',
-    guestCount: '',
-    preferredDate: '',
-    bookingDetails: ''
-  });
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formError, setFormError] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-  
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormError(false);
-    setErrorMessage('');
-    
-    try {
-      // Save form data locally first
-      const submissionData = {
-        ...formData,
-        submittedAt: new Date().toISOString(),
-      };
-      
-      console.log("Submitting form data:", submissionData);
-      
-      // Send form data to API endpoint
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      const data = await response.json();
-      console.log("API response:", data);
-      
-      if (response.ok && data.success) {
-        setFormSubmitted(true);
-        // Reset form after submission
-        setFormData({
-          fullName: '',
-          email: '',
-          phone: '',
-          showingTime: '',
-          guestCount: '',
-          preferredDate: '',
-          bookingDetails: ''
-        });
-      } else {
-        // Even if API returns error, we'll show a partial success message
-        // since we know the form data was saved to file
-        setFormSubmitted(true);
-        setFormError(true);
-        setErrorMessage(data.message || 'Your request has been received, but there was an issue sending the confirmation email.');
-        console.error('Form submission partial error:', data);
-      }
-    } catch (error: any) {
-      setFormError(true);
-      setFormSubmitted(true); // Still mark as submitted since the data is saved on server
-      setErrorMessage('Your request has been received, but there was a technical issue. Our team will contact you soon.');
-      console.error('Form submission error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -107,7 +18,7 @@ export default function Reservations() {
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
         <title>Book Now | The Reel Room</title>
-        <meta name="description" content="Book your event at The Reel Room. Fill out our reservation form to secure your date for film screenings, private parties, or corporate events." />
+        <meta name="description" content="Book your event at The Reel Room. Check availability and schedule instantly for film screenings, private parties, or corporate events." />
       </Head>
       
       <ReelRoomNavigation />
@@ -127,7 +38,7 @@ export default function Reservations() {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <OptimizedImage
-            src="/photos/originals/homepage/DSC03406-Enhanced-NR.jpg"
+            src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
             alt="The Reel Room Reservations"
             fill
             style={{ objectFit: "cover" }}
@@ -145,184 +56,83 @@ export default function Reservations() {
           </div>
         </div>
         
-        {/* Reservation Form Section */}
+        {/* Reservation Information Section */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-              {/* Form Column */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              {/* Booking Information Column */}
               <div>
-                <h2 className="text-3xl font-semibold heading-font mb-6">Get in contact with us</h2>
+                <h2 className="text-3xl font-semibold heading-font mb-6">How to Book The Reel Room</h2>
                 
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  {/* Full Name */}
-                  <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-1">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                      className="block w-full rounded-none border-gray-300 shadow-sm p-3 border focus:border-black focus:ring-black"
-                    />
-                  </div>
-                  
-                  {/* Email */}
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="block w-full rounded-none border-gray-300 shadow-sm p-3 border focus:border-black focus:ring-black"
-                    />
-                  </div>
-                  
-                  {/* Phone */}
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone Number *
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="block w-full rounded-none border-gray-300 shadow-sm p-3 border focus:border-black focus:ring-black"
-                    />
-                  </div>
-                  
-                  {/* Showing Time */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Showing time
-                    </label>
-                    <p className="text-sm text-gray-500 mb-2">
-                      Showing time slots are a minimum of 4 hours long and need to start 4 hours before the slot ends.
+                <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mb-8">
+                  <h3 className="text-xl font-bold mb-4 text-gray-800">Contact Us to Book</h3>
+                  <p className="text-gray-700 mb-6 text-lg">
+                    Email us at <a href="mailto:info@reelroom.ca" className="text-brand-gold font-semibold hover:underline">info@reelroom.ca</a> with the following information:
+                  </p>
+                  <ul className="list-disc list-inside text-gray-700 space-y-3 mb-6">
+                    <li>Your full name</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>Preferred date and start time (4+ hour slots)</li>
+                    <li>Number of guests</li>
+                    <li>Type of event you're planning</li>
+                    <li>Any special requirements or questions</li>
+                  </ul>
+                  <p className="text-gray-700 font-medium">
+                    We can accommodate groups as small as 5 and groups as large as 120+.
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 className="text-lg font-bold mb-4 text-gray-800">Booking Process</h3>
+                    <p className="text-gray-700">
+                      1. Email us with your event details<br/>
+                      2. Our team will confirm availability<br/>
+                      3. We'll discuss your specific needs<br/>
+                      4. Receive a detailed quote<br/>
+                      5. Confirm your booking with a deposit<br/>
+                      6. Enjoy your event at The Reel Room!
                     </p>
-                    <div className="flex flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4">
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          name="showingTime"
-                          value="lunch"
-                          checked={formData.showingTime === 'lunch'}
-                          onChange={handleChange}
-                          className="h-4 w-4 text-black focus:ring-black border-gray-300"
-                        />
-                        <span className="ml-2">Lunch (8am - 3pm)</span>
-                      </label>
-                      <label className="inline-flex items-center">
-                        <input
-                          type="radio"
-                          name="showingTime"
-                          value="dinner"
-                          checked={formData.showingTime === 'dinner'}
-                          onChange={handleChange}
-                          className="h-4 w-4 text-black focus:ring-black border-gray-300"
-                        />
-                        <span className="ml-2">Dinner (3pm - 11pm)</span>
-                      </label>
-                    </div>
                   </div>
                   
-                  {/* Guest Count */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      # of Guests
-                    </label>
-                    <div className="flex flex-wrap gap-2">
-                      {['5-12', '13-25', '25-45', '45-75', '75-100', '100+'].map((option) => (
-                        <label key={option} className="inline-flex items-center">
-                          <input
-                            type="radio"
-                            name="guestCount"
-                            value={option}
-                            checked={formData.guestCount === option}
-                            onChange={handleChange}
-                            className="h-4 w-4 text-black focus:ring-black border-gray-300"
-                          />
-                          <span className="ml-2">{option}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Preferred Date & Time */}
-                  <div>
-                    <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-700 mb-1">
-                      Preferred Date & Time
-                    </label>
-                    <p className="text-sm text-gray-500 mb-2">
-                      4+ hour time slots
+                  <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                    <h3 className="text-lg font-bold mb-4 text-gray-800">Showing Times</h3>
+                    <p className="text-gray-700 mb-4">
+                      <strong>Lunch:</strong> 8am - 3pm<br/>
+                      <strong>Dinner:</strong> 3pm - 11pm
                     </p>
-                    <input
-                      type="text"
-                      id="preferredDate"
-                      name="preferredDate"
-                      value={formData.preferredDate}
-                      onChange={handleChange}
-                      className="block w-full rounded-none border-gray-300 shadow-sm p-3 border focus:border-black focus:ring-black"
-                      placeholder="e.g., July 15th, 6:00 PM"
-                    />
-                  </div>
-                  
-                  {/* Booking Details */}
-                  <div>
-                    <label htmlFor="bookingDetails" className="block text-sm font-medium text-gray-700 mb-1">
-                      Booking details
-                    </label>
-                    <p className="text-sm text-gray-500 mb-2">
-                      Let us know the purpose of your booking and any specifications you require or would like to learn more about. We are here to help you every step of the way.
+                    <p className="text-sm text-gray-500">
+                      Showing time slots are a minimum of 4 hours long.
                     </p>
-                    <textarea
-                      id="bookingDetails"
-                      name="bookingDetails"
-                      value={formData.bookingDetails}
-                      onChange={handleChange}
-                      rows={6}
-                      className="block w-full rounded-none border-gray-300 shadow-sm p-3 border focus:border-black focus:ring-black"
-                    />
+                  </div>
+                </div>
+                
+                <div className="bg-gray-50 p-8 rounded-lg">
+                  <h3 className="text-2xl font-semibold heading-font mb-6">Hours & Contact</h3>
+                  
+                  <div className="grid grid-cols-2 gap-2 mb-8">
+                    {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
+                      <React.Fragment key={day}>
+                        <div className="font-medium">{day}</div>
+                        <div>8 am - 1 am</div>
+                      </React.Fragment>
+                    ))}
                   </div>
                   
-                  {/* Submit Button */}
-                  <div>
-                    <button
-                      type="submit"
-                      className={`w-full bg-black text-white py-3 px-6 hover:bg-gray-800 transition-colors uppercase tracking-widest text-sm ${
-                        isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
-                      }`}
-                      disabled={isSubmitting}
-                    >
-                      {isSubmitting ? 'Submitting...' : 'Submit'}
-                    </button>
+                  <div className="space-y-2 mt-8">
+                    <p>
+                      <span className="font-semibold">Email:</span>{' '}
+                      <a href="mailto:info@reelroom.ca" className="text-black hover:underline">
+                        info@reelroom.ca
+                      </a>
+                    </p>
+                    <p>
+                      <span className="font-semibold">Location:</span>{' '}
+                      <span>Mount Pleasant, Vancouver, BC</span>
+                    </p>
                   </div>
-                  
-                  {/* Form Submission Messages */}
-                  {formSubmitted && !formError && (
-                    <div className="p-4 bg-green-50 text-green-800 rounded-md">
-                      <p className="font-medium">Thank you! Your booking request has been sent.</p>
-                      <p className="mt-2">We'll be in touch shortly to confirm your reservation.</p>
-                    </div>
-                  )}
-                  
-                  {formSubmitted && formError && (
-                    <div className="p-4 bg-yellow-50 text-yellow-800 rounded-md">
-                      <p className="font-medium">Your request has been received!</p>
-                      <p className="mt-2">{errorMessage || 'There was a minor issue with email delivery, but our team has your information and will contact you soon.'}</p>
-                    </div>
-                  )}
-                </form>
+                </div>
               </div>
               
               {/* Info Column */}
@@ -352,41 +162,29 @@ export default function Reservations() {
                   </div>
                 </div>
                 
-                <div className="rounded-lg overflow-hidden mb-8">
-                  <OptimizedImage
-                    src="/photos/originals/homepage/DSC03078-Enhanced-NR.jpg"
-                    alt="Reel Room dining space"
-                    width={600}
-                    height={400}
-                    style={{ objectFit: "cover" }}
-                    className="w-full h-64 object-cover"
-                  />
-                  <p className="mt-2 text-sm text-gray-500 text-center">Reel Room dining space</p>
-                </div>
-                
-                <div className="bg-gray-50 p-8">
-                  <h3 className="text-2xl font-semibold heading-font mb-6">Hours & Contact</h3>
-                  
-                  <div className="grid grid-cols-2 gap-2 mb-8">
-                    {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].map((day) => (
-                      <React.Fragment key={day}>
-                        <div className="font-medium">{day}</div>
-                        <div>8 am - 1 am</div>
-                      </React.Fragment>
-                    ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="rounded-lg overflow-hidden">
+                    <OptimizedImage
+                      src="/photos/originals/homepage/DSC03078-Enhanced-NR.jpg"
+                      alt="Reel Room dining space"
+                      width={600}
+                      height={400}
+                      style={{ objectFit: "cover" }}
+                      className="w-full h-64 object-cover"
+                    />
+                    <p className="mt-2 text-sm text-gray-500 text-center">Reel Room dining space</p>
                   </div>
                   
-                  <div className="space-y-2 mt-8">
-                    <p>
-                      <span className="font-semibold">Email:</span>{' '}
-                      <a href="mailto:info@reelroom.ca" className="text-black hover:underline">
-                        info@reelroom.ca
-                      </a>
-                    </p>
-                    <p>
-                      <span className="font-semibold">Location:</span>{' '}
-                      <span>Mount Pleasant, Vancouver, BC</span>
-                    </p>
+                  <div className="rounded-lg overflow-hidden">
+                    <OptimizedImage
+                      src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
+                      alt="Reel Room theatre space"
+                      width={600}
+                      height={400}
+                      style={{ objectFit: "cover" }}
+                      className="w-full h-64 object-cover"
+                    />
+                    <p className="mt-2 text-sm text-gray-500 text-center">Reel Room theatre space</p>
                   </div>
                 </div>
               </div>
