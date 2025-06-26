@@ -11,84 +11,104 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Get current date in YYYY-MM-DD format
   const today = new Date().toISOString().split('T')[0];
   
+  // Base URL for the site
+  const baseUrl = 'https://reelroom.ca';
+  
   // Start building the sitemap XML
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://acehost.ca</loc>
+    <loc>${baseUrl}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://acehost.ca/blogs</loc>
+    <loc>${baseUrl}/experiences</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/reservations</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/media</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://acehost.ca/properties</loc>
+    <loc>${baseUrl}/blog</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://acehost.ca/our-story</loc>
+    <loc>${baseUrl}/book-now</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>${baseUrl}/contact</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://acehost.ca/contact</loc>
+    <loc>${baseUrl}/privacy</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://acehost.ca/list-property</loc>
+    <loc>${baseUrl}/terms</loc>
     <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://acehost.ca/concierge-service</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>`;
 
   // Add blog articles
-  allArticles.forEach((article: Article) => {
-    // Extract the slug from the link
-    const slug = article.link.split('/').pop();
-    
-    sitemap += `
+  try {
+    allArticles.forEach((article: Article) => {
+      // Extract the slug from the link
+      const slug = article.link.split('/').pop();
+      
+      sitemap += `
   <url>
-    <loc>https://acehost.ca/post/${slug}</loc>
+    <loc>${baseUrl}/blog-articles/${slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`;
-  });
+    });
+  } catch (error) {
+    console.error('Error processing blog articles:', error);
+  }
 
-  // Add property listings
-  // Read the listings directory to get all property files
-  const listingsDir = path.join(process.cwd(), 'src', 'pages', 'listings');
-  
+  // Add listings
   try {
-    const listings = fs.readdirSync(listingsDir)
-      .filter(file => !file.startsWith('.')) // Skip hidden files
-      .filter(file => fs.statSync(path.join(listingsDir, file)).isDirectory());
+    const listingsDir = path.join(process.cwd(), 'src', 'pages', 'listings');
     
-    listings.forEach(listing => {
-      sitemap += `
+    if (fs.existsSync(listingsDir)) {
+      const listings = fs.readdirSync(listingsDir)
+        .filter(file => !file.startsWith('.') && !file.endsWith('.tsx')) // Skip hidden files and .tsx files
+        .filter(file => fs.statSync(path.join(listingsDir, file)).isDirectory());
+      
+      listings.forEach(listing => {
+        sitemap += `
   <url>
-    <loc>https://acehost.ca/listings/${listing}</loc>
+    <loc>${baseUrl}/listings/${listing}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`;
-    });
+      });
+    }
   } catch (error) {
     console.error('Error reading listings directory:', error);
   }

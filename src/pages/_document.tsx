@@ -101,20 +101,27 @@ export default function Document() {
         />
         
         {/* Additional metadata for search engines */}
-        <meta name="application-name" content="AceHost Whistler" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="application-name" content="The Reel Room Vancouver" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="author" content="The Reel Room" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="geo.region" content="CA-BC" />
+        <meta name="geo.placename" content="Vancouver" />
+        <meta name="language" content="English" />
         
-        {/* OpenGraph metadata for social sharing and search results */}
-        <meta property="og:site_name" content="AceHost Whistler" />
+        {/* Default OpenGraph metadata for social sharing and search results */}
+        <meta property="og:site_name" content="The Reel Room Vancouver" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://acehost.ca/logo.png" />
+        <meta property="og:image" content="https://reelroom.ca/favicons/Logo Reel Room.png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
-        <meta property="og:image:alt" content="AceHost Whistler Logo" />
+        <meta property="og:image:alt" content="The Reel Room Vancouver Logo" />
+        <meta property="og:locale" content="en_CA" />
         
         {/* Twitter Card data */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:image" content="https://acehost.ca/logo.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://reelroom.ca/favicons/Logo Reel Room.png" />
+        <meta name="twitter:site" content="@reelroomvancouver" />
 
         {/* Enable DNS prefetching */}
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
@@ -126,12 +133,58 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "url": "https://acehost.ca/",
+              "url": "https://reelroom.ca/",
+              "name": "The Reel Room Vancouver",
+              "description": "Private Theatre Event Venue in Vancouver, BC. Book for film screenings, private parties, corporate events, and more.",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://acehost.ca/properties?search={search_term_string}",
+                "target": "https://reelroom.ca/blog?search={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
+            })
+          }}
+        />
+        
+        {/* Local Business Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "The Reel Room",
+              "image": "https://reelroom.ca/favicons/Logo Reel Room.png",
+              "url": "https://reelroom.ca",
+              "telephone": "",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Vancouver",
+                "addressRegion": "BC",
+                "addressCountry": "CA"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "49.2634",
+                "longitude": "-123.1022"
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "08:00",
+                "closes": "01:00"
+              },
+              "sameAs": [
+                "https://www.instagram.com/reelroomvancouver/",
+                "https://www.facebook.com/reelroomvancouver/"
+              ]
             })
           }}
         />

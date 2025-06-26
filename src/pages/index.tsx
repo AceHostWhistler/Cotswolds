@@ -7,6 +7,7 @@ import ReelRoomFooter from '@/components/ReelRoomFooter';
 import Image from 'next/image';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 import Script from 'next/script';
+import SEO from '@/components/SEO';
 
 export default function Home() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -105,11 +106,46 @@ export default function Home() {
     setMenuOpen(!menuOpen);
   };
   
+  // Define structured data for the homepage
+  const homeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    "name": "The Reel Room",
+    "description": "Private Theatre Event Venue in Vancouver, BC. Book for film screenings, private parties, corporate events, and more.",
+    "url": "https://reelroom.ca",
+    "image": "https://reelroom.ca/favicons/Logo Reel Room.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vancouver",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    },
+    "telephone": "",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "08:00",
+        "closes": "01:00"
+      }
+    ],
+    "event": {
+      "@type": "Event",
+      "name": "Private Theatre Events",
+      "description": "Host your private film screenings, parties, and corporate events in our luxury theatre venue."
+    }
+  };
+
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
+      <SEO 
+        title="Private Theatre Event Venue Vancouver"
+        description="Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver."
+        ogImage="/favicons/Logo Reel Room.png"
+        keywords="private theatre, event venue, Vancouver, film screenings, private parties, corporate events, Mount Pleasant, luxury cinema, private events"
+        structuredData={homeStructuredData}
+      />
       <Head>
-        <title>Private Theatre Event Venue Vancouver</title>
-        <meta name="description" content="Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver." />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

@@ -1,6 +1,14 @@
-# Allow all crawlers
+# The Reel Room - Robots.txt
 User-agent: *
 Allow: /
 
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /upload/
+
 # Sitemap location
-Sitemap: https://acehost.ca/sitemap.xml 
+Sitemap: https://reelroom.ca/sitemap.xml
+
+# Crawl delay to prevent server overload
+Crawl-delay: 1 
