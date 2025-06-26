@@ -75,6 +75,18 @@ const LazyVimeoPlayer = ({
     // Add quality parameter for faster initial load
     url += 'quality=auto&';
     
+    // Add playsinline for iOS compatibility
+    url += 'playsinline=1&';
+    
+    // Check if iOS and add specific parameters
+    const isIOS = typeof navigator !== 'undefined' && 
+                 (/iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
+    
+    if (isIOS) {
+      url += 'webkit-playsinline=1&';
+    }
+    
     url += 'title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&dnt=1';
     
     return url;

@@ -116,6 +116,29 @@ function App({ Component, pageProps }: AppProps) {
     };
   }, []);
 
+  // Calculate viewport height for iOS devices
+  useEffect(() => {
+    // First we get the viewport height and multiply it by 1% to get a value for a vh unit
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      // Then we set the value in the --vh custom property to the root of the document
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    // Initial call
+    setVh();
+
+    // Add event listener
+    window.addEventListener('resize', setVh);
+    window.addEventListener('orientationchange', setVh);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', setVh);
+      window.removeEventListener('orientationchange', setVh);
+    };
+  }, []);
+
   return (
     <>
       <Head>

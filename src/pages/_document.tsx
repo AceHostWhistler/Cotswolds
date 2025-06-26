@@ -4,6 +4,12 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        {/* Proper viewport settings for mobile devices */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0" />
+        {/* iOS specific meta tags */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        
         {/* Early connection hints for critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -66,6 +72,16 @@ export default function Document() {
                 margin: 0;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
+              }
+              
+              /* iOS Safari fixes */
+              @supports (-webkit-touch-callout: none) {
+                html, body {
+                  height: -webkit-fill-available;
+                }
+                .fixed {
+                  -webkit-transform: translateZ(0);
+                }
               }
             `,
           }}

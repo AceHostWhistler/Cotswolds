@@ -25,11 +25,12 @@
     }
   }
 
-  /* iOS Safari 100vh issue fix */
+  /* iOS Safari 100vh issue fix - enhanced version */
   .h-screen,
   .min-h-screen,
   .max-h-screen {
     height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100); /* Dynamic viewport height */
     height: -webkit-fill-available;
     height: -moz-available;
     height: stretch;
@@ -40,6 +41,12 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: none; /* Prevent pull-to-refresh */
+    /* Prevent content from being hidden under the bottom bar on iOS */
+    padding-bottom: env(safe-area-inset-bottom);
+    /* Prevent content from being hidden under the notch on iOS */
+    padding-top: env(safe-area-inset-top);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
   
   /* Improve tap target sizes on mobile */
@@ -63,8 +70,13 @@
   input[type="tel"],
   input[type="number"],
   input[type="password"],
-  textarea {
+  textarea,
+  select {
     font-size: 16px; /* Prevent auto-zoom on iOS */
+    -webkit-appearance: none; /* Remove default styling on iOS */
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0; /* Remove default rounded corners on iOS */
   }
   
   /* Disable double-tap to zoom */
@@ -84,6 +96,29 @@
       color: inherit !important;
       background-color: inherit !important;
     }
+  }
+  
+  /* Fix for iOS iframe issues */
+  iframe {
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
+  }
+  
+  /* Fix for iOS video playback */
+  video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    -webkit-object-fit: contain;
+  }
+  
+  /* Fix for iOS fixed position elements */
+  .fixed {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 
@@ -124,6 +159,9 @@
 img, video {
   max-width: 100%;
   height: auto;
+  /* Fix for iOS image rendering */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Improve video container performance */
@@ -384,6 +422,9 @@ svg {
 .vimeo-player-wrapper {
   position: relative;
   overflow: hidden;
+  /* Improve performance on iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .vimeo-player-wrapper iframe.vimeo-cover {
@@ -393,6 +434,10 @@ svg {
   width: 100% !important;
   height: 100% !important;
   transform: translate(-50%, -50%);
+  /* Improve iOS performance */
+  -webkit-transform: translate(-50%, -50%);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Specific style for homepage circular video container */
@@ -400,4 +445,30 @@ svg {
   width: 200% !important;
   height: 200% !important;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+/* Fix for iOS Safari scrolling */
+@supports (-webkit-touch-callout: none) {
+  .scroll-smooth {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Fix for position: sticky on iOS */
+  .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+  
+  /* Fix for iOS Safari viewport units */
+  :root {
+    --vh: 1vh;
+  }
+}
+
+/* Calculate viewport height for iOS */
+@media screen {
+  :root {
+    --vh: 1vh;
+  }
 }
