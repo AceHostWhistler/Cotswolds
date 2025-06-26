@@ -390,14 +390,14 @@ svg {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 150% !important;
-  height: 150% !important;
+  width: 100% !important;
+  height: 100% !important;
   transform: translate(-50%, -50%);
-  object-fit: cover;
 }
 
-/* Make sure the object fills the circular container completely */
-.vimeo-cover iframe {
-  min-width: 150% !important;
-  min-height: 150% !important;
+/* Specific style for homepage circular video container */
+.rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
+  width: 100% !important;
+  height: 100% !important;
+  transform: translate(-50%, -50%);
 }

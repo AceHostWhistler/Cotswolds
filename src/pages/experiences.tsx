@@ -38,15 +38,10 @@ export default function Experiences() {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <div className="relative h-[500px] overflow-hidden">
-          <img
-            src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg"
-            alt="The Reel Room Experience"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent">
+        <div className="relative h-[500px] overflow-hidden bg-gray-800">
+          <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-              <div className="text-white max-w-2xl drop-shadow-lg">
+              <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Experiences & Pricing</h1>
                 <p className="text-xl mb-8">
                   Customize your event at The Reel Room for a unique and memorable experience.
