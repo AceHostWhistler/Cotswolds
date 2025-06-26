@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import OptimizedImage from '../components/OptimizedImage';
@@ -38,10 +39,15 @@ export default function Experiences() {
       <main className="pt-20">
         {/* Hero Section */}
         <div className="relative h-[500px] overflow-hidden">
-          <img
+          <Image
             src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg"
             alt="The Reel Room Experience"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+            className="absolute inset-0"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
