@@ -37,7 +37,6 @@ const ForestViewCascadeRoom = () => {
     "/photos/listings/Forest View Cascade/IMG_8493-HDR.jpg",
     "/photos/listings/Forest View Cascade/IMG_8523.jpg",
     "/photos/listings/Forest View Cascade/IMG_8587.jpg",
-    "/photos/listings/Forest View Cascade/IMG_8867.jpg",
     "/photos/listings/Forest View Cascade/Patio View (5).jpg",
   ];
 

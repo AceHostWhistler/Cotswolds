@@ -32,7 +32,6 @@ const MountainViewRooms = () => {
     "/photos/listings/Cascade Exterior/IMG_8493-HDR.jpg",
     "/photos/listings/Cascade Exterior/IMG_8523.jpg",
     "/photos/listings/Cascade Exterior/IMG_8587.jpg",
-    "/photos/listings/Cascade Exterior/IMG_8867.jpg",
     "/photos/listings/Cascade Exterior/Patio View (5).jpg",
   ];
 
@@ -319,7 +318,7 @@ const MountainViewRooms = () => {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Mountain View - Top Floor</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#0066CC] transition-colors">Mountain View - Top Floor</h3>
                     </div>
                   </div>
                 </Link>
@@ -335,7 +334,7 @@ const MountainViewRooms = () => {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">Forest View Cascade Rooms</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#0066CC] transition-colors">Forest View Cascade Rooms</h3>
                     </div>
                   </div>
                 </Link>

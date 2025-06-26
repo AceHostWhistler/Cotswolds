@@ -37,7 +37,6 @@ const MountainViewTopFloor = () => {
     "/photos/listings/Cascade Exterior/IMG_8493-HDR.jpg",
     "/photos/listings/Cascade Exterior/IMG_8523.jpg",
     "/photos/listings/Cascade Exterior/IMG_8587.jpg",
-    "/photos/listings/Cascade Exterior/IMG_8867.jpg",
     "/photos/listings/Cascade Exterior/Patio View (5).jpg",
   ];
 
