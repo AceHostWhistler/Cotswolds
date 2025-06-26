@@ -42,6 +42,7 @@ export default function Experiences() {
             src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg"
             alt="The Reel Room Experience"
             fill
+            priority
             style={{ objectFit: "cover" }}
             className="brightness-75"
           />
@@ -121,43 +122,13 @@ export default function Experiences() {
                   <div className="flex justify-center my-3">
                     <div className="h-1 w-12 bg-amber-400 rounded"></div>
                   </div>
-                  <p className="text-lg text-gray-700">
+                  <p className="text-lg text-gray-700 mb-6">
                     Enjoy <span className="text-xl font-bold text-amber-600">35% OFF</span> our venue fee all summer long!
                   </p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">Base Venue Fee:</span>
-                    <span className="text-gray-700">$2,100</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-amber-700 font-medium">Summer Discount (35%):</span>
-                    <span className="text-amber-700 font-medium">-$735</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700">Discounted Venue Fee:</span>
-                    <span className="text-gray-700">$1,365</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Event Manager:</span>
-                    <span className="text-gray-700">$255</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Cleaning Fee:</span>
-                    <span className="text-gray-700">$300</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700 font-medium">Subtotal:</span>
-                    <span className="text-gray-700 font-medium">$1,920</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ 5% Tax:</span>
-                    <span className="text-gray-700">$96</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
-                    <span className="text-amber-700 font-bold">Final Price:</span>
-                    <span className="text-amber-700 font-bold">$2,016</span>
+                  <div className="bg-amber-50 p-4 rounded-lg mb-4 border border-amber-200">
+                    <p className="text-gray-700">
+                      Take advantage of our special summer pricing for all events booked during the summer season.
+                    </p>
                   </div>
                 </div>
                 
@@ -357,12 +328,10 @@ export default function Experiences() {
                   </Link>
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
-                  <OptimizedImage
+                  <img
                     src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
                     alt="DCP Film Release Events"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="rounded-lg"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
               </div>
@@ -372,12 +341,10 @@ export default function Experiences() {
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="relative h-96 rounded-lg overflow-hidden">
-                  <OptimizedImage
+                  <img
                     src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
                     alt="Private Parties & Sports Events"
-                    fill
-                    style={{ objectFit: "cover" }}
-                    className="rounded-lg"
+                    className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
                 <div>
