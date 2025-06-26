@@ -153,7 +153,7 @@ export default function CanucksHockeyGames() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/blog-articles/lights-camera-action-welcome-to-reel-room">
                         Lights, Camera, Action! Welcome to Reel Room
                       </Link>
@@ -182,7 +182,7 @@ export default function CanucksHockeyGames() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room">
                         DCP and Movie Premieres at The Reel Room
                       </Link>
@@ -211,7 +211,7 @@ export default function CanucksHockeyGames() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/experiences">
                         Experiences & Pricing
                       </Link>

@@ -127,7 +127,7 @@ export default function Blog() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       <div className="p-6">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 group-hover:text-brand-gold transition-colors">{post.title}</h2>
+                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black group-hover:text-brand-gold transition-colors">{post.title}</h2>
                         <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
                         <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
                           Read on Magpie Wedding
@@ -148,7 +148,7 @@ export default function Blog() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       <div className="p-6">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 group-hover:text-brand-gold transition-colors">{post.title}</h2>
+                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black group-hover:text-brand-gold transition-colors">{post.title}</h2>
                         <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
                         <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
                           Read Article

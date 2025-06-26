@@ -76,11 +76,11 @@ export default function BlogSection() {
                 </div>
               </Link>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-900 hover:text-[#0066CC] transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-black hover:text-brand-gold transition-colors">
                   <Link href={post.link}>{post.title}</Link>
                 </h3>
                 <p className="text-gray-500 mb-4">{post.excerpt}</p>
-                <Link href={post.link} className="text-[#0066CC] font-medium hover:text-[#004C99] inline-flex items-center">
+                <Link href={post.link} className="text-brand-gold font-medium hover:text-amber-700 inline-flex items-center">
                   Read More
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -92,7 +92,7 @@ export default function BlogSection() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/blogs" className="inline-block bg-[#0066CC] text-white px-6 py-3 rounded-md hover:bg-[#004C99] transition-colors">
+          <Link href="/blogs" className="inline-block bg-brand-gold text-black px-6 py-3 rounded-md hover:bg-amber-700 hover:text-white transition-colors">
             View All Posts
           </Link>
         </div>

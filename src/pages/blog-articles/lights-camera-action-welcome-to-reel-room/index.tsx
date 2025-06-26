@@ -137,7 +137,7 @@ export default function LightsCameraAction() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room">
                         DCP and Movie Premieres at The Reel Room
                       </Link>
@@ -166,7 +166,7 @@ export default function LightsCameraAction() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/experiences">
                         Experiences & Pricing
                       </Link>
@@ -195,7 +195,7 @@ export default function LightsCameraAction() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/media">
                         Media Gallery
                       </Link>

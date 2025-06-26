@@ -154,7 +154,7 @@ export default function DCPMoviePremieres() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/blog-articles/lights-camera-action-welcome-to-reel-room">
                         Lights, Camera, Action! Welcome to Reel Room
                       </Link>
@@ -183,7 +183,7 @@ export default function DCPMoviePremieres() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/blog-articles/canucks-hockey-games-at-the-reel-room">
                         The Ultimate Canucks Game Day Experience
                       </Link>
@@ -212,7 +212,7 @@ export default function DCPMoviePremieres() {
                     </div>
                   </Link>
                   <div className="p-5">
-                    <h3 className="text-xl font-bold mb-2 text-white">
+                    <h3 className="text-xl font-bold mb-2 text-black">
                       <Link href="/experiences">
                         Experiences & Pricing
                       </Link>
