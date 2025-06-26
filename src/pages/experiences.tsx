@@ -39,7 +39,7 @@ export default function Experiences() {
         {/* Hero Section */}
         <div className="relative h-[500px] overflow-hidden">
           <OptimizedImage
-            src="/photos/homepage-originals/DSC03097-Enhanced-NR.jpg"
+            src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg"
             alt="The Reel Room Experience"
             fill
             style={{ objectFit: "cover" }}
@@ -163,18 +163,19 @@ export default function Experiences() {
                 
                 <div className="text-center">
                   <p className="text-xs text-gray-500">Offer valid May 1 - October 15, 2025. Cannot be combined with other promotions.</p>
+                  <p className="text-xs text-gray-500 mt-1">Message us at info@reelroom.ca for summer rate quotes.</p>
                 </div>
               </div>
               
-              {/* Lunch Rates Promotion */}
+              {/* Weekday Evening Rates Promotion */}
               <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-200 transform scale-90 mx-auto">
                 <div className="text-center mb-4">
-                  <h2 className="text-2xl font-bold text-blue-600">Lunch Rates!</h2>
+                  <h2 className="text-2xl font-bold text-blue-600">Weekday Evening Rates!</h2>
                   <div className="flex justify-center my-3">
                     <div className="h-1 w-12 bg-blue-400 rounded"></div>
                   </div>
                   <p className="text-lg text-gray-700">
-                    Enjoy <span className="text-xl font-bold text-blue-600">25% OFF</span> for bookings ending before 4pm!
+                    Enjoy <span className="text-xl font-bold text-blue-600">25% OFF</span> for weekday evening bookings!
                   </p>
                 </div>
                 
@@ -184,7 +185,7 @@ export default function Experiences() {
                     <span className="text-gray-700">$2,100</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-blue-700 font-medium">Lunch Discount (25%):</span>
+                    <span className="text-blue-700 font-medium">Weekday Evening Discount (25%):</span>
                     <span className="text-blue-700 font-medium">-$525</span>
                   </div>
                   <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
@@ -214,7 +215,111 @@ export default function Experiences() {
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-xs text-gray-500">All bookings must end before 4:00 PM. Cannot be combined with other promotions.</p>
+                  <p className="text-xs text-gray-500">Valid Monday-Thursday evenings. Cannot be combined with other promotions.</p>
+                </div>
+              </div>
+              
+              {/* Weekend Lunch Rates */}
+              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-green-200 transform scale-90 mx-auto">
+                <div className="text-center mb-4">
+                  <h2 className="text-2xl font-bold text-green-600">Weekend Lunch Rates!</h2>
+                  <div className="flex justify-center my-3">
+                    <div className="h-1 w-12 bg-green-400 rounded"></div>
+                  </div>
+                  <p className="text-lg text-gray-700">
+                    Enjoy <span className="text-xl font-bold text-green-600">25% OFF</span> for weekend lunch bookings!
+                  </p>
+                </div>
+                
+                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">Base Venue Fee:</span>
+                    <span className="text-gray-700">$2,100</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-green-700 font-medium">Weekend Lunch Discount (25%):</span>
+                    <span className="text-green-700 font-medium">-$525</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700">Discounted Venue Fee:</span>
+                    <span className="text-gray-700">$1,575</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Event Manager:</span>
+                    <span className="text-gray-700">$255</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Cleaning Fee:</span>
+                    <span className="text-gray-700">$300</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700 font-medium">Subtotal:</span>
+                    <span className="text-gray-700 font-medium">$2,130</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ 5% Tax:</span>
+                    <span className="text-gray-700">$106.50</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
+                    <span className="text-green-700 font-bold">Final Price:</span>
+                    <span className="text-green-700 font-bold">$2,236.50</span>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <p className="text-xs text-gray-500">Valid Friday-Sunday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
+                </div>
+              </div>
+              
+              {/* Weekday Lunch Rates */}
+              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-purple-200 transform scale-90 mx-auto">
+                <div className="text-center mb-4">
+                  <h2 className="text-2xl font-bold text-purple-600">Weekday Lunch Rates!</h2>
+                  <div className="flex justify-center my-3">
+                    <div className="h-1 w-12 bg-purple-400 rounded"></div>
+                  </div>
+                  <p className="text-lg text-gray-700">
+                    Enjoy <span className="text-xl font-bold text-purple-600">45% OFF</span> for weekday lunch bookings!
+                  </p>
+                </div>
+                
+                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">Base Venue Fee:</span>
+                    <span className="text-gray-700">$2,100</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-purple-700 font-medium">Weekday Lunch Discount (45%):</span>
+                    <span className="text-purple-700 font-medium">-$945</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700">Discounted Venue Fee:</span>
+                    <span className="text-gray-700">$1,155</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Event Manager:</span>
+                    <span className="text-gray-700">$255</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ Cleaning Fee:</span>
+                    <span className="text-gray-700">$300</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
+                    <span className="text-gray-700 font-medium">Subtotal:</span>
+                    <span className="text-gray-700 font-medium">$1,710</span>
+                  </div>
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="text-gray-700">+ 5% Tax:</span>
+                    <span className="text-gray-700">$85.50</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
+                    <span className="text-purple-700 font-bold">Final Price:</span>
+                    <span className="text-purple-700 font-bold">$1,795.50</span>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <p className="text-xs text-gray-500">Valid Monday-Thursday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
                 </div>
               </div>
             </div>
@@ -252,7 +357,13 @@ export default function Experiences() {
                   </Link>
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
-                  <LazyVimeoPlayer videoId="1027464900" />
+                  <OptimizedImage
+                    src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+                    alt="DCP Film Release Events"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="rounded-lg"
+                  />
                 </div>
               </div>
             </div>
@@ -261,7 +372,13 @@ export default function Experiences() {
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="relative h-96 rounded-lg overflow-hidden">
-                  <LazyVimeoPlayer videoId="1082926490" />
+                  <OptimizedImage
+                    src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+                    alt="Private Parties & Sports Events"
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="rounded-lg"
+                  />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-4">Private Parties & Sports Events</h3>
@@ -380,7 +497,7 @@ export default function Experiences() {
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
                 <div className="h-48 mb-6 rounded overflow-hidden">
                   <img
-                    src="/photos/homepage-originals/DSC03124-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03104-Enhanced-NR.jpg"
                     alt="Photo Booth"
                     className="w-full h-full object-cover"
                   />

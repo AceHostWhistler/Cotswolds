@@ -60,7 +60,7 @@ export default function BookNow() {
           {/* Hero Section */}
           <div className="relative h-[50vh]">
             <Image
-              src="/photos/listings/Cascade Exterior/IMG_8867.jpg"
+              src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
               alt="Ace Cascade Lodge exterior"
               fill
               priority
