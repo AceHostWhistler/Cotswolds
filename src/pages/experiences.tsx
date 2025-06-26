@@ -39,15 +39,10 @@ export default function Experiences() {
       <main className="pt-20">
         {/* Hero Section */}
         <div className="relative h-[500px] overflow-hidden">
-          <Image
+          <img
             src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg"
             alt="The Reel Room Experience"
-            fill
-            priority
-            quality={95}
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-            className="absolute inset-0"
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">

@@ -36,15 +36,10 @@ export default function BookNow() {
         <main className="pt-20">
           {/* Hero Section */}
           <div className="relative h-[50vh]">
-            <Image
+            <img
               src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
               alt="Reel Room Booking"
-              fill
-              priority
-              quality={95}
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-              className="absolute inset-0"
+              className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent flex items-center justify-center">
               <div className="text-center max-w-4xl px-4 drop-shadow-lg">
