@@ -18,10 +18,9 @@ module.exports = {
         'screen-ios': '-webkit-fill-available',
       },
       colors: {
-        'ace-blue': '#333333',
-        'ace-blue-dark': '#222222',
+        'brand-blue': '#5d87a1',
         'brand-gold': '#ba9765',
-        'brand-cream': '#f5f0e8',
+        'brand-cream': '#f1e3c5',
         blue: {
           50: '#f8f8f8',
           100: '#f0f0f0',

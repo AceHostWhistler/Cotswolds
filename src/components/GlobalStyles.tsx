@@ -2,21 +2,21 @@
 const GlobalStyles = () => {
   return (
     <style jsx global>{`
-      /* Change any hover effects to blue */
+      /* Use brand colors for hover effects */
       a {
         text-decoration: none;
-        color: #0066CC;
+        color: #ba9765; /* brand-gold */
       }
       a:hover {
-        color: #0066CC !important;
+        color: #ba9765 !important; /* brand-gold */
       }
 
       button:hover {
-        color: #0066CC;
+        color: #ba9765; /* brand-gold */
       }
 
       .hover-text:hover {
-        color: #0066CC !important;
+        color: #ba9765 !important; /* brand-gold */
       }
     `}</style>
   );

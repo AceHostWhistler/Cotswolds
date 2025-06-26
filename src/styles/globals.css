@@ -135,7 +135,7 @@ img, video {
 
 /* Hover effects */
 a:hover, .hover-text:hover {
-  color: #ba9765 !important;
+  color: var(--color-gold) !important;
 }
 
 /* Fix for any potential CLS from buttons/hover states */
@@ -161,7 +161,7 @@ a:hover, .hover-text:hover {
 [style*="color: #004C99"],
 .text-ace-blue,
 .text-ace-blue-dark {
-  color: white !important;
+  color: var(--color-blue) !important;
 }
 
 /* Override hover states */
@@ -172,7 +172,7 @@ a:hover, .hover-text:hover {
 .hover\:text-blue-50:hover, .hover\:text-blue-950:hover,
 .hover\:text-ace-blue:hover,
 .hover\:text-ace-blue-dark:hover {
-  color: white !important;
+  color: var(--color-gold) !important;
 }
 
 /* Force background colors */
@@ -192,7 +192,7 @@ a:hover, .hover-text:hover {
 [style*="background-color: #004C99"],
 .bg-ace-blue,
 .bg-ace-blue-dark {
-  background-color: black !important;
+  background-color: var(--color-blue) !important;
 }
 
 /* Override hover background states */
@@ -205,7 +205,7 @@ a:hover, .hover-text:hover {
 .hover\:bg-ace-blue-dark:hover,
 .hover\:bg-\[\#0066CC\]:hover,
 .hover\:bg-\[\#004C99\]:hover {
-  background-color: #333333 !important;
+  background-color: var(--color-gold) !important;
 }
 
 /* Force border colors */
@@ -215,7 +215,7 @@ a:hover, .hover-text:hover {
 .border-blue-50, .border-blue-950,
 .border-ace-blue,
 .border-ace-blue-dark {
-  border-color: white !important;
+  border-color: var(--color-blue) !important;
 }
 
 /* Override focus ring colors */
@@ -224,7 +224,7 @@ a:hover, .hover-text:hover {
 .focus\:ring-blue-400:focus, .focus\:ring-blue-500:focus, .focus\:ring-blue-600:focus,
 .focus\:ring-blue-700:focus, .focus\:ring-blue-800:focus, .focus\:ring-blue-900:focus,
 .focus\:ring-blue-50:focus, .focus\:ring-blue-950:focus {
-  --tw-ring-color: black !important;
+  --tw-ring-color: var(--color-gold) !important;
 }
 
 /* Apple-style clean UI overrides */
@@ -336,7 +336,7 @@ html {
 .text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800, .text-blue-900,
 .text-blue-50, .text-blue-950 {
   /* Use gold color for accents instead of white for better contrast */
-  color: #ba9765 !important;
+  color: var(--color-gold) !important;
 }
 
 /* Force background colors with better contrast handling */
@@ -344,8 +344,8 @@ html {
 .bg-blue-100, .bg-blue-200, .bg-blue-300, .bg-blue-400, 
 .bg-blue-500, .bg-blue-600, .bg-blue-700, .bg-blue-800, .bg-blue-900,
 .bg-blue-50, .bg-blue-950 {
-  /* Use black instead of transparent for better contrast */
-  background-color: black !important;
+  /* Use brand blue instead of black for better contrast */
+  background-color: var(--color-blue) !important;
   color: white !important;
 }
 
