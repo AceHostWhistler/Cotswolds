@@ -18,11 +18,13 @@ export default function Home() {
   useEffect(() => {
     setIsPageLoaded(true);
     
-    // Load Vimeo script for the iframe embeds
+    // Load Vimeo script for the iframe embeds - with high priority
     const script = document.createElement('script');
     script.src = 'https://player.vimeo.com/api/player.js';
-    script.async = true;
-    document.body.appendChild(script);
+    script.async = false; // Load synchronously for faster execution
+    script.defer = false;
+    script.setAttribute('fetchpriority', 'high');
+    document.head.appendChild(script); // Add to head instead of body for faster parsing
     
     return () => {
       // Clean up script when component unmounts
@@ -114,12 +116,17 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        {/* Preload the video for better performance */}
-        <link rel="preload" href="/videos/homepage-bg.mp4" as="video" type="video/mp4" />
+        {/* Preconnect to Vimeo domains for faster loading */}
+        <link rel="preconnect" href="https://player.vimeo.com" />
+        <link rel="preconnect" href="https://i.vimeocdn.com" />
+        <link rel="preconnect" href="https://f.vimeocdn.com" />
+        <link rel="preload" href="https://player.vimeo.com/api/player.js" as="script" />
+        {/* Preload the specific video */}
+        <link rel="preload" href="https://player.vimeo.com/video/1082926490?autoplay=1&muted=1&loop=1&background=1&controls=0&quality=auto&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&dnt=1" as="document" />
       </Head>
 
       {/* Include our video loader helper script */}
-      <Script src="/video-loader.js" strategy="afterInteractive" />
+      <Script src="/video-loader.js" strategy="beforeInteractive" />
       
       <div className="relative min-h-screen bg-black">
         {/* Gold Diamond Pattern Background */}
@@ -174,6 +181,7 @@ export default function Home() {
                     responsive={true}
                     background={true}
                     coverMode={true}
+                    priority={true}
                     className="w-full h-full"
                   />
                 </div>
