@@ -93,10 +93,10 @@ const LazyVimeoPlayer = ({
         position: 'absolute' as const,
         top: '50%',
         left: '50%',
-        width: '150%',
-        height: '150%',
-        minHeight: '150%',
-        minWidth: '150%',
+        width: '200%',
+        height: '200%',
+        minHeight: '200%',
+        minWidth: '200%',
         transform: 'translate(-50%, -50%)'
       } 
     : defaultIframeStyle;
