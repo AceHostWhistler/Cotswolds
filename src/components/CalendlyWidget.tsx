@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Head from 'next/head';
 
 interface CalendlyWidgetProps {
@@ -15,7 +15,22 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
   url = 'https://calendly.com/reelroom-info?primary_color=f7be01&hide_gdpr_banner=1',
   height = 700 
 }) => {
+  // Create a ref for the widget container
+  const widgetRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    // Function to initialize the widget
+    const initializeWidget = () => {
+      if (window.Calendly && widgetRef.current) {
+        window.Calendly.initInlineWidget({
+          url: url,
+          parentElement: widgetRef.current,
+          prefill: {},
+          utm: {}
+        });
+      }
+    };
+
     // Only load the script once across all widgets
     if (!calendlyScriptLoaded) {
       // Create script
@@ -26,16 +41,8 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       // Add onload handler to track when script is loaded
       script.onload = () => {
         calendlyScriptLoaded = true;
-        
-        // Force widget initialization if Calendly is loaded
-        if (window.Calendly) {
-          window.Calendly.initInlineWidget({
-            url: url,
-            parentElement: document.querySelector('.calendly-inline-widget'),
-            prefill: {},
-            utm: {}
-          });
-        }
+        // Initialize widget after script is loaded
+        setTimeout(initializeWidget, 100); // Small delay to ensure DOM is ready
       };
       
       // Append to document
@@ -47,13 +54,31 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       };
     } else if (window.Calendly) {
       // If script already loaded, initialize immediately
-      window.Calendly.initInlineWidget({
-        url: url,
-        parentElement: document.querySelector('.calendly-inline-widget'),
-        prefill: {},
-        utm: {}
-      });
+      setTimeout(initializeWidget, 100);
     }
+  }, [url]);
+
+  // Add a resize handler for mobile devices
+  useEffect(() => {
+    const handleResize = () => {
+      // Force re-initialization on resize to fix mobile issues
+      if (window.Calendly && widgetRef.current) {
+        window.Calendly.initInlineWidget({
+          url: url,
+          parentElement: widgetRef.current,
+          prefill: {},
+          utm: {}
+        });
+      }
+    };
+
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, [url]);
 
   return (
@@ -61,10 +86,20 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       <Head>
         {/* Preload the Calendly script */}
         <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
+        
+        {/* Add mobile-specific meta tag for better mobile experience */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
-      <div className={`calendly-inline-widget ${className}`} 
-           data-url={url} 
-           style={{ minWidth: 320, height }}
+      <div 
+        ref={widgetRef}
+        className={`calendly-inline-widget ${className}`} 
+        data-url={url} 
+        style={{ 
+          minWidth: 320, 
+          height,
+          width: '100%',
+          overflow: 'hidden'
+        }}
       />
     </>
   );

@@ -104,6 +104,13 @@ export default function Home() {
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+    
+    // Add a class to the body to prevent scrolling when menu is open
+    if (!menuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
   };
   
   // Define structured data for the homepage
@@ -173,7 +180,7 @@ export default function Home() {
         }}></div>
         
         {/* Top Navigation Links - Responsive improvements */}
-        <div className="absolute top-10 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
+        <div className="absolute top-5 xs:top-10 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
           <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-4 sm:space-x-8 md:space-x-16">
             <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
@@ -191,11 +198,11 @@ export default function Home() {
         {/* Menu Button - Adjusted for better mobile UX */}
         <div className="absolute top-6 sm:top-10 right-4 sm:right-10 z-40">
           <button 
-            className="text-brand-gold p-2 bg-black/50 backdrop-blur-sm rounded-md" 
+            className="text-brand-gold p-2 bg-black/50 backdrop-blur-sm rounded-md border border-brand-gold/30" 
             onClick={toggleMenu}
             aria-label="Menu"
           >
-            <svg className="w-6 sm:w-8 h-6 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
@@ -269,10 +276,10 @@ export default function Home() {
                 />
               </div>
               <div className="w-full xs:w-1/2 p-3 sm:p-5">
-                <h3 className="heading-font text-base sm:text-xl font-light mb-2 sm:mb-3">
+                <h3 className="heading-font text-sm xs:text-base sm:text-xl font-light mb-1 sm:mb-3">
                   Reel Room featured in Elle Magazine & Magpie Wedding
                 </h3>
-                <p className="body-font text-xs sm:text-sm mb-2 sm:mb-4">
+                <p className="body-font text-xs sm:text-sm mb-1 sm:mb-4">
                   Click here to view the article for your wedding inspiration
                 </p>
                 
@@ -292,39 +299,39 @@ export default function Home() {
       </div>
       
       {/* Mobile Navigation Menu - Enhanced for better UX */}
-      <div className={`fixed inset-0 bg-black bg-opacity-95 z-50 transition-all duration-300 ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
-        <div className="h-full flex flex-col items-center justify-center text-white space-y-6 sm:space-y-8 py-16 px-4">
+      <div className={`fixed inset-0 bg-black z-50 transition-all duration-300 ${menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+        <div className="h-full flex flex-col items-center justify-center text-white space-y-8 py-16 px-4">
           <Link 
             href="/" 
-            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            className="heading-font text-3xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Home
           </Link>
           <Link 
             href="/experiences" 
-            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            className="heading-font text-3xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Experiences & Pricing
           </Link>
           <Link 
             href="/reservations" 
-            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            className="heading-font text-3xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Reservations
           </Link>
           <Link 
             href="/media" 
-            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            className="heading-font text-3xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Media & FAQs
           </Link>
           <Link 
             href="/blog" 
-            className="heading-font text-xl sm:text-2xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
+            className="heading-font text-3xl uppercase tracking-widest font-light hover:text-brand-gold transition-colors"
             onClick={() => setMenuOpen(false)}
           >
             Reel Room Blog
@@ -332,11 +339,11 @@ export default function Home() {
         </div>
         
         <button 
-          className="absolute top-6 right-4 sm:top-8 sm:right-8 text-brand-gold p-2 bg-black/50 backdrop-blur-sm rounded-md" 
+          className="absolute top-6 right-4 text-brand-gold p-2 bg-black/80 backdrop-blur-sm rounded-md border border-brand-gold/30" 
           onClick={toggleMenu}
           aria-label="Close menu"
         >
-          <svg className="w-6 sm:w-8 h-6 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>

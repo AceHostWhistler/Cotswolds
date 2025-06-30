@@ -5,10 +5,12 @@ export default function Document() {
     <Html lang="en">
       <Head>
         {/* Proper viewport settings for mobile devices */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no, maximum-scale=1.0" />
         {/* iOS specific meta tags */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         
         {/* Early connection hints for critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
@@ -78,10 +80,31 @@ export default function Document() {
               @supports (-webkit-touch-callout: none) {
                 html, body {
                   height: -webkit-fill-available;
+                  min-height: -webkit-fill-available;
                 }
                 .fixed {
                   -webkit-transform: translateZ(0);
                 }
+                .min-h-screen {
+                  min-height: -webkit-fill-available;
+                }
+                .h-screen {
+                  height: -webkit-fill-available;
+                }
+                /* Fix for mobile menu */
+                .overflow-hidden {
+                  position: fixed;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+              
+              /* Fix for mobile menu toggle */
+              body.overflow-hidden {
+                overflow: hidden;
+                position: fixed;
+                width: 100%;
+                height: 100%;
               }
             `,
           }}
