@@ -34,7 +34,26 @@ const LazyVimeoPlayer = ({
   priority = false
 }: LazyVimeoPlayerProps) => {
   const [isIntersecting, setIsIntersecting] = useState(priority ? true : false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  
+  // Check if we're on mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice = /iphone|ipod|ipad|android|blackberry|windows phone/g.test(userAgent);
+      setIsMobile(isMobileDevice);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
   
   useEffect(() => {
     // If priority is true, we always want to load the video immediately
@@ -61,6 +80,22 @@ const LazyVimeoPlayer = ({
       observer.disconnect();
     };
   }, [priority]);
+  
+  // Handle iframe load event
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+    
+    const handleLoad = () => {
+      setIsLoaded(true);
+    };
+    
+    iframe.addEventListener('load', handleLoad);
+    
+    return () => {
+      iframe.removeEventListener('load', handleLoad);
+    };
+  }, [isIntersecting]);
   
   // Build the URL with parameters
   const buildVimeoUrl = () => {
@@ -92,40 +127,63 @@ const LazyVimeoPlayer = ({
     return url;
   };
   
-  const defaultContainerStyle: CSSProperties = responsive 
-    ? { 
-        padding: '56.25% 0 0 0', 
-        position: 'relative' as const 
-      } 
-    : {};
+  // Use different styles for mobile vs desktop
+  const getContainerStyle = (): CSSProperties => {
+    if (!responsive) return {};
     
-  const containerStyle = coverMode 
-    ? { ...defaultContainerStyle, position: 'relative' as const, overflow: 'hidden' }
-    : defaultContainerStyle;
+    const baseStyle: CSSProperties = { 
+      position: 'relative',
+      overflow: 'hidden',
+      width: '100%',
+      height: '100%'
+    };
     
-  const defaultIframeStyle: CSSProperties = responsive 
-    ? { 
-        position: 'absolute' as const, 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '100%' 
-      } 
-    : {};
+    // For non-cover mode or mobile, use standard responsive container
+    if (!coverMode || isMobile) {
+      return {
+        ...baseStyle,
+        paddingBottom: '56.25%', // 16:9 aspect ratio
+      };
+    }
     
-  const iframeStyle = coverMode 
-    ? { 
-        ...defaultIframeStyle, 
-        position: 'absolute' as const,
-        top: '50%',
-        left: '50%',
-        width: '200%',
-        height: '200%',
-        minHeight: '200%',
-        minWidth: '200%',
-        transform: 'translate(-50%, -50%)'
-      } 
-    : defaultIframeStyle;
+    // For cover mode on desktop
+    return {
+      ...baseStyle,
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%'
+    };
+  };
+  
+  // Get iframe style based on device and mode
+  const getIframeStyle = (): CSSProperties => {
+    const baseStyle: CSSProperties = {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%'
+    };
+    
+    // For mobile or non-cover mode, use standard iframe
+    if (!coverMode || isMobile) {
+      return baseStyle;
+    }
+    
+    // For cover mode on desktop
+    return {
+      ...baseStyle,
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      width: '100%',
+      height: '100%',
+      transform: 'translate(-50%, -50%) scale(1.2)',
+      objectFit: 'cover'
+    };
+  };
   
   return (
     <>
@@ -139,16 +197,28 @@ const LazyVimeoPlayer = ({
         {priority && <link rel="preload" href={`https://player.vimeo.com/video/${videoId}`} as="document" />}
       </Head>
       
-      <div ref={ref} className={`vimeo-player-wrapper ${className}`} style={containerStyle}>
+      <div 
+        ref={ref} 
+        className={`vimeo-player-wrapper ${className} ${!isLoaded ? 'bg-black' : ''}`} 
+        style={getContainerStyle()}
+      >
+        {/* Loading indicator */}
+        {!isLoaded && (isIntersecting || autoplay || priority) && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black">
+            <div className="w-10 h-10 border-4 border-brand-gold/30 border-t-brand-gold rounded-full animate-spin"></div>
+          </div>
+        )}
+        
         {(isIntersecting || autoplay || priority) && (
           <iframe
+            ref={iframeRef}
             src={buildVimeoUrl()}
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
-            style={iframeStyle}
+            style={getIframeStyle()}
             title={`Vimeo Player ${videoId}`}
             loading={priority ? "eager" : "lazy"}
-            className={coverMode ? "vimeo-cover object-cover" : ""}
+            className={`${coverMode ? "vimeo-cover" : ""} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
           ></iframe>
         )}
       </div>

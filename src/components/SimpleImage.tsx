@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface SimpleImageProps {
   src: string;
@@ -6,17 +6,29 @@ interface SimpleImageProps {
   fallbackSrc?: string;
   className?: string;
   style?: React.CSSProperties;
+  loading?: 'lazy' | 'eager';
+  decoding?: 'async' | 'sync' | 'auto';
 }
 
 export default function SimpleImage({ 
   src, 
   alt, 
-  fallbackSrc = '/photos/listings/Cascade Exterior/IMG_8523.jpg', 
+  fallbackSrc = '/photos/homepage-originals/DSC03125-Enhanced-NR.jpg', 
   className = '',
-  style = {}
+  style = {},
+  loading = 'lazy',
+  decoding = 'async'
 }: SimpleImageProps) {
   const [imgSrc, setImgSrc] = useState<string>(src);
   const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Reset state when src changes
+  useEffect(() => {
+    setImgSrc(src);
+    setHasError(false);
+    setIsLoaded(false);
+  }, [src]);
 
   const handleError = () => {
     if (!hasError && fallbackSrc) {
@@ -26,18 +38,33 @@ export default function SimpleImage({
     }
   };
 
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
+
   return (
-    <img
-      src={imgSrc}
-      alt={alt}
-      className={className}
-      style={{
-        objectFit: 'cover',
-        width: '100%',
-        height: '100%',
-        ...style
-      }}
-      onError={handleError}
-    />
+    <div className={`relative ${className}`} style={{
+      backgroundColor: '#111',
+      overflow: 'hidden',
+      ...style
+    }}>
+      {/* Loading placeholder */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gray-800 animate-pulse"></div>
+      )}
+      
+      <img
+        src={imgSrc}
+        alt={alt}
+        className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        onError={handleError}
+        onLoad={handleLoad}
+        loading={loading}
+        decoding={decoding}
+        style={{
+          objectFit: 'cover',
+        }}
+      />
+    </div>
   );
 } 

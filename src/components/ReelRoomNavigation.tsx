@@ -48,23 +48,30 @@ const ReelRoomNavigation: React.FC = () => {
       }
     };
     
-    // Remove the body scroll lock to fix scrolling issues
-    // We'll use a different approach for the mobile menu
-    
     window.addEventListener('scroll', handleScroll);
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       // Ensure overflow is restored when component unmounts
       document.body.style.overflow = '';
+      document.body.classList.remove('overflow-hidden');
     };
-  }, [isMobileMenuOpen]);
+  }, []);
   
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    
+    // Add/remove body class to prevent scrolling when menu is open
+    if (!isMobileMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
   };
   
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    document.body.classList.remove('overflow-hidden');
   };
   
   return (
@@ -103,7 +110,7 @@ const ReelRoomNavigation: React.FC = () => {
           
           {/* Mobile Menu Button - Improved touch target */}
           <button 
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md bg-black/50" 
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md bg-black/50 border border-brand-gold/30" 
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
@@ -113,7 +120,7 @@ const ReelRoomNavigation: React.FC = () => {
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor" 
-              className="h-6 w-6 text-white"
+              className="h-8 w-8 text-brand-gold"
             >
               <path 
                 strokeLinecap="round" 
@@ -126,43 +133,52 @@ const ReelRoomNavigation: React.FC = () => {
         </div>
       </div>
       
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div 
-          className="md:hidden fixed inset-0 bg-black/95 backdrop-blur-md z-40 flex flex-col"
-          style={{
-            paddingTop: 'calc(env(safe-area-inset-top) + 5rem)',
-            paddingBottom: 'env(safe-area-inset-bottom)',
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 40,
-            overflowY: 'auto'
-          }}
-        >
-          <nav className="flex flex-col items-center space-y-6 p-6 text-center">
-            <NavLink href="/" mobile onClick={closeMobileMenu}>Home</NavLink>
-            <NavLink href="/experiences" mobile onClick={closeMobileMenu}>Experiences</NavLink>
-            <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Book Now</NavLink>
-            <NavLink href="/media" mobile onClick={closeMobileMenu}>Media & FAQs</NavLink>
-            <NavLink href="/blog" mobile onClick={closeMobileMenu}>Blog</NavLink>
-          </nav>
-          
-          <div className="mt-auto p-6 text-center">
-            <p className="text-white/70 text-sm mb-4">
-              The Reel Room | Vancouver's Premier Private Theatre
-            </p>
-            <a 
-              href="mailto:info@reelroom.ca"
-              className="text-white/90 hover:text-brand-gold transition-colors text-lg"
-            >
-              info@reelroom.ca
-            </a>
-          </div>
+      {/* Mobile Menu - Full screen with improved visibility */}
+      <div 
+        className={`md:hidden fixed inset-0 bg-black z-50 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+        style={{
+          paddingTop: 'calc(env(safe-area-inset-top) + 5rem)',
+          paddingBottom: 'env(safe-area-inset-bottom)',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 50,
+          overflowY: 'auto'
+        }}
+      >
+        <nav className="flex flex-col items-center space-y-6 p-6 text-center">
+          <NavLink href="/" mobile onClick={closeMobileMenu}>Home</NavLink>
+          <NavLink href="/experiences" mobile onClick={closeMobileMenu}>Experiences</NavLink>
+          <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Book Now</NavLink>
+          <NavLink href="/media" mobile onClick={closeMobileMenu}>Media & FAQs</NavLink>
+          <NavLink href="/blog" mobile onClick={closeMobileMenu}>Blog</NavLink>
+        </nav>
+        
+        <div className="mt-auto p-6 text-center">
+          <p className="text-white/70 text-sm mb-4">
+            The Reel Room | Vancouver's Premier Private Theatre
+          </p>
+          <a 
+            href="mailto:info@reelroom.ca"
+            className="text-white/90 hover:text-brand-gold transition-colors text-lg"
+          >
+            info@reelroom.ca
+          </a>
         </div>
-      )}
+        
+        {/* Close button */}
+        <button 
+          className="absolute top-6 right-4 text-brand-gold p-2 bg-black/80 backdrop-blur-sm rounded-md border border-brand-gold/30" 
+          onClick={closeMobileMenu}
+          aria-label="Close menu"
+        >
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
     </header>
   );
 };
