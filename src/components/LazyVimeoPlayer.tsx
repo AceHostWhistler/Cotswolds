@@ -36,22 +36,28 @@ const LazyVimeoPlayer = ({
   const [isIntersecting, setIsIntersecting] = useState(priority ? true : false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   
-  // Check if we're on mobile
+  // Check if we're on mobile and iOS devices
   useEffect(() => {
-    const checkMobile = () => {
+    const checkDevice = () => {
       const userAgent = navigator.userAgent.toLowerCase();
       const isMobileDevice = /iphone|ipod|ipad|android|blackberry|windows phone/g.test(userAgent);
       setIsMobile(isMobileDevice);
+      
+      // Check specifically for iOS devices
+      const isIOSDevice = /iphone|ipod|ipad/i.test(userAgent) || 
+                         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      setIsIOS(isIOSDevice);
     };
     
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
     
     return () => {
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener('resize', checkDevice);
     };
   }, []);
   
@@ -88,6 +94,18 @@ const LazyVimeoPlayer = ({
     
     const handleLoad = () => {
       setIsLoaded(true);
+      
+      // For iOS devices, explicitly try to interact with the iframe after loading
+      if (isIOS && iframe.contentWindow) {
+        try {
+          // Send postMessage to Vimeo player to ensure it's ready to play
+          iframe.contentWindow.postMessage(JSON.stringify({
+            method: 'play'
+          }), '*');
+        } catch (e) {
+          console.error('Error interacting with Vimeo iframe:', e);
+        }
+      }
     };
     
     iframe.addEventListener('load', handleLoad);
@@ -95,7 +113,36 @@ const LazyVimeoPlayer = ({
     return () => {
       iframe.removeEventListener('load', handleLoad);
     };
-  }, [isIntersecting]);
+  }, [isIntersecting, isIOS]);
+  
+  // Handle iOS-specific video playback via message events
+  useEffect(() => {
+    if (!isIOS) return;
+    
+    // Listen for messages from the Vimeo iframe
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin !== 'https://player.vimeo.com') return;
+      
+      try {
+        const data = JSON.parse(event.data);
+        
+        // If we receive ready event from Vimeo, send play command
+        if (data.event === 'ready' && iframeRef.current?.contentWindow) {
+          iframeRef.current.contentWindow.postMessage(JSON.stringify({
+            method: 'play'
+          }), '*');
+        }
+      } catch (e) {
+        // Ignore parsing errors for non-JSON messages
+      }
+    };
+    
+    window.addEventListener('message', handleMessage);
+    
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, [isIOS]);
   
   // Build the URL with parameters
   const buildVimeoUrl = () => {
@@ -110,16 +157,14 @@ const LazyVimeoPlayer = ({
     // Add quality parameter for faster initial load
     url += 'quality=auto&';
     
-    // Add playsinline for iOS compatibility
+    // Add playsinline for mobile compatibility
     url += 'playsinline=1&';
     
-    // Check if iOS and add specific parameters
-    const isIOS = typeof navigator !== 'undefined' && 
-                 (/iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1));
-    
+    // Add iOS specific parameters
     if (isIOS) {
       url += 'webkit-playsinline=1&';
+      // Force lower quality on iOS for better performance
+      url += 'quality=540p&';
     }
     
     url += 'title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&dnt=1';
@@ -137,6 +182,19 @@ const LazyVimeoPlayer = ({
       width: '100%',
       height: '100%'
     };
+    
+    // iOS devices need special treatment
+    if (isIOS) {
+      return {
+        ...baseStyle,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden'
+      };
+    }
     
     // For non-cover mode or mobile, use standard responsive container
     if (!coverMode || isMobile) {
@@ -167,6 +225,23 @@ const LazyVimeoPlayer = ({
       height: '100%'
     };
     
+    // Special case for iOS
+    if (isIOS) {
+      return {
+        ...baseStyle,
+        position: 'absolute',
+        top: '-50%',
+        left: '-50%',
+        width: '200%',
+        height: '200%', 
+        transform: 'scale(0.5)',
+        transformOrigin: 'center center',
+        // These properties ensure the video fills the container on iOS
+        objectFit: 'cover',
+        objectPosition: 'center'
+      };
+    }
+    
     // For mobile or non-cover mode, use standard iframe
     if (!coverMode || isMobile) {
       return baseStyle;
@@ -194,7 +269,7 @@ const LazyVimeoPlayer = ({
         <link rel="preconnect" href="https://f.vimeocdn.com" />
         
         {/* Preload the video if it's priority */}
-        {priority && <link rel="preload" href={`https://player.vimeo.com/video/${videoId}`} as="document" />}
+        {(priority || isIOS) && <link rel="preload" href={`https://player.vimeo.com/video/${videoId}`} as="document" />}
       </Head>
       
       <div 
@@ -214,10 +289,10 @@ const LazyVimeoPlayer = ({
             ref={iframeRef}
             src={buildVimeoUrl()}
             frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
             style={getIframeStyle()}
             title={`Vimeo Player ${videoId}`}
-            loading={priority ? "eager" : "lazy"}
+            loading={priority || isIOS ? "eager" : "lazy"}
             className={`${coverMode ? "vimeo-cover" : ""} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
           ></iframe>
         )}

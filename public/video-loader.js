@@ -2,6 +2,17 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Video loader script initialized');
   
+  // Detect iOS devices
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  
+  console.log('Is iOS device:', isIOS);
+  
+  // For iOS devices, we also want to try initializing Vimeo players
+  if (isIOS) {
+    initializeVimeoPlayers();
+  }
+  
   // Find all video elements
   const videos = document.querySelectorAll('video');
   console.log(`Found ${videos.length} video elements`);
@@ -22,6 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         console.log(`Found ${sources.length} source elements`);
       }
+      
+      // iOS specific attributes
+      if (isIOS) {
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.setAttribute('muted', '');
+        video.muted = true;
+        video.setAttribute('autoplay', '');
+        video.setAttribute('preload', 'auto');
+      }
     };
     
     // Check and fix sources
@@ -32,21 +53,38 @@ document.addEventListener('DOMContentLoaded', function() {
       if (video.paused) {
         console.log('Attempting to play video');
         
-        video.play()
-          .then(() => {
-            console.log('Video started playing successfully');
-          })
-          .catch(function(error) {
-            console.log('Auto-play was prevented by the browser:', error);
-            
-            // Try again with user interaction
-            document.addEventListener('click', function playVideoOnce() {
-              video.play().catch(function(err) {
-                console.log('Still could not play video after user interaction:', err);
-              });
-              document.removeEventListener('click', playVideoOnce);
-            }, { once: true });
-          });
+        // For iOS, we need to use a user interaction to start playback
+        if (isIOS) {
+          // Add touchstart event to the document to play video on first touch
+          document.addEventListener('touchstart', function playVideoOnTouch() {
+            video.play().catch(function(err) {
+              console.log('Could not play video after touch:', err);
+            });
+            document.removeEventListener('touchstart', playVideoOnTouch);
+          }, { once: true });
+          
+          // Also try to play automatically
+          setTimeout(() => {
+            video.play().catch(err => console.log('Auto-play failed on iOS:', err));
+          }, 100);
+        } else {
+          // Standard play attempt for non-iOS
+          video.play()
+            .then(() => {
+              console.log('Video started playing successfully');
+            })
+            .catch(function(error) {
+              console.log('Auto-play was prevented by the browser:', error);
+              
+              // Try again with user interaction
+              document.addEventListener('click', function playVideoOnce() {
+                video.play().catch(function(err) {
+                  console.log('Still could not play video after user interaction:', err);
+                });
+                document.removeEventListener('click', playVideoOnce);
+              }, { once: true });
+            });
+        }
       } else {
         console.log('Video is already playing');
       }
@@ -72,4 +110,61 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 1000);
     });
   });
-}); 
+});
+
+// Function to initialize Vimeo players for iOS
+function initializeVimeoPlayers() {
+  console.log('Initializing Vimeo players for iOS');
+  
+  // Wait for Vimeo API to load
+  function checkVimeoAPI() {
+    if (window.Vimeo && window.Vimeo.Player) {
+      console.log('Vimeo API loaded');
+      
+      // Find all Vimeo iframes
+      const vimeoIframes = document.querySelectorAll('iframe[src*="player.vimeo.com"]');
+      console.log(`Found ${vimeoIframes.length} Vimeo iframes`);
+      
+      vimeoIframes.forEach(iframe => {
+        try {
+          // Force play on all Vimeo players
+          if (iframe.contentWindow) {
+            iframe.contentWindow.postMessage(JSON.stringify({
+              method: 'play'
+            }), '*');
+          }
+        } catch (e) {
+          console.error('Error interacting with Vimeo iframe:', e);
+        }
+      });
+    } else {
+      // Check again in a moment
+      setTimeout(checkVimeoAPI, 500);
+    }
+  }
+  
+  // Start checking for Vimeo API
+  checkVimeoAPI();
+  
+  // Listen for messages from Vimeo iframes
+  window.addEventListener('message', function(event) {
+    if (event.origin !== 'https://player.vimeo.com') return;
+    
+    try {
+      const data = JSON.parse(event.data);
+      
+      // When a player is ready, send it a play command
+      if (data.event === 'ready') {
+        const iframe = document.querySelector(`iframe[src*="player.vimeo.com/video/${data.player_id}"]`);
+        
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(JSON.stringify({
+            method: 'play'
+          }), '*');
+        }
+      }
+    } catch (e) {
+      // Ignore parsing errors
+    }
+  });
+} 
