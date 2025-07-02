@@ -230,10 +230,10 @@ const LazyVimeoPlayer = ({
       return {
         ...baseStyle,
         position: 'absolute',
-        top: '-50%',
-        left: '-50%',
-        width: '200%',
-        height: '200%', 
+        top: '-75%',
+        left: '-75%',
+        width: '250%',
+        height: '250%', 
         transform: 'scale(0.5)',
         transformOrigin: 'center center',
         // These properties ensure the video fills the container on iOS
@@ -253,8 +253,8 @@ const LazyVimeoPlayer = ({
       position: 'absolute',
       top: '50%',
       left: '50%',
-      width: '100%',
-      height: '100%',
+      width: '120%',
+      height: '120%',
       transform: 'translate(-50%, -50%) scale(1.2)',
       objectFit: 'cover'
     };

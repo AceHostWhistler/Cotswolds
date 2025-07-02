@@ -36,6 +36,20 @@ const ReelRoomNavigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
+  const router = useRouter();
+  
+  // Detect iOS devices
+  useEffect(() => {
+    const detectIOS = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = /iphone|ipod|ipad/i.test(userAgent) || 
+                         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
+  }, []);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -57,6 +71,26 @@ const ReelRoomNavigation: React.FC = () => {
       document.body.classList.remove('overflow-hidden');
     };
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    const handleRouteChange = () => {
+      closeMobileMenu();
+    };
+
+    // Check if router.events exists before subscribing
+    if (router && 'events' in router) {
+      // @ts-ignore - Next.js router types are sometimes inconsistent
+      router.events.on('routeChangeStart', handleRouteChange);
+      
+      return () => {
+        // @ts-ignore - Next.js router types are sometimes inconsistent
+        router.events.off('routeChangeStart', handleRouteChange);
+      };
+    }
+    
+    return undefined;
+  }, [router]);
   
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -64,14 +98,36 @@ const ReelRoomNavigation: React.FC = () => {
     // Add/remove body class to prevent scrolling when menu is open
     if (!isMobileMenuOpen) {
       document.body.classList.add('overflow-hidden');
+      if (isIOS) {
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
+        document.body.style.top = `-${window.scrollY}px`;
+      }
     } else {
       document.body.classList.remove('overflow-hidden');
+      if (isIOS) {
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
     }
   };
   
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    document.body.classList.remove('overflow-hidden');
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+      document.body.classList.remove('overflow-hidden');
+      
+      if (isIOS) {
+        const scrollY = document.body.style.top;
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
   };
   
   return (
@@ -84,7 +140,12 @@ const ReelRoomNavigation: React.FC = () => {
         ${!isPageLoaded ? 'opacity-0' : 'opacity-100'}
       `}
       style={{
-        paddingTop: 'calc(env(safe-area-inset-top) + 0.5rem)'
+        paddingTop: 'calc(env(safe-area-inset-top) + 0.5rem)',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,7 +206,8 @@ const ReelRoomNavigation: React.FC = () => {
           right: 0,
           bottom: 0,
           zIndex: 50,
-          overflowY: 'auto'
+          overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch'
         }}
       >
         <nav className="flex flex-col items-center space-y-6 p-6 text-center">

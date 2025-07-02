@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 
 interface CalendlyWidgetProps {
@@ -17,11 +17,29 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
 }) => {
   // Create a ref for the widget container
   const widgetRef = useRef<HTMLDivElement>(null);
+  const [isIOS, setIsIOS] = useState(false);
+
+  // Detect iOS devices
+  useEffect(() => {
+    const detectIOS = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = /iphone|ipod|ipad/i.test(userAgent) || 
+                         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
+  }, []);
 
   useEffect(() => {
     // Function to initialize the widget
     const initializeWidget = () => {
       if (window.Calendly && widgetRef.current) {
+        // Clear any previous widget initialization
+        while (widgetRef.current.firstChild) {
+          widgetRef.current.removeChild(widgetRef.current.firstChild);
+        }
+        
         window.Calendly.initInlineWidget({
           url: url,
           parentElement: widgetRef.current,
@@ -81,6 +99,50 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
     };
   }, [url]);
 
+  // iOS specific fix for Calendly popup
+  useEffect(() => {
+    if (isIOS && window.Calendly) {
+      // Try to fix iOS-specific issues with Calendly
+      const fixIOSDisplay = () => {
+        // Force Calendly to redraw for iOS
+        if (widgetRef.current) {
+          const currentHeight = widgetRef.current.style.height;
+          widgetRef.current.style.height = `${parseInt(currentHeight) + 1}px`;
+          setTimeout(() => {
+            if (widgetRef.current) {
+              widgetRef.current.style.height = currentHeight;
+            }
+          }, 50);
+        }
+      };
+      
+      // Apply fix on initial load and after a short delay
+      setTimeout(fixIOSDisplay, 500);
+      setTimeout(fixIOSDisplay, 2000);
+      
+      // Also add touch event listener for iOS to ensure proper rendering
+      if (widgetRef.current) {
+        const handleTouch = () => {
+          if (window.Calendly) {
+            window.Calendly.initInlineWidget({
+              url: url,
+              parentElement: widgetRef.current,
+              prefill: {},
+              utm: {}
+            });
+          }
+        };
+        
+        widgetRef.current.addEventListener('touchstart', handleTouch, {once: true});
+        return () => {
+          if (widgetRef.current) {
+            widgetRef.current.removeEventListener('touchstart', handleTouch);
+          }
+        };
+      }
+    }
+  }, [isIOS, url]);
+
   return (
     <>
       <Head>
@@ -89,6 +151,32 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
         
         {/* Add mobile-specific meta tag for better mobile experience */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        
+        {/* Additional styles for iOS fixes */}
+        <style jsx global>{`
+          .calendly-inline-widget {
+            min-width: 320px;
+            height: ${height}px;
+            width: 100%;
+            overflow: hidden;
+          }
+          
+          .calendly-inline-widget iframe {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: ${height}px !important;
+            position: static !important;
+          }
+          
+          @media screen and (-webkit-min-device-pixel-ratio: 0) {
+            /* iOS Safari specific CSS */
+            .calendly-inline-widget iframe {
+              min-height: ${height + 200}px !important;
+              transform: scale(0.98);
+              transform-origin: top center;
+            }
+          }
+        `}</style>
       </Head>
       <div 
         ref={widgetRef}
@@ -98,7 +186,9 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
           minWidth: 320, 
           height,
           width: '100%',
-          overflow: 'hidden'
+          overflow: isIOS ? 'visible' : 'hidden', // Changed for iOS
+          position: 'relative',
+          zIndex: 2
         }}
       />
     </>

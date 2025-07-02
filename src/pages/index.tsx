@@ -222,7 +222,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 z-10 bg-black opacity-30"></div>
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 scale-125 md:scale-110">
                   <LazyVimeoPlayer 
                     videoId="1082926490" 
                     autoplay={true}
@@ -230,7 +230,7 @@ export default function Home() {
                     muted={true}
                     responsive={true}
                     background={true}
-                    coverMode={false}
+                    coverMode={true}
                     priority={true}
                     className="w-full h-full"
                   />
