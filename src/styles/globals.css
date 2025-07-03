@@ -27,6 +27,7 @@
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
     position: relative;
+    background-color: #fff; /* Ensure there's a background color */
   }
   
   /* Optimize for mobile viewports */
@@ -53,6 +54,7 @@
     height: -webkit-fill-available;
     height: -moz-available;
     height: stretch;
+    background-color: #fff; /* Ensure there's a background color */
   }
   
   /* Fix for iOS momentum scroll and bouncing */
@@ -467,10 +469,10 @@ svg {
 
 /* Specific style for homepage circular video container */
 .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
-  width: 120% !important;
-  height: 120% !important;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
+  width: 100% !important;
+  height: 100% !important;
+  transform: translate(-50%, -50%) scale(1.1);
+  -webkit-transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* iOS Safari specific fixes */
@@ -488,20 +490,30 @@ svg {
     --vh: 1vh;
   }
   
+  /* Fix scrolling issues */
   html, 
   body {
     overflow-x: hidden;
     width: 100%;
     -webkit-overflow-scrolling: touch;
     height: 100%;
-    height: -webkit-fill-available;
     position: relative;
+    background-color: #fff;
+    overflow-y: auto;
   }
   
   body {
-    position: relative;
+    position: static;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    min-height: 100%;
+  }
+  
+  /* Main content container fix */
+  main {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
   }
   
   .calendly-inline-widget {
@@ -510,6 +522,7 @@ svg {
     width: 100% !important;
     position: relative !important;
     z-index: 5 !important;
+    background-color: #fff;
   }
   
   .calendly-inline-widget iframe {
@@ -522,16 +535,22 @@ svg {
     z-index: 5 !important;
   }
   
+  /* Fix video display on iOS */
   .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
-    width: 120% !important;
-    height: 120% !important;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
+    width: 100% !important;
+    height: 100% !important;
+    transform: translate(-50%, -50%) scale(1.1);
+    -webkit-transform: translate(-50%, -50%) scale(1.1);
   }
   
+  /* Fix navigation menu */
   .fixed {
     position: fixed !important;
-    z-index: 50 !important;
+    z-index: 999 !important;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
   }
   
   .overflow-hidden {
@@ -542,6 +561,13 @@ svg {
     bottom: 0;
     overflow: hidden !important;
     -webkit-overflow-scrolling: auto !important;
+  }
+  
+  /* Fix for iOS Safari on small devices */
+  .min-h-screen {
+    min-height: 100vh !important;
+    min-height: -webkit-fill-available !important;
+    background-color: #fff;
   }
 }
 

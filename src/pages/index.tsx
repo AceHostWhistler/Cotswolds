@@ -8,6 +8,7 @@ import Image from 'next/image';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 import Script from 'next/script';
 import SEO from '@/components/SEO';
+import ReelRoomNavigation from '../components/ReelRoomNavigation';
 
 export default function Home() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -140,11 +141,12 @@ export default function Home() {
   // Define structured data for the homepage
   const homeStructuredData = {
     "@context": "https://schema.org",
-    "@type": "EventVenue",
+    "@type": "LocalBusiness",
     "name": "The Reel Room",
-    "description": "Private Theatre Event Venue in Vancouver, BC. Book for film screenings, private parties, corporate events, and more.",
+    "description": "Private Theatre Event Venue in Vancouver",
+    "image": "/favicons/Logo Reel Room.png",
     "url": "https://reelroom.ca",
-    "image": "https://reelroom.ca/favicons/Logo Reel Room.png",
+    "priceRange": "$$$",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Vancouver",
@@ -168,7 +170,7 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
+    <div className={`min-h-screen bg-white ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <SEO 
         title="Private Theatre Event Venue Vancouver"
         description="Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver."
@@ -191,13 +193,16 @@ export default function Home() {
         {/* Preload the specific video */}
         <link rel="preload" href="https://player.vimeo.com/video/1082926490?autoplay=1&muted=1&loop=1&background=1&controls=0&quality=auto&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&dnt=1" as="document" />
         {/* Improve mobile specific performance */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
 
       {/* Include our video loader helper script */}
       <Script src="/video-loader.js" strategy="beforeInteractive" />
       
-      <div className="relative min-h-screen bg-black">
+      <ReelRoomNavigation />
+      
+      <div className="relative min-h-screen bg-black pt-16">
         {/* Gold Diamond Pattern Background */}
         <div className="absolute inset-0 z-0 opacity-30" style={{ 
           backgroundImage: "linear-gradient(45deg, #ba9765 25%, transparent 25%), linear-gradient(-45deg, #ba9765 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ba9765 75%), linear-gradient(-45deg, transparent 75%, #ba9765 75%)",
@@ -235,7 +240,7 @@ export default function Home() {
         </div>
         
         {/* Circular Content Area - Responsive for all devices */}
-        <div className="absolute inset-0 flex items-center justify-center p-4">
+        <div className="absolute inset-0 flex items-center justify-center p-4 mt-16">
           <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1100px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video - Now using Vimeo with improved mobile support */}
             <div className="absolute inset-0 bg-black">
@@ -377,7 +382,7 @@ export default function Home() {
       </div>
       
       {/* Main Content from Original Website */}
-      <main>
+      <main className="bg-white">
         {/* Welcome Section */}
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
