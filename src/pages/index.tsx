@@ -240,8 +240,8 @@ export default function Home() {
             {/* Background Video - Now using Vimeo with improved mobile support */}
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
-                <div className="absolute inset-0 z-10 bg-black opacity-30"></div>
-                <div className={`absolute inset-0 ${isIphone ? 'scale-[4.0]' : 'scale-[2.0] md:scale-125'}`}>
+                <div className="absolute inset-0 bg-black opacity-30"></div>
+                <div className={`absolute inset-0 ${isIphone ? 'scale-[1.2]' : 'scale-[1.1] md:scale-110'}`}>
                   <LazyVimeoPlayer 
                     videoId="1082926490" 
                     autoplay={true}

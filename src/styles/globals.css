@@ -467,31 +467,29 @@ svg {
 
 /* Specific style for homepage circular video container */
 .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
-  width: 200% !important;
-  height: 200% !important;
+  width: 120% !important;
+  height: 120% !important;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
 }
 
-/* Fix for iOS Safari scrolling */
+/* iOS Safari specific fixes */
 @supports (-webkit-touch-callout: none) {
   .scroll-smooth {
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Fix for position: sticky on iOS */
   .sticky {
     position: -webkit-sticky;
     position: sticky;
   }
   
-  /* Fix for iOS Safari viewport units */
   :root {
     --vh: 1vh;
   }
   
-  /* Fix scrolling issues on iOS */
-  html, body {
+  html, 
+  body {
     overflow-x: hidden;
     width: 100%;
     -webkit-overflow-scrolling: touch;
@@ -500,20 +498,14 @@ svg {
     position: relative;
   }
   
-  /* Ensure body takes full height but allows scrolling */
   body {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow-y: scroll;
+    position: relative;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
   
-  /* Fix for Calendly widget on iOS */
   .calendly-inline-widget {
-    min-height: 650px; /* Ensure sufficient height on mobile */
+    min-height: 650px;
     overflow: visible !important;
     width: 100% !important;
     position: relative !important;
@@ -530,21 +522,18 @@ svg {
     z-index: 5 !important;
   }
   
-  /* Fix video display on iOS */
   .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
-    width: 300% !important;
-    height: 300% !important;
+    width: 120% !important;
+    height: 120% !important;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
   }
   
-  /* Fix menu on iOS */
   .fixed {
     position: fixed !important;
     z-index: 50 !important;
   }
   
-  /* Fix for mobile menu scrolling issues */
   .overflow-hidden {
     position: fixed;
     left: 0;
@@ -556,20 +545,18 @@ svg {
   }
 }
 
-/* Calculate viewport height for iOS */
+/* Viewport height calculations */
 @media screen {
   :root {
     --vh: 1vh;
   }
 }
 
-/* Script to adjust viewport height on iOS */
 @media screen and (max-width: 768px) {
   :root {
     --vh: 1vh;
   }
   
-  /* Fix for iOS Safari on small devices */
   .min-h-screen {
     min-height: -webkit-fill-available;
   }
