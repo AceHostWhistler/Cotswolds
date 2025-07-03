@@ -24,17 +24,6 @@ export default function Experiences() {
       
       <ReelRoomNavigation />
       
-      {/* Calendly Widget - Fixed Position with Enhanced Visibility */}
-      <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
-        <div className="bg-amber-500 text-black p-3 text-center">
-          <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
-          <p className="text-sm">Check availability & schedule instantly</p>
-        </div>
-        <div className="relative">
-          <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" />
-        </div>
-      </div>
-      
       <main className="pt-20">
         {/* Hero Section */}
         <div className="relative h-[500px] overflow-hidden bg-gray-800">
@@ -568,21 +557,27 @@ export default function Experiences() {
           </div>
         </div>
         
-        {/* Mobile Calendly Widget with Enhanced Visibility */}
-        <div className="py-12 bg-white lg:hidden">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <div className="relative bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-amber-500">
+        {/* Add Calendly Section at the bottom of the page */}
+        <div id="booking" className="py-16 bg-gray-100 border-t border-gray-200">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Check availability and schedule a consultation to start planning your perfect event at The Reel Room.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="bg-amber-500 text-black p-4 text-center">
-                <h2 className="text-3xl font-bold mb-1 uppercase tracking-wider">BOOK YOUR EVENT</h2>
-                <p className="text-black">Check availability & schedule instantly</p>
+                <h3 className="font-bold text-xl uppercase tracking-wider">CALENDAR</h3>
+                <p className="text-sm">Check availability & schedule a consultation</p>
               </div>
-              <div className="animate-pulse absolute right-4 top-20 h-16 w-16 flex items-center justify-center rounded-full bg-amber-500 shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div className="w-full h-[600px] overflow-hidden pt-4">
-                <CalendlyWidget height={600} className="border-t border-gray-200" />
+              <div className="w-full h-[700px]">
+                <CalendlyWidget 
+                  height={700} 
+                  className="w-full" 
+                  lazyLoad={true}
+                />
               </div>
             </div>
           </div>

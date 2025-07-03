@@ -20,9 +20,9 @@ export default function Home() {
   useEffect(() => {
     setIsPageLoaded(true);
     
-    // Detect if the device is an iPhone
+    // Detect if the device is an iPhone in a more reliable way
     const userAgent = navigator.userAgent.toLowerCase();
-    setIsIphone(/iphone/.test(userAgent));
+    setIsIphone(/iphone/.test(userAgent) && window.innerWidth <= 428); // Only apply to smaller iPhones
     
     // Load Vimeo script for the iframe embeds - with high priority
     const script = document.createElement('script');
@@ -222,7 +222,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 z-10 bg-black opacity-30"></div>
-                <div className="absolute inset-0 scale-125 md:scale-110">
+                <div className="absolute inset-0 scale-[2.0] md:scale-125">
                   <LazyVimeoPlayer 
                     videoId="1082926490" 
                     autoplay={true}
@@ -270,42 +270,40 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Featured Content Box - Responsive, hidden on iPhone */}
-        {!isIphone && (
-          <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20 bg-black text-white p-0 max-w-[200px] xs:max-w-[90%] sm:max-w-md rounded-sm overflow-hidden">
-            <div className="border border-brand-gold">
-              <div className="flex flex-col xs:flex-row">
-                <div className="w-full xs:w-1/2 aspect-video xs:aspect-auto">
-                  {/* Using the exact image from the screenshot */}
-                  <img 
-                    src="/photos/Blogs/Screen Shot 2025-05-09 at 1.49.41 PM.png" 
-                    alt="Magpie Wedding Feature" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                </div>
-                <div className="w-full xs:w-1/2 p-3 sm:p-5">
-                  <h3 className="heading-font text-xs xs:text-sm sm:text-xl font-light mb-1 sm:mb-3">
-                    Reel Room featured in Elle Magazine & Magpie Wedding
-                  </h3>
-                  <p className="body-font text-xs sm:text-sm mb-1 sm:mb-4">
-                    Click here to view the article for your wedding inspiration
-                  </p>
-                  
-                  <div className="mt-1 sm:mt-2">
-                    <Link
-                      href="https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
-                      target="_blank"
-                      className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm font-light hover:text-brand-cream transition-colors"
-                    >
-                      View Articles →
-                    </Link>
-                  </div>
+        {/* Featured Content Box - Show on both iPhone and other devices */}
+        <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20 bg-black text-white p-0 max-w-[200px] xs:max-w-[90%] sm:max-w-md rounded-sm overflow-hidden">
+          <div className="border border-brand-gold">
+            <div className="flex flex-col xs:flex-row">
+              <div className="w-full xs:w-1/2 aspect-video xs:aspect-auto">
+                {/* Using the exact image from the screenshot */}
+                <img 
+                  src="/photos/Blogs/Screen Shot 2025-05-09 at 1.49.41 PM.png" 
+                  alt="Magpie Wedding Feature" 
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+              </div>
+              <div className="w-full xs:w-1/2 p-3 sm:p-5">
+                <h3 className="heading-font text-xs xs:text-sm sm:text-xl font-light mb-1 sm:mb-3">
+                  Reel Room featured in Elle Magazine & Magpie Wedding
+                </h3>
+                <p className="body-font text-xs sm:text-sm mb-1 sm:mb-4">
+                  Click here to view the article for your wedding inspiration
+                </p>
+                
+                <div className="mt-1 sm:mt-2">
+                  <Link
+                    href="https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
+                    target="_blank"
+                    className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm font-light hover:text-brand-cream transition-colors"
+                  >
+                    View Articles →
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
       
       {/* Mobile Navigation Menu - Enhanced for better UX */}
