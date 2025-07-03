@@ -10,9 +10,22 @@ import CalendlyWidget from '../components/CalendlyWidget';
 
 export default function Experiences() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
+    
+    // Detect iOS devices
+    const detectIOS = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = 
+        /iphone|ipod|ipad/i.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        /iPhone|iPad|iPod/.test(navigator.userAgent);
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
   }, []);
   
   return (
@@ -20,6 +33,9 @@ export default function Experiences() {
       <Head>
         <title>Experiences & Pricing | The Reel Room</title>
         <meta name="description" content="Discover the range of experiences and pricing options at The Reel Room. From film screenings to private events, we offer customizable options for every occasion." />
+        {/* Add iOS-specific meta tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>
       
       <ReelRoomNavigation />
@@ -577,6 +593,7 @@ export default function Experiences() {
                   height={700} 
                   className="w-full" 
                   lazyLoad={true}
+                  position={isIOS ? "bottom" : "normal"}
                 />
               </div>
             </div>

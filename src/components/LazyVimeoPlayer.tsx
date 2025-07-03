@@ -230,11 +230,11 @@ const LazyVimeoPlayer = ({
       return {
         ...baseStyle,
         position: 'absolute',
-        top: '-100%',
-        left: '-100%',
-        width: '300%',
-        height: '300%', 
-        transform: 'scale(0.5)',
+        top: '-150%',
+        left: '-150%',
+        width: '400%',
+        height: '400%', 
+        transform: 'scale(0.35)',
         transformOrigin: 'center center',
         // These properties ensure the video fills the container on iOS
         objectFit: 'cover',
@@ -253,9 +253,9 @@ const LazyVimeoPlayer = ({
       position: 'absolute',
       top: '50%',
       left: '50%',
-      width: '120%',
-      height: '120%',
-      transform: 'translate(-50%, -50%) scale(1.2)',
+      width: '150%',
+      height: '150%',
+      transform: 'translate(-50%, -50%) scale(1.5)',
       objectFit: 'cover'
     };
   };

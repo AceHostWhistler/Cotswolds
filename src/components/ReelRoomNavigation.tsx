@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -37,14 +37,17 @@ const ReelRoomNavigation: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const scrollPosition = useRef(0);
   const router = useRouter();
   
-  // Detect iOS devices
+  // Detect iOS devices - more comprehensive detection
   useEffect(() => {
     const detectIOS = () => {
       const userAgent = navigator.userAgent.toLowerCase();
-      const isIOSDevice = /iphone|ipod|ipad/i.test(userAgent) || 
-                         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      const isIOSDevice = 
+        /iphone|ipod|ipad/i.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        /iPhone|iPad|iPod/.test(navigator.userAgent);
       setIsIOS(isIOSDevice);
     };
     
@@ -64,13 +67,36 @@ const ReelRoomNavigation: React.FC = () => {
     
     window.addEventListener('scroll', handleScroll);
     
+    // Set viewport height for mobile browsers
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Set initial viewport height
+    setVH();
+    
+    // Recalculate on resize or orientation change
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', setVH);
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', setVH);
+      window.removeEventListener('orientationchange', setVH);
+      
       // Ensure overflow is restored when component unmounts
       document.body.style.overflow = '';
       document.body.classList.remove('overflow-hidden');
+      
+      if (isIOS) {
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.style.top = '';
+        document.body.style.height = '';
+      }
     };
-  }, []);
+  }, [isIOS]);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -93,40 +119,41 @@ const ReelRoomNavigation: React.FC = () => {
   }, [router]);
   
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    
-    // Add/remove body class to prevent scrolling when menu is open
     if (!isMobileMenuOpen) {
+      // Store current scroll position before locking
+      scrollPosition.current = window.pageYOffset;
+      
+      // Lock scrolling
       document.body.classList.add('overflow-hidden');
+      
       if (isIOS) {
+        // iOS-specific handling
         document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition.current}px`;
         document.body.style.width = '100%';
-        document.body.style.top = `-${window.scrollY}px`;
+        document.body.style.height = '100%';
       }
+      
+      setIsMobileMenuOpen(true);
     } else {
-      document.body.classList.remove('overflow-hidden');
-      if (isIOS) {
-        const scrollY = document.body.style.top;
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.style.top = '';
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
+      closeMobileMenu();
     }
   };
   
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) {
-      setIsMobileMenuOpen(false);
       document.body.classList.remove('overflow-hidden');
       
       if (isIOS) {
-        const scrollY = document.body.style.top;
+        // iOS-specific handling to restore scroll position
         document.body.style.position = '';
-        document.body.style.width = '';
         document.body.style.top = '';
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        document.body.style.width = '';
+        document.body.style.height = '';
+        window.scrollTo(0, scrollPosition.current);
       }
+      
+      setIsMobileMenuOpen(false);
     }
   };
   
@@ -145,13 +172,17 @@ const ReelRoomNavigation: React.FC = () => {
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 50
+        zIndex: 999,
+        transform: 'translateZ(0)',
+        WebkitTransform: 'translateZ(0)',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden'
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center py-2">
+          <Link href="/" className="flex items-center py-2" onClick={closeMobileMenu}>
             <img 
               src="/favicons/Logo Reel Room.png" 
               alt="The Reel Room" 
@@ -171,10 +202,14 @@ const ReelRoomNavigation: React.FC = () => {
           
           {/* Mobile Menu Button - Improved touch target */}
           <button 
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md bg-black/50 border border-brand-gold/30" 
+            className="md:hidden flex items-center justify-center w-12 h-12 rounded-md bg-black/50 border border-brand-gold/30" 
             onClick={toggleMobileMenu}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
+            style={{
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation'
+            }}
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -196,7 +231,7 @@ const ReelRoomNavigation: React.FC = () => {
       
       {/* Mobile Menu - Full screen with improved visibility */}
       <div 
-        className={`md:hidden fixed inset-0 bg-black z-50 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
+        className={`md:hidden fixed inset-0 bg-black z-[1000] transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
         style={{
           paddingTop: 'calc(env(safe-area-inset-top) + 5rem)',
           paddingBottom: 'env(safe-area-inset-bottom)',
@@ -205,9 +240,12 @@ const ReelRoomNavigation: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          zIndex: 50,
           overflowY: 'auto',
-          WebkitOverflowScrolling: 'touch'
+          WebkitOverflowScrolling: 'touch',
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
+          WebkitBackfaceVisibility: 'hidden'
         }}
       >
         <nav className="flex flex-col items-center space-y-6 p-6 text-center">
@@ -235,6 +273,15 @@ const ReelRoomNavigation: React.FC = () => {
           className="absolute top-6 right-4 text-brand-gold p-2 bg-black/80 backdrop-blur-sm rounded-md border border-brand-gold/30" 
           onClick={closeMobileMenu}
           aria-label="Close menu"
+          style={{
+            WebkitTapHighlightColor: 'transparent',
+            touchAction: 'manipulation',
+            width: '48px',
+            height: '48px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />

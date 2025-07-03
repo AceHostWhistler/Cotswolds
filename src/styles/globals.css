@@ -495,13 +495,29 @@ svg {
     overflow-x: hidden;
     width: 100%;
     -webkit-overflow-scrolling: touch;
+    height: 100%;
     height: -webkit-fill-available;
+    position: relative;
+  }
+  
+  /* Ensure body takes full height but allows scrolling */
+  body {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
   
   /* Fix for Calendly widget on iOS */
   .calendly-inline-widget {
     min-height: 650px; /* Ensure sufficient height on mobile */
     overflow: visible !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 5 !important;
   }
   
   .calendly-inline-widget iframe {
@@ -510,6 +526,22 @@ svg {
     -webkit-transform: scale(1) !important;
     width: 100% !important;
     height: 100% !important;
+    position: relative !important;
+    z-index: 5 !important;
+  }
+  
+  /* Fix video display on iOS */
+  .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
+    width: 300% !important;
+    height: 300% !important;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+  
+  /* Fix menu on iOS */
+  .fixed {
+    position: fixed !important;
+    z-index: 50 !important;
   }
   
   /* Fix for mobile menu scrolling issues */
@@ -519,6 +551,8 @@ svg {
     right: 0;
     top: 0;
     bottom: 0;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: auto !important;
   }
 }
 

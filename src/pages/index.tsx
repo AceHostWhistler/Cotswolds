@@ -20,9 +20,26 @@ export default function Home() {
   useEffect(() => {
     setIsPageLoaded(true);
     
-    // Detect if the device is an iPhone in a more reliable way
-    const userAgent = navigator.userAgent.toLowerCase();
-    setIsIphone(/iphone/.test(userAgent) && window.innerWidth <= 428); // Only apply to smaller iPhones
+    // More reliable iPhone detection
+    const detectIphone = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      setIsIphone(/iphone/.test(userAgent));
+    };
+    
+    detectIphone();
+    
+    // Set viewport height for mobile browsers
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Set initial viewport height
+    setVH();
+    
+    // Recalculate on resize or orientation change
+    window.addEventListener('resize', setVH);
+    window.addEventListener('orientationchange', setVH);
     
     // Load Vimeo script for the iframe embeds - with high priority
     const script = document.createElement('script');
@@ -37,6 +54,8 @@ export default function Home() {
       if (script.parentNode) {
         script.parentNode.removeChild(script);
       }
+      window.removeEventListener('resize', setVH);
+      window.removeEventListener('orientationchange', setVH);
     };
   }, []);
   
@@ -222,7 +241,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 z-10 bg-black opacity-30"></div>
-                <div className="absolute inset-0 scale-[2.0] md:scale-125">
+                <div className={`absolute inset-0 ${isIphone ? 'scale-[4.0]' : 'scale-[2.0] md:scale-125'}`}>
                   <LazyVimeoPlayer 
                     videoId="1082926490" 
                     autoplay={true}
