@@ -30,7 +30,7 @@ export default function Reservations() {
           <p className="text-sm">Check availability & schedule instantly</p>
         </div>
         <div className="relative">
-          <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" />
+          <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" lazyLoad={false} />
         </div>
       </div>
       
@@ -205,8 +205,8 @@ export default function Reservations() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
-              <div className="w-full h-[600px] overflow-hidden pt-4">
-                <CalendlyWidget height={600} className="border-t border-gray-200" />
+              <div className="w-full h-[500px] overflow-hidden pt-4">
+                <CalendlyWidget height={500} className="border-t border-gray-200" lazyLoad={true} />
               </div>
             </div>
           </div>

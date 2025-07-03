@@ -27,7 +27,7 @@ export default function BookNow() {
             <p className="text-sm">Check availability & schedule instantly</p>
           </div>
           <div className="relative">
-            <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" />
+            <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" lazyLoad={false} />
           </div>
         </div>
 
@@ -199,8 +199,8 @@ export default function BookNow() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <div className="w-full h-[700px] overflow-hidden">
-                  <CalendlyWidget height={700} className="border-t border-gray-200" />
+                <div className="w-full h-[500px] overflow-hidden">
+                  <CalendlyWidget height={500} className="border-t border-gray-200" lazyLoad={true} />
                 </div>
               </div>
             </div>

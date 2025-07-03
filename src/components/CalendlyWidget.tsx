@@ -5,6 +5,7 @@ interface CalendlyWidgetProps {
   className?: string;
   url?: string;
   height?: number;
+  lazyLoad?: boolean;
 }
 
 // Create a flag to track if the script has been loaded
@@ -13,11 +14,14 @@ let calendlyScriptLoaded = false;
 const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({ 
   className = '', 
   url = 'https://calendly.com/reelroom-info?primary_color=f7be01&hide_gdpr_banner=1',
-  height = 700 
+  height = 700,
+  lazyLoad = true
 }) => {
   // Create a ref for the widget container
   const widgetRef = useRef<HTMLDivElement>(null);
   const [isIOS, setIsIOS] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(!lazyLoad);
 
   // Detect iOS devices
   useEffect(() => {
@@ -31,7 +35,34 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
     detectIOS();
   }, []);
 
+  // Set up intersection observer for lazy loading
   useEffect(() => {
+    if (!lazyLoad) {
+      setIsInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    if (widgetRef.current) {
+      observer.observe(widgetRef.current);
+    }
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, [lazyLoad]);
+
+  useEffect(() => {
+    if (!isInView) return;
+
     // Function to initialize the widget
     const initializeWidget = () => {
       if (window.Calendly && widgetRef.current) {
@@ -46,6 +77,8 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
           prefill: {},
           utm: {}
         });
+        
+        setIsLoaded(true);
       }
     };
 
@@ -74,10 +107,12 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       // If script already loaded, initialize immediately
       setTimeout(initializeWidget, 100);
     }
-  }, [url]);
+  }, [url, isInView]);
 
   // Add a resize handler for mobile devices
   useEffect(() => {
+    if (!isInView) return;
+    
     const handleResize = () => {
       // Force re-initialization on resize to fix mobile issues
       if (window.Calendly && widgetRef.current) {
@@ -97,10 +132,12 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [url]);
+  }, [url, isInView]);
 
   // iOS specific fix for Calendly popup
   useEffect(() => {
+    if (!isInView) return;
+    
     if (isIOS && window.Calendly) {
       // Try to fix iOS-specific issues with Calendly
       const fixIOSDisplay = () => {
@@ -141,14 +178,11 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
         };
       }
     }
-  }, [isIOS, url]);
+  }, [isIOS, url, isInView]);
 
   return (
     <>
       <Head>
-        {/* Preload the Calendly script */}
-        <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
-        
         {/* Add mobile-specific meta tag for better mobile experience */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         
@@ -171,7 +205,7 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
           @media screen and (-webkit-min-device-pixel-ratio: 0) {
             /* iOS Safari specific CSS */
             .calendly-inline-widget iframe {
-              min-height: ${height + 200}px !important;
+              min-height: ${height}px !important;
               transform: scale(0.98);
               transform-origin: top center;
             }
@@ -186,11 +220,22 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
           minWidth: 320, 
           height,
           width: '100%',
-          overflow: isIOS ? 'visible' : 'hidden', // Changed for iOS
+          overflow: isIOS ? 'auto' : 'hidden',
           position: 'relative',
-          zIndex: 2
+          zIndex: 2,
+          opacity: isLoaded ? 1 : 0,
+          transition: 'opacity 0.3s ease'
         }}
-      />
+      >
+        {!isInView && (
+          <div className="flex items-center justify-center w-full h-full bg-gray-100">
+            <div className="text-center p-4">
+              <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-amber-500 mx-auto"></div>
+              <p className="mt-4 text-gray-600">Loading calendar...</p>
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };
