@@ -588,33 +588,6 @@ export default function Experiences() {
             </div>
           </div>
         </div>
-        
-        {/* Add Calendly Section at the bottom of the page */}
-        <div id="booking" className="py-16 bg-gray-100 border-t border-gray-200">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Check availability and schedule a consultation to start planning your perfect event at The Reel Room.
-              </p>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
-              <div className="bg-amber-500 text-black p-4 text-center">
-                <h3 className="font-bold text-xl uppercase tracking-wider">CALENDAR</h3>
-                <p className="text-sm">Check availability & schedule a consultation</p>
-              </div>
-              <div className="w-full h-[700px]">
-                <CalendlyWidget 
-                  height={700} 
-                  className="w-full" 
-                  lazyLoad={true}
-                  position={isIOS ? "bottom" : "normal"}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </main>
       
       <ReelRoomFooter />

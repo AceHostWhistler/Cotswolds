@@ -157,14 +157,23 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
   // Determine iframe class based on props
   const iframeClass = `vimeo-player ${coverMode ? 'vimeo-cover' : ''} ${isLoaded ? 'loaded' : ''}`;
   
-  // iOS specific styles for better performance
+  // Use a larger scale factor to ensure the video fills the entire container
+  const scaleFactor = coverMode ? (isIOS ? 1.5 : 1.8) : 1;
+  
+  // iOS specific styles for better performance with increased scale
   const iOSStyles: Partial<CSSProperties> = isIOS ? {
-    transform: coverMode ? 'translate(-50%, -50%) scale(1.3)' : 'none',
-    WebkitTransform: coverMode ? 'translate(-50%, -50%) scale(1.3)' : 'none',
+    transform: coverMode ? `translate(-50%, -50%) scale(${scaleFactor})` : 'none',
+    WebkitTransform: coverMode ? `translate(-50%, -50%) scale(${scaleFactor})` : 'none',
     transformOrigin: 'center center',
     WebkitTransformOrigin: 'center center',
     WebkitBackfaceVisibility: 'hidden',
     backfaceVisibility: 'hidden'
+  } : {};
+
+  // Non-iOS styles with increased scale for cover mode
+  const coverStyles: Partial<CSSProperties> = coverMode && !isIOS ? {
+    transform: `translate(-50%, -50%) scale(${scaleFactor})`,
+    transformOrigin: 'center center',
   } : {};
 
   return (
@@ -194,7 +203,8 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
             height: '100%',
             opacity: isLoaded ? 1 : 0,
             transition: 'opacity 0.3s ease',
-            ...iOSStyles
+            ...iOSStyles,
+            ...coverStyles
           }}
           title={`Vimeo Player ${videoId}`}
           loading={priority ? "eager" : "lazy"}

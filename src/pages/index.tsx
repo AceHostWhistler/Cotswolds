@@ -40,7 +40,7 @@ export default function Home() {
   const homeStructuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "The Reel Room",
+    "name": "Reel Room",
     "description": "Private Theatre Event Venue in Vancouver",
     "image": "/favicons/Logo Reel Room.png",
     "url": "https://reelroom.ca",
@@ -99,8 +99,8 @@ export default function Home() {
           backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px"
         }}></div>
         
-        {/* Top Navigation Links */}
-        <div className="absolute top-16 xs:top-10 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
+        {/* Top Navigation Links - Moved higher to avoid being covered by the navigation bar */}
+        <div className="absolute top-24 xs:top-24 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
           <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-4 sm:space-x-8 md:space-x-16">
             <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
@@ -115,9 +115,9 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Circular Content Area - Added more padding and improved spacing */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 mt-24">
-          <div className="relative w-full max-w-[85vw] sm:max-w-[75vw] md:max-w-[85vw] lg:max-w-[950px] xl:max-w-[1050px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
+        {/* Circular Content Area - Improved spacing and positioning */}
+        <div className="absolute inset-0 flex items-center justify-center p-4 mt-16 mb-16">
+          <div className="relative w-full max-w-[85vw] sm:max-w-[75vw] md:max-w-[80vw] lg:max-w-[850px] xl:max-w-[900px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
@@ -207,15 +207,15 @@ export default function Home() {
         )}
       </div>
       
-      {/* Main Content */}
-      <main className="bg-white">
+      {/* Main Content - Added more padding to ensure proper spacing after the hero section */}
+      <main className="bg-white pt-16">
         {/* Welcome Section */}
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to the Reel Room</h2>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to Reel Room</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
-                Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver.
+                Welcome to Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver.
               </p>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function Home() {
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
                   <p className="body-font text-gray-300">
-                    Experience the elegance of The Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
+                    Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
                   </p>
                 </div>
                 
@@ -263,7 +263,7 @@ export default function Home() {
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
                   <p className="body-font text-gray-300">
-                    From themed celebrations to sports viewing parties, The Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
+                    From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
                   </p>
                 </div>
               </div>
@@ -278,7 +278,7 @@ export default function Home() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">The Space</h2>
                 <p className="text-lg text-gray-600 mb-6 body-font">
-                  At the Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
+                  At Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
                 </p>
                 <p className="text-lg text-gray-600 body-font">
                   Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
@@ -311,7 +311,7 @@ export default function Home() {
               <div className="md:order-1">
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Parties</h2>
                 <p className="text-lg text-gray-300 mb-6 body-font">
-                  Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At The Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
+                  Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
                 </p>
                 <p className="text-lg text-gray-300 body-font">
                   Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
@@ -328,7 +328,7 @@ export default function Home() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Private Events</h2>
                 <p className="text-lg text-gray-600 mb-6 body-font">
-                  At the Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
+                  At Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
                 </p>
                 <p className="text-lg text-gray-600 body-font">
                   Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
@@ -365,7 +365,7 @@ export default function Home() {
                 Intimate screenings, live sports streaming, corporate bookings, PR soirées, brand and influencer showcases, or simply indulging in a unique cinematic experience with friends.
               </p>
               <p className="text-lg text-gray-600 mb-8 body-font">
-                The Reel Room stands as the ultimate destination for those seeking an exclusive, private, and unforgettable event space experience with the bonus of having your own private movie theatre, allowing for creative event planning.
+                Reel Room stands as the ultimate destination for those seeking an exclusive, private, and unforgettable event space experience with the bonus of having your own private movie theatre, allowing for creative event planning.
               </p>
               <div className="mt-8">
                 <Link

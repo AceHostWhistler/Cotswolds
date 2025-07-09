@@ -60,12 +60,19 @@ export default function ReelRoomNavigation() {
                 alt="The Reel Room" 
                 className="h-10 w-auto"
               />
-              <span className="ml-3 text-white text-xl font-light tracking-wider heading-font">THE REEL ROOM</span>
+              <span className="ml-3 text-white text-xl font-light tracking-wider heading-font">REEL ROOM</span>
             </Link>
           </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
+            <Link 
+              href="/" 
+              onClick={handleNavLinkClick}
+              className={`heading-font text-sm uppercase tracking-widest text-white hover:text-brand-gold transition-colors ${router.pathname === '/' ? 'text-brand-gold' : ''}`}
+            >
+              Home
+            </Link>
             <Link 
               href="/experiences" 
               onClick={handleNavLinkClick}
@@ -122,6 +129,13 @@ export default function ReelRoomNavigation() {
       {/* Mobile Navigation */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-4 bg-black/95 backdrop-blur-md space-y-1 sm:px-3">
+          <Link 
+            href="/"
+            onClick={handleNavLinkClick}
+            className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/' ? 'text-brand-gold' : ''}`}
+          >
+            Home
+          </Link>
           <Link 
             href="/experiences"
             onClick={handleNavLinkClick}
