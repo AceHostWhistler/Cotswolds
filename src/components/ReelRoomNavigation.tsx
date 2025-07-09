@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -37,23 +37,7 @@ const ReelRoomNavigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const [isIOS, setIsIOS] = useState(false);
-  const scrollPosition = useRef(0);
   const router = useRouter();
-  
-  // Detect iOS devices - more comprehensive detection
-  useEffect(() => {
-    const detectIOS = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isIOSDevice = 
-        /iphone|ipod|ipad/i.test(userAgent) || 
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-        /iPhone|iPad|iPod/.test(navigator.userAgent);
-      setIsIOS(isIOSDevice);
-    };
-    
-    detectIOS();
-  }, []);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -68,36 +52,11 @@ const ReelRoomNavigation: React.FC = () => {
     
     window.addEventListener('scroll', handleScroll);
     
-    // Set viewport height for mobile browsers
-    const setVH = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-    
-    // Set initial viewport height
-    setVH();
-    
-    // Recalculate on resize or orientation change
-    window.addEventListener('resize', setVH);
-    window.addEventListener('orientationchange', setVH);
-    
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', setVH);
-      window.removeEventListener('orientationchange', setVH);
-      
-      // Ensure overflow is restored when component unmounts
       document.body.style.overflow = '';
-      document.body.classList.remove('overflow-hidden');
-      
-      if (isIOS) {
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.style.top = '';
-        document.body.style.height = '';
-      }
     };
-  }, [isIOS]);
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -105,7 +64,6 @@ const ReelRoomNavigation: React.FC = () => {
       closeMobileMenu();
     };
 
-    // Check if router.events exists before subscribing
     if (router && 'events' in router) {
       // @ts-ignore - Next.js router types are sometimes inconsistent
       router.events.on('routeChangeStart', handleRouteChange);
@@ -121,21 +79,7 @@ const ReelRoomNavigation: React.FC = () => {
   
   const toggleMobileMenu = () => {
     if (!isMobileMenuOpen) {
-      // Store current scroll position before locking
-      scrollPosition.current = window.pageYOffset;
-      
-      // Lock scrolling
-      document.body.classList.add('overflow-hidden');
-      
-      if (isIOS) {
-        // iOS-specific handling
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition.current}px`;
-        document.body.style.width = '100%';
-        document.body.style.height = '100%';
-        document.body.style.overflow = 'hidden';
-      }
-      
+      document.body.style.overflow = 'hidden';
       setIsMobileMenuOpen(true);
     } else {
       closeMobileMenu();
@@ -144,18 +88,7 @@ const ReelRoomNavigation: React.FC = () => {
   
   const closeMobileMenu = () => {
     if (isMobileMenuOpen) {
-      document.body.classList.remove('overflow-hidden');
-      
-      if (isIOS) {
-        // iOS-specific handling to restore scroll position
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.height = '';
-        document.body.style.overflow = '';
-        window.scrollTo(0, scrollPosition.current);
-      }
-      
+      document.body.style.overflow = '';
       setIsMobileMenuOpen(false);
     }
   };
@@ -163,29 +96,20 @@ const ReelRoomNavigation: React.FC = () => {
   return (
     <>
       <Head>
-        {/* Add iOS-specific meta tags */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
       <header 
         className={`
-          fixed w-full z-[999] transition-all duration-300 ios-safe-area-top
+          fixed w-full z-[999] transition-all duration-300
           ${isScrolled 
             ? 'bg-black shadow-md py-1 sm:py-2' 
             : 'bg-black py-2 sm:py-4'}
           ${!isPageLoaded ? 'opacity-0' : 'opacity-100'}
         `}
         style={{
-          paddingTop: 'calc(env(safe-area-inset-top) + 0.5rem)',
-          position: 'fixed',
           top: 0,
           left: 0,
-          right: 0,
-          zIndex: 999,
-          transform: 'translateZ(0)',
-          WebkitTransform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden'
+          right: 0
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -209,16 +133,12 @@ const ReelRoomNavigation: React.FC = () => {
               <NavLink href="/blog">Blog</NavLink>
             </nav>
             
-            {/* Mobile Menu Button - Improved touch target */}
+            {/* Mobile Menu Button */}
             <button 
-              className="md:hidden flex items-center justify-center w-12 h-12 rounded-md bg-black/50 border border-brand-gold/30" 
+              className="md:hidden flex items-center justify-center w-12 h-12 rounded-md bg-black border border-brand-gold/30" 
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
-              style={{
-                WebkitTapHighlightColor: 'transparent',
-                touchAction: 'manipulation'
-              }}
             >
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
@@ -239,66 +159,57 @@ const ReelRoomNavigation: React.FC = () => {
         </div>
       </header>
       
-      {/* Mobile Menu - Full screen with improved visibility */}
-      <div 
-        className={`md:hidden fixed inset-0 bg-black z-[1000] transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
-        style={{
-          paddingTop: 'calc(env(safe-area-inset-top) + 5rem)',
-          paddingBottom: 'env(safe-area-inset-bottom)',
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          overflowY: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          transform: 'translateZ(0)',
-          WebkitTransform: 'translateZ(0)',
-          backfaceVisibility: 'hidden',
-          WebkitBackfaceVisibility: 'hidden',
-          display: isMobileMenuOpen ? 'block' : 'none'
-        }}
-      >
-        <nav className="flex flex-col items-center space-y-6 p-6 text-center">
-          <NavLink href="/" mobile onClick={closeMobileMenu}>Home</NavLink>
-          <NavLink href="/experiences" mobile onClick={closeMobileMenu}>Experiences</NavLink>
-          <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Book Now</NavLink>
-          <NavLink href="/media" mobile onClick={closeMobileMenu}>Media & FAQs</NavLink>
-          <NavLink href="/blog" mobile onClick={closeMobileMenu}>Blog</NavLink>
-        </nav>
-        
-        <div className="mt-auto p-6 text-center">
-          <p className="text-white/70 text-sm mb-4">
-            The Reel Room | Vancouver's Premier Private Theatre
-          </p>
-          <a 
-            href="mailto:info@reelroom.ca"
-            className="text-white/90 hover:text-brand-gold transition-colors text-lg"
-          >
-            info@reelroom.ca
-          </a>
-        </div>
-        
-        {/* Close button */}
-        <button 
-          className="absolute top-6 right-4 text-brand-gold p-2 bg-black/80 backdrop-blur-sm rounded-md border border-brand-gold/30" 
-          onClick={closeMobileMenu}
-          aria-label="Close menu"
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div 
+          className="fixed inset-0 bg-black z-[1000]"
           style={{
-            WebkitTapHighlightColor: 'transparent',
-            touchAction: 'manipulation',
-            width: '48px',
-            height: '48px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            paddingTop: '5rem'
           }}
         >
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
+          <nav className="flex flex-col items-center space-y-6 p-6 text-center">
+            <NavLink href="/" mobile onClick={closeMobileMenu}>Home</NavLink>
+            <NavLink href="/experiences" mobile onClick={closeMobileMenu}>Experiences</NavLink>
+            <NavLink href="/reservations" mobile onClick={closeMobileMenu}>Book Now</NavLink>
+            <NavLink href="/media" mobile onClick={closeMobileMenu}>Media & FAQs</NavLink>
+            <NavLink href="/blog" mobile onClick={closeMobileMenu}>Blog</NavLink>
+          </nav>
+          
+          <div className="mt-auto p-6 text-center">
+            <p className="text-white/70 text-sm mb-4">
+              The Reel Room | Vancouver's Premier Private Theatre
+            </p>
+            <a 
+              href="mailto:info@reelroom.ca"
+              className="text-white/90 hover:text-brand-gold transition-colors text-lg"
+            >
+              info@reelroom.ca
+            </a>
+          </div>
+          
+          {/* Close button */}
+          <button 
+            className="absolute top-6 right-4 text-brand-gold p-2 bg-black rounded-md border border-brand-gold/30" 
+            onClick={closeMobileMenu}
+            aria-label="Close menu"
+            style={{
+              width: '48px',
+              height: '48px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      )}
     </>
   );
 };
