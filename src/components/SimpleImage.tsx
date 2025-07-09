@@ -9,6 +9,7 @@ interface SimpleImageProps {
   style?: React.CSSProperties;
   loading?: 'lazy' | 'eager';
   decoding?: 'async' | 'sync' | 'auto';
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
 }
 
 // Define type for iOS-specific styles
@@ -28,7 +29,8 @@ export default function SimpleImage({
   className = '',
   style = {},
   loading = 'lazy',
-  decoding = 'async'
+  decoding = 'async',
+  objectFit = 'cover'
 }: SimpleImageProps) {
   const [imgSrc, setImgSrc] = useState<string>(src);
   const [hasError, setHasError] = useState(false);
@@ -36,15 +38,18 @@ export default function SimpleImage({
   const [isIOS, setIsIOS] = useState(false);
   const retryCount = useRef(0);
   const maxRetries = 3;
+  const imgRef = useRef<HTMLImageElement>(null);
 
-  // Detect iOS on mount
+  // Detect iOS on mount with comprehensive detection
   useEffect(() => {
     const detectIOS = () => {
       const userAgent = navigator.userAgent.toLowerCase();
       const isIOSDevice = 
         /iphone|ipod|ipad/i.test(userAgent) || 
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-        /iPhone|iPad|iPod/.test(navigator.userAgent);
+        /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+        ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform);
+      
       setIsIOS(isIOSDevice);
     };
     
@@ -59,10 +64,29 @@ export default function SimpleImage({
     retryCount.current = 0;
   }, [src]);
 
+  // iOS-specific image preloading
+  useEffect(() => {
+    if (isIOS && loading === 'eager') {
+      const preloadImage = new Image();
+      preloadImage.src = getImagePath(imgSrc);
+      preloadImage.onload = () => {
+        if (imgRef.current) {
+          imgRef.current.src = preloadImage.src;
+          setIsLoaded(true);
+        }
+      };
+      preloadImage.onerror = handleError;
+    }
+  }, [isIOS, imgSrc, loading]);
+
   const handleError = () => {
     if (hasError && retryCount.current >= maxRetries) {
       // Already tried fallback and still failing, don't loop infinitely
       console.error(`SimpleImage: Both primary and fallback images failed to load: ${src}, ${fallbackSrc}`);
+      
+      // Last resort fallback - use a known working image
+      const lastResortFallback = '/favicons/Logo Reel Room.png';
+      setImgSrc(lastResortFallback);
       return;
     }
     
@@ -113,26 +137,31 @@ export default function SimpleImage({
   };
 
   const imageStyles: CSSProperties = {
-    objectFit: 'cover',
+    objectFit,
     ...getIOSOptimizedStyles(),
-    display: isLoaded || !isIOS ? 'block' : 'none' // Special handling for iOS - hide until loaded
+    display: 'block', // Always show the image
+    opacity: isLoaded ? 1 : 0, // Use opacity for fade-in
+    transition: 'opacity 300ms ease-in-out',
+    ...style
   };
 
   return (
     <div className={`relative ${className}`} style={{
       backgroundColor: '#111',
       overflow: 'hidden',
-      ...style
     }}>
       {/* Loading placeholder */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-800 animate-pulse"></div>
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
+          <div className="w-8 h-8 border-2 border-t-brand-gold border-brand-gold/30 rounded-full animate-spin"></div>
+        </div>
       )}
       
       <img
+        ref={imgRef}
         src={getImagePath(imgSrc)}
         alt={alt}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        className={`w-full h-full transition-opacity duration-300`}
         onError={handleError}
         onLoad={handleLoad}
         loading={loading}

@@ -7,6 +7,7 @@ interface CalendlyWidgetProps {
   height?: number;
   lazyLoad?: boolean;
   position?: 'bottom' | 'normal';
+  showOnlyWhenScrolledTo?: boolean;
 }
 
 // Create a flag to track if the script has been loaded
@@ -17,14 +18,16 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
   url = 'https://calendly.com/reelroom-info?primary_color=f7be01&hide_gdpr_banner=1',
   height = 700,
   lazyLoad = true,
-  position = 'normal'
+  position = 'normal',
+  showOnlyWhenScrolledTo = true
 }) => {
   // Create a ref for the widget container
   const widgetRef = useRef<HTMLDivElement>(null);
   const [isIOS, setIsIOS] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(!lazyLoad);
+  const [isInView, setIsInView] = useState(false);
   const [hasInitialized, setHasInitialized] = useState(false);
+  const [shouldRender, setShouldRender] = useState(!showOnlyWhenScrolledTo);
 
   // Detect iOS devices - more comprehensive detection
   useEffect(() => {
@@ -33,30 +36,40 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       const isIOSDevice = 
         /iphone|ipod|ipad/i.test(userAgent) || 
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-        /iPhone|iPad|iPod/.test(navigator.userAgent);
+        /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+        ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform);
+      
       setIsIOS(isIOSDevice);
     };
     
     detectIOS();
   }, []);
 
-  // Set up intersection observer for lazy loading
+  // Set up intersection observer for lazy loading and visibility
   useEffect(() => {
-    if (!lazyLoad) {
-      setIsInView(true);
-      return;
-    }
-
+    // Always observe for visibility when showOnlyWhenScrolledTo is true
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          observer.disconnect();
+          
+          // If we're showing only when scrolled to, now is the time to render
+          if (showOnlyWhenScrolledTo) {
+            setShouldRender(true);
+          }
+          
+          // If not using lazyLoad, disconnect after first intersection
+          if (!lazyLoad) {
+            observer.disconnect();
+          }
+        } else {
+          // When scrolling away, update isInView state
+          setIsInView(false);
         }
       });
     }, { 
       threshold: 0.1,
-      rootMargin: '200px' // Load earlier for better UX
+      rootMargin: '100px' // Load slightly before scrolling into view
     });
     
     if (widgetRef.current) {
@@ -66,11 +79,11 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
     return () => {
       observer.disconnect();
     };
-  }, [lazyLoad]);
+  }, [lazyLoad, showOnlyWhenScrolledTo]);
 
   // Function to safely initialize the Calendly widget
   const initializeCalendlyWidget = () => {
-    if (!window.Calendly || !widgetRef.current) return false;
+    if (!window.Calendly || !widgetRef.current || !shouldRender) return false;
     
     try {
       // Clear any previous widget initialization
@@ -96,7 +109,11 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
   };
 
   useEffect(() => {
-    if (!isInView) return;
+    // Don't load Calendly if we shouldn't render yet
+    if (!shouldRender) return;
+    
+    // Don't load if not in view and using lazy loading
+    if (lazyLoad && !isInView) return;
 
     // Function to load Calendly script
     const loadCalendlyScript = () => {
@@ -136,11 +153,11 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       // If script already loaded but widget not initialized
       setTimeout(initializeCalendlyWidget, 100);
     }
-  }, [url, isInView, hasInitialized]);
+  }, [url, isInView, hasInitialized, shouldRender, lazyLoad]);
 
   // Add a resize handler for mobile devices
   useEffect(() => {
-    if (!isInView || !hasInitialized) return;
+    if (!shouldRender || !isInView || !hasInitialized) return;
     
     const handleResize = () => {
       // Only reinitialize if significant resize happens (orientation change)
@@ -159,11 +176,11 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('orientationchange', handleResize);
     };
-  }, [url, isInView, hasInitialized]);
+  }, [url, isInView, hasInitialized, shouldRender]);
 
   // iOS specific fix for Calendly popup
   useEffect(() => {
-    if (!isInView || !hasInitialized) return;
+    if (!shouldRender || !isInView || !hasInitialized) return;
     
     if (isIOS) {
       // Try to fix iOS-specific issues with Calendly
@@ -204,7 +221,29 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
         };
       }
     }
-  }, [isIOS, isInView, hasInitialized]);
+  }, [isIOS, isInView, hasInitialized, shouldRender]);
+
+  // If we shouldn't render yet, just show a placeholder
+  if (!shouldRender) {
+    return (
+      <div 
+        ref={widgetRef}
+        className={`calendly-placeholder ${className}`}
+        style={{
+          minHeight: 100,
+          backgroundColor: '#f9f9f9',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: '0.375rem'
+        }}
+      >
+        <p className="text-gray-500 text-center p-4">
+          Scroll to view booking calendar
+        </p>
+      </div>
+    );
+  }
 
   return (
     <>

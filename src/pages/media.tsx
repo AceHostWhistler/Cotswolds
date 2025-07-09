@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import OptimizedImage from '../components/OptimizedImage';
+import SimpleImage from '../components/SimpleImage';
 import Image from 'next/image';
 import { scrollToTop } from '@/utils/scrollUtils';
 
@@ -28,9 +29,24 @@ export default function Media() {
   const [activeFaqSection, setActiveFaqSection] = useState('general');
   const [currentPage, setCurrentPage] = useState(1);
   const imagesPerPage = 30; // Increased from 12 to 30 images per page
+  const [isIOS, setIsIOS] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
+    
+    // Detect iOS devices
+    const detectIOS = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = 
+        /iphone|ipod|ipad/i.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+        ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform);
+      
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
     
     // Load Vimeo script for the iframe embeds
     const script = document.createElement('script');
@@ -227,23 +243,12 @@ export default function Media() {
             className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
           >
             <div className="h-52 md:h-64 bg-gray-900">
-              <img 
+              <SimpleImage 
                 src={`/photos/homepage-originals/${img}`} 
-                alt={`The Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                alt={`Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
+                className="w-full h-full"
                 loading="lazy"
-                onError={(e) => {
-                  // Fallback for image loading errors
-                  const target = e.target as HTMLImageElement;
-                  console.log(`Image failed to load: ${target.src}`);
-                  target.src = "/photos/homepage-originals/DSC03125-Enhanced-NR.jpg";
-                }}
-                style={{
-                  transform: "translateZ(0)",
-                  WebkitTransform: "translateZ(0)",
-                  backfaceVisibility: "hidden",
-                  WebkitBackfaceVisibility: "hidden"
-                }}
+                fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
               />
             </div>
           </div>
@@ -301,7 +306,7 @@ export default function Media() {
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-semibold heading-font mb-4">Featured Videos</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          See The Reel Room in action through our featured video content showcasing various events and experiences.
+          See Reel Room in action through our featured video content showcasing various events and experiences.
         </p>
       </div>
       
@@ -310,14 +315,27 @@ export default function Media() {
         <div className="space-y-6 group">
           <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
             <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-              <iframe 
-                src="https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                frameBorder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                title="Film Release/Launch Parties at The Reel Room Vancouver"
-                className="vimeo-player"
-              ></iframe>
+              {isIOS ? (
+                <div className="absolute inset-0 flex items-center justify-center bg-black">
+                  <a 
+                    href="https://player.vimeo.com/video/1027464900" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-brand-gold text-black rounded-md"
+                  >
+                    View Film Release Video
+                  </a>
+                </div>
+              ) : (
+                <iframe 
+                  src="https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                  frameBorder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                  title="Film Release/Launch Parties at Reel Room Vancouver"
+                  className="vimeo-player"
+                ></iframe>
+              )}
             </div>
           </div>
           <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
@@ -334,7 +352,7 @@ export default function Media() {
             </h3>
           </div>
           <p className="body-font text-black bg-white p-5 rounded-b-lg shadow-md">
-            Experience the elegance of The Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
+            Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
           </p>
         </div>
         
@@ -342,14 +360,27 @@ export default function Media() {
         <div className="space-y-6 group">
           <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
             <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-              <iframe 
-                src="https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                frameBorder="0" 
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                title="Reel Room Events | Halloween, Sports Games"
-                className="vimeo-player"
-              ></iframe>
+              {isIOS ? (
+                <div className="absolute inset-0 flex items-center justify-center bg-black">
+                  <a 
+                    href="https://player.vimeo.com/video/1082926490" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-brand-gold text-black rounded-md"
+                  >
+                    View Sports Events Video
+                  </a>
+                </div>
+              ) : (
+                <iframe 
+                  src="https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                  frameBorder="0" 
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                  title="Reel Room Events | Halloween, Sports Games"
+                  className="vimeo-player"
+                ></iframe>
+              )}
             </div>
           </div>
           <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
@@ -366,7 +397,7 @@ export default function Media() {
             </h3>
           </div>
           <p className="body-font text-black bg-white p-5 rounded-b-lg shadow-md">
-            From themed celebrations to sports viewing parties, The Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
+            From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
           </p>
         </div>
       </div>
@@ -482,8 +513,8 @@ export default function Media() {
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
-        <title>Media & FAQs | The Reel Room</title>
-        <meta name="description" content="Explore our photo gallery, videos, and find answers to frequently asked questions about The Reel Room in Vancouver, BC." />
+        <title>Media & FAQs | Reel Room</title>
+        <meta name="description" content="Explore our photo gallery, videos, and find answers to frequently asked questions about Reel Room in Vancouver, BC." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>{`
           .black-text {
@@ -527,10 +558,12 @@ export default function Media() {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <div className="absolute inset-0">
-            <img
+                          <SimpleImage
               src="/photos/originals/homepage/DSC03659-Enhanced-NR.jpg"
-              alt="The Reel Room Media"
-              className="w-full h-full object-cover brightness-75"
+              alt="Reel Room Media"
+              className="w-full h-full brightness-75"
+              loading="eager"
+              fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
             />
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-50">
@@ -599,7 +632,7 @@ export default function Media() {
             </p>
             
             <Link
-              href="/reservations"
+              href="/book-now"
               className="inline-block border border-white text-white px-8 py-3 uppercase tracking-widest text-sm font-light hover:bg-white/10 transition-colors"
             >
               Make a Reservation
