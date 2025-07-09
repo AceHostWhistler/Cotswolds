@@ -6,6 +6,7 @@ import ReelRoomFooter from '../components/ReelRoomFooter';
 import Script from 'next/script';
 import SEO from '@/components/SEO';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
+import { scrollToTop } from '@/utils/scrollUtils';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,6 +27,9 @@ export default function Home() {
     };
     
     detectIOS();
+    
+    // Ensure page starts from the top
+    scrollToTop();
   }, []);
   
   const toggleMenu = () => {
@@ -113,7 +117,8 @@ export default function Home() {
         
         {/* Circular Content Area */}
         <div className="absolute inset-0 flex items-center justify-center p-4 mt-16">
-          <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[90vw] lg:max-w-[1000px] xl:max-w-[1100px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
+          {/* Reduced size for better spacing with the title below */}
+          <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[85vw] lg:max-w-[900px] xl:max-w-[1000px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20 mb-16">
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
@@ -205,8 +210,8 @@ export default function Home() {
       
       {/* Main Content */}
       <main className="bg-white">
-        {/* Welcome Section */}
-        <div className="py-16 md:py-24 bg-white">
+        {/* Welcome Section - Add more top padding to create space between the circular video and title */}
+        <div className="py-16 md:py-24 bg-white pt-32 md:pt-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to the Reel Room</h2>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import ReelRoomNavigation from "@/components/ReelRoomNavigation";
 import ReelRoomFooter from "@/components/ReelRoomFooter";
 import CalendlyWidget from "@/components/CalendlyWidget";
+import { scrollToTop } from "@/utils/scrollUtils";
 
 export default function BookNow() {
   const [isIOS, setIsIOS] = useState(false);
@@ -20,6 +21,9 @@ export default function BookNow() {
     };
     
     detectIOS();
+    
+    // Ensure page starts from the top
+    scrollToTop();
   }, []);
   
   return (
@@ -36,7 +40,7 @@ export default function BookNow() {
       <div className="min-h-screen bg-white">
         <ReelRoomNavigation />
 
-        {/* Calendly Widget - Fixed Position for Desktop Only */}
+        {/* Calendly Widget - Fixed Position for Desktop */}
         <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
           <div className="bg-amber-500 text-black p-3 text-center">
             <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
@@ -202,7 +206,7 @@ export default function BookNow() {
             </div>
           </div>
           
-          {/* Mobile Calendly Widget - Only show on iOS/mobile */}
+          {/* Mobile Calendly Widget */}
           <div className="py-8 bg-gray-50 lg:hidden">
             <div className="max-w-full mx-auto px-2">
               <div className="relative bg-white rounded-xl overflow-hidden shadow-xl border-2 border-amber-500">

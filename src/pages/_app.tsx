@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Script from 'next/script'
+import ScrollRestoration from '@/components/ScrollRestoration'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -50,6 +51,9 @@ export default function App({ Component, pageProps }: AppProps) {
           gtag('config', 'G-XXXXXXXXXX');
         `}
       </Script>
+      
+      {/* Scroll restoration component */}
+      <ScrollRestoration />
       
       <Component {...pageProps} />
     </>

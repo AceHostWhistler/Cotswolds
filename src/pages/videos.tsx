@@ -6,12 +6,16 @@ import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 import ReelRoomNavigation from '@/components/ReelRoomNavigation';
 import ReelRoomFooter from '@/components/ReelRoomFooter';
 import OptimizedImage from '@/components/OptimizedImage';
+import { scrollToTop } from '@/utils/scrollUtils';
 
 export default function Videos() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
+    
+    // Ensure page starts from the top
+    scrollToTop();
   }, []);
   
   return (

@@ -6,6 +6,7 @@ import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import OptimizedImage from '../components/OptimizedImage';
 import Image from 'next/image';
+import { scrollToTop } from '@/utils/scrollUtils';
 
 // Type for FAQ sections
 interface FaqItem {
@@ -40,6 +41,9 @@ export default function Media() {
     // Load all photos from the directory
     fetch('/api/photos')
       .catch(error => console.error('Error fetching photos:', error));
+    
+    // Ensure page starts from the top
+    scrollToTop();
     
     return () => {
       // Clean up script when component unmounts

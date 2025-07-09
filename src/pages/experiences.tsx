@@ -7,6 +7,7 @@ import ReelRoomFooter from '../components/ReelRoomFooter';
 import SimpleImage from '../components/SimpleImage';
 import LazyVimeoPlayer from '../components/LazyVimeoPlayer';
 import CalendlyWidget from '../components/CalendlyWidget';
+import { scrollToTop } from '@/utils/scrollUtils';
 
 export default function Experiences() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -26,6 +27,9 @@ export default function Experiences() {
     };
     
     detectIOS();
+    
+    // Ensure page starts from the top
+    scrollToTop();
   }, []);
   
   return (
