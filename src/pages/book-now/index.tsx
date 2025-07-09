@@ -15,12 +15,13 @@ export default function BookNow() {
           content="Book The Reel Room for your next event. Our private theatre venue in Vancouver is perfect for film screenings, corporate events, and private parties."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
 
       <div className="min-h-screen bg-white">
         <ReelRoomNavigation />
 
-        {/* Calendly Widget - Fixed Position with Enhanced Visibility */}
+        {/* Calendly Widget - Fixed Position with Enhanced Visibility for Desktop */}
         <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
           <div className="bg-amber-500 text-black p-3 text-center">
             <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
@@ -200,7 +201,7 @@ export default function BookNow() {
                   </svg>
                 </div>
                 <div className="w-full h-[500px] overflow-hidden">
-                  <CalendlyWidget height={500} className="border-t border-gray-200" lazyLoad={true} />
+                  <CalendlyWidget height={500} className="border-t border-gray-200" lazyLoad={true} position="bottom" />
                 </div>
               </div>
             </div>

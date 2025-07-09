@@ -5,6 +5,7 @@ import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import Script from 'next/script';
 import SEO from '@/components/SEO';
+import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -105,20 +106,15 @@ export default function Home() {
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute inset-0">
-                  <iframe 
-                    src="https://player.vimeo.com/video/1082926490?autoplay=1&muted=1&loop=1&background=1&controls=0&quality=auto&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479&dnt=1" 
-                    frameBorder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    style={{ 
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover"
-                    }}
-                    title="Reel Room Background Video"
-                  ></iframe>
+                  <LazyVimeoPlayer 
+                    videoId="1082926490" 
+                    autoplay={true}
+                    loop={true}
+                    muted={true}
+                    background={true}
+                    coverMode={true}
+                    priority={true}
+                  />
                 </div>
               </div>
               
@@ -200,6 +196,237 @@ export default function Home() {
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
                 Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver.
               </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Featured Vimeo Videos Section */}
+        <div className="py-16 md:py-24 bg-black text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-light heading-font mb-16 text-center">Featured Videos</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+              {/* Film Release Video */}
+              <div className="space-y-6">
+                <div className="rounded-md overflow-hidden border border-brand-gold">
+                  <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                    <iframe 
+                      src="https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                      frameBorder="0" 
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                      title="Film Release/Launch Parties at The Reel Room Vancouver"
+                      className="vimeo-player"
+                    ></iframe>
+                  </div>
+                </div>
+                <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
+                <p className="body-font text-gray-300">
+                  Experience the elegance of The Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
+                </p>
+              </div>
+              
+              {/* Halloween/Sports Video */}
+              <div className="space-y-6">
+                <div className="rounded-md overflow-hidden border border-brand-gold">
+                  <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                    <iframe 
+                      src="https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                      frameBorder="0" 
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                      title="Reel Room Events | Halloween, Sports Games"
+                      className="vimeo-player"
+                    ></iframe>
+                  </div>
+                </div>
+                <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
+                <p className="body-font text-gray-300">
+                  From themed celebrations to sports viewing parties, The Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* The Space Section */}
+        <div className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">The Space</h2>
+                <p className="text-lg text-gray-600 mb-6 body-font">
+                  At the Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
+                </p>
+                <p className="text-lg text-gray-600 body-font">
+                  Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
+                </p>
+              </div>
+              <div className="relative h-96 rounded-lg overflow-hidden">
+                <img 
+                  src="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg" 
+                  alt="Reel Room Space" 
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Parties Section */}
+        <div className="py-16 md:py-24 bg-black text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
+                <img 
+                  src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg" 
+                  alt="Reel Room Parties" 
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+              <div className="md:order-1">
+                <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Parties</h2>
+                <p className="text-lg text-gray-300 mb-6 body-font">
+                  Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At The Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
+                </p>
+                <p className="text-lg text-gray-300 body-font">
+                  Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Private Events Section */}
+        <div className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Private Events</h2>
+                <p className="text-lg text-gray-600 mb-6 body-font">
+                  At the Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
+                </p>
+                <p className="text-lg text-gray-600 body-font">
+                  Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
+                </p>
+                <div className="mt-8">
+                  <Link 
+                    href="/experiences" 
+                    className="inline-block border border-brand-gold bg-black text-brand-gold px-8 py-3 uppercase tracking-widest text-sm font-light hover:bg-brand-gold/10 transition-colors"
+                  >
+                    View Experiences
+                  </Link>
+                </div>
+              </div>
+              <div className="relative h-96 rounded-lg overflow-hidden">
+                <img 
+                  src="/photos/originals/homepage/DSC03060-Enhanced-NR.jpg" 
+                  alt="Reel Room Private Events" 
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Venue Description */}
+        <div className="py-16 md:py-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-lg text-gray-600 mb-8 body-font">
+                Our venue comfortably accommodates up to 85-95+ guests, complimented by a lounge & bar area with a mounted 70" TV. It is the perfect space for your private event.
+              </p>
+              <p className="text-lg text-gray-600 mb-8 body-font">
+                Intimate screenings, live sports streaming, corporate bookings, PR soirées, brand and influencer showcases, or simply indulging in a unique cinematic experience with friends.
+              </p>
+              <p className="text-lg text-gray-600 mb-8 body-font">
+                The Reel Room stands as the ultimate destination for those seeking an exclusive, private, and unforgettable event space experience with the bonus of having your own private movie theatre, allowing for creative event planning.
+              </p>
+              <div className="mt-8">
+                <Link
+                  href="/reservations" 
+                  className="inline-block border border-brand-gold bg-black text-brand-gold px-8 py-3 uppercase tracking-widest text-sm font-light hover:bg-brand-gold/10 transition-colors"
+                >
+                  Book Now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* What Our Event Space Offers */}
+        <div className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-light heading-font mb-12 text-center">What our event space offers</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
+                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                  <img 
+                    src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
+                    alt="Film & Screenings" 
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
+                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                  <img 
+                    src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
+                    alt="Event Flexibility" 
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
+                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                  <img 
+                    src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
+                    alt="Upscale theatre experience" 
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
+                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                  <img 
+                    src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
+                    alt="Catering Services" 
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
+                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                  <img 
+                    src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
+                    alt="Bar Services" 
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
+                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                  <img 
+                    src="/photos/homepage-originals/DSC03113-Enhanced-NR.jpg" 
+                    alt="Curated Food & Alcohol Menus" 
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xl font-medium heading-font mb-4">Curated Food & Alc Menus</h3>
+              </div>
             </div>
           </div>
         </div>

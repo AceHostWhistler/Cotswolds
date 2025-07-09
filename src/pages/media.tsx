@@ -472,6 +472,7 @@ export default function Media() {
       <Head>
         <title>Media & FAQs | The Reel Room</title>
         <meta name="description" content="Explore our photo gallery, videos, and find answers to frequently asked questions about The Reel Room in Vancouver, BC." />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>{`
           .black-text {
             color: #000000 !important;
@@ -486,6 +487,24 @@ export default function Media() {
             font-weight: 600 !important;
             text-shadow: 0 0 0 #000000 !important;
             -webkit-text-fill-color: #000000 !important;
+          }
+          
+          /* Ensure videos display properly on iPhone */
+          @supports (-webkit-touch-callout: none) {
+            .vimeo-player {
+              position: absolute !important;
+              top: 0 !important;
+              left: 0 !important;
+              width: 100% !important;
+              height: 100% !important;
+              background-color: black !important;
+            }
+            
+            iframe {
+              width: 100% !important;
+              height: 100% !important;
+              border: 0 !important;
+            }
           }
         `}</style>
       </Head>
