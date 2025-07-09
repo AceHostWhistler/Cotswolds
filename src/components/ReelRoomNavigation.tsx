@@ -71,7 +71,14 @@ export default function ReelRoomNavigation() {
               onClick={handleNavLinkClick}
               className={`heading-font text-sm uppercase tracking-widest text-white hover:text-brand-gold transition-colors ${router.pathname === '/experiences' ? 'text-brand-gold' : ''}`}
             >
-              Experiences
+              Experiences & Pricing
+            </Link>
+            <Link 
+              href="/blog" 
+              onClick={handleNavLinkClick}
+              className={`heading-font text-sm uppercase tracking-widest text-white hover:text-brand-gold transition-colors ${router.pathname === '/blog' ? 'text-brand-gold' : ''}`}
+            >
+              Blog
             </Link>
             <Link 
               href="/media" 
@@ -79,13 +86,6 @@ export default function ReelRoomNavigation() {
               className={`heading-font text-sm uppercase tracking-widest text-white hover:text-brand-gold transition-colors ${router.pathname === '/media' ? 'text-brand-gold' : ''}`}
             >
               Media & FAQs
-            </Link>
-            <Link 
-              href="/reservations" 
-              onClick={handleNavLinkClick}
-              className={`heading-font text-sm uppercase tracking-widest text-white hover:text-brand-gold transition-colors ${router.pathname === '/reservations' ? 'text-brand-gold' : ''}`}
-            >
-              Reservations
             </Link>
             <Link 
               href="/book-now" 
@@ -127,7 +127,14 @@ export default function ReelRoomNavigation() {
             onClick={handleNavLinkClick}
             className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/experiences' ? 'text-brand-gold' : ''}`}
           >
-            Experiences
+            Experiences & Pricing
+          </Link>
+          <Link 
+            href="/blog"
+            onClick={handleNavLinkClick}
+            className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/blog' ? 'text-brand-gold' : ''}`}
+          >
+            Blog
           </Link>
           <Link 
             href="/media"
@@ -135,13 +142,6 @@ export default function ReelRoomNavigation() {
             className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/media' ? 'text-brand-gold' : ''}`}
           >
             Media & FAQs
-          </Link>
-          <Link 
-            href="/reservations"
-            onClick={handleNavLinkClick}
-            className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/reservations' ? 'text-brand-gold' : ''}`}
-          >
-            Reservations
           </Link>
           <Link 
             href="/book-now"

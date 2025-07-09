@@ -119,7 +119,7 @@ export default function Experiences() {
               
               <div className="text-center">
                 <Link
-                  href="/reservations"
+                  href="/book-now"
                   className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
                 >
                   Reserve Your Date
@@ -339,7 +339,7 @@ export default function Experiences() {
                     <li>Lounge area for mingling before and after the screening</li>
                   </ul>
                   <Link
-                    href="/reservations"
+                    href="/book-now"
                     className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                   >
                     Book Your Film Event
@@ -380,7 +380,7 @@ export default function Experiences() {
                     <li>Full venue rental options</li>
                   </ul>
                   <Link
-                    href="/reservations"
+                    href="/book-now"
                     className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                   >
                     Book Your Party
@@ -406,7 +406,7 @@ export default function Experiences() {
                     <li>Networking opportunities</li>
                   </ul>
                   <Link
-                    href="/reservations"
+                    href="/book-now"
                     className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                   >
                     Book Your Corporate Event
@@ -414,10 +414,11 @@ export default function Experiences() {
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
-                    src="/photos/homepage-originals/DSC03672-Enhanced-NR.jpg"
+                    src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg"
                     alt="Corporate Events"
                     className="w-full h-full"
                     loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
                   />
                 </div>
               </div>
@@ -573,13 +574,13 @@ export default function Experiences() {
             
             <div className="flex justify-center gap-4 flex-wrap">
               <Link
-                href="/reservations"
+                href="/book-now"
                 className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
               >
                 Make a Reservation
               </Link>
               <Link
-                href="/reservations"
+                href="/book-now"
                 className="inline-block bg-transparent border border-white text-white px-6 py-3 rounded-md transition-colors hover:bg-white hover:text-black"
               >
                 Contact Us

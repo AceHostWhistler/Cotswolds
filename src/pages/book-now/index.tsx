@@ -35,6 +35,12 @@ export default function BookNow() {
           content="Book The Reel Room for your next event. Our private theatre venue in Vancouver is perfect for film screenings, corporate events, and private parties."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
 
       <div className="min-h-screen bg-white">
@@ -192,6 +198,43 @@ export default function BookNow() {
               </div>
             </div>
             
+            {/* Contact Information from Reservations page */}
+            <div className="bg-gray-50 p-8 rounded-xl shadow-lg mb-12">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Have questions about booking or need more information? Reach out to us directly.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+                  <svg className="w-12 h-12 mx-auto mb-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <h3 className="text-xl font-semibold mb-2">Email</h3>
+                  <a href="mailto:info@reelroom.ca" className="text-amber-600 hover:text-amber-700">info@reelroom.ca</a>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+                  <svg className="w-12 h-12 mx-auto mb-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  <h3 className="text-xl font-semibold mb-2">Location</h3>
+                  <p className="text-gray-600">Mount Pleasant, Vancouver, BC</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-sm text-center">
+                  <svg className="w-12 h-12 mx-auto mb-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <h3 className="text-xl font-semibold mb-2">Hours</h3>
+                  <p className="text-gray-600">Available for bookings 7 days a week</p>
+                </div>
+              </div>
+            </div>
+            
             <div className="bg-black text-white rounded-xl shadow-lg overflow-hidden p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Ready to Book Your Event?</h3>
               <p className="text-lg mb-6">
@@ -203,6 +246,33 @@ export default function BookNow() {
               >
                 Email info@reelroom.ca
               </a>
+            </div>
+          </div>
+          
+          {/* Calendly Section from Reservations page */}
+          <div className="py-16 bg-gray-100 border-t border-gray-200">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  Check availability and schedule a consultation to start planning your perfect event at The Reel Room.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
+                <div className="bg-amber-500 text-black p-4 text-center">
+                  <h3 className="font-bold text-xl uppercase tracking-wider">CALENDAR</h3>
+                  <p className="text-sm">Check availability & schedule a consultation</p>
+                </div>
+                <div className="w-full h-[700px]">
+                  <CalendlyWidget 
+                    height={700} 
+                    className="w-full" 
+                    lazyLoad={true}
+                    position={isIOS ? "bottom" : "normal"}
+                  />
+                </div>
+              </div>
             </div>
           </div>
           

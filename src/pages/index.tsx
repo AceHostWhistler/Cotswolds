@@ -107,10 +107,10 @@ export default function Home() {
               <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
               <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">EXPERIENCES & PRICING</span>
             </Link>
-            <Link href="/reservations" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
+            <Link href="/book-now" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
               <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-              <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">RESERVATIONS</span>
+              <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">BOOK NOW</span>
             </Link>
           </div>
         </div>
@@ -369,7 +369,7 @@ export default function Home() {
               </p>
               <div className="mt-8">
                 <Link
-                  href="/reservations" 
+                  href="/book-now" 
                   className="inline-block border border-brand-gold bg-black text-brand-gold px-8 py-3 uppercase tracking-widest text-sm font-light hover:bg-brand-gold/10 transition-colors"
                 >
                   Book Now
@@ -459,13 +459,13 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap justify-center gap-8 uppercase tracking-widest text-sm font-light">
               <Link href="/experiences" className="heading-font hover:text-brand-gold transition-colors">
-                experiences
+                experiences & pricing
               </Link>
               <Link href="/media" className="heading-font hover:text-brand-gold transition-colors">
                 media & faqs
               </Link>
-              <Link href="/reservations" className="heading-font hover:text-brand-gold transition-colors">
-                reservations
+              <Link href="/book-now" className="heading-font hover:text-brand-gold transition-colors">
+                book now
               </Link>
             </div>
           </div>

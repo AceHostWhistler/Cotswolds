@@ -155,6 +155,15 @@ const nextConfig = {
     // Improve page loading performance with stable option
     scrollRestoration: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/reservations',
+        destination: '/book-now',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

@@ -41,7 +41,7 @@ const ReelRoomFooter: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/reservations" className="body-font text-gray-400 hover:text-brand-gold transition-colors block py-3 sm:py-2">
+                <Link href="/book-now" className="body-font text-gray-400 hover:text-brand-gold transition-colors block py-3 sm:py-2">
                   Book Now
                 </Link>
               </li>
