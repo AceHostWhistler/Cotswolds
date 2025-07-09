@@ -423,16 +423,16 @@ svg {
 }
 
 .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
-  width: 120% !important;
-  height: 120% !important;
+  width: 130% !important;
+  height: 130% !important;
   transform: translate(-50%, -50%) scale(1.05);
 }
 
 /* iOS Safari specific fixes for videos */
 @supports (-webkit-touch-callout: none) {
   .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
-    width: 130% !important;
-    height: 130% !important;
+    width: 150% !important;
+    height: 150% !important;
     transform: translate(-50%, -50%) scale(1.1);
   }
   
@@ -474,6 +474,42 @@ svg {
     width: 100% !important;
     height: 100% !important;
   }
+  
+  /* Improve homepage circular content area for iOS */
+  .rounded-full {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Ensure text is readable over video */
+  .rounded-full .absolute.inset-0.flex.flex-col.items-center.justify-center {
+    z-index: 30 !important;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+  }
+  
+  /* Fix image loading on iOS */
+  img {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+  
+  /* Fix Calendly widget positioning for iOS */
+  .calendly-bottom-fixed {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999 !important;
+    background-color: white !important;
+    border-top: 1px solid #eee !important;
+    max-height: 80vh !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
 }
 
 /* Media queries for responsive design */
@@ -481,4 +517,32 @@ svg {
   .min-h-screen {
     min-height: 100vh;
   }
+  
+  /* Improve homepage circular content area for mobile */
+  .rounded-full {
+    max-width: 95vw !important;
+    margin: 0 auto;
+  }
+  
+  /* Ensure text is readable on mobile */
+  .rounded-full h1 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .rounded-full p {
+    font-size: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  /* Fix Calendly widget on mobile */
+  .calendly-inline-widget {
+    min-height: 500px !important;
+  }
+}
+
+/* Ensure images load properly */
+img[src^="/photos/"] {
+  background-color: #111;
+  min-height: 50px;
 }

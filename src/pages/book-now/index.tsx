@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import ReelRoomNavigation from "@/components/ReelRoomNavigation";
@@ -6,6 +6,22 @@ import ReelRoomFooter from "@/components/ReelRoomFooter";
 import CalendlyWidget from "@/components/CalendlyWidget";
 
 export default function BookNow() {
+  const [isIOS, setIsIOS] = useState(false);
+  
+  useEffect(() => {
+    // Detect iOS devices
+    const detectIOS = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = 
+        /iphone|ipod|ipad/i.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        /iPhone|iPad|iPod/.test(navigator.userAgent);
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
+  }, []);
+  
   return (
     <>
       <Head>
@@ -20,7 +36,7 @@ export default function BookNow() {
       <div className="min-h-screen bg-white">
         <ReelRoomNavigation />
 
-        {/* Calendly Widget - Fixed Position with Enhanced Visibility */}
+        {/* Calendly Widget - Fixed Position for Desktop Only */}
         <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
           <div className="bg-amber-500 text-black p-3 text-center">
             <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
@@ -186,7 +202,7 @@ export default function BookNow() {
             </div>
           </div>
           
-          {/* Mobile Calendly Widget */}
+          {/* Mobile Calendly Widget - Only show on iOS/mobile */}
           <div className="py-8 bg-gray-50 lg:hidden">
             <div className="max-w-full mx-auto px-2">
               <div className="relative bg-white rounded-xl overflow-hidden shadow-xl border-2 border-amber-500">
@@ -200,7 +216,12 @@ export default function BookNow() {
                   </svg>
                 </div>
                 <div className="w-full h-[500px] overflow-hidden">
-                  <CalendlyWidget height={500} className="border-t border-gray-200" lazyLoad={true} />
+                  <CalendlyWidget 
+                    height={500} 
+                    className="w-full" 
+                    lazyLoad={true}
+                    position={isIOS ? "bottom" : "normal"}
+                  />
                 </div>
               </div>
             </div>

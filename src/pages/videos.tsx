@@ -14,19 +14,6 @@ export default function Videos() {
     setIsPageLoaded(true);
   }, []);
   
-  // Image gallery data
-  const galleryImages = [
-    { src: "/photos/homepage/DSC03533-Enhanced-NR.jpg", alt: "Reel Room Interior" },
-    { src: "/photos/homepage/DSC03389-Enhanced-NR.jpg", alt: "Reel Room Seating" },
-    { src: "/photos/homepage/DSC03672-Enhanced-NR.jpg", alt: "Reel Room Event Setup" },
-    { src: "/photos/homepage/DSC03401-Enhanced-NR.jpg", alt: "Reel Room Bar Area" },
-    { src: "/photos/homepage/DSC03321-Enhanced-NR.jpg", alt: "Reel Room Lounge" },
-    { src: "/photos/homepage/DSC03459-Enhanced-NR.jpg", alt: "Reel Room Screen" },
-    { src: "/photos/homepage/DSC03535-Enhanced-NR.jpg", alt: "Reel Room Space" },
-    { src: "/photos/homepage/DSC03369-Enhanced-NR.jpg", alt: "Reel Room Events" },
-    { src: "/photos/homepage/DSC03644-Enhanced-NR.jpg", alt: "Reel Room Bar" },
-  ];
-  
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
@@ -130,21 +117,6 @@ export default function Videos() {
                   </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Photo Gallery Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="heading-font text-3xl font-light text-center mb-12">OUR VENUE</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {galleryImages.map((image, index) => (
-                <div key={index} className="aspect-w-1 aspect-h-1 overflow-hidden rounded-md transition-all duration-300 hover:shadow-xl">
-                  <img src={image.src} alt={image.alt} className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-500" />
-                </div>
-              ))}
             </div>
           </div>
         </section>

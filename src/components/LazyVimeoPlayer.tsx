@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, CSSProperties } from 'react';
 
 interface LazyVimeoPlayerProps {
   videoId: string;
@@ -12,6 +12,16 @@ interface LazyVimeoPlayerProps {
   priority?: boolean;
   width?: string | number;
   height?: string | number;
+}
+
+// Define iOS specific styles with proper TypeScript types
+interface IOSStyles {
+  transform: string;
+  WebkitTransform: string;
+  transformOrigin: string;
+  WebkitTransformOrigin: string;
+  WebkitBackfaceVisibility: 'hidden' | 'visible';
+  backfaceVisibility: 'hidden' | 'visible';
 }
 
 const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
@@ -32,6 +42,7 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
   const [isIOS, setIsIOS] = useState(false);
   const playerRef = useRef<HTMLDivElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [loadAttempts, setLoadAttempts] = useState(0);
 
   // Detect if we're on the client side and if it's an iOS device
   useEffect(() => {
@@ -40,7 +51,8 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
     const userAgent = navigator.userAgent.toLowerCase();
     const isIOSDevice = 
       /iphone|ipod|ipad/i.test(userAgent) || 
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+      /iPhone|iPad|iPod/.test(navigator.userAgent);
     
     setIsIOS(isIOSDevice);
 
@@ -115,6 +127,7 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
     // Add iOS specific parameters
     if (isIOS) {
       params.append('playsinline', '1');
+      params.append('webkit-playsinline', '1');
     }
     
     return baseUrl + params.toString();
@@ -125,6 +138,19 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
     setIsLoaded(true);
   };
 
+  // Handle iframe load error
+  const handleIframeError = () => {
+    if (loadAttempts < 3) {
+      // Retry loading after a delay
+      setTimeout(() => {
+        setLoadAttempts(prev => prev + 1);
+        // Force a re-render by toggling isInView
+        setIsInView(false);
+        setTimeout(() => setIsInView(true), 100);
+      }, 1000);
+    }
+  };
+
   // Determine container class based on props
   const containerClass = `vimeo-player-wrapper ${coverMode ? 'vimeo-cover-container' : ''} ${className}`;
   
@@ -132,9 +158,13 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
   const iframeClass = `vimeo-player ${coverMode ? 'vimeo-cover' : ''} ${isLoaded ? 'loaded' : ''}`;
   
   // iOS specific styles for better performance
-  const iOSStyles = isIOS ? {
-    transform: coverMode ? 'translate(-50%, -50%) scale(1.2)' : 'none',
-    WebkitTransform: coverMode ? 'translate(-50%, -50%) scale(1.2)' : 'none'
+  const iOSStyles: Partial<CSSProperties> = isIOS ? {
+    transform: coverMode ? 'translate(-50%, -50%) scale(1.3)' : 'none',
+    WebkitTransform: coverMode ? 'translate(-50%, -50%) scale(1.3)' : 'none',
+    transformOrigin: 'center center',
+    WebkitTransformOrigin: 'center center',
+    WebkitBackfaceVisibility: 'hidden',
+    backfaceVisibility: 'hidden'
   } : {};
 
   return (
@@ -169,6 +199,7 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
           title={`Vimeo Player ${videoId}`}
           loading={priority ? "eager" : "lazy"}
           onLoad={handleIframeLoad}
+          onError={handleIframeError}
         />
       )}
       {!isLoaded && (

@@ -215,19 +215,31 @@ export default function Media() {
         </p>
       </div>
       
-      {/* Gallery with consistent sizing */}
+      {/* Gallery with consistent sizing and improved iOS compatibility */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {currentImages.map((img, index) => (
           <div 
             key={index} 
             className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
           >
-            <div className="h-52 md:h-64">
+            <div className="h-52 md:h-64 bg-gray-900">
               <img 
                 src={`/photos/homepage-originals/${img}`} 
                 alt={`The Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 loading="lazy"
+                onError={(e) => {
+                  // Fallback for image loading errors
+                  const target = e.target as HTMLImageElement;
+                  console.log(`Image failed to load: ${target.src}`);
+                  target.src = "/photos/homepage-originals/DSC03125-Enhanced-NR.jpg";
+                }}
+                style={{
+                  transform: "translateZ(0)",
+                  WebkitTransform: "translateZ(0)",
+                  backfaceVisibility: "hidden",
+                  WebkitBackfaceVisibility: "hidden"
+                }}
               />
             </div>
           </div>

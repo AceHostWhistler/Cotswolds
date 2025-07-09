@@ -22,6 +22,17 @@ export default function SimpleImage({
   const [imgSrc, setImgSrc] = useState<string>(src);
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
+
+  // Detect iOS on mount
+  useEffect(() => {
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isIOSDevice = 
+      /iphone|ipod|ipad/i.test(userAgent) || 
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+      /iPhone|iPad|iPod/.test(navigator.userAgent);
+    setIsIOS(isIOSDevice);
+  }, []);
 
   // Reset state when src changes
   useEffect(() => {
@@ -42,6 +53,17 @@ export default function SimpleImage({
     setIsLoaded(true);
   };
 
+  // Ensure image path is correct - handle both absolute and relative paths
+  const getImagePath = (path: string) => {
+    // If path already starts with http/https or data:, it's already absolute
+    if (path.startsWith('http') || path.startsWith('data:')) {
+      return path;
+    }
+    
+    // Make sure the path starts with a slash for relative paths
+    return path.startsWith('/') ? path : `/${path}`;
+  };
+
   return (
     <div className={`relative ${className}`} style={{
       backgroundColor: '#111',
@@ -54,7 +76,7 @@ export default function SimpleImage({
       )}
       
       <img
-        src={imgSrc}
+        src={getImagePath(imgSrc)}
         alt={alt}
         className={`w-full h-full object-cover transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         onError={handleError}
@@ -63,6 +85,8 @@ export default function SimpleImage({
         decoding={decoding}
         style={{
           objectFit: 'cover',
+          transform: isIOS ? 'translateZ(0)' : 'none',
+          WebkitTransform: isIOS ? 'translateZ(0)' : 'none',
         }}
       />
     </div>

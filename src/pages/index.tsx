@@ -10,9 +10,22 @@ import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
+    
+    // Detect iOS devices
+    const detectIOS = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = 
+        /iphone|ipod|ipad/i.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        /iPhone|iPad|iPod/.test(navigator.userAgent);
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
   }, []);
   
   const toggleMenu = () => {
@@ -153,39 +166,41 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Featured Content Box */}
-        <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20 bg-black text-white p-0 max-w-[200px] xs:max-w-[90%] sm:max-w-md rounded-sm overflow-hidden">
-          <div className="border border-brand-gold">
-            <div className="flex flex-col xs:flex-row">
-              <div className="w-full xs:w-1/2 aspect-video xs:aspect-auto">
-                <img 
-                  src="/photos/Blogs/Screen Shot 2025-05-09 at 1.49.41 PM.png" 
-                  alt="Magpie Wedding Feature" 
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-              </div>
-              <div className="w-full xs:w-1/2 p-3 sm:p-5">
-                <h3 className="heading-font text-xs xs:text-sm sm:text-xl font-light mb-1 sm:mb-3">
-                  Reel Room featured in Elle Magazine & Magpie Wedding
-                </h3>
-                <p className="body-font text-xs sm:text-sm mb-1 sm:mb-4">
-                  Click here to view the article for your wedding inspiration
-                </p>
-                
-                <div className="mt-1 sm:mt-2">
-                  <Link
-                    href="https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
-                    target="_blank"
-                    className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm font-light hover:text-brand-cream transition-colors"
-                  >
-                    View Articles →
-                  </Link>
+        {/* Featured Content Box - Hide on iOS */}
+        {!isIOS && (
+          <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20 bg-black text-white p-0 max-w-[200px] xs:max-w-[90%] sm:max-w-md rounded-sm overflow-hidden">
+            <div className="border border-brand-gold">
+              <div className="flex flex-col xs:flex-row">
+                <div className="w-full xs:w-1/2 aspect-video xs:aspect-auto">
+                  <img 
+                    src="/photos/Blogs/Screen Shot 2025-05-09 at 1.49.41 PM.png" 
+                    alt="Magpie Wedding Feature" 
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
+                <div className="w-full xs:w-1/2 p-3 sm:p-5">
+                  <h3 className="heading-font text-xs xs:text-sm sm:text-xl font-light mb-1 sm:mb-3">
+                    Reel Room featured in Elle Magazine & Magpie Wedding
+                  </h3>
+                  <p className="body-font text-xs sm:text-sm mb-1 sm:mb-4">
+                    Click here to view the article for your wedding inspiration
+                  </p>
+                  
+                  <div className="mt-1 sm:mt-2">
+                    <Link
+                      href="https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
+                      target="_blank"
+                      className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm font-light hover:text-brand-cream transition-colors"
+                    >
+                      View Articles →
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
       
       {/* Main Content */}
@@ -202,53 +217,55 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Featured Vimeo Videos Section */}
-        <div className="py-16 md:py-24 bg-black text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-light heading-font mb-16 text-center">Featured Videos</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-              {/* Film Release Video */}
-              <div className="space-y-6">
-                <div className="rounded-md overflow-hidden border border-brand-gold">
-                  <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-                    <iframe 
-                      src="https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                      frameBorder="0" 
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                      title="Film Release/Launch Parties at The Reel Room Vancouver"
-                      className="vimeo-player"
-                    ></iframe>
+        {/* Featured Vimeo Videos Section - Hide on iOS */}
+        {!isIOS && (
+          <div className="py-16 md:py-24 bg-black text-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-16 text-center">Featured Videos</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                {/* Film Release Video */}
+                <div className="space-y-6">
+                  <div className="rounded-md overflow-hidden border border-brand-gold">
+                    <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                      <iframe 
+                        src="https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameBorder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                        title="Film Release/Launch Parties at The Reel Room Vancouver"
+                        className="vimeo-player"
+                      ></iframe>
+                    </div>
                   </div>
+                  <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
+                  <p className="body-font text-gray-300">
+                    Experience the elegance of The Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
+                  </p>
                 </div>
-                <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
-                <p className="body-font text-gray-300">
-                  Experience the elegance of The Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
-                </p>
-              </div>
-              
-              {/* Halloween/Sports Video */}
-              <div className="space-y-6">
-                <div className="rounded-md overflow-hidden border border-brand-gold">
-                  <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-                    <iframe 
-                      src="https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                      frameBorder="0" 
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                      title="Reel Room Events | Halloween, Sports Games"
-                      className="vimeo-player"
-                    ></iframe>
+                
+                {/* Halloween/Sports Video */}
+                <div className="space-y-6">
+                  <div className="rounded-md overflow-hidden border border-brand-gold">
+                    <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+                      <iframe 
+                        src="https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+                        frameBorder="0" 
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
+                        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                        title="Reel Room Events | Halloween, Sports Games"
+                        className="vimeo-player"
+                      ></iframe>
+                    </div>
                   </div>
+                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
+                  <p className="body-font text-gray-300">
+                    From themed celebrations to sports viewing parties, The Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
+                  </p>
                 </div>
-                <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
-                <p className="body-font text-gray-300">
-                  From themed celebrations to sports viewing parties, The Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
-                </p>
               </div>
             </div>
           </div>
-        </div>
+        )}
         
         {/* The Space Section */}
         <div className="py-16 md:py-24 bg-gray-50">
