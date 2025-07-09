@@ -6,6 +6,7 @@ import ReelRoomFooter from '../components/ReelRoomFooter';
 import Script from 'next/script';
 import SEO from '@/components/SEO';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
+import SimpleImage from '@/components/SimpleImage';
 import { scrollToTop } from '@/utils/scrollUtils';
 
 export default function Home() {
@@ -221,8 +222,55 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Featured Vimeo Videos Section - Hide on iOS */}
-        {!isIOS && (
+        {/* Featured Vimeo Videos Section - Modified for iOS compatibility */}
+        {isIOS ? (
+          <div className="py-16 md:py-24 bg-black text-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-16 text-center">Featured Videos</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+                {/* Film Release Video for iOS */}
+                <div className="space-y-6">
+                  <div className="rounded-md overflow-hidden border border-brand-gold relative" style={{ paddingBottom: "56.25%" }}>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black">
+                      <a 
+                        href="https://player.vimeo.com/video/1027464900" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 bg-brand-gold text-black rounded-md hover:bg-amber-600 transition-colors"
+                      >
+                        View Film Release Video
+                      </a>
+                    </div>
+                  </div>
+                  <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
+                  <p className="body-font text-gray-300">
+                    Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
+                  </p>
+                </div>
+                
+                {/* Halloween/Sports Video for iOS */}
+                <div className="space-y-6">
+                  <div className="rounded-md overflow-hidden border border-brand-gold relative" style={{ paddingBottom: "56.25%" }}>
+                    <div className="absolute inset-0 flex items-center justify-center bg-black">
+                      <a 
+                        href="https://player.vimeo.com/video/1082926490" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 bg-brand-gold text-black rounded-md hover:bg-amber-600 transition-colors"
+                      >
+                        View Sports Events Video
+                      </a>
+                    </div>
+                  </div>
+                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
+                  <p className="body-font text-gray-300">
+                    From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
           <div className="py-16 md:py-24 bg-black text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-light heading-font mb-16 text-center">Featured Videos</h2>
@@ -236,7 +284,7 @@ export default function Home() {
                         frameBorder="0" 
                         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                         style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                        title="Film Release/Launch Parties at The Reel Room Vancouver"
+                        title="Film Release/Launch Parties at Reel Room Vancouver"
                         className="vimeo-player"
                       ></iframe>
                     </div>
@@ -285,11 +333,13 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
-                <img 
+                <SimpleImage 
                   src="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg" 
                   alt="Reel Room Space" 
-                  className="w-full h-full object-cover rounded-lg"
-                  loading="lazy"
+                  className="w-full h-full rounded-lg"
+                  loading="eager"
+                  fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                  objectFit="cover"
                 />
               </div>
             </div>
@@ -301,11 +351,13 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
-                <img 
+                <SimpleImage 
                   src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg" 
                   alt="Reel Room Parties" 
-                  className="w-full h-full object-cover rounded-lg"
-                  loading="lazy"
+                  className="w-full h-full rounded-lg"
+                  loading="eager"
+                  fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                  objectFit="cover"
                 />
               </div>
               <div className="md:order-1">
@@ -343,11 +395,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
-                <img 
+                <SimpleImage 
                   src="/photos/originals/homepage/DSC03060-Enhanced-NR.jpg" 
                   alt="Reel Room Private Events" 
-                  className="w-full h-full object-cover rounded-lg"
-                  loading="lazy"
+                  className="w-full h-full rounded-lg"
+                  loading="eager"
+                  fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                  objectFit="cover"
                 />
               </div>
             </div>
@@ -386,66 +440,78 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <img 
+                  <SimpleImage 
                     src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
                     alt="Film & Screenings" 
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
+                    className="w-full h-full"
+                    loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <img 
+                  <SimpleImage 
                     src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
                     alt="Event Flexibility" 
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
+                    className="w-full h-full"
+                    loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <img 
+                  <SimpleImage 
                     src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
                     alt="Upscale theatre experience" 
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
+                    className="w-full h-full"
+                    loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <img 
+                  <SimpleImage 
                     src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
                     alt="Catering Services" 
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
+                    className="w-full h-full"
+                    loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <img 
+                  <SimpleImage 
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                     alt="Bar Services" 
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
+                    className="w-full h-full"
+                    loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <img 
+                  <SimpleImage 
                     src="/photos/homepage-originals/DSC03113-Enhanced-NR.jpg" 
                     alt="Curated Food & Alcohol Menus" 
-                    className="w-full h-full object-cover object-center"
-                    loading="lazy"
+                    className="w-full h-full"
+                    loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Curated Food & Alc Menus</h3>
