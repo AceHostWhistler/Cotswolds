@@ -232,14 +232,21 @@ export default function Home() {
                 <div className="space-y-6">
                   <div className="rounded-md overflow-hidden border border-brand-gold relative" style={{ paddingBottom: "56.25%" }}>
                     <div className="absolute inset-0 flex items-center justify-center bg-black">
-                      <a 
-                        href="https://player.vimeo.com/video/1027464900" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="px-6 py-3 bg-brand-gold text-black rounded-md hover:bg-amber-600 transition-colors"
+                      <button 
+                        onClick={() => {
+                          const win = window.open('https://player.vimeo.com/video/1027464900', '_blank');
+                          if (win) win.focus();
+                        }}
+                        className="flex flex-col items-center justify-center"
                       >
-                        View Film Release Video
-                      </a>
+                        <div className="w-16 h-16 rounded-full bg-brand-gold flex items-center justify-center mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <span className="text-white font-medium">Play Film Release Video</span>
+                      </button>
                     </div>
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
@@ -252,14 +259,21 @@ export default function Home() {
                 <div className="space-y-6">
                   <div className="rounded-md overflow-hidden border border-brand-gold relative" style={{ paddingBottom: "56.25%" }}>
                     <div className="absolute inset-0 flex items-center justify-center bg-black">
-                      <a 
-                        href="https://player.vimeo.com/video/1082926490" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="px-6 py-3 bg-brand-gold text-black rounded-md hover:bg-amber-600 transition-colors"
+                      <button 
+                        onClick={() => {
+                          const win = window.open('https://player.vimeo.com/video/1082926490', '_blank');
+                          if (win) win.focus();
+                        }}
+                        className="flex flex-col items-center justify-center"
                       >
-                        View Sports Events Video
-                      </a>
+                        <div className="w-16 h-16 rounded-full bg-brand-gold flex items-center justify-center mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <span className="text-white font-medium">Play Sports Events Video</span>
+                      </button>
                     </div>
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>

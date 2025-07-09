@@ -41,6 +41,16 @@ export default function BookNow() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <style>{`
+          @supports (-webkit-touch-callout: none) {
+            /* iOS Safari specific CSS */
+            .ios-booking-button {
+              position: static !important;
+              width: 100% !important;
+              margin-bottom: 1rem !important;
+            }
+          }
+        `}</style>
       </Head>
 
       <div className="min-h-screen bg-white">
@@ -250,34 +260,24 @@ export default function BookNow() {
                   <CalendlyWidget 
                     height={700} 
                     className="w-full" 
-                    lazyLoad={true}
-                    position={isIOS ? "bottom" : "normal"}
+                    lazyLoad={false}
+                    position="normal"
+                    showOnlyWhenScrolledTo={false}
                   />
                 </div>
               </div>
             </div>
           </div>
           
-          {/* Mobile Calendly Widget - Only show on iOS/mobile */}
+          {/* Mobile Booking Button - Only show on iOS/mobile */}
           {isIOS && (
-            <div className="py-8 bg-gray-50 lg:hidden">
-              <div className="max-w-full mx-auto px-2">
-                <div className="relative bg-white rounded-xl overflow-hidden shadow-xl border-2 border-amber-500">
-                  <div className="bg-amber-500 text-black p-4 text-center sticky top-0 z-10">
-                    <h2 className="text-2xl font-bold mb-1 uppercase tracking-wider">BOOK NOW</h2>
-                    <p className="text-black">Check availability & schedule instantly</p>
-                  </div>
-                  <div className="w-full h-[500px] overflow-hidden">
-                    <CalendlyWidget 
-                      height={500} 
-                      className="w-full" 
-                      lazyLoad={false}
-                      position="bottom"
-                      showOnlyWhenScrolledTo={false}
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="fixed bottom-0 left-0 right-0 bg-amber-500 text-center p-4 z-50 ios-booking-button">
+              <a 
+                href="mailto:info@reelroom.ca" 
+                className="block w-full bg-black text-white py-3 rounded-md font-bold text-lg"
+              >
+                Email to Book Now
+              </a>
             </div>
           )}
         </main>
