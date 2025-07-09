@@ -115,10 +115,9 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Circular Content Area */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 mt-16">
-          {/* Reduced size for better spacing with the title below */}
-          <div className="relative w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[85vw] lg:max-w-[900px] xl:max-w-[1000px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20 mb-16">
+        {/* Circular Content Area - Added more padding and improved spacing */}
+        <div className="absolute inset-0 flex items-center justify-center p-4 mt-24">
+          <div className="relative w-full max-w-[85vw] sm:max-w-[75vw] md:max-w-[85vw] lg:max-w-[950px] xl:max-w-[1050px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
@@ -138,7 +137,7 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Content Overlay */}
+              {/* Content Overlay - Improved spacing */}
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 sm:px-10 z-20">
                 {/* Logo */}
                 <div className="mb-4 sm:mb-6">
@@ -171,7 +170,7 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Featured Content Box - Hide on iOS */}
+        {/* Featured Content Box - Completely removed on iOS/mobile devices */}
         {!isIOS && (
           <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20 bg-black text-white p-0 max-w-[200px] xs:max-w-[90%] sm:max-w-md rounded-sm overflow-hidden">
             <div className="border border-brand-gold">
@@ -210,8 +209,8 @@ export default function Home() {
       
       {/* Main Content */}
       <main className="bg-white">
-        {/* Welcome Section - Add more top padding to create space between the circular video and title */}
-        <div className="py-16 md:py-24 bg-white pt-32 md:pt-40">
+        {/* Welcome Section */}
+        <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to the Reel Room</h2>

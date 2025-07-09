@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { CSSProperties } from 'react';
 
 interface SimpleImageProps {
   src: string;
@@ -8,6 +9,16 @@ interface SimpleImageProps {
   style?: React.CSSProperties;
   loading?: 'lazy' | 'eager';
   decoding?: 'async' | 'sync' | 'auto';
+}
+
+// Define type for iOS-specific styles
+interface IOSStyles {
+  WebkitBackfaceVisibility?: 'hidden' | 'visible';
+  WebkitPerspective?: number | string;
+  WebkitTransform?: string;
+  WebkitTransformStyle?: 'preserve-3d' | 'flat';
+  transform?: string;
+  willChange?: string;
 }
 
 export default function SimpleImage({ 
@@ -23,15 +34,21 @@ export default function SimpleImage({
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const retryCount = useRef(0);
+  const maxRetries = 3;
 
   // Detect iOS on mount
   useEffect(() => {
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isIOSDevice = 
-      /iphone|ipod|ipad/i.test(userAgent) || 
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-      /iPhone|iPad|iPod/.test(navigator.userAgent);
-    setIsIOS(isIOSDevice);
+    const detectIOS = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = 
+        /iphone|ipod|ipad/i.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        /iPhone|iPad|iPod/.test(navigator.userAgent);
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
   }, []);
 
   // Reset state when src changes
@@ -39,13 +56,30 @@ export default function SimpleImage({
     setImgSrc(src);
     setHasError(false);
     setIsLoaded(false);
+    retryCount.current = 0;
   }, [src]);
 
   const handleError = () => {
-    if (!hasError && fallbackSrc) {
+    if (hasError && retryCount.current >= maxRetries) {
+      // Already tried fallback and still failing, don't loop infinitely
+      console.error(`SimpleImage: Both primary and fallback images failed to load: ${src}, ${fallbackSrc}`);
+      return;
+    }
+    
+    if (!hasError && fallbackSrc && fallbackSrc !== src) {
       console.log(`SimpleImage: Primary image failed to load: ${src}. Using fallback: ${fallbackSrc}`);
       setImgSrc(fallbackSrc);
       setHasError(true);
+      return;
+    }
+    
+    // If we're already using fallback or source is same as fallback, try to retry with cache-busting
+    if (retryCount.current < maxRetries) {
+      retryCount.current += 1;
+      console.log(`SimpleImage: Retrying image load (${retryCount.current}/${maxRetries}): ${src}`);
+      // Add a cache-busting parameter
+      const cacheBuster = `?retry=${Date.now()}`;
+      setImgSrc(hasError ? `${fallbackSrc}${cacheBuster}` : `${src}${cacheBuster}`);
     }
   };
 
@@ -62,6 +96,26 @@ export default function SimpleImage({
     
     // Make sure the path starts with a slash for relative paths
     return path.startsWith('/') ? path : `/${path}`;
+  };
+  
+  // iOS specific image optimizations
+  const getIOSOptimizedStyles = (): IOSStyles => {
+    if (!isIOS) return {};
+    
+    return {
+      WebkitBackfaceVisibility: 'hidden',
+      WebkitPerspective: 1000,
+      WebkitTransform: 'translateZ(0)',
+      WebkitTransformStyle: 'preserve-3d',
+      transform: 'translateZ(0)',
+      willChange: 'transform'
+    };
+  };
+
+  const imageStyles: CSSProperties = {
+    objectFit: 'cover',
+    ...getIOSOptimizedStyles(),
+    display: isLoaded || !isIOS ? 'block' : 'none' // Special handling for iOS - hide until loaded
   };
 
   return (
@@ -83,11 +137,7 @@ export default function SimpleImage({
         onLoad={handleLoad}
         loading={loading}
         decoding={decoding}
-        style={{
-          objectFit: 'cover',
-          transform: isIOS ? 'translateZ(0)' : 'none',
-          WebkitTransform: isIOS ? 'translateZ(0)' : 'none',
-        }}
+        style={imageStyles}
       />
     </div>
   );
