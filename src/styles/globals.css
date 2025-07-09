@@ -401,6 +401,7 @@ svg {
 .vimeo-player-wrapper {
   position: relative;
   overflow: hidden;
+  background-color: black;
 }
 
 .vimeo-player-wrapper iframe.vimeo-cover {
@@ -413,14 +414,32 @@ svg {
 }
 
 /* Specific style for homepage circular video container */
-.rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
+.rounded-full .vimeo-player-wrapper {
   width: 100% !important;
   height: 100% !important;
-  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: black;
 }
 
-/* iOS Safari specific fixes */
+.rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
+  width: 120% !important;
+  height: 120% !important;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* iOS Safari specific fixes for videos */
 @supports (-webkit-touch-callout: none) {
+  .rounded-full .vimeo-player-wrapper iframe.vimeo-cover {
+    width: 130% !important;
+    height: 130% !important;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  
+  .vimeo-player.loaded {
+    opacity: 1 !important;
+  }
+  
   /* Basic fixes for iOS */
   html, body {
     width: 100%;

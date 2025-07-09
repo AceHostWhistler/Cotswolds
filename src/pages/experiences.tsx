@@ -40,6 +40,17 @@ export default function Experiences() {
       
       <ReelRoomNavigation />
       
+      {/* Calendly Widget - Fixed Position for Desktop */}
+      <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
+        <div className="bg-amber-500 text-black p-3 text-center">
+          <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
+          <p className="text-sm">Check availability & schedule instantly</p>
+        </div>
+        <div className="relative">
+          <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" lazyLoad={false} />
+        </div>
+      </div>
+      
       <main className="pt-20">
         {/* Hero Section */}
         <div className="relative h-[500px] overflow-hidden bg-gray-800">

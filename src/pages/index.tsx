@@ -114,6 +114,8 @@ export default function Home() {
                     background={true}
                     coverMode={true}
                     priority={true}
+                    width="100%"
+                    height="100%"
                   />
                 </div>
               </div>
