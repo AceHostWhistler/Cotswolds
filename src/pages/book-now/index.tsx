@@ -29,10 +29,10 @@ export default function BookNow() {
   return (
     <>
       <Head>
-        <title>Book Now | The Reel Room</title>
+        <title>Book Now | Reel Room</title>
         <meta
           name="description"
-          content="Book The Reel Room for your next event. Our private theatre venue in Vancouver is perfect for film screenings, corporate events, and private parties."
+          content="Book Reel Room for your next event. Our private theatre venue in Vancouver is perfect for film screenings, corporate events, and private parties."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -71,7 +71,7 @@ export default function BookNow() {
                   Book Now
                 </h1>
                 <p className="text-xl text-white">
-                  Create unforgettable memories at The Reel Room, Vancouver's premier private theatre venue.
+                  Create unforgettable memories at Reel Room, Vancouver's premier private theatre venue.
                 </p>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function BookNow() {
           <div className="max-w-5xl mx-auto px-4 py-12">
             <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">How to Book The Reel Room</h2>
+                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">How to Book Reel Room</h2>
                 
                 <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mb-8">
                   <h3 className="text-xl font-bold mb-4 text-gray-800">Contact Us to Book</h3>
@@ -111,7 +111,7 @@ export default function BookNow() {
                       3. We'll discuss your specific needs and requirements<br/>
                       4. Receive a detailed quote<br/>
                       5. Confirm your booking with a deposit<br/>
-                      6. Enjoy your event at The Reel Room!
+                      6. Enjoy your event at Reel Room!
                     </p>
                   </div>
                   
@@ -144,12 +144,6 @@ export default function BookNow() {
                   <p className="text-gray-600 mb-6">
                     Perfect for DCP film releases, premieres, and private screenings. Showcase your work on our high-quality projection system with premium sound. Create a memorable experience for your cast, crew, and special guests in our sophisticated venue.
                   </p>
-                  <Link
-                    href="/experiences"
-                    className="inline-block px-6 py-3 bg-brand-gold text-black rounded-md hover:bg-amber-600 hover:text-white transition-colors"
-                  >
-                    View Details
-                  </Link>
                 </div>
               </div>
               
@@ -164,14 +158,8 @@ export default function BookNow() {
                 <div className="md:w-2/3 p-6">
                   <h3 className="text-2xl font-bold mb-3">Private Parties & Sports Events</h3>
                   <p className="text-gray-600 mb-6">
-                    Host an unforgettable party or sports viewing event with customizable food and drink options in our luxurious private theatre venue. Whether it's a birthday celebration, anniversary, or watching the big game, The Reel Room provides an exclusive experience.
+                    Host an unforgettable party or sports viewing event with customizable food and drink options in our luxurious private theatre venue. Whether it's a birthday celebration, anniversary, or watching the big game, Reel Room provides an exclusive experience.
                   </p>
-                  <Link
-                    href="/experiences"
-                    className="inline-block px-6 py-3 bg-brand-gold text-black rounded-md hover:bg-amber-600 hover:text-white transition-colors"
-                  >
-                    View Details
-                  </Link>
                 </div>
               </div>
               
@@ -188,12 +176,6 @@ export default function BookNow() {
                   <p className="text-gray-600 mb-6">
                     Impress clients and colleagues with presentations, team building events, and product launches in our sophisticated venue with state-of-the-art AV capabilities. Our professional setting provides the perfect backdrop for your business needs.
                   </p>
-                  <Link
-                    href="/experiences"
-                    className="inline-block px-6 py-3 bg-brand-gold text-black rounded-md hover:bg-amber-600 hover:text-white transition-colors"
-                  >
-                    View Details
-                  </Link>
                 </div>
               </div>
             </div>
@@ -238,7 +220,7 @@ export default function BookNow() {
             <div className="bg-black text-white rounded-xl shadow-lg overflow-hidden p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Ready to Book Your Event?</h3>
               <p className="text-lg mb-6">
-                Contact us today to check availability and start planning your unforgettable experience at The Reel Room.
+                Contact us today to check availability and start planning your unforgettable experience at Reel Room.
               </p>
               <a
                 href="mailto:info@reelroom.ca"
@@ -255,7 +237,7 @@ export default function BookNow() {
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Check availability and schedule a consultation to start planning your perfect event at The Reel Room.
+                  Check availability and schedule a consultation to start planning your perfect event at Reel Room.
                 </p>
               </div>
               

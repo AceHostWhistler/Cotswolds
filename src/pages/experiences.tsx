@@ -326,7 +326,7 @@ export default function Experiences() {
                 <div className="order-2 md:order-1">
                   <h3 className="text-2xl font-bold mb-4">DCP Film Release Events</h3>
                   <p className="text-gray-600 mb-6">
-                    Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At The Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
+                    Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
                   </p>
                   <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
                     <p className="text-gray-800 italic">DCP Available upon request.</p>
@@ -351,6 +351,8 @@ export default function Experiences() {
                     alt="DCP Film Release Events"
                     className="w-full h-full"
                     loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
               </div>
@@ -365,6 +367,8 @@ export default function Experiences() {
                     alt="Private Parties & Sports Events"
                     className="w-full h-full"
                     loading="eager"
+                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
                 <div>
@@ -395,7 +399,7 @@ export default function Experiences() {
                 <div className="order-2 md:order-1">
                   <h3 className="text-2xl font-bold mb-4">Corporate Events</h3>
                   <p className="text-gray-600 mb-6">
-                    The Reel Room offers a unique and impressive venue for corporate events. From product launches to team building movie nights, our space provides a sophisticated setting with state-of-the-art audio-visual capabilities.
+                    Reel Room offers a unique and impressive venue for corporate events. From product launches to team building movie nights, our space provides a sophisticated setting with state-of-the-art audio-visual capabilities.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
                     <li>Corporate presentations</li>
@@ -419,6 +423,7 @@ export default function Experiences() {
                     className="w-full h-full"
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
+                    objectFit="cover"
                   />
                 </div>
               </div>
