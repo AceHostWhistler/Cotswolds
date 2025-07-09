@@ -506,15 +506,15 @@ export default function Home() {
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
                   <SimpleImage 
-                    src="/photos/homepage-originals/DSC03113-Enhanced-NR.jpg" 
-                    alt="Curated Food & Alcohol Menus" 
+                    src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
+                    alt="Audio Visual Equipment" 
                     className="w-full h-full"
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
                     objectFit="cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font mb-4">Curated Food & Alc Menus</h3>
+                <h3 className="text-xl font-medium heading-font mb-4">Audio Visual Equipment</h3>
               </div>
             </div>
           </div>

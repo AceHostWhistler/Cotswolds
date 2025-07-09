@@ -66,16 +66,29 @@ export default function SimpleImage({
 
   // iOS-specific image preloading
   useEffect(() => {
-    if (isIOS && loading === 'eager') {
-      const preloadImage = new Image();
-      preloadImage.src = getImagePath(imgSrc);
-      preloadImage.onload = () => {
-        if (imgRef.current) {
-          imgRef.current.src = preloadImage.src;
-          setIsLoaded(true);
-        }
-      };
-      preloadImage.onerror = handleError;
+    // For all devices, but especially important for iOS
+    const preloadImage = new Image();
+    preloadImage.src = getImagePath(imgSrc);
+    preloadImage.onload = () => {
+      if (imgRef.current) {
+        imgRef.current.src = preloadImage.src;
+        setIsLoaded(true);
+      }
+    };
+    preloadImage.onerror = handleError;
+    
+    // For iOS devices, apply additional optimizations
+    if (isIOS) {
+      // Force hardware acceleration for iOS
+      if (imgRef.current) {
+        imgRef.current.style.transform = 'translateZ(0)';
+        imgRef.current.style.webkitTransform = 'translateZ(0)';
+      }
+      
+      // For iOS eager loading, ensure image is displayed immediately
+      if (loading === 'eager') {
+        setIsLoaded(true);
+      }
     }
   }, [isIOS, imgSrc, loading]);
 
@@ -150,13 +163,14 @@ export default function SimpleImage({
       backgroundColor: '#111',
       overflow: 'hidden',
     }}>
-      {/* Loading placeholder */}
+      {/* Loading placeholder - show only when image is not loaded */}
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-800">
           <div className="w-8 h-8 border-2 border-t-brand-gold border-brand-gold/30 rounded-full animate-spin"></div>
         </div>
       )}
       
+      {/* Actual image - always present but opacity controlled by isLoaded state */}
       <img
         ref={imgRef}
         src={getImagePath(imgSrc)}

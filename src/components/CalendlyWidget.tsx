@@ -286,13 +286,15 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
             
             .calendly-inline-widget iframe {
               min-height: ${height + 50}px !important;
-              transform: scale(1) !important;
-              -webkit-transform: scale(1) !important;
+              transform: scale(0.99) !important;
+              -webkit-transform: scale(0.99) !important;
+              margin-top: -1px;
+              margin-left: -1px;
             }
             
             /* Position at bottom option for iOS to prevent overlap issues */
             .calendly-bottom-fixed {
-              position: ${position === 'bottom' ? 'fixed' : 'relative'} !important;
+              position: ${position === 'bottom' ? 'relative' : 'relative'} !important;
               bottom: ${position === 'bottom' ? '0' : 'auto'} !important;
               left: 0 !important;
               right: 0 !important;
@@ -309,12 +311,12 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       </Head>
       <div 
         ref={widgetRef}
-        className={`calendly-inline-widget ${isIOS && position === 'bottom' ? 'calendly-bottom-fixed' : ''} ${className}`} 
+        className={`calendly-inline-widget ${isIOS ? 'ios-calendly-widget' : ''} ${className}`} 
         data-url={url} 
         style={{ 
           minWidth: 320, 
           height: isIOS ? (position === 'bottom' ? 'auto' : height) : height,
-          maxHeight: isIOS && position === 'bottom' ? '80vh' : 'none',
+          maxHeight: isIOS ? '80vh' : 'none',
           width: '100%',
           overflow: isIOS ? 'auto' : 'hidden',
           WebkitOverflowScrolling: 'touch',

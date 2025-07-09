@@ -353,6 +353,7 @@ export default function Experiences() {
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
                     objectFit="cover"
+                    style={{ opacity: 1 }}
                   />
                 </div>
               </div>
@@ -369,6 +370,7 @@ export default function Experiences() {
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
                     objectFit="cover"
+                    style={{ opacity: 1 }}
                   />
                 </div>
                 <div>
@@ -424,6 +426,7 @@ export default function Experiences() {
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
                     objectFit="cover"
+                    style={{ opacity: 1 }}
                   />
                 </div>
               </div>

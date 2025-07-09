@@ -259,29 +259,27 @@ export default function BookNow() {
           </div>
           
           {/* Mobile Calendly Widget - Only show on iOS/mobile */}
-          <div className="py-8 bg-gray-50 lg:hidden">
-            <div className="max-w-full mx-auto px-2">
-              <div className="relative bg-white rounded-xl overflow-hidden shadow-xl border-2 border-amber-500">
-                <div className="bg-amber-500 text-black p-4 text-center sticky top-0 z-10">
-                  <h2 className="text-2xl font-bold mb-1 uppercase tracking-wider">BOOK NOW</h2>
-                  <p className="text-black">Check availability & schedule instantly</p>
-                </div>
-                <div className="animate-pulse absolute right-4 top-20 h-16 w-16 flex items-center justify-center rounded-full bg-amber-500 shadow-lg z-10">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="w-full h-[500px] overflow-hidden">
-                  <CalendlyWidget 
-                    height={500} 
-                    className="w-full" 
-                    lazyLoad={true}
-                    position={isIOS ? "bottom" : "normal"}
-                  />
+          {isIOS && (
+            <div className="py-8 bg-gray-50 lg:hidden">
+              <div className="max-w-full mx-auto px-2">
+                <div className="relative bg-white rounded-xl overflow-hidden shadow-xl border-2 border-amber-500">
+                  <div className="bg-amber-500 text-black p-4 text-center sticky top-0 z-10">
+                    <h2 className="text-2xl font-bold mb-1 uppercase tracking-wider">BOOK NOW</h2>
+                    <p className="text-black">Check availability & schedule instantly</p>
+                  </div>
+                  <div className="w-full h-[500px] overflow-hidden">
+                    <CalendlyWidget 
+                      height={500} 
+                      className="w-full" 
+                      lazyLoad={false}
+                      position="bottom"
+                      showOnlyWhenScrolledTo={false}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </main>
 
         <ReelRoomFooter />
