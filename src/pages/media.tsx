@@ -25,7 +25,7 @@ interface FaqSections {
 
 export default function Media() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const [activeTab, setActiveTab] = useState('videos');
+  const [activeTab, setActiveTab] = useState('gallery'); // Changed default to gallery
   const [activeFaqSection, setActiveFaqSection] = useState('general');
   const [currentPage, setCurrentPage] = useState(1);
   const imagesPerPage = 30; // Increased from 12 to 30 images per page
@@ -243,14 +243,12 @@ export default function Media() {
             className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
           >
             <div className="h-52 md:h-64 bg-gray-900">
-              <SimpleImage 
+              <img 
                 src={`/photos/homepage-originals/${img}`} 
                 alt={`Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
-                className="w-full h-full"
+                className="w-full h-full object-cover"
                 loading="eager"
-                style={{ opacity: 1 }}
-                fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                objectFit="cover"
+                style={{ display: 'block' }}
               />
             </div>
           </div>
@@ -316,24 +314,32 @@ export default function Media() {
         {/* Film Release Video */}
         <div className="space-y-6 group">
           <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
-            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+            <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
               {isIOS ? (
                 <div className="absolute inset-0 flex items-center justify-center bg-black">
-                  <button 
-                    onClick={() => {
-                      const win = window.open('https://player.vimeo.com/video/1027464900', '_blank');
-                      if (win) win.focus();
-                    }}
-                    className="flex flex-col items-center justify-center"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-brand-gold flex items-center justify-center mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                  <div className="relative w-full h-full">
+                    <img 
+                      src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+                      alt="Film Release Video Thumbnail"
+                      className="absolute inset-0 w-full h-full object-cover opacity-60"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <button 
+                        onClick={() => {
+                          window.location.href = 'https://player.vimeo.com/video/1027464900';
+                        }}
+                        className="flex flex-col items-center justify-center z-10"
+                      >
+                        <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <span className="text-white font-medium text-lg shadow-md">Play Film Release Video</span>
+                      </button>
                     </div>
-                    <span className="text-white font-medium">Play Film Release Video</span>
-                  </button>
+                  </div>
                 </div>
               ) : (
                 <iframe 
@@ -368,24 +374,32 @@ export default function Media() {
         {/* Halloween/Sports Video */}
         <div className="space-y-6 group">
           <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
-            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+            <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
               {isIOS ? (
                 <div className="absolute inset-0 flex items-center justify-center bg-black">
-                  <button 
-                    onClick={() => {
-                      const win = window.open('https://player.vimeo.com/video/1082926490', '_blank');
-                      if (win) win.focus();
-                    }}
-                    className="flex flex-col items-center justify-center"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-brand-gold flex items-center justify-center mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                  <div className="relative w-full h-full">
+                    <img 
+                      src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+                      alt="Sports Events Video Thumbnail"
+                      className="absolute inset-0 w-full h-full object-cover opacity-60"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <button 
+                        onClick={() => {
+                          window.location.href = 'https://player.vimeo.com/video/1082926490';
+                        }}
+                        className="flex flex-col items-center justify-center z-10"
+                      >
+                        <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <span className="text-white font-medium text-lg shadow-md">Play Sports Events Video</span>
+                      </button>
                     </div>
-                    <span className="text-white font-medium">Play Sports Events Video</span>
-                  </button>
+                  </div>
                 </div>
               ) : (
                 <iframe 
@@ -574,12 +588,11 @@ export default function Media() {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <div className="absolute inset-0">
-                          <SimpleImage
+            <img
               src="/photos/originals/homepage/DSC03659-Enhanced-NR.jpg"
               alt="Reel Room Media"
-              className="w-full h-full brightness-75"
+              className="w-full h-full object-cover brightness-75"
               loading="eager"
-              fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
             />
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-50">
