@@ -8,23 +8,39 @@ import { scrollToTop } from "@/utils/scrollUtils";
 
 export default function BookNow() {
   const [isIOS, setIsIOS] = useState(false);
+  const [hasCalendlyError, setHasCalendlyError] = useState(false);
   
   useEffect(() => {
     // Detect iOS devices
     const detectIOS = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isIOSDevice = 
-        /iphone|ipod|ipad/i.test(userAgent) || 
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-        /iPhone|iPad|iPod/.test(navigator.userAgent);
-      setIsIOS(isIOSDevice);
+      try {
+        if (typeof window === 'undefined' || !window.navigator) return;
+        
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isIOSDevice = 
+          /iphone|ipod|ipad/i.test(userAgent) || 
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+          /iPhone|iPad|iPod/.test(navigator.userAgent);
+        setIsIOS(isIOSDevice);
+      } catch (error) {
+        console.error("Error detecting iOS device:", error);
+      }
     };
     
     detectIOS();
     
     // Ensure page starts from the top
-    scrollToTop();
+    try {
+      scrollToTop();
+    } catch (error) {
+      console.error("Error scrolling to top:", error);
+    }
   }, []);
+  
+  // Error handler for Calendly widget
+  const handleCalendlyError = () => {
+    setHasCalendlyError(true);
+  };
   
   return (
     <>
@@ -63,7 +79,24 @@ export default function BookNow() {
             <p className="text-sm">Check availability & schedule instantly</p>
           </div>
           <div className="relative">
-            <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" lazyLoad={false} />
+            {hasCalendlyError ? (
+              <div className="bg-white p-6 text-center h-[450px] flex flex-col items-center justify-center">
+                <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
+                <p className="mb-4">Please email us to book your event:</p>
+                <a 
+                  href="mailto:info@reelroom.ca" 
+                  className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                >
+                  Email info@reelroom.ca
+                </a>
+              </div>
+            ) : (
+              <CalendlyWidget 
+                height={450} 
+                className="border border-gray-200 shadow-lg rounded-lg" 
+                lazyLoad={false} 
+              />
+            )}
           </div>
         </div>
 
@@ -257,13 +290,26 @@ export default function BookNow() {
                   <p className="text-sm">Check availability & schedule a consultation</p>
                 </div>
                 <div className="w-full h-[700px]">
-                  <CalendlyWidget 
-                    height={700} 
-                    className="w-full" 
-                    lazyLoad={false}
-                    position="normal"
-                    showOnlyWhenScrolledTo={false}
-                  />
+                  {hasCalendlyError ? (
+                    <div className="bg-white p-6 text-center h-[700px] flex flex-col items-center justify-center">
+                      <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
+                      <p className="mb-4">Please email us to book your event:</p>
+                      <a 
+                        href="mailto:info@reelroom.ca" 
+                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                      >
+                        Email info@reelroom.ca
+                      </a>
+                    </div>
+                  ) : (
+                    <CalendlyWidget 
+                      height={700} 
+                      className="w-full" 
+                      lazyLoad={false}
+                      position="normal"
+                      showOnlyWhenScrolledTo={false}
+                    />
+                  )}
                 </div>
               </div>
             </div>

@@ -28,62 +28,84 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
   const [isInView, setIsInView] = useState(false);
   const [hasInitialized, setHasInitialized] = useState(false);
   const [shouldRender, setShouldRender] = useState(!showOnlyWhenScrolledTo);
+  const [hasError, setHasError] = useState(false);
 
   // Detect iOS devices - more comprehensive detection
   useEffect(() => {
-    const detectIOS = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isIOSDevice = 
-        /iphone|ipod|ipad/i.test(userAgent) || 
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-        /iPhone|iPad|iPod/.test(navigator.userAgent) ||
-        ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform);
+    try {
+      const detectIOS = () => {
+        if (typeof window === 'undefined' || !window.navigator) return false;
+        
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isIOSDevice = 
+          /iphone|ipod|ipad/i.test(userAgent) || 
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+          /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+          ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform);
+        
+        setIsIOS(isIOSDevice);
+      };
       
-      setIsIOS(isIOSDevice);
-    };
-    
-    detectIOS();
+      detectIOS();
+    } catch (error) {
+      console.error("Error detecting iOS:", error);
+      setHasError(true);
+    }
   }, []);
 
   // Set up intersection observer for lazy loading and visibility
   useEffect(() => {
-    // Always observe for visibility when showOnlyWhenScrolledTo is true
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          
-          // If we're showing only when scrolled to, now is the time to render
-          if (showOnlyWhenScrolledTo) {
-            setShouldRender(true);
-          }
-          
-          // If not using lazyLoad, disconnect after first intersection
-          if (!lazyLoad) {
-            observer.disconnect();
-          }
-        } else {
-          // When scrolling away, update isInView state
-          setIsInView(false);
-        }
-      });
-    }, { 
-      threshold: 0.1,
-      rootMargin: '100px' // Load slightly before scrolling into view
-    });
-    
-    if (widgetRef.current) {
-      observer.observe(widgetRef.current);
+    if (typeof window === 'undefined' || !window.IntersectionObserver) {
+      // If IntersectionObserver is not available, just render the widget
+      setIsInView(true);
+      setShouldRender(true);
+      return;
     }
     
-    return () => {
-      observer.disconnect();
-    };
+    try {
+      // Always observe for visibility when showOnlyWhenScrolledTo is true
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setIsInView(true);
+            
+            // If we're showing only when scrolled to, now is the time to render
+            if (showOnlyWhenScrolledTo) {
+              setShouldRender(true);
+            }
+            
+            // If not using lazyLoad, disconnect after first intersection
+            if (!lazyLoad) {
+              observer.disconnect();
+            }
+          } else {
+            // When scrolling away, update isInView state
+            setIsInView(false);
+          }
+        });
+      }, { 
+        threshold: 0.1,
+        rootMargin: '100px' // Load slightly before scrolling into view
+      });
+      
+      if (widgetRef.current) {
+        observer.observe(widgetRef.current);
+      }
+      
+      return () => {
+        observer.disconnect();
+      };
+    } catch (error) {
+      console.error("Error setting up intersection observer:", error);
+      setIsInView(true);
+      setShouldRender(true);
+      setHasError(true);
+    }
   }, [lazyLoad, showOnlyWhenScrolledTo]);
 
   // Function to safely initialize the Calendly widget
   const initializeCalendlyWidget = () => {
-    if (!window.Calendly || !widgetRef.current || !shouldRender) return false;
+    if (typeof window === 'undefined' || !window.Calendly || !widgetRef.current || !shouldRender) return false;
     
     try {
       // Clear any previous widget initialization
@@ -104,46 +126,57 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
       return true;
     } catch (error) {
       console.error('Failed to initialize Calendly widget:', error);
+      setHasError(true);
       return false;
     }
   };
 
   useEffect(() => {
     // Don't load Calendly if we shouldn't render yet
-    if (!shouldRender) return;
+    if (!shouldRender || typeof window === 'undefined') return;
     
     // Don't load if not in view and using lazy loading
     if (lazyLoad && !isInView) return;
 
     // Function to load Calendly script
     const loadCalendlyScript = () => {
-      // Create script
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      script.defer = false;
-      
-      // Add onload handler to track when script is loaded
-      script.onload = () => {
-        calendlyScriptLoaded = true;
-        // Initialize widget after script is loaded with retry logic
-        let attempts = 0;
-        const maxAttempts = 3;
+      try {
+        // Create script
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        script.defer = false;
         
-        const tryInitialize = () => {
-          if (attempts >= maxAttempts) return;
+        // Add onload handler to track when script is loaded
+        script.onload = () => {
+          calendlyScriptLoaded = true;
+          // Initialize widget after script is loaded with retry logic
+          let attempts = 0;
+          const maxAttempts = 3;
           
-          if (!initializeCalendlyWidget()) {
-            attempts++;
-            setTimeout(tryInitialize, 500);
-          }
+          const tryInitialize = () => {
+            if (attempts >= maxAttempts) return;
+            
+            if (!initializeCalendlyWidget()) {
+              attempts++;
+              setTimeout(tryInitialize, 500);
+            }
+          };
+          
+          setTimeout(tryInitialize, 100);
         };
         
-        setTimeout(tryInitialize, 100);
-      };
-      
-      // Append to document
-      document.head.appendChild(script);
+        script.onerror = (error) => {
+          console.error("Error loading Calendly script:", error);
+          setHasError(true);
+        };
+        
+        // Append to document
+        document.head.appendChild(script);
+      } catch (error) {
+        console.error("Error loading Calendly script:", error);
+        setHasError(true);
+      }
     };
 
     // Only load the script once across all widgets
@@ -157,71 +190,102 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
 
   // Add a resize handler for mobile devices
   useEffect(() => {
-    if (!shouldRender || !isInView || !hasInitialized) return;
+    if (!shouldRender || !isInView || !hasInitialized || typeof window === 'undefined') return;
     
-    const handleResize = () => {
-      // Only reinitialize if significant resize happens (orientation change)
-      initializeCalendlyWidget();
-    };
+    try {
+      const handleResize = () => {
+        // Only reinitialize if significant resize happens (orientation change)
+        initializeCalendlyWidget();
+      };
 
-    // Add resize and orientation change listeners
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', () => {
-      // Small delay after orientation change for better results
-      setTimeout(handleResize, 300);
-    });
-    
-    // Clean up
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
-    };
+      // Add resize and orientation change listeners
+      window.addEventListener('resize', handleResize);
+      
+      if ('onorientationchange' in window) {
+        window.addEventListener('orientationchange', () => {
+          // Small delay after orientation change for better results
+          setTimeout(handleResize, 300);
+        });
+      }
+      
+      // Clean up
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        if ('onorientationchange' in window) {
+          window.removeEventListener('orientationchange', handleResize);
+        }
+      };
+    } catch (error) {
+      console.error("Error setting up resize handlers:", error);
+      setHasError(true);
+    }
   }, [url, isInView, hasInitialized, shouldRender]);
 
   // iOS specific fix for Calendly popup
   useEffect(() => {
-    if (!shouldRender || !isInView || !hasInitialized) return;
+    if (!shouldRender || !isInView || !hasInitialized || typeof window === 'undefined') return;
     
-    if (isIOS) {
-      // Try to fix iOS-specific issues with Calendly
-      const fixIOSDisplay = () => {
-        // Force Calendly to redraw for iOS
-        if (widgetRef.current) {
-          // Add a class specifically for iOS
-          widgetRef.current.classList.add('ios-calendly-widget');
-          
-          // Force reflow
-          widgetRef.current.style.display = 'none';
-          widgetRef.current.offsetHeight; // Trigger reflow
-          widgetRef.current.style.display = '';
-          
-          // Re-initialize on visible widgets
-          if (isInView && window.Calendly) {
-            initializeCalendlyWidget();
-          }
-        }
-      };
-      
-      // Apply fix on initial load and after delays
-      fixIOSDisplay();
-      setTimeout(fixIOSDisplay, 500);
-      setTimeout(fixIOSDisplay, 2000);
-      
-      // Also add touch event listener for iOS to ensure proper rendering
-      if (widgetRef.current) {
-        const handleTouch = () => {
-          if (window.Calendly) {
-            initializeCalendlyWidget();
+    try {
+      if (isIOS) {
+        // Try to fix iOS-specific issues with Calendly
+        const fixIOSDisplay = () => {
+          // Force Calendly to redraw for iOS
+          if (widgetRef.current) {
+            // Add a class specifically for iOS
+            widgetRef.current.classList.add('ios-calendly-widget');
+            
+            // Force reflow
+            widgetRef.current.style.display = 'none';
+            widgetRef.current.offsetHeight; // Trigger reflow
+            widgetRef.current.style.display = '';
+            
+            // Re-initialize on visible widgets
+            if (isInView && window.Calendly) {
+              initializeCalendlyWidget();
+            }
           }
         };
         
-        document.addEventListener('touchend', handleTouch, {once: true});
-        return () => {
-          document.removeEventListener('touchend', handleTouch);
-        };
+        // Apply fix on initial load and after delays
+        fixIOSDisplay();
+        setTimeout(fixIOSDisplay, 500);
+        setTimeout(fixIOSDisplay, 2000);
+        
+        // Also add touch event listener for iOS to ensure proper rendering
+        if (widgetRef.current) {
+          const handleTouch = () => {
+            if (window.Calendly) {
+              initializeCalendlyWidget();
+            }
+          };
+          
+          document.addEventListener('touchend', handleTouch, {once: true});
+          return () => {
+            document.removeEventListener('touchend', handleTouch);
+          };
+        }
       }
+    } catch (error) {
+      console.error("Error applying iOS fixes:", error);
+      setHasError(true);
     }
   }, [isIOS, isInView, hasInitialized, shouldRender]);
+
+  // If there's an error, show a fallback
+  if (hasError) {
+    return (
+      <div className={`bg-white rounded-lg shadow p-6 text-center ${className}`}>
+        <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
+        <p className="mb-4">Please email us to book your event:</p>
+        <a 
+          href="mailto:info@reelroom.ca" 
+          className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+        >
+          Email info@reelroom.ca
+        </a>
+      </div>
+    );
+  }
 
   // If we shouldn't render yet, just show a placeholder
   if (!shouldRender) {
