@@ -124,17 +124,34 @@ export default function Home() {
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute inset-0">
-                  <LazyVimeoPlayer 
-                    videoId="1082926490" 
-                    autoplay={true}
-                    loop={true}
-                    muted={true}
-                    background={true}
-                    coverMode={true}
-                    priority={true}
-                    width="100%"
-                    height="100%"
-                  />
+                  {isIOS ? (
+                    <div className="absolute inset-0 bg-black flex items-center justify-center">
+                      <div className="relative w-full h-full">
+                        <img 
+                          src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+                          alt="Reel Room Background"
+                          className="absolute inset-0 w-[150%] h-[150%] object-cover"
+                          style={{ 
+                            objectPosition: 'center', 
+                            transform: 'translate(-16%, -16%) scale(1.2)'
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-black opacity-50"></div>
+                      </div>
+                    </div>
+                  ) : (
+                    <LazyVimeoPlayer 
+                      videoId="1082926490" 
+                      autoplay={true}
+                      loop={true}
+                      muted={true}
+                      background={true}
+                      coverMode={true}
+                      priority={true}
+                      width="100%"
+                      height="100%"
+                    />
+                  )}
                 </div>
               </div>
               
@@ -470,78 +487,72 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <SimpleImage 
+                  <img 
                     src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
                     alt="Film & Screenings" 
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                    objectFit="cover"
+                    style={{ display: 'block' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <SimpleImage 
+                  <img 
                     src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
                     alt="Event Flexibility" 
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                    objectFit="cover"
+                    style={{ display: 'block' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <SimpleImage 
+                  <img 
                     src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
                     alt="Upscale theatre experience" 
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                    objectFit="cover"
+                    style={{ display: 'block' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <SimpleImage 
+                  <img 
                     src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
                     alt="Catering Services" 
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                    objectFit="cover"
+                    style={{ display: 'block' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <SimpleImage 
+                  <img 
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                     alt="Bar Services" 
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                    objectFit="cover"
+                    style={{ display: 'block' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
                 <div className="h-48 overflow-hidden rounded-lg mb-6">
-                  <SimpleImage 
+                  <img 
                     src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
                     alt="Audio Visual Equipment" 
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                    objectFit="cover"
+                    style={{ display: 'block' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Audio Visual Equipment</h3>

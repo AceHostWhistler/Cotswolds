@@ -246,7 +246,7 @@ export default function Media() {
               <img 
                 src={`/photos/homepage-originals/${img}`} 
                 alt={`Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover gallery-image"
                 loading="eager"
                 style={{ display: 'block' }}
               />
@@ -314,34 +314,26 @@ export default function Media() {
         {/* Film Release Video */}
         <div className="space-y-6 group">
           <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
-            <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
-              {isIOS ? (
-                <div className="absolute inset-0 flex items-center justify-center bg-black">
-                  <div className="relative w-full h-full">
-                    <img 
-                      src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
-                      alt="Film Release Video Thumbnail"
-                      className="absolute inset-0 w-full h-full object-cover opacity-60"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <button 
-                        onClick={() => {
-                          window.location.href = 'https://player.vimeo.com/video/1027464900';
-                        }}
-                        className="flex flex-col items-center justify-center z-10"
-                      >
-                        <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        </div>
-                        <span className="text-white font-medium text-lg shadow-md">Play Film Release Video</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ) : (
+            {isIOS ? (
+              <div className="vimeo-player-container">
+                <img 
+                  src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+                  alt="Film Release Video Thumbnail"
+                  className="gallery-image"
+                />
+                <a 
+                  href="https://player.vimeo.com/video/1027464900"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="vimeo-play-button"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </a>
+              </div>
+            ) : (
+              <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
                 <iframe 
                   src="https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                   frameBorder="0" 
@@ -350,8 +342,8 @@ export default function Media() {
                   title="Film Release/Launch Parties at Reel Room Vancouver"
                   className="vimeo-player"
                 ></iframe>
-              )}
-            </div>
+              </div>
+            )}
           </div>
           <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
             <h3 
@@ -374,34 +366,26 @@ export default function Media() {
         {/* Halloween/Sports Video */}
         <div className="space-y-6 group">
           <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
-            <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
-              {isIOS ? (
-                <div className="absolute inset-0 flex items-center justify-center bg-black">
-                  <div className="relative w-full h-full">
-                    <img 
-                      src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                      alt="Sports Events Video Thumbnail"
-                      className="absolute inset-0 w-full h-full object-cover opacity-60"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <button 
-                        onClick={() => {
-                          window.location.href = 'https://player.vimeo.com/video/1082926490';
-                        }}
-                        className="flex flex-col items-center justify-center z-10"
-                      >
-                        <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                        </div>
-                        <span className="text-white font-medium text-lg shadow-md">Play Sports Events Video</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ) : (
+            {isIOS ? (
+              <div className="vimeo-player-container">
+                <img 
+                  src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+                  alt="Sports Events Video Thumbnail"
+                  className="gallery-image"
+                />
+                <a 
+                  href="https://player.vimeo.com/video/1082926490"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="vimeo-play-button"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </a>
+              </div>
+            ) : (
+              <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
                 <iframe 
                   src="https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
                   frameBorder="0" 
@@ -410,8 +394,8 @@ export default function Media() {
                   title="Reel Room Events | Halloween, Sports Games"
                   className="vimeo-player"
                 ></iframe>
-              )}
-            </div>
+              </div>
+            )}
           </div>
           <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
             <h3 
@@ -562,21 +546,50 @@ export default function Media() {
             -webkit-text-fill-color: #000000 !important;
           }
           
-          /* Ensure videos display properly on iPhone */
+          /* iOS Specific Fixes */
           @supports (-webkit-touch-callout: none) {
-            .vimeo-player {
+            /* Force gallery to display properly */
+            .gallery-image {
+              display: block !important;
+              width: 100% !important;
+              height: 100% !important;
+              object-fit: cover !important;
+            }
+            
+            /* Force videos to display properly */
+            .vimeo-player-container {
+              position: relative !important;
+              padding-bottom: 56.25% !important; 
+              height: 0 !important;
+              overflow: hidden !important;
+              width: 100% !important;
+              background-color: #000000 !important;
+            }
+            
+            .vimeo-player-container img {
               position: absolute !important;
               top: 0 !important;
               left: 0 !important;
               width: 100% !important;
               height: 100% !important;
-              background-color: black !important;
+              object-fit: cover !important;
+              opacity: 0.7 !important;
             }
             
-            iframe {
-              width: 100% !important;
-              height: 100% !important;
-              border: 0 !important;
+            .vimeo-play-button {
+              position: absolute !important;
+              top: 50% !important;
+              left: 50% !important;
+              transform: translate(-50%, -50%) !important;
+              background-color: rgba(255, 255, 255, 0.8) !important;
+              border-radius: 50% !important;
+              width: 80px !important;
+              height: 80px !important;
+              display: flex !important;
+              align-items: center !important;
+              justify-content: center !important;
+              cursor: pointer !important;
+              z-index: 10 !important;
             }
           }
         `}</style>

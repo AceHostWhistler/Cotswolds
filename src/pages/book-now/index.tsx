@@ -66,25 +66,27 @@ export default function BookNow() {
         <ReelRoomNavigation />
 
         {/* Booking Contact Box - Fixed Position for Desktop Only */}
-        <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
-          <div className="bg-amber-500 text-black p-3 text-center">
-            <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
-            <p className="text-sm">Contact us to schedule your event</p>
+        {!isIOS && (
+          <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
+            <div className="bg-amber-500 text-black p-3 text-center">
+              <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
+              <p className="text-sm">Contact us to schedule your event</p>
+            </div>
+            <div className="bg-white p-6 text-center">
+              <h3 className="text-xl font-semibold mb-4">Ready to book your event?</h3>
+              <p className="mb-4">Contact us directly via email:</p>
+              <a 
+                href="mailto:info@reelroom.ca" 
+                className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+              >
+                Email info@reelroom.ca
+              </a>
+              <p className="mt-4 text-gray-600 text-sm">
+                Please include your event details, preferred date, and number of guests.
+              </p>
+            </div>
           </div>
-          <div className="bg-white p-6 text-center">
-            <h3 className="text-xl font-semibold mb-4">Ready to book your event?</h3>
-            <p className="mb-4">Contact us directly via email:</p>
-            <a 
-              href="mailto:info@reelroom.ca" 
-              className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-            >
-              Email info@reelroom.ca
-            </a>
-            <p className="mt-4 text-gray-600 text-sm">
-              Please include your event details, preferred date, and number of guests.
-            </p>
-          </div>
-        </div>
+        )}
 
         <main className="pt-20">
           {/* Hero Section */}
@@ -260,69 +262,71 @@ export default function BookNow() {
             </div>
           </div>
           
-          {/* Booking Contact Section */}
-          <div className="py-16 bg-gray-100 border-t border-gray-200">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Contact us directly to check availability and schedule your perfect event at Reel Room.
-                </p>
-              </div>
-              
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto p-8">
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-4">Contact Us To Book</h3>
-                  <p className="text-lg text-gray-600">
-                    Our team is ready to help you plan an unforgettable event.
+          {/* Booking Contact Section - Don't show this section on iOS */}
+          {!isIOS && (
+            <div className="py-16 bg-gray-100 border-t border-gray-200">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
+                  <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Contact us directly to check availability and schedule your perfect event at Reel Room.
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h4 className="text-xl font-bold mb-3">Email Us</h4>
-                    <p className="text-gray-600 mb-4">
-                      Send us your event details and we'll get back to you promptly.
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto p-8">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold mb-4">Contact Us To Book</h3>
+                    <p className="text-lg text-gray-600">
+                      Our team is ready to help you plan an unforgettable event.
                     </p>
-                    <a 
-                      href="mailto:info@reelroom.ca" 
-                      className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors w-full text-center"
-                    >
-                      Email info@reelroom.ca
-                    </a>
                   </div>
                   
-                  <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h4 className="text-xl font-bold mb-3">Our Location</h4>
-                    <p className="text-gray-600 mb-4">
-                      We're conveniently located in Mount Pleasant, Vancouver.
-                    </p>
-                    <div className="px-6 py-3 bg-black text-white rounded-md font-medium w-full text-center">
-                      Mount Pleasant, Vancouver
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+                      <h4 className="text-xl font-bold mb-3">Email Us</h4>
+                      <p className="text-gray-600 mb-4">
+                        Send us your event details and we'll get back to you promptly.
+                      </p>
+                      <a 
+                        href="mailto:info@reelroom.ca" 
+                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors w-full text-center"
+                      >
+                        Email info@reelroom.ca
+                      </a>
+                    </div>
+                    
+                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+                      <h4 className="text-xl font-bold mb-3">Our Location</h4>
+                      <p className="text-gray-600 mb-4">
+                        We're conveniently located in Mount Pleasant, Vancouver.
+                      </p>
+                      <div className="px-6 py-3 bg-black text-white rounded-md font-medium w-full text-center">
+                        Mount Pleasant, Vancouver
+                      </div>
                     </div>
                   </div>
-                </div>
-                
-                <div className="mt-8 p-6 bg-amber-50 rounded-lg border border-amber-200 text-center">
-                  <h4 className="text-xl font-bold mb-3">Please Include In Your Inquiry:</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="p-4">
-                      <p className="font-medium">Event Details</p>
-                      <p className="text-sm text-gray-600">Date, time, type of event</p>
-                    </div>
-                    <div className="p-4">
-                      <p className="font-medium">Guest Count</p>
-                      <p className="text-sm text-gray-600">Number of guests expected</p>
-                    </div>
-                    <div className="p-4">
-                      <p className="font-medium">Special Requests</p>
-                      <p className="text-sm text-gray-600">Any specific requirements</p>
+                  
+                  <div className="mt-8 p-6 bg-amber-50 rounded-lg border border-amber-200 text-center">
+                    <h4 className="text-xl font-bold mb-3">Please Include In Your Inquiry:</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="p-4">
+                        <p className="font-medium">Event Details</p>
+                        <p className="text-sm text-gray-600">Date, time, type of event</p>
+                      </div>
+                      <div className="p-4">
+                        <p className="font-medium">Guest Count</p>
+                        <p className="text-sm text-gray-600">Number of guests expected</p>
+                      </div>
+                      <div className="p-4">
+                        <p className="font-medium">Special Requests</p>
+                        <p className="text-sm text-gray-600">Any specific requirements</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
           
           {/* Mobile Booking Button - Only show on iOS/mobile */}
           {isIOS && (
