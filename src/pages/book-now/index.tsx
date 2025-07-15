@@ -293,16 +293,13 @@ export default function BookNow() {
                   </div>
                   
                   <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                    <h4 className="text-xl font-bold mb-3">Call Us</h4>
+                    <h4 className="text-xl font-bold mb-3">Our Location</h4>
                     <p className="text-gray-600 mb-4">
-                      Have questions? Need immediate assistance? Give us a call.
+                      We're conveniently located in Mount Pleasant, Vancouver.
                     </p>
-                    <a 
-                      href="tel:+16047257665" 
-                      className="inline-block px-6 py-3 bg-black text-white rounded-md font-medium hover:bg-gray-800 transition-colors w-full text-center"
-                    >
-                      (604) 725-7665
-                    </a>
+                    <div className="px-6 py-3 bg-black text-white rounded-md font-medium w-full text-center">
+                      Mount Pleasant, Vancouver
+                    </div>
                   </div>
                 </div>
                 

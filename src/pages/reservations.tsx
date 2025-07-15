@@ -7,6 +7,7 @@ import CalendlyWidget from '@/components/CalendlyWidget';
 export default function Reservations() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const [hasCalendlyError, setHasCalendlyError] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -23,6 +24,11 @@ export default function Reservations() {
     
     detectIOS();
   }, []);
+  
+  // Handle Calendly widget errors
+  const handleCalendlyError = () => {
+    setHasCalendlyError(true);
+  };
   
   return (
     <div className="min-h-screen bg-white">
@@ -76,12 +82,27 @@ export default function Reservations() {
                 <p className="text-sm">Check availability & schedule a consultation</p>
               </div>
               <div className="w-full h-[700px]">
-                <CalendlyWidget 
-                  height={700} 
-                  className="w-full" 
-                  lazyLoad={true}
-                  position={isIOS ? "bottom" : "normal"}
-                />
+                {hasCalendlyError ? (
+                  <div className="bg-white p-6 text-center h-[700px] flex flex-col items-center justify-center">
+                    <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
+                    <p className="mb-4">Please email us to book your event:</p>
+                    <a 
+                      href="mailto:info@reelroom.ca" 
+                      className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                    >
+                      Email info@reelroom.ca
+                    </a>
+                  </div>
+                ) : (
+                  <CalendlyWidget 
+                    height={700} 
+                    className="w-full" 
+                    lazyLoad={false}
+                    showOnlyWhenScrolledTo={false}
+                    position={isIOS ? "bottom" : "normal"}
+                    onError={handleCalendlyError}
+                  />
+                )}
               </div>
             </div>
           </div>
