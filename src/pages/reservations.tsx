@@ -8,6 +8,7 @@ export default function Reservations() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
   const [hasCalendlyError, setHasCalendlyError] = useState(false);
+  const [useIframeMethod, setUseIframeMethod] = useState(true); // Use iframe by default
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -42,6 +43,16 @@ export default function Reservations() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        
+        {/* Add direct Calendly styles */}
+        <style jsx global>{`
+          .calendly-iframe {
+            min-width: 320px;
+            width: 100%;
+            height: 700px;
+            border: none;
+          }
+        `}</style>
       </Head>
       
       <ReelRoomNavigation />
@@ -81,7 +92,7 @@ export default function Reservations() {
                 <h3 className="font-bold text-xl uppercase tracking-wider">CALENDAR</h3>
                 <p className="text-sm">Check availability & schedule a consultation</p>
               </div>
-              <div className="w-full h-[700px]">
+              <div className="w-full">
                 {hasCalendlyError ? (
                   <div className="bg-white p-6 text-center h-[700px] flex flex-col items-center justify-center">
                     <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
@@ -93,13 +104,18 @@ export default function Reservations() {
                       Email info@reelroom.ca
                     </a>
                   </div>
+                ) : useIframeMethod ? (
+                  <iframe 
+                    src="https://calendly.com/reelroom-info"
+                    className="calendly-iframe"
+                    frameBorder="0"
+                    title="Schedule your consultation"
+                    loading="lazy"
+                  />
                 ) : (
                   <CalendlyWidget 
                     height={700} 
                     className="w-full" 
-                    lazyLoad={false}
-                    showOnlyWhenScrolledTo={false}
-                    position={isIOS ? "bottom" : "normal"}
                     onError={handleCalendlyError}
                     url="https://calendly.com/reelroom-info"
                   />
