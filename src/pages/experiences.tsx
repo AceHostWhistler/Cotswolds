@@ -12,6 +12,7 @@ import { scrollToTop } from '@/utils/scrollUtils';
 export default function Experiences() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const [hasCalendlyError, setHasCalendlyError] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -32,6 +33,11 @@ export default function Experiences() {
     scrollToTop();
   }, []);
   
+  // Error handler for Calendly widget
+  const handleCalendlyError = () => {
+    setHasCalendlyError(true);
+  };
+  
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
@@ -51,7 +57,25 @@ export default function Experiences() {
           <p className="text-sm">Check availability & schedule instantly</p>
         </div>
         <div className="relative">
-          <CalendlyWidget height={450} className="border border-gray-200 shadow-lg rounded-lg" lazyLoad={false} />
+          {hasCalendlyError ? (
+            <div className="bg-white p-6 text-center h-[450px] flex flex-col items-center justify-center">
+              <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
+              <p className="mb-4">Please email us to book your event:</p>
+              <a 
+                href="mailto:info@reelroom.ca" 
+                className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+              >
+                Email info@reelroom.ca
+              </a>
+            </div>
+          ) : (
+            <CalendlyWidget 
+              height={450} 
+              className="border border-gray-200 shadow-lg rounded-lg" 
+              lazyLoad={false} 
+              onError={handleCalendlyError}
+            />
+          )}
         </div>
       </div>
       
