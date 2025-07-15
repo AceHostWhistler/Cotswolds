@@ -17,7 +17,7 @@ let calendlyScriptLoading = false;
 
 const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({ 
   className = '', 
-  url = 'https://calendly.com/reelroom-info?primary_color=f7be01&hide_gdpr_banner=1',
+  url = 'https://calendly.com/reelroom-info',
   height = 700,
   lazyLoad = true,
   position = 'normal',

@@ -101,6 +101,7 @@ export default function Reservations() {
                     showOnlyWhenScrolledTo={false}
                     position={isIOS ? "bottom" : "normal"}
                     onError={handleCalendlyError}
+                    url="https://calendly.com/reelroom-info"
                   />
                 )}
               </div>
