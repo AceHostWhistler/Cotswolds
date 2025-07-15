@@ -4,9 +4,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
-import OptimizedImage from '../components/OptimizedImage';
-import SimpleImage from '../components/SimpleImage';
-import Image from 'next/image';
 import { scrollToTop } from '@/utils/scrollUtils';
 
 // Type for FAQ sections
@@ -28,48 +25,16 @@ export default function Media() {
   const [activeTab, setActiveTab] = useState('gallery'); // Changed default to gallery
   const [activeFaqSection, setActiveFaqSection] = useState('general');
   const [currentPage, setCurrentPage] = useState(1);
-  const imagesPerPage = 30; // Increased from 12 to 30 images per page
-  const [isIOS, setIsIOS] = useState(false);
+  const imagesPerPage = 12; // Reduced to 12 images per page for better performance
   
   useEffect(() => {
     setIsPageLoaded(true);
     
-    // Detect iOS devices
-    const detectIOS = () => {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isIOSDevice = 
-        /iphone|ipod|ipad/i.test(userAgent) || 
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-        /iPhone|iPad|iPod/.test(navigator.userAgent) ||
-        ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'].includes(navigator.platform);
-      
-      setIsIOS(isIOSDevice);
-    };
-    
-    detectIOS();
-    
-    // Load Vimeo script for the iframe embeds
-    const script = document.createElement('script');
-    script.src = 'https://player.vimeo.com/api/player.js';
-    script.async = true;
-    document.body.appendChild(script);
-    
-    // Load all photos from the directory
-    fetch('/api/photos')
-      .catch(error => console.error('Error fetching photos:', error));
-    
     // Ensure page starts from the top
     scrollToTop();
-    
-    return () => {
-      // Clean up script when component unmounts
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    };
   }, []);
   
-  // Complete list of all photos from the homepage-originals folder
+  // Complete list of all photos from the homepage-originals folder - reduced for better performance
   const galleryImages = [
     'DSC03060-Enhanced-NR.jpg',
     'DSC03061-Enhanced-NR.jpg',
@@ -93,7 +58,6 @@ export default function Media() {
     'DSC03106-Enhanced-NR.jpg',
     'DSC03110-Enhanced-NR.jpg',
     'DSC03113-Enhanced-NR.jpg',
-    'DSC03125-Enhanced-NR.jpg', // Changed from DSC03124-Enhanced-NR.jpg to fix photo 23
     'DSC03125-Enhanced-NR.jpg',
     'DSC03127-Enhanced-NR.jpg',
     'DSC03131-Enhanced-NR.jpg',
@@ -106,110 +70,8 @@ export default function Media() {
     'DSC03198-Enhanced-NR.jpg',
     'DSC03199-Enhanced-NR.jpg',
     'DSC03217-Enhanced-NR.jpg',
-    'DSC03222-Enhanced-NR.jpg', // Changed from DSC03222-2.jpg to fix photo 36
-    'DSC03222-Enhanced-NR-1.jpg',
     'DSC03222-Enhanced-NR.jpg',
-    'DSC03223-Enhanced-NR.jpg',
-    'DSC03227-Enhanced-NR.jpg',
-    'DSC03236-Enhanced-NR.jpg',
-    'DSC03244-Enhanced-NR.jpg', // Changed from DSC03236.jpg to fix photo 42
-    'DSC03256-Enhanced-NR.jpg',
-    'DSC03259-Enhanced-NR.jpg', // Changed from DSC03259-2.jpg to fix photo 45
-    'DSC03259-Enhanced-NR-1.jpg',
-    'DSC03259-Enhanced-NR.jpg',
-    'DSC03260-Enhanced-NR.jpg',
-    'DSC03261-Enhanced-NR.jpg',
-    'DSC03262-Enhanced-NR.jpg',
-    'DSC03264-Enhanced-NR.jpg',
-    'DSC03272-Enhanced-NR.jpg',
-    'DSC03273-Enhanced-NR.jpg',
-    'DSC03275-Enhanced-NR.jpg',
-    'DSC03279-Enhanced-NR.jpg',
-    'DSC03287-Enhanced-NR.jpg',
-    'DSC03289-Enhanced-NR.jpg',
-    'DSC03296-Enhanced-NR.jpg',
-    'DSC03297-Enhanced-NR.jpg',
-    'DSC03297.jpg',
-    'DSC03301-Enhanced-NR.jpg',
-    'DSC03308-Enhanced-NR.jpg',
-    'DSC03313-Enhanced-NR.jpg',
-    'DSC03315-Enhanced-NR.jpg',
-    'DSC03316-Enhanced-NR.jpg',
-    'DSC03318-Enhanced-NR.jpg',
-    'DSC03321-Enhanced-NR.jpg',
-    'DSC03326-Enhanced-NR.jpg',
-    'DSC03326.jpg',
-    'DSC03327-Enhanced-NR.jpg',
-    'DSC03329-Enhanced-NR.jpg',
-    'DSC03331-Enhanced-NR.jpg',
-    'DSC03332-Enhanced-NR.jpg',
-    'DSC03335-Enhanced-NR.jpg',
-    'DSC03339-Enhanced-NR.jpg',
-    'DSC03339.jpg',
-    'DSC03341-Enhanced-NR.jpg',
-    'DSC03344-Enhanced-NR.jpg',
-    'DSC03360-Enhanced-NR.jpg',
-    'DSC03360.jpg',
-    'DSC03365-Enhanced-NR.jpg',
-    'DSC03369-Enhanced-NR.jpg',
-    'DSC03388-Enhanced-NR.jpg',
-    'DSC03389-Enhanced-NR.jpg',
-    'DSC03393-Enhanced-NR.jpg',
-    'DSC03395-Enhanced-NR.jpg',
-    'DSC03399-Enhanced-NR.jpg',
-    'DSC03401-Enhanced-NR.jpg',
-    'DSC03406-Enhanced-NR.jpg',
-    'DSC03411-Enhanced-NR.jpg',
-    'DSC03413-Enhanced-NR.jpg',
-    'DSC03420-Enhanced-NR.jpg',
-    'DSC03424-Enhanced-NR.jpg',
-    'DSC03428-Enhanced-NR.jpg',
-    'DSC03432-Enhanced-NR.jpg',
-    'DSC03436-Enhanced-NR.jpg',
-    'DSC03439-Enhanced-NR.jpg',
-    'DSC03459-2.jpg',
-    'DSC03459-Enhanced-NR-1.jpg',
-    'DSC03459-Enhanced-NR.jpg',
-    'DSC03459.jpg',
-    'DSC03464-Enhanced-NR.jpg',
-    'DSC03469-Enhanced-NR.jpg',
-    'DSC03472-Enhanced-NR.jpg',
-    'DSC03476-Enhanced-NR.jpg',
-    'DSC03505-Enhanced-NR.jpg',
-    'DSC03507-Enhanced-NR.jpg',
-    'DSC03509-Enhanced-NR.jpg',
-    'DSC03521-Enhanced-NR.jpg',
-    'DSC03522-Enhanced-NR.jpg',
-    'DSC03523-Enhanced-NR.jpg',
-    'DSC03527-Enhanced-NR.jpg',
-    'DSC03529-Enhanced-NR.jpg',
-    'DSC03530-Enhanced-NR.jpg',
-    'DSC03531-Enhanced-NR.jpg',
-    'DSC03533-Enhanced-NR.jpg',
-    'DSC03535-Enhanced-NR.jpg',
-    'DSC03546-Enhanced-NR.jpg',
-    'DSC03549-Enhanced-NR.jpg',
-    'DSC03554-Enhanced-NR.jpg',
-    'DSC03571-Enhanced-NR.jpg',
-    'DSC03633-Enhanced-NR.jpg',
-    'DSC03634-Enhanced-NR.jpg',
-    'DSC03640-Enhanced-NR.jpg',
-    'DSC03643-Enhanced-NR.jpg',
-    'DSC03644-Enhanced-NR.jpg',
-    'DSC03659-Enhanced-NR.jpg',
-    'DSC03663-Enhanced-NR.jpg',
-    'DSC03666-Enhanced-NR.jpg',
-    'DSC03672-Enhanced-NR.jpg',
-    'DSC03676-Enhanced-NR.jpg',
-    'DSC03682-Enhanced-NR.jpg',
-    'DSC03683-Enhanced-NR.jpg',
-    'DSC03687-Enhanced-NR.jpg',
-    'DSC03692-Enhanced-NR.jpg',
-    'DSC03696-Enhanced-NR.jpg',
-    'DSC03705-Enhanced-NR.jpg',
-    'DSC03720-Enhanced-NR.jpg',
-    'DSC03747-Enhanced-NR-1.jpg',
-    'DSC03747-Enhanced-NR.jpg'
+    'DSC03223-Enhanced-NR.jpg'
   ];
   
   // Calculate current images to display
@@ -235,22 +97,18 @@ export default function Media() {
         </p>
       </div>
       
-      {/* Gallery with consistent sizing and improved iOS compatibility */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Simple Gallery Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {currentImages.map((img, index) => (
           <div 
             key={index} 
-            className="overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+            className="gallery-item"
           >
-            <div className="h-52 md:h-64 bg-gray-900">
-              <img 
-                src={`/photos/homepage-originals/${img}`} 
-                alt={`Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
-                className="w-full h-full object-cover gallery-image"
-                loading="eager"
-                style={{ display: 'block' }}
-              />
-            </div>
+            <img 
+              src={`/photos/homepage-originals/${img}`} 
+              alt={`Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
+              className="gallery-image"
+            />
           </div>
         ))}
       </div>
@@ -258,15 +116,12 @@ export default function Media() {
       {/* Pagination */}
       {totalPages > 1 && (
         <div className="mt-8 flex justify-center">
-          <nav className="inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+          <nav className="pagination-nav" aria-label="Pagination">
             <button
               onClick={() => paginate(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
-              className={`relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium ${
-                currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:bg-gray-50'
-              }`}
+              className={`pagination-button ${currentPage === 1 ? 'pagination-disabled' : ''}`}
             >
-              <span className="sr-only">Previous</span>
               &larr; Prev
             </button>
             
@@ -275,11 +130,7 @@ export default function Media() {
               <button
                 key={number}
                 onClick={() => paginate(number)}
-                className={`relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium ${
-                  currentPage === number
-                    ? 'z-10 bg-black text-white border-black'
-                    : 'bg-white text-gray-500 hover:bg-gray-50'
-                }`}
+                className={`pagination-number ${currentPage === number ? 'pagination-active' : ''}`}
               >
                 {number}
               </button>
@@ -288,11 +139,8 @@ export default function Media() {
             <button
               onClick={() => paginate(Math.min(totalPages, currentPage + 1))}
               disabled={currentPage === totalPages}
-              className={`relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium ${
-                currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:bg-gray-50'
-              }`}
+              className={`pagination-button ${currentPage === totalPages ? 'pagination-disabled' : ''}`}
             >
-              <span className="sr-only">Next</span>
               Next &rarr;
             </button>
           </nav>
@@ -310,109 +158,57 @@ export default function Media() {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div className="video-grid">
         {/* Film Release Video */}
-        <div className="space-y-6 group">
-          <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
-            {isIOS ? (
-              <div className="vimeo-player-container">
-                <img 
-                  src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
-                  alt="Film Release Video Thumbnail"
-                  className="gallery-image"
-                />
-                <a 
-                  href="https://player.vimeo.com/video/1027464900"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="vimeo-play-button"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 24 24">
+        <div className="video-card">
+          <div className="video-container">
+            <a href="https://player.vimeo.com/video/1027464900" target="_blank" rel="noopener noreferrer" className="video-link">
+              <img 
+                src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+                alt="Film Release Video Thumbnail"
+                className="video-thumbnail"
+              />
+              <div className="video-play-overlay">
+                <div className="video-play-button">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="play-icon">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                </a>
+                </div>
               </div>
-            ) : (
-              <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
-                <iframe 
-                  src="https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                  frameBorder="0" 
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                  title="Film Release/Launch Parties at Reel Room Vancouver"
-                  className="vimeo-player"
-                ></iframe>
-              </div>
-            )}
+            </a>
           </div>
-          <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
-            <h3 
-              className="heading-font text-xl font-semibold mt-2 video-title-text" 
-              style={{ 
-                color: '#000000 !important', 
-                backgroundColor: 'white !important',
-                textShadow: '0 0 0 black',
-                WebkitTextFillColor: 'black'
-              }}
-            >
-              <span className="black-text video-title-text">Film Release Event Parties</span>
-            </h3>
+          <div className="video-info">
+            <h3 className="video-title">Film Release Event Parties</h3>
+            <p className="video-description">
+              Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests.
+            </p>
           </div>
-          <p className="body-font text-black bg-white p-5 rounded-b-lg shadow-md">
-            Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
-          </p>
         </div>
         
         {/* Halloween/Sports Video */}
-        <div className="space-y-6 group">
-          <div className="rounded-lg overflow-hidden border border-brand-gold/30 shadow-lg transition-all duration-300 group-hover:shadow-xl">
-            {isIOS ? (
-              <div className="vimeo-player-container">
-                <img 
-                  src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                  alt="Sports Events Video Thumbnail"
-                  className="gallery-image"
-                />
-                <a 
-                  href="https://player.vimeo.com/video/1082926490"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="vimeo-play-button"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 24 24">
+        <div className="video-card">
+          <div className="video-container">
+            <a href="https://player.vimeo.com/video/1082926490" target="_blank" rel="noopener noreferrer" className="video-link">
+              <img 
+                src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+                alt="Sports Events Video Thumbnail"
+                className="video-thumbnail"
+              />
+              <div className="video-play-overlay">
+                <div className="video-play-button">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="play-icon">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                </a>
+                </div>
               </div>
-            ) : (
-              <div style={{ padding: "56.25% 0 0 0", position: "relative" }} className="bg-black">
-                <iframe 
-                  src="https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                  frameBorder="0" 
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
-                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                  title="Reel Room Events | Halloween, Sports Games"
-                  className="vimeo-player"
-                ></iframe>
-              </div>
-            )}
+            </a>
           </div>
-          <div className="text-center border-2 border-brand-gold pb-3 bg-white pt-3 rounded-lg shadow-md">
-            <h3 
-              className="heading-font text-xl font-semibold mt-2 video-title-text" 
-              style={{ 
-                color: '#000000 !important', 
-                backgroundColor: 'white !important',
-                textShadow: '0 0 0 black',
-                WebkitTextFillColor: 'black'
-              }}
-            >
-              <span className="black-text video-title-text">General Parties & Sporting Event Venue</span>
-            </h3>
+          <div className="video-info">
+            <h3 className="video-title">General Parties & Sporting Event Venue</h3>
+            <p className="video-description">
+              From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable options.
+            </p>
           </div>
-          <p className="body-font text-black bg-white p-5 rounded-b-lg shadow-md">
-            From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
-          </p>
         </div>
       </div>
     </div>
@@ -531,65 +327,205 @@ export default function Media() {
         <meta name="description" content="Explore our photo gallery, videos, and find answers to frequently asked questions about Reel Room in Vancouver, BC." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>{`
-          .black-text {
-            color: #000000 !important;
-            text-shadow: 0 0 0 #000000;
-            -webkit-text-fill-color: #000000;
-          }
-          .heading-font {
-            color: #000000 !important;
-          }
-          .video-title-text {
-            color: #000000 !important;
-            font-weight: 600 !important;
-            text-shadow: 0 0 0 #000000 !important;
-            -webkit-text-fill-color: #000000 !important;
+          /* Basic reset for iOS */
+          * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-text-size-adjust: 100%;
           }
           
-          /* iOS Specific Fixes */
+          img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+          }
+          
+          /* Gallery Styles */
+          .gallery-item {
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            aspect-ratio: 1/1;
+            position: relative;
+          }
+          
+          .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          
+          /* Pagination Styles */
+          .pagination-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px;
+          }
+          
+          .pagination-button, .pagination-number {
+            padding: 8px 12px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+          }
+          
+          .pagination-active {
+            background: black;
+            color: white;
+            border-color: black;
+          }
+          
+          .pagination-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+          
+          /* Video Styles */
+          .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+          
+          @media (min-width: 768px) {
+            .video-grid {
+              grid-template-columns: 1fr 1fr;
+            }
+          }
+          
+          .video-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+          }
+          
+          .video-link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          
+          .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          
+          .video-play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .video-play-button {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .play-icon {
+            width: 40px;
+            height: 40px;
+            color: black;
+          }
+          
+          .video-info {
+            padding: 20px;
+            border-top: 2px solid #ba9765;
+          }
+          
+          .video-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: black;
+          }
+          
+          .video-description {
+            color: #4b5563;
+            line-height: 1.5;
+          }
+          
+          /* iOS specific fixes */
           @supports (-webkit-touch-callout: none) {
-            /* Force gallery to display properly */
-            .gallery-image {
+            .gallery-item {
               display: block !important;
-              width: 100% !important;
-              height: 100% !important;
-              object-fit: cover !important;
-            }
-            
-            /* Force videos to display properly */
-            .vimeo-player-container {
-              position: relative !important;
-              padding-bottom: 56.25% !important; 
               height: 0 !important;
-              overflow: hidden !important;
-              width: 100% !important;
-              background-color: #000000 !important;
+              padding-bottom: 100% !important;
+              position: relative !important;
             }
             
-            .vimeo-player-container img {
+            .gallery-image {
               position: absolute !important;
               top: 0 !important;
               left: 0 !important;
               width: 100% !important;
               height: 100% !important;
               object-fit: cover !important;
-              opacity: 0.7 !important;
             }
             
-            .vimeo-play-button {
+            .video-container {
+              display: block !important;
+              height: 0 !important;
+              padding-bottom: 56.25% !important;
+              position: relative !important;
+              overflow: hidden !important;
+            }
+            
+            .video-thumbnail {
               position: absolute !important;
-              top: 50% !important;
-              left: 50% !important;
-              transform: translate(-50%, -50%) !important;
-              background-color: rgba(255, 255, 255, 0.8) !important;
-              border-radius: 50% !important;
+              top: 0 !important;
+              left: 0 !important;
+              width: 100% !important;
+              height: 100% !important;
+              object-fit: cover !important;
+            }
+            
+            .video-play-button {
               width: 80px !important;
               height: 80px !important;
-              display: flex !important;
-              align-items: center !important;
-              justify-content: center !important;
-              cursor: pointer !important;
-              z-index: 10 !important;
+              background-color: rgba(255, 255, 255, 0.9) !important;
+              border-radius: 50% !important;
+            }
+            
+            .play-icon {
+              width: 40px !important;
+              height: 40px !important;
+              color: black !important;
             }
           }
         `}</style>
@@ -606,6 +542,7 @@ export default function Media() {
               alt="Reel Room Media"
               className="w-full h-full object-cover brightness-75"
               loading="eager"
+              style={{display: 'block'}}
             />
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-50">
