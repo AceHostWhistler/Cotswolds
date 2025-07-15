@@ -95,6 +95,7 @@ export default function BookNow() {
                 height={450} 
                 className="border border-gray-200 shadow-lg rounded-lg" 
                 lazyLoad={false} 
+                onError={handleCalendlyError}
               />
             )}
           </div>
@@ -308,6 +309,7 @@ export default function BookNow() {
                       lazyLoad={false}
                       position="normal"
                       showOnlyWhenScrolledTo={false}
+                      onError={handleCalendlyError}
                     />
                   )}
                 </div>
