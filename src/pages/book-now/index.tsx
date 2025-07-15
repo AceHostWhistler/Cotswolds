@@ -3,12 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 import ReelRoomNavigation from "@/components/ReelRoomNavigation";
 import ReelRoomFooter from "@/components/ReelRoomFooter";
-import CalendlyWidget from "@/components/CalendlyWidget";
 import { scrollToTop } from "@/utils/scrollUtils";
 
 export default function BookNow() {
   const [isIOS, setIsIOS] = useState(false);
-  const [hasCalendlyError, setHasCalendlyError] = useState(false);
   
   useEffect(() => {
     // Detect iOS devices
@@ -36,11 +34,6 @@ export default function BookNow() {
       console.error("Error scrolling to top:", error);
     }
   }, []);
-  
-  // Error handler for Calendly widget
-  const handleCalendlyError = () => {
-    setHasCalendlyError(true);
-  };
   
   return (
     <>
@@ -72,32 +65,24 @@ export default function BookNow() {
       <div className="min-h-screen bg-white">
         <ReelRoomNavigation />
 
-        {/* Calendly Widget - Fixed Position for Desktop Only */}
+        {/* Booking Contact Box - Fixed Position for Desktop Only */}
         <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
           <div className="bg-amber-500 text-black p-3 text-center">
             <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
-            <p className="text-sm">Check availability & schedule instantly</p>
+            <p className="text-sm">Contact us to schedule your event</p>
           </div>
-          <div className="relative">
-            {hasCalendlyError ? (
-              <div className="bg-white p-6 text-center h-[450px] flex flex-col items-center justify-center">
-                <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
-                <p className="mb-4">Please email us to book your event:</p>
-                <a 
-                  href="mailto:info@reelroom.ca" 
-                  className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-                >
-                  Email info@reelroom.ca
-                </a>
-              </div>
-            ) : (
-              <CalendlyWidget 
-                height={450} 
-                className="border border-gray-200 shadow-lg rounded-lg" 
-                lazyLoad={false} 
-                onError={handleCalendlyError}
-              />
-            )}
+          <div className="bg-white p-6 text-center">
+            <h3 className="text-xl font-semibold mb-4">Ready to book your event?</h3>
+            <p className="mb-4">Contact us directly via email:</p>
+            <a 
+              href="mailto:info@reelroom.ca" 
+              className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+            >
+              Email info@reelroom.ca
+            </a>
+            <p className="mt-4 text-gray-600 text-sm">
+              Please include your event details, preferred date, and number of guests.
+            </p>
           </div>
         </div>
 
@@ -275,43 +260,68 @@ export default function BookNow() {
             </div>
           </div>
           
-          {/* Calendly Section from Reservations page */}
+          {/* Booking Contact Section */}
           <div className="py-16 bg-gray-100 border-t border-gray-200">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Check availability and schedule a consultation to start planning your perfect event at Reel Room.
+                  Contact us directly to check availability and schedule your perfect event at Reel Room.
                 </p>
               </div>
               
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
-                <div className="bg-amber-500 text-black p-4 text-center">
-                  <h3 className="font-bold text-xl uppercase tracking-wider">CALENDAR</h3>
-                  <p className="text-sm">Check availability & schedule a consultation</p>
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto p-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-bold mb-4">Contact Us To Book</h3>
+                  <p className="text-lg text-gray-600">
+                    Our team is ready to help you plan an unforgettable event.
+                  </p>
                 </div>
-                <div className="w-full h-[700px]">
-                  {hasCalendlyError ? (
-                    <div className="bg-white p-6 text-center h-[700px] flex flex-col items-center justify-center">
-                      <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
-                      <p className="mb-4">Please email us to book your event:</p>
-                      <a 
-                        href="mailto:info@reelroom.ca" 
-                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-                      >
-                        Email info@reelroom.ca
-                      </a>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <h4 className="text-xl font-bold mb-3">Email Us</h4>
+                    <p className="text-gray-600 mb-4">
+                      Send us your event details and we'll get back to you promptly.
+                    </p>
+                    <a 
+                      href="mailto:info@reelroom.ca" 
+                      className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors w-full text-center"
+                    >
+                      Email info@reelroom.ca
+                    </a>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+                    <h4 className="text-xl font-bold mb-3">Call Us</h4>
+                    <p className="text-gray-600 mb-4">
+                      Have questions? Need immediate assistance? Give us a call.
+                    </p>
+                    <a 
+                      href="tel:+16047257665" 
+                      className="inline-block px-6 py-3 bg-black text-white rounded-md font-medium hover:bg-gray-800 transition-colors w-full text-center"
+                    >
+                      (604) 725-7665
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="mt-8 p-6 bg-amber-50 rounded-lg border border-amber-200 text-center">
+                  <h4 className="text-xl font-bold mb-3">Please Include In Your Inquiry:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="p-4">
+                      <p className="font-medium">Event Details</p>
+                      <p className="text-sm text-gray-600">Date, time, type of event</p>
                     </div>
-                  ) : (
-                    <CalendlyWidget 
-                      height={700} 
-                      className="w-full" 
-                      lazyLoad={false}
-                      position="normal"
-                      showOnlyWhenScrolledTo={false}
-                      onError={handleCalendlyError}
-                    />
-                  )}
+                    <div className="p-4">
+                      <p className="font-medium">Guest Count</p>
+                      <p className="text-sm text-gray-600">Number of guests expected</p>
+                    </div>
+                    <div className="p-4">
+                      <p className="font-medium">Special Requests</p>
+                      <p className="text-sm text-gray-600">Any specific requirements</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

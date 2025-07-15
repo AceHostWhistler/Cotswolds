@@ -6,13 +6,11 @@ import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import SimpleImage from '../components/SimpleImage';
 import LazyVimeoPlayer from '../components/LazyVimeoPlayer';
-import CalendlyWidget from '../components/CalendlyWidget';
 import { scrollToTop } from '@/utils/scrollUtils';
 
 export default function Experiences() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
-  const [hasCalendlyError, setHasCalendlyError] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
@@ -33,11 +31,6 @@ export default function Experiences() {
     scrollToTop();
   }, []);
   
-  // Error handler for Calendly widget
-  const handleCalendlyError = () => {
-    setHasCalendlyError(true);
-  };
-  
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
@@ -50,32 +43,24 @@ export default function Experiences() {
       
       <ReelRoomNavigation />
       
-      {/* Calendly Widget - Fixed Position for Desktop */}
+      {/* Booking Contact Box - Fixed Position for Desktop */}
       <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
         <div className="bg-amber-500 text-black p-3 text-center">
           <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
-          <p className="text-sm">Check availability & schedule instantly</p>
+          <p className="text-sm">Contact us to schedule your event</p>
         </div>
-        <div className="relative">
-          {hasCalendlyError ? (
-            <div className="bg-white p-6 text-center h-[450px] flex flex-col items-center justify-center">
-              <h3 className="text-xl font-semibold mb-4">Unable to load calendar</h3>
-              <p className="mb-4">Please email us to book your event:</p>
-              <a 
-                href="mailto:info@reelroom.ca" 
-                className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-              >
-                Email info@reelroom.ca
-              </a>
-            </div>
-          ) : (
-            <CalendlyWidget 
-              height={450} 
-              className="border border-gray-200 shadow-lg rounded-lg" 
-              lazyLoad={false} 
-              onError={handleCalendlyError}
-            />
-          )}
+        <div className="bg-white p-6 text-center">
+          <h3 className="text-xl font-semibold mb-4">Ready to book your event?</h3>
+          <p className="mb-4">Contact us directly via email:</p>
+          <a 
+            href="mailto:info@reelroom.ca" 
+            className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+          >
+            Email info@reelroom.ca
+          </a>
+          <p className="mt-4 text-gray-600 text-sm">
+            Please include your event details, preferred date, and number of guests.
+          </p>
         </div>
       </div>
       
