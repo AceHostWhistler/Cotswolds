@@ -126,18 +126,28 @@ export default function Home() {
                 <div className="absolute inset-0">
                   {isIOS ? (
                     <div className="absolute inset-0 bg-black flex items-center justify-center">
-                      <div className="relative w-full h-full">
-                        <img 
-                          src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
-                          alt="Reel Room Background"
-                          className="absolute inset-0 w-[150%] h-[150%] object-cover"
-                          style={{ 
-                            objectPosition: 'center', 
-                            transform: 'translate(-16%, -16%) scale(1.2)'
-                          }}
-                        />
-                        <div className="absolute inset-0 bg-black opacity-50"></div>
-                      </div>
+                      <a href="https://player.vimeo.com/video/1082926490" target="_blank" rel="noopener noreferrer" className="w-full h-full">
+                        <div className="relative w-full h-full">
+                          <img 
+                            src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+                            alt="Reel Room Background"
+                            className="absolute inset-0 w-[150%] h-[150%] object-cover"
+                            style={{ 
+                              objectPosition: 'center', 
+                              transform: 'translate(-16%, -16%) scale(1.2)'
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-black opacity-50"></div>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-20 h-20 rounded-full bg-white/80 flex items-center justify-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   ) : (
                     <LazyVimeoPlayer 
@@ -256,10 +266,10 @@ export default function Home() {
                           className="absolute inset-0 w-full h-full object-cover opacity-60"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <button 
-                            onClick={() => {
-                              window.location.href = 'https://player.vimeo.com/video/1027464900';
-                            }}
+                          <a 
+                            href="https://player.vimeo.com/video/1027464900"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex flex-col items-center justify-center z-10"
                           >
                             <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
@@ -269,7 +279,7 @@ export default function Home() {
                               </svg>
                             </div>
                             <span className="text-white font-medium text-lg shadow-md">Play Film Release Video</span>
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -291,10 +301,10 @@ export default function Home() {
                           className="absolute inset-0 w-full h-full object-cover opacity-60"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <button 
-                            onClick={() => {
-                              window.location.href = 'https://player.vimeo.com/video/1082926490';
-                            }}
+                          <a 
+                            href="https://player.vimeo.com/video/1082926490"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex flex-col items-center justify-center z-10"
                           >
                             <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
@@ -304,14 +314,14 @@ export default function Home() {
                               </svg>
                             </div>
                             <span className="text-white font-medium text-lg shadow-md">Play Sports Events Video</span>
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
-                  <p className="body-font text-gray-300">
-                    From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
+                  <p className="body-font text-gray-300 max-w-md">
+                    From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable options.
                   </p>
                 </div>
               </div>
@@ -380,13 +390,12 @@ export default function Home() {
                 </p>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
-                <SimpleImage 
-                  src="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg" 
+                <img 
+                  src="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg" 
                   alt="Reel Room Space" 
-                  className="w-full h-full rounded-lg"
+                  className="w-full h-full rounded-lg object-cover"
                   loading="eager"
-                  fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                  objectFit="cover"
+                  style={{ display: 'block' }}
                 />
               </div>
             </div>
@@ -398,13 +407,12 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
-                <SimpleImage 
-                  src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg" 
+                <img 
+                  src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg" 
                   alt="Reel Room Parties" 
-                  className="w-full h-full rounded-lg"
+                  className="w-full h-full rounded-lg object-cover"
                   loading="eager"
-                  fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                  objectFit="cover"
+                  style={{ display: 'block' }}
                 />
               </div>
               <div className="md:order-1">
@@ -442,13 +450,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
-                <SimpleImage 
-                  src="/photos/originals/homepage/DSC03060-Enhanced-NR.jpg" 
+                <img 
+                  src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
                   alt="Reel Room Private Events" 
-                  className="w-full h-full rounded-lg"
+                  className="w-full h-full rounded-lg object-cover"
                   loading="eager"
-                  fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
-                  objectFit="cover"
+                  style={{ display: 'block' }}
                 />
               </div>
             </div>
@@ -486,73 +493,73 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-light heading-font mb-12 text-center">What our event space offers</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
                   <img 
                     src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
                     alt="Film & Screenings" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block' }}
+                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
                   <img 
                     src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
                     alt="Event Flexibility" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block' }}
+                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
                   <img 
                     src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
                     alt="Upscale theatre experience" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block' }}
+                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
                   <img 
                     src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
                     alt="Catering Services" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block' }}
+                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
                   <img 
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                     alt="Bar Services" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block' }}
+                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6">
+                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
                   <img 
                     src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
                     alt="Audio Visual Equipment" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block' }}
+                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Audio Visual Equipment</h3>
