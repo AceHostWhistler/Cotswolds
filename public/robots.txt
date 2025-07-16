@@ -6,6 +6,8 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 Disallow: /upload/
+Disallow: /media
+Disallow: /media/
 
 # Sitemap location
 Sitemap: https://reelroom.ca/sitemap.xml
