@@ -88,6 +88,13 @@ export default function ReelRoomNavigation() {
               Blog
             </Link>
             <Link 
+              href="/media" 
+              onClick={handleNavLinkClick}
+              className={`heading-font text-sm uppercase tracking-widest text-white hover:text-brand-gold transition-colors ${router.pathname === '/media' ? 'text-brand-gold' : ''}`}
+            >
+              Media & FAQs
+            </Link>
+            <Link 
               href="/book-now" 
               onClick={handleNavLinkClick}
               className="heading-font text-sm uppercase tracking-widest bg-brand-gold text-black px-4 py-2 hover:bg-white transition-colors"
@@ -142,6 +149,13 @@ export default function ReelRoomNavigation() {
             className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/blog' ? 'text-brand-gold' : ''}`}
           >
             Blog
+          </Link>
+          <Link 
+            href="/media"
+            onClick={handleNavLinkClick}
+            className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/media' ? 'text-brand-gold' : ''}`}
+          >
+            Media & FAQs
           </Link>
           <Link 
             href="/book-now"
