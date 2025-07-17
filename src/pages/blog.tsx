@@ -68,9 +68,45 @@ export default function Blog() {
         <meta name="description" content="Read articles about The Reel Room, Vancouver's premier private theatre and event space for film screenings, corporate events, and special celebrations." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>{`
+          /* Force black text on blog cards */
           .blog-card-title {
             color: #000000 !important;
             text-shadow: none !important;
+            -webkit-text-fill-color: #000000 !important;
+            fill: #000000 !important;
+          }
+          
+          /* Override any hover effects */
+          .blog-card-title:hover,
+          a:hover .blog-card-title,
+          .group:hover .blog-card-title {
+            color: #000000 !important;
+            text-shadow: none !important;
+            -webkit-text-fill-color: #000000 !important;
+            fill: #000000 !important;
+          }
+          
+          /* Override any global styles */
+          .heading-font.text-2xl.font-light.tracking-wide.mb-3 {
+            color: #000000 !important;
+            text-shadow: none !important;
+            -webkit-text-fill-color: #000000 !important;
+          }
+          
+          /* Additional specificity */
+          .blog-card-container .blog-card-title {
+            color: #000000 !important;
+            text-shadow: none !important;
+            -webkit-text-fill-color: #000000 !important;
+          }
+          
+          /* Fix for iOS */
+          @supports (-webkit-touch-callout: none) {
+            .blog-card-title {
+              color: #000000 !important;
+              text-shadow: none !important;
+              -webkit-text-fill-color: #000000 !important;
+            }
           }
         `}</style>
       </Head>
@@ -136,7 +172,7 @@ export default function Blog() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {blogPosts.map((post) => (
-                <div key={post.id} className="bg-gradient-to-b from-gray-100 to-white rounded-lg overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 hover:border-brand-gold/30">
+                <div key={post.id} className="blog-card-container bg-gradient-to-b from-gray-100 to-white rounded-lg overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 hover:border-brand-gold/30">
                   {post.externalLink ? (
                     <a href={post.externalLink} target="_blank" rel="noopener noreferrer" className="block">
                       <div className="relative aspect-[16/9]">
@@ -150,8 +186,8 @@ export default function Blog() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
-                      <div className="p-6">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black blog-card-title">{post.title}</h2>
+                      <div className="p-6 bg-white">
+                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 blog-card-title" style={{color: '#000000', textShadow: 'none'}}>{post.title}</h2>
                         <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
                         <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
                           Read on Magpie Wedding
@@ -171,8 +207,8 @@ export default function Blog() {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
-                      <div className="p-6">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black blog-card-title">{post.title}</h2>
+                      <div className="p-6 bg-white">
+                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 blog-card-title" style={{color: '#000000', textShadow: 'none'}}>{post.title}</h2>
                         <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
                         <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
                           Read Article
