@@ -8,9 +8,24 @@ import ReelRoomFooter from '@/components/ReelRoomFooter';
 
 export default function Blog() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
   
   useEffect(() => {
     setIsPageLoaded(true);
+    
+    // Detect iOS devices
+    const detectIOS = () => {
+      if (typeof window === 'undefined' || !window.navigator) return;
+      
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isIOSDevice = 
+        /iphone|ipod|ipad/i.test(userAgent) || 
+        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+        /iPhone|iPad|iPod/.test(navigator.userAgent);
+      setIsIOS(isIOSDevice);
+    };
+    
+    detectIOS();
   }, []);
   
   // Blog data
@@ -52,6 +67,12 @@ export default function Blog() {
         <title>The Reel Room Blog | Vancouver's Premier Film and Media Productions</title>
         <meta name="description" content="Read articles about The Reel Room, Vancouver's premier private theatre and event space for film screenings, corporate events, and special celebrations." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <style>{`
+          .blog-card-title {
+            color: #000000 !important;
+            text-shadow: none !important;
+          }
+        `}</style>
       </Head>
       
       <ReelRoomNavigation />
@@ -79,32 +100,34 @@ export default function Blog() {
           </div>
         </div>
       
-        {/* Featured Article */}
-        <section className="py-16 bg-[#f5f5f5]">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto bg-gradient-to-r from-black to-[#1a1a1a] rounded-lg shadow-xl overflow-hidden border border-brand-gold/20">
-              <div className="flex flex-col">
-                <div className="p-8 md:p-10 text-white">
-                  <div className="mb-6 px-4 py-2 bg-black/70 backdrop-blur-sm border-l-4 border-brand-gold inline-block">
-                    <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
+        {/* Featured Article - Hidden on iOS devices */}
+        {!isIOS && (
+          <section className="py-16 bg-[#f5f5f5]">
+            <div className="container mx-auto px-4">
+              <div className="max-w-5xl mx-auto bg-gradient-to-r from-black to-[#1a1a1a] rounded-lg shadow-xl overflow-hidden border border-brand-gold/20">
+                <div className="flex flex-col">
+                  <div className="p-8 md:p-10 text-white">
+                    <div className="mb-6 px-4 py-2 bg-black/70 backdrop-blur-sm border-l-4 border-brand-gold inline-block">
+                      <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
+                    </div>
+                    <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block group">
+                      <h2 className="heading-font text-3xl md:text-4xl font-light mb-4 text-white group-hover:text-brand-gold transition-colors">DCP and Movie Premieres at The Reel Room</h2>
+                    </Link>
+                    <p className="body-font text-gray-100 mb-8 leading-relaxed backdrop-blur-sm bg-black/30 p-4 rounded">
+                      The Reel Room offers state-of-the-art digital cinema package (DCP) systems for exclusive movie screenings and premieres. Perfect for filmmakers looking to showcase their work in a sophisticated environment.
+                    </p>
+                    <Link 
+                      href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" 
+                      className="inline-block bg-brand-gold text-black px-6 py-3 uppercase tracking-widest text-sm font-medium hover:bg-white transition-all duration-300"
+                    >
+                      Read Article
+                    </Link>
                   </div>
-                  <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block group">
-                    <h2 className="heading-font text-3xl md:text-4xl font-light mb-4 text-white group-hover:text-brand-gold transition-colors">DCP and Movie Premieres at The Reel Room</h2>
-                  </Link>
-                  <p className="body-font text-gray-100 mb-8 leading-relaxed backdrop-blur-sm bg-black/30 p-4 rounded">
-                    The Reel Room offers state-of-the-art digital cinema package (DCP) systems for exclusive movie screenings and premieres. Perfect for filmmakers looking to showcase their work in a sophisticated environment.
-                  </p>
-                  <Link 
-                    href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" 
-                    className="inline-block bg-brand-gold text-black px-6 py-3 uppercase tracking-widest text-sm font-medium hover:bg-white transition-all duration-300"
-                  >
-                    Read Article
-                  </Link>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
         
         {/* Blog Posts Grid */}
         <section className="py-16 bg-white">
@@ -128,7 +151,7 @@ export default function Blog() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       <div className="p-6">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black group-hover:text-brand-gold transition-colors">{post.title}</h2>
+                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black blog-card-title">{post.title}</h2>
                         <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
                         <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
                           Read on Magpie Wedding
@@ -149,7 +172,7 @@ export default function Blog() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
                       <div className="p-6">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black group-hover:text-brand-gold transition-colors">{post.title}</h2>
+                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 text-black blog-card-title">{post.title}</h2>
                         <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
                         <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
                           Read Article
