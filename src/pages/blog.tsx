@@ -31,6 +31,13 @@ export default function Blog() {
   // Blog data
   const blogPosts = [
     {
+      id: 0,
+      title: "The Best Private Event Venue Space in Vancouver 2025",
+      slug: "/blog-articles/best-private-event-venue-vancouver-2025",
+      excerpt: "Discover why The Reel Room is Vancouver's premier private event venue for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!",
+      image: "/photos/homepage-originals/DSC03060-Enhanced-NR.jpg",
+    },
+    {
       id: 1,
       title: "DCP and Movie Premieres at The Reel Room Private Event Space",
       slug: "/blog-articles/dcp-and-movie-premieres-at-the-reel-room",
@@ -146,14 +153,14 @@ export default function Blog() {
                     <div className="mb-6 px-4 py-2 bg-black/70 backdrop-blur-sm border-l-4 border-brand-gold inline-block">
                       <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
                     </div>
-                    <Link href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" className="block group">
-                      <h2 className="heading-font text-3xl md:text-4xl font-light mb-4 text-white group-hover:text-brand-gold transition-colors">DCP and Movie Premieres at The Reel Room</h2>
+                    <Link href="/blog-articles/best-private-event-venue-vancouver-2025" className="block group">
+                      <h2 className="heading-font text-3xl md:text-4xl font-light mb-4 text-white group-hover:text-brand-gold transition-colors">The Best Private Event Venue Space in Vancouver 2025</h2>
                     </Link>
                     <p className="body-font text-gray-100 mb-8 leading-relaxed backdrop-blur-sm bg-black/30 p-4 rounded">
-                      The Reel Room offers state-of-the-art digital cinema package (DCP) systems for exclusive movie screenings and premieres. Perfect for filmmakers looking to showcase their work in a sophisticated environment.
+                      Discover why The Reel Room is Vancouver's premier private event venue for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!
                     </p>
                     <Link 
-                      href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room" 
+                      href="/blog-articles/best-private-event-venue-vancouver-2025" 
                       className="inline-block bg-brand-gold text-black px-6 py-3 uppercase tracking-widest text-sm font-medium hover:bg-white transition-all duration-300"
                     >
                       Read Article
