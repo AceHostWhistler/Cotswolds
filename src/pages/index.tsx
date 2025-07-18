@@ -241,9 +241,12 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to Reel Room</h2>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to The Reel Room | A Unique Venue for Private Events in Vancouver</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
-                Welcome to Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver.
+                Looking for a private event space in Vancouver? The Reel Room is the perfect place to host your next gathering. Located in Mount Pleasant, just minutes from downtown Vancouver, our venue is ideal for movie nights, cocktail parties, birthday parties, corporate events, receptions, and more.
+              </p>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font mt-4">
+                With a private theatre and a stylish lounge spaces, The Reel Room offers a one-of-a-kind setting for events of all kinds.
               </p>
             </div>
           </div>
