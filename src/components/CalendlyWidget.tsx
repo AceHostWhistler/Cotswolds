@@ -38,11 +38,25 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
         console.error("Failed to load Calendly script");
         if (onError) onError();
       };
+      
+      // Initialize Calendly after script loads
+      script.onload = () => {
+        // Make sure the Calendly object is available
+        if (window.Calendly) {
+          // Force Calendly to initialize the widget
+          window.Calendly.initInlineWidget({
+            url: url,
+            parentElement: widgetRef.current,
+            prefill: {},
+            utm: {}
+          });
+        }
+      };
     } catch (error) {
       console.error("Error loading Calendly script:", error);
       if (onError) onError();
     }
-  }, [onError]);
+  }, [url, onError]);
 
   return (
     <>
@@ -53,6 +67,21 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
             height: ${height}px;
             width: 100%;
           }
+          
+          /* Fix for iOS */
+          @supports (-webkit-touch-callout: none) {
+            .calendly-inline-widget {
+              min-height: 650px;
+              width: 100% !important;
+              background-color: #fff;
+            }
+            
+            .calendly-inline-widget iframe {
+              min-height: 650px !important;
+              width: 100% !important;
+              height: 100% !important;
+            }
+          }
         `}</style>
       </Head>
       <div 
@@ -61,9 +90,15 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
         data-url={url}
         style={{ height: `${height}px` }}
       />
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </>
   );
 };
+
+// Add TypeScript global declaration for Calendly
+declare global {
+  interface Window {
+    Calendly?: any;
+  }
+}
 
 export default CalendlyWidget; 

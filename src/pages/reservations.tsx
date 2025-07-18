@@ -36,16 +36,6 @@ export default function Reservations() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        
-        {/* Add direct Calendly styles */}
-        <style jsx global>{`
-          .calendly-iframe {
-            min-width: 320px;
-            width: 100%;
-            height: 700px;
-            border: none;
-          }
-        `}</style>
       </Head>
       
       <ReelRoomNavigation />
@@ -80,19 +70,33 @@ export default function Reservations() {
               </p>
             </div>
             
+            {/* Show Calendly widget for non-iOS devices, show email contact for iOS */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
               <div className="bg-amber-500 text-black p-4 text-center">
                 <h3 className="font-bold text-xl uppercase tracking-wider">CALENDAR</h3>
                 <p className="text-sm">Check availability & schedule a consultation</p>
               </div>
               <div className="w-full">
-                <iframe 
-                  src="https://calendly.com/reelroom-info"
-                  className="calendly-iframe"
-                  frameBorder="0"
-                  title="Schedule your consultation"
-                  loading="lazy"
-                />
+                {!isIOS ? (
+                  <CalendlyWidget 
+                    url="https://calendly.com/reelroom-info"
+                    height={700}
+                    className="border-none"
+                  />
+                ) : (
+                  <div className="p-8 text-center">
+                    <h3 className="text-xl font-semibold mb-4">Contact Us to Book</h3>
+                    <p className="mb-6">
+                      Please email us with your event details and preferred dates:
+                    </p>
+                    <a 
+                      href="mailto:info@reelroom.ca" 
+                      className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                    >
+                      Email info@reelroom.ca
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
