@@ -70,20 +70,17 @@ export default function BookNow() {
           <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
             <div className="bg-amber-500 text-black p-3 text-center">
               <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
-              <p className="text-sm">Contact us to schedule your event</p>
+              <p className="text-sm">Check availability & schedule a consultation</p>
             </div>
-            <div className="bg-white p-6 text-center">
-              <h3 className="text-xl font-semibold mb-4">Ready to book your event?</h3>
-              <p className="mb-4">Contact us directly via email:</p>
-              <a 
-                href="mailto:info@reelroom.ca" 
-                className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-              >
-                Email info@reelroom.ca
-              </a>
-              <p className="mt-4 text-gray-600 text-sm">
-                Please include your event details, preferred date, and number of guests.
-              </p>
+            <div className="bg-white p-6">
+              {/* Calendly inline widget begin */}
+              <div 
+                className="calendly-inline-widget" 
+                data-url="https://calendly.com/reelroom-info" 
+                style={{ minWidth: '320px', height: '400px' }}
+              />
+              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+              {/* Calendly inline widget end */}
             </div>
           </div>
         )}
