@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import ReelRoomNavigation from "@/components/ReelRoomNavigation";
 import ReelRoomFooter from "@/components/ReelRoomFooter";
+import CalendlyPopupLink from "@/components/CalendlyPopupLink";
 
 export default function BestPrivateEventVenue2025() {
+  const [isIOS, setIsIOS] = useState(false);
+  
+  useEffect(() => {
+    // Detect iOS devices
+    const detectIOS = () => {
+      try {
+        if (typeof window === 'undefined' || !window.navigator) return;
+        
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isIOSDevice = 
+          /iphone|ipod|ipad/i.test(userAgent) || 
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+          /iPhone|iPad|iPod/.test(navigator.userAgent);
+        setIsIOS(isIOSDevice);
+      } catch (error) {
+        console.error("Error detecting iOS device:", error);
+      }
+    };
+    
+    detectIOS();
+  }, []);
   return (
     <>
       <Head>
@@ -223,12 +245,19 @@ export default function BestPrivateEventVenue2025() {
               <div className="mt-12 bg-black p-8 rounded-lg border border-brand-gold">
                 <h3 className="text-2xl font-bold text-brand-gold mb-4 heading-font">Ready to Create Your Extraordinary Event?</h3>
                 <p className="mb-6 text-lg">Contact us today to schedule a tour of The Reel Room and begin planning your 2025 event in Vancouver's most distinctive venue.</p>
-                <Link 
-                  href="/book-now" 
-                  className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"
-                >
-                  Book Your Event
-                </Link>
+                {!isIOS ? (
+                  <CalendlyPopupLink 
+                    text="Book Your Event"
+                    className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"
+                  />
+                ) : (
+                  <Link 
+                    href="/book-now" 
+                    className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"
+                  >
+                    Book Your Event
+                  </Link>
+                )}
               </div>
             </div>
           </div>

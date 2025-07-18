@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { scrollToTop } from '@/utils/scrollUtils';
+import CalendlyPopupLink from './CalendlyPopupLink';
 
 export default function ReelRoomNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
   const router = useRouter();
   
   useEffect(() => {
@@ -19,6 +21,26 @@ export default function ReelRoomNavigation() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+  
+  // Detect iOS devices
+  useEffect(() => {
+    const detectIOS = () => {
+      try {
+        if (typeof window === 'undefined' || !window.navigator) return;
+        
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isIOSDevice = 
+          /iphone|ipod|ipad/i.test(userAgent) || 
+          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+          /iPhone|iPad|iPod/.test(navigator.userAgent);
+        setIsIOS(isIOSDevice);
+      } catch (error) {
+        console.error("Error detecting iOS device:", error);
+      }
+    };
+    
+    detectIOS();
   }, []);
   
   // Close mobile menu when route changes
@@ -94,13 +116,20 @@ export default function ReelRoomNavigation() {
             >
               Media & FAQs
             </Link>
-            <Link 
-              href="/book-now" 
-              onClick={handleNavLinkClick}
-              className="heading-font text-sm uppercase tracking-widest bg-brand-gold text-black px-4 py-2 hover:bg-white transition-colors"
-            >
-              Book Now
-            </Link>
+            {!isIOS ? (
+              <CalendlyPopupLink 
+                text="Book Now"
+                className="heading-font text-sm uppercase tracking-widest bg-brand-gold text-black px-4 py-2 hover:bg-white transition-colors"
+              />
+            ) : (
+              <Link 
+                href="/book-now" 
+                onClick={handleNavLinkClick}
+                className="heading-font text-sm uppercase tracking-widest bg-brand-gold text-black px-4 py-2 hover:bg-white transition-colors"
+              >
+                Book Now
+              </Link>
+            )}
           </nav>
           
           {/* Mobile Menu Button */}
@@ -157,13 +186,20 @@ export default function ReelRoomNavigation() {
           >
             Media & FAQs
           </Link>
-          <Link 
-            href="/book-now"
-            onClick={handleNavLinkClick}
-            className="block px-3 py-2 text-base font-medium bg-brand-gold text-black hover:bg-white transition-colors"
-          >
-            Book Now
-          </Link>
+          {!isIOS ? (
+            <CalendlyPopupLink 
+              text="Book Now"
+              className="block px-3 py-2 text-base font-medium bg-brand-gold text-black hover:bg-white transition-colors"
+            />
+          ) : (
+            <Link 
+              href="/book-now"
+              onClick={handleNavLinkClick}
+              className="block px-3 py-2 text-base font-medium bg-brand-gold text-black hover:bg-white transition-colors"
+            >
+              Book Now
+            </Link>
+          )}
         </div>
       </div>
     </header>
