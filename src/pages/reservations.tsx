@@ -36,6 +36,13 @@ export default function Reservations() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <style jsx global>{`
+          .calendly-inline-widget {
+            min-width: 320px;
+            width: 100%;
+            height: 700px;
+          }
+        `}</style>
       </Head>
       
       <ReelRoomNavigation />
@@ -78,11 +85,16 @@ export default function Reservations() {
               </div>
               <div className="w-full">
                 {!isIOS ? (
-                  <CalendlyWidget 
-                    url="https://calendly.com/reelroom-info"
-                    height={700}
-                    className="border-none"
-                  />
+                  <div>
+                    {/* Calendly inline widget begin */}
+                    <div 
+                      className="calendly-inline-widget" 
+                      data-url="https://calendly.com/reelroom-info" 
+                      style={{ minWidth: '320px', height: '700px' }}
+                    />
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    {/* Calendly inline widget end */}
+                  </div>
                 ) : (
                   <div className="p-8 text-center">
                     <h3 className="text-xl font-semibold mb-4">Contact Us to Book</h3>

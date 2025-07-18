@@ -269,59 +269,24 @@ export default function BookNow() {
                 <div className="text-center mb-12">
                   <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
                   <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Contact us directly to check availability and schedule your perfect event at Reel Room.
+                    Check availability and schedule a consultation to start planning your perfect event at The Reel Room.
                   </p>
                 </div>
                 
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto p-8">
-                  <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold mb-4">Contact Us To Book</h3>
-                    <p className="text-lg text-gray-600">
-                      Our team is ready to help you plan an unforgettable event.
-                    </p>
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
+                  <div className="bg-amber-500 text-black p-4 text-center">
+                    <h3 className="font-bold text-xl uppercase tracking-wider">CALENDAR</h3>
+                    <p className="text-sm">Check availability & schedule a consultation</p>
                   </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                      <h4 className="text-xl font-bold mb-3">Email Us</h4>
-                      <p className="text-gray-600 mb-4">
-                        Send us your event details and we'll get back to you promptly.
-                      </p>
-                      <a 
-                        href="mailto:info@reelroom.ca" 
-                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors w-full text-center"
-                      >
-                        Email info@reelroom.ca
-                      </a>
-                    </div>
-                    
-                    <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                      <h4 className="text-xl font-bold mb-3">Our Location</h4>
-                      <p className="text-gray-600 mb-4">
-                        We're conveniently located in Mount Pleasant, Vancouver.
-                      </p>
-                      <div className="px-6 py-3 bg-black text-white rounded-md font-medium w-full text-center">
-                        Mount Pleasant, Vancouver
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-8 p-6 bg-amber-50 rounded-lg border border-amber-200 text-center">
-                    <h4 className="text-xl font-bold mb-3">Please Include In Your Inquiry:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="p-4">
-                        <p className="font-medium">Event Details</p>
-                        <p className="text-sm text-gray-600">Date, time, type of event</p>
-                      </div>
-                      <div className="p-4">
-                        <p className="font-medium">Guest Count</p>
-                        <p className="text-sm text-gray-600">Number of guests expected</p>
-                      </div>
-                      <div className="p-4">
-                        <p className="font-medium">Special Requests</p>
-                        <p className="text-sm text-gray-600">Any specific requirements</p>
-                      </div>
-                    </div>
+                  <div className="w-full">
+                    {/* Calendly inline widget begin */}
+                    <div 
+                      className="calendly-inline-widget" 
+                      data-url="https://calendly.com/reelroom-info" 
+                      style={{ minWidth: '320px', height: '700px' }}
+                    />
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    {/* Calendly inline widget end */}
                   </div>
                 </div>
               </div>
