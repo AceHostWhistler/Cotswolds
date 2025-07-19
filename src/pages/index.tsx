@@ -193,41 +193,8 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Featured Content Box - Completely removed on iOS/mobile devices */}
-        {!isIOS && (
-          <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20 bg-black text-white p-0 max-w-[200px] xs:max-w-[90%] sm:max-w-md rounded-sm overflow-hidden">
-            <div className="border border-brand-gold">
-              <div className="flex flex-col xs:flex-row">
-                <div className="w-full xs:w-1/2 aspect-video xs:aspect-auto">
-                  <img 
-                    src="/photos/Blogs/Screen Shot 2025-05-09 at 1.49.41 PM.png" 
-                    alt="Magpie Wedding Feature" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                  />
-                </div>
-                <div className="w-full xs:w-1/2 p-3 sm:p-5">
-                  <h3 className="heading-font text-xs xs:text-sm sm:text-xl font-light mb-1 sm:mb-3">
-                    Reel Room featured in Elle Magazine & Magpie Wedding
-                  </h3>
-                  <p className="body-font text-xs sm:text-sm mb-1 sm:mb-4">
-                    Click here to view the article for your wedding inspiration
-                  </p>
-                  
-                  <div className="mt-1 sm:mt-2">
-                    <Link
-                      href="https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
-                      target="_blank"
-                      className="text-brand-gold uppercase tracking-widest text-xs sm:text-sm font-light hover:text-brand-cream transition-colors"
-                    >
-                      View Articles →
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Featured Content Box - Remove for all devices */}
+        
       </div>
       
       {/* Main Content - Added more padding to ensure proper spacing after the hero section */}
@@ -497,7 +464,6 @@ export default function Home() {
                     alt="Film & Screenings" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
@@ -509,7 +475,6 @@ export default function Home() {
                     alt="Event Flexibility" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
@@ -521,7 +486,6 @@ export default function Home() {
                     alt="Upscale theatre experience" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
@@ -533,7 +497,6 @@ export default function Home() {
                     alt="Catering Services" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
@@ -545,7 +508,6 @@ export default function Home() {
                     alt="Bar Services" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
@@ -557,7 +519,6 @@ export default function Home() {
                     alt="Audio Visual Equipment" 
                     className="w-full h-full object-cover"
                     loading="eager"
-                    style={{ display: 'block !important' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Audio Visual Equipment</h3>

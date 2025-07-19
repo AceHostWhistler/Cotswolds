@@ -143,36 +143,7 @@ export default function Blog() {
           </div>
         </div>
       
-        {/* Featured Article - Hidden on iOS devices */}
-        {!isIOS && (
-          <section className="py-16 bg-[#f5f5f5]">
-            <div className="container mx-auto px-4">
-              <div className="max-w-5xl mx-auto bg-gradient-to-r from-black to-[#1a1a1a] rounded-lg shadow-xl overflow-hidden border border-brand-gold/20">
-                <div className="flex flex-col">
-                  <div className="p-8 md:p-10 text-white">
-                    <div className="mb-6 px-4 py-2 bg-black/70 backdrop-blur-sm border-l-4 border-brand-gold inline-block">
-                      <span className="text-sm text-brand-gold uppercase tracking-widest font-medium">FEATURED ARTICLE</span>
-                    </div>
-                    <Link href="/blog-articles/best-private-event-venue-vancouver-2025" className="block group">
-                      <h2 className="heading-font text-3xl md:text-4xl font-light mb-4 text-white group-hover:text-brand-gold transition-colors">The Best Private Event Venue Space in Vancouver 2025</h2>
-                    </Link>
-                    <p className="body-font text-gray-100 mb-8 leading-relaxed backdrop-blur-sm bg-black/30 p-4 rounded">
-                      Discover why The Reel Room is Vancouver's premier private event venue for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!
-                    </p>
-                    <Link 
-                      href="/blog-articles/best-private-event-venue-vancouver-2025" 
-                      className="inline-block bg-brand-gold text-black px-6 py-3 uppercase tracking-widest text-sm font-medium hover:bg-white transition-all duration-300"
-                    >
-                      Read Article
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-        
-        {/* Blog Posts Grid */}
+        {/* Blog Posts Grid - Show for all devices */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="heading-font text-3xl font-light mb-16 text-center">Latest Articles</h2>
