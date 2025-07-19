@@ -149,9 +149,9 @@ export default function Blog() {
                       />
                     </div>
                     <div className="p-6">
-                      <h2 className="text-2xl font-bold mb-3" style={{color: '#000000'}}>{post.title}</h2>
-                      <p className="text-gray-600 mb-6">{post.excerpt}</p>
-                      <span className="inline-block bg-amber-500 text-black px-5 py-2 font-medium">
+                      <h2 className="heading-font text-2xl font-light tracking-wide mb-3" style={{color: '#000000'}}>{post.title}</h2>
+                      <p className="body-font text-gray-600 mb-6">{post.excerpt}</p>
+                      <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 border border-brand-gold font-medium">
                         Read Article
                       </span>
                     </div>

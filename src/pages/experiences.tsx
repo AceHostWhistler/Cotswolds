@@ -48,12 +48,11 @@ export default function Experiences() {
       
       <main className="pt-20">
         {/* Hero Section */}
-        <div className="relative h-[500px] overflow-hidden bg-gray-800">
-          <SimpleImage
+        <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
+          <img
             src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
             alt="The Reel Room Experiences"
-            className="absolute inset-0"
-            loading="eager"
+            className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
