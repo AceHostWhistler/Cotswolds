@@ -245,19 +245,12 @@ export default function BestPrivateEventVenue2025() {
               <div className="mt-12 bg-black p-8 rounded-lg border border-brand-gold">
                 <h3 className="text-2xl font-bold text-brand-gold mb-4 heading-font">Ready to Create Your Extraordinary Event?</h3>
                 <p className="mb-6 text-lg">Contact us today to schedule a tour of The Reel Room and begin planning your 2025 event in Vancouver's most distinctive venue.</p>
-                {!isIOS ? (
-                  <CalendlyPopupLink 
-                    text="Book Your Event"
-                    className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"
-                  />
-                ) : (
-                  <Link 
-                    href="/book-now" 
-                    className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"
-                  >
-                    Book Your Event
-                  </Link>
-                )}
+                <Link 
+                  href="/book-now" 
+                  className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"
+                >
+                  Book Your Event
+                </Link>
               </div>
             </div>
           </div>

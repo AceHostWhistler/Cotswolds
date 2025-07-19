@@ -587,6 +587,22 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        {/* Reserve Your Dates - Bottom CTA */}
+        <div className="py-16 bg-gray-900 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold mb-6">Ready to Create Your Unforgettable Event?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Contact us today to check availability and start planning your perfect event at The Reel Room.
+            </p>
+            <Link 
+              href="/book-now" 
+              className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+            >
+              Reserve Your Dates
+            </Link>
+          </div>
+        </div>
       </main>
       
       {/* Footer */}
