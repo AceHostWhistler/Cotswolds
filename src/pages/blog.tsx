@@ -57,14 +57,6 @@ export default function Blog() {
       slug: "/blog-articles/canucks-hockey-games-at-the-reel-room",
       excerpt: "Experience Vancouver Canucks hockey games like never before at The Reel Room. Our luxurious private theatre venue offers the ultimate sports viewing experience.",
       image: "/photos/homepage-originals/DSC03672-Enhanced-NR.jpg",
-    },
-    {
-      id: 4,
-      title: "Bold and Colourful Wedding with Iris Apfel Vibes",
-      slug: "",
-      excerpt: "See how The Reel Room was transformed for a bold and colorful wedding photoshoot inspired by fashion icon Iris Apfel. Recently featured in Magpie Wedding.",
-      image: "/photos/homepage-originals/DSC03106-Enhanced-NR.jpg",
-      externalLink: "https://www.magpiewedding.com/wedding-inspiration/bold-and-colourful-wedding-with-iris-apfel-vibes/"
     }
   ];
   
@@ -147,46 +139,23 @@ export default function Blog() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
               {blogPosts.map((post) => (
-                <div key={post.id} className="blog-card-container bg-gradient-to-b from-gray-100 to-white rounded-lg overflow-hidden shadow-lg group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 hover:border-brand-gold/30">
-                  {post.externalLink ? (
-                    <a href={post.externalLink} target="_blank" rel="noopener noreferrer" className="block">
-                      <div className="relative aspect-[16/9]">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover"
-                          loading="eager"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <div className="p-6 bg-white">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 blog-card-title" style={{color: '#000000', textShadow: 'none'}}>{post.title}</h2>
-                        <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
-                        <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
-                          Read on Magpie Wedding
-                        </span>
-                      </div>
-                    </a>
-                  ) : (
-                    <Link href={post.slug} className="block">
-                      <div className="relative aspect-[16/9]">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover"
-                          loading="eager"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <div className="p-6 bg-white">
-                        <h2 className="heading-font text-2xl font-light tracking-wide mb-3 blog-card-title" style={{color: '#000000', textShadow: 'none'}}>{post.title}</h2>
-                        <p className="body-font text-gray-600 mb-6 line-clamp-3">{post.excerpt}</p>
-                        <span className="heading-font inline-block uppercase tracking-widest text-sm bg-brand-gold text-black px-5 py-2 hover:bg-black hover:text-brand-gold border border-brand-gold transition-all duration-300 font-medium">
-                          Read Article
-                        </span>
-                      </div>
-                    </Link>
-                  )}
+                <div key={post.id} className="bg-white rounded-lg shadow-lg border border-gray-200">
+                  <Link href={post.slug} className="block">
+                    <div className="relative" style={{ height: "200px" }}>
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <h2 className="text-2xl font-bold mb-3" style={{color: '#000000'}}>{post.title}</h2>
+                      <p className="text-gray-600 mb-6">{post.excerpt}</p>
+                      <span className="inline-block bg-amber-500 text-black px-5 py-2 font-medium">
+                        Read Article
+                      </span>
+                    </div>
+                  </Link>
                 </div>
               ))}
             </div>

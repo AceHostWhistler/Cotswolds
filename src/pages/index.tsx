@@ -126,24 +126,11 @@ export default function Home() {
                 <div className="absolute inset-0">
                   {isIOS ? (
                     <div className="absolute inset-0 bg-black">
-                      <video
-                        autoPlay
-                        playsInline
-                        muted
-                        loop
-                        controls={false}
-                        preload="auto"
-                        className="w-full h-full object-cover"
-                        style={{ objectPosition: 'center' }}
-                      >
-                        <source src="/videos/homepage-background.mp4" type="video/mp4" />
-                        {/* Fallback image if video fails to load */}
-                        <img 
-                          src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
-                          alt="Reel Room Background"
-                          className="absolute inset-0 w-full h-full object-cover"
-                        />
-                      </video>
+                      <img 
+                        src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+                        alt="Reel Room Background"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
                       <div className="absolute inset-0 bg-black opacity-50"></div>
                     </div>
                   ) : (
@@ -459,74 +446,79 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-light heading-font mb-12 text-center">What our event space offers</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
+              {/* Image 1 */}
+              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
+                <div className="h-48 mb-6">
                   <img 
                     src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
                     alt="Film & Screenings" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    width="100%"
+                    height="auto"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
+              
+              {/* Image 2 */}
+              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
+                <div className="h-48 mb-6">
                   <img 
                     src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
                     alt="Event Flexibility" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    width="100%"
+                    height="auto"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
+              
+              {/* Image 3 */}
+              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
+                <div className="h-48 mb-6">
                   <img 
                     src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
                     alt="Upscale theatre experience" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    width="100%"
+                    height="auto"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
+              
+              {/* Image 4 */}
+              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
+                <div className="h-48 mb-6">
                   <img 
                     src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
                     alt="Catering Services" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    width="100%"
+                    height="auto"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
+              
+              {/* Image 5 */}
+              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
+                <div className="h-48 mb-6">
                   <img 
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                     alt="Bar Services" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    width="100%"
+                    height="auto"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-sm h-[380px] flex flex-col">
-                <div className="h-48 overflow-hidden rounded-lg mb-6 bg-gray-100">
+              
+              {/* Image 6 */}
+              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
+                <div className="h-48 mb-6">
                   <img 
                     src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
                     alt="Audio Visual Equipment" 
-                    className="w-full h-full object-cover"
-                    loading="eager"
-                    style={{ display: 'block', width: '100%', height: '100%' }}
+                    width="100%"
+                    height="auto"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Audio Visual Equipment</h3>
