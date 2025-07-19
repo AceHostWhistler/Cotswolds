@@ -131,10 +131,19 @@ export default function BookNow() {
                     We can accommodate groups as small as 5 and groups as large as 120+.
                   </p>
                   <div className="mt-6 text-center">
-                    <CalendlyPopupLink 
-                      text="Check Availability & Schedule a Consultation" 
-                      className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-                    />
+                    {!isIOS ? (
+                      <CalendlyPopupLink 
+                        text="Check Availability & Schedule a Consultation" 
+                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                      />
+                    ) : (
+                      <a
+                        href="mailto:info@reelroom.ca" 
+                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                      >
+                        Email to Book
+                      </a>
+                    )}
                   </div>
                 </div>
                 

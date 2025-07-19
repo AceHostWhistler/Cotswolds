@@ -116,20 +116,13 @@ export default function ReelRoomNavigation() {
             >
               Media & FAQs
             </Link>
-            {!isIOS ? (
-              <CalendlyPopupLink 
-                text="Book Now"
-                className="heading-font text-sm uppercase tracking-widest bg-brand-gold text-black px-4 py-2 hover:bg-white transition-colors"
-              />
-            ) : (
-              <Link 
-                href="/book-now" 
-                onClick={handleNavLinkClick}
-                className="heading-font text-sm uppercase tracking-widest bg-brand-gold text-black px-4 py-2 hover:bg-white transition-colors"
-              >
-                Book Now
-              </Link>
-            )}
+            <Link 
+              href="/book-now" 
+              onClick={handleNavLinkClick}
+              className="heading-font text-sm uppercase tracking-widest bg-brand-gold text-black px-4 py-2 hover:bg-white transition-colors"
+            >
+              Book Now
+            </Link>
           </nav>
           
           {/* Mobile Menu Button */}
@@ -186,20 +179,13 @@ export default function ReelRoomNavigation() {
           >
             Media & FAQs
           </Link>
-          {!isIOS ? (
-            <CalendlyPopupLink 
-              text="Book Now"
-              className="block px-3 py-2 text-base font-medium bg-brand-gold text-black hover:bg-white transition-colors"
-            />
-          ) : (
-            <Link 
-              href="/book-now"
-              onClick={handleNavLinkClick}
-              className="block px-3 py-2 text-base font-medium bg-brand-gold text-black hover:bg-white transition-colors"
-            >
-              Book Now
-            </Link>
-          )}
+          <Link 
+            href="/book-now"
+            onClick={handleNavLinkClick}
+            className="block px-3 py-2 text-base font-medium bg-brand-gold text-black hover:bg-white transition-colors"
+          >
+            Book Now
+          </Link>
         </div>
       </div>
     </header>
