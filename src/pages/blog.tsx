@@ -123,13 +123,10 @@ export default function Blog() {
       <main className="pt-20">
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
-          <Image
+          <img
             src="/photos/homepage-originals/DSC03097-Enhanced-NR.jpg"
             alt="The Reel Room Blog"
-            fill
-            priority
-            style={{ objectFit: "cover" }}
-            className="brightness-75"
+            className="absolute inset-0 w-full h-full object-cover brightness-75"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
@@ -154,13 +151,11 @@ export default function Blog() {
                   {post.externalLink ? (
                     <a href={post.externalLink} target="_blank" rel="noopener noreferrer" className="block">
                       <div className="relative aspect-[16/9]">
-                        <Image
+                        <img
                           src={post.image}
                           alt={post.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                          style={{ objectFit: "cover", objectPosition: "center" }}
-                          className="transition-transform duration-700 group-hover:scale-105 brightness-90"
+                          className="w-full h-full object-cover"
+                          loading="eager"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
@@ -175,13 +170,11 @@ export default function Blog() {
                   ) : (
                     <Link href={post.slug} className="block">
                       <div className="relative aspect-[16/9]">
-                        <Image
+                        <img
                           src={post.image}
                           alt={post.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                          style={{ objectFit: "cover", objectPosition: "center" }}
-                          className="transition-transform duration-700 group-hover:scale-105 brightness-90"
+                          className="w-full h-full object-cover"
+                          loading="eager"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>

@@ -131,10 +131,12 @@ export default function Home() {
                         playsInline
                         muted
                         loop
+                        controls={false}
+                        preload="auto"
                         className="w-full h-full object-cover"
                         style={{ objectPosition: 'center' }}
                       >
-                        <source src="https://player.vimeo.com/external/1082926490/sd.mp4?s=a3f8c0c9e4f5a9c7b3f9c7b3f9c7b3f9c7b3f9c7&profile_id=165" type="video/mp4" />
+                        <source src="/videos/homepage-background.mp4" type="video/mp4" />
                         {/* Fallback image if video fails to load */}
                         <img 
                           src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
@@ -464,6 +466,7 @@ export default function Home() {
                     alt="Film & Screenings" 
                     className="w-full h-full object-cover"
                     loading="eager"
+                    style={{ display: 'block', width: '100%', height: '100%' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
@@ -475,6 +478,7 @@ export default function Home() {
                     alt="Event Flexibility" 
                     className="w-full h-full object-cover"
                     loading="eager"
+                    style={{ display: 'block', width: '100%', height: '100%' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
@@ -486,6 +490,7 @@ export default function Home() {
                     alt="Upscale theatre experience" 
                     className="w-full h-full object-cover"
                     loading="eager"
+                    style={{ display: 'block', width: '100%', height: '100%' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
@@ -497,6 +502,7 @@ export default function Home() {
                     alt="Catering Services" 
                     className="w-full h-full object-cover"
                     loading="eager"
+                    style={{ display: 'block', width: '100%', height: '100%' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
@@ -508,6 +514,7 @@ export default function Home() {
                     alt="Bar Services" 
                     className="w-full h-full object-cover"
                     loading="eager"
+                    style={{ display: 'block', width: '100%', height: '100%' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
@@ -519,6 +526,7 @@ export default function Home() {
                     alt="Audio Visual Equipment" 
                     className="w-full h-full object-cover"
                     loading="eager"
+                    style={{ display: 'block', width: '100%', height: '100%' }}
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font mb-4">Audio Visual Equipment</h3>
