@@ -66,26 +66,7 @@ export default function BookNow() {
       <div className="min-h-screen bg-white">
         <ReelRoomNavigation />
 
-        {/* Booking Contact Box - Fixed Position for Desktop Only */}
-        {!isIOS && (
-          <div className="fixed top-24 right-4 z-20 w-96 shadow-2xl rounded-lg overflow-hidden hidden lg:block">
-            <div className="bg-amber-500 text-black p-3 text-center">
-              <h3 className="font-bold text-xl uppercase tracking-wider">BOOK NOW</h3>
-              <p className="text-sm">Check availability & schedule a consultation</p>
-            </div>
-            <div className="bg-white p-6 text-center">
-              <h3 className="text-xl font-semibold mb-4">Ready to book your event?</h3>
-              <p className="mb-4">Click below to check our availability:</p>
-              <CalendlyPopupLink 
-                text="Schedule a Consultation" 
-                className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-              />
-              <p className="mt-4 text-gray-600 text-sm">
-                Or email us at info@reelroom.ca with your event details.
-              </p>
-            </div>
-          </div>
-        )}
+        {/* Booking Contact Box - Fixed Position for Desktop Only - REMOVED */}
 
         <main className="pt-20">
           {/* Hero Section */}
@@ -133,7 +114,7 @@ export default function BookNow() {
                   <div className="mt-6 text-center">
                     {!isIOS ? (
                       <CalendlyPopupLink 
-                        text="Check Availability & Schedule a Consultation" 
+                        text="Reserve Your Date" 
                         className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
                       />
                     ) : (
@@ -269,7 +250,7 @@ export default function BookNow() {
               </p>
               {!isIOS ? (
                 <CalendlyPopupLink 
-                  text="Schedule a Consultation" 
+                  text="Reserve Your Date" 
                   className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-amber-600 hover:text-white transition-colors text-lg font-medium"
                 />
               ) : (
