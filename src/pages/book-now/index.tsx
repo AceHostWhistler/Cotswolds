@@ -264,17 +264,7 @@ export default function BookNow() {
             </div>
           </div>
           
-          {/* Mobile Booking Button - Only show on iOS/mobile */}
-          {isIOS && (
-            <div className="fixed bottom-0 left-0 right-0 bg-amber-500 text-center p-4 z-50 ios-booking-button">
-              <a 
-                href="mailto:info@reelroom.ca" 
-                className="block w-full bg-black text-white py-3 rounded-md font-bold text-lg"
-              >
-                Email to Book Now
-              </a>
-            </div>
-          )}
+          {/* Mobile Booking Button - Removed to fix iOS issues */}
         </main>
 
         <ReelRoomFooter />
