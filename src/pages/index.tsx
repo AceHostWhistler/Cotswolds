@@ -126,11 +126,17 @@ export default function Home() {
                 <div className="absolute inset-0">
                   {isIOS ? (
                     <div className="absolute inset-0 bg-black">
-                      <img 
-                        src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
-                        alt="Reel Room Background"
+                      <video
+                        autoPlay
+                        playsInline
+                        muted
+                        loop
+                        preload="auto"
                         className="absolute inset-0 w-full h-full object-cover"
-                      />
+                        style={{ objectFit: 'cover' }}
+                      >
+                        <source src="https://player.vimeo.com/progressive_redirect/playback/1082926490/rendition/1080p/file.mp4?loc=external" type="video/mp4" />
+                      </video>
                       <div className="absolute inset-0 bg-black opacity-50"></div>
                     </div>
                   ) : (
