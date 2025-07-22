@@ -592,10 +592,12 @@ export default function Experiences() {
             <div className="mt-16 mb-8">
               <h3 className="text-2xl font-bold mb-8 text-center">Food & Drinks Options</h3>
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="/photos/homepage-originals/Screen Shot 2025-07-22 at 3.55.24 PM.png" 
+                <SimpleImage 
+                  src="/photos/catering/food-drinks-collage.png" 
                   alt="Food and Drinks Collage" 
                   className="w-full h-auto"
+                  loading="eager"
+                  fallbackSrc="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
                 />
               </div>
               <p className="text-center mt-6 text-gray-600 max-w-3xl mx-auto">
