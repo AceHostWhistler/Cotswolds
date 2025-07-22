@@ -146,14 +146,26 @@ export default function BookNow() {
                 </div>
               </div>
             ) : (
-              <div className="bg-white mb-12">
-                <div className="p-4">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                <div className="p-6">
                   <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">How to Book Reel Room</h2>
                   
                   <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mb-8">
                     <h3 className="text-xl font-bold mb-4 text-gray-800">Contact Us to Book</h3>
-                    <p className="text-gray-700 mb-6">
-                      Email us at <a href="mailto:info@reelroom.ca" className="text-brand-gold font-semibold hover:underline">info@reelroom.ca</a> with your event details.
+                    <p className="text-gray-700 mb-6 text-lg">
+                      Email us at <a href="mailto:info@reelroom.ca" className="text-brand-gold font-semibold hover:underline">info@reelroom.ca</a> with the following information:
+                    </p>
+                    <ul className="list-disc list-inside text-gray-700 space-y-3 mb-6 text-lg">
+                      <li>Your full name</li>
+                      <li>Email address</li>
+                      <li>Phone number</li>
+                      <li>Preferred date and start time</li>
+                      <li>Number of guests</li>
+                      <li>Type of event you're planning</li>
+                      <li>Any special requirements or questions</li>
+                    </ul>
+                    <p className="text-gray-700 text-lg font-medium">
+                      We can accommodate groups as small as 5 and groups as large as 120+.
                     </p>
                     <div className="mt-6 text-center">
                       <a
@@ -162,6 +174,30 @@ export default function BookNow() {
                       >
                         Email to Book
                       </a>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 gap-8">
+                    <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                      <h3 className="text-xl font-bold mb-4 text-gray-800">Booking Process</h3>
+                      <p className="text-gray-700 mb-4">
+                        1. Email us with your event details<br/>
+                        2. Our team will confirm availability<br/>
+                        3. We'll discuss your specific needs and requirements<br/>
+                        4. Receive a detailed quote<br/>
+                        5. Confirm your booking with a deposit<br/>
+                        6. Enjoy your event at Reel Room!
+                      </p>
+                    </div>
+                    
+                    <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                      <h3 className="text-xl font-bold mb-4 text-gray-800">Venue Information</h3>
+                      <p className="text-gray-700 mb-4">
+                        <strong>Location:</strong> Mount Pleasant, Vancouver<br/>
+                        <strong>Capacity:</strong> 5-120+ guests<br/>
+                        <strong>Amenities:</strong> Premium theatre, lounge & bar area, state-of-the-art AV system<br/>
+                        <strong>Services:</strong> Customizable food and beverage options available
+                      </p>
                     </div>
                   </div>
                 </div>

@@ -452,84 +452,97 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-light heading-font mb-12 text-center">What our event space offers</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Image 1 */}
-              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
-                <div className="h-48 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Item 1 */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
                     alt="Film & Screenings" 
-                    width="100%"
-                    height="auto"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font mb-4">Film & Screenings For Your launch parties</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Film & Screenings</h3>
+                <p className="text-gray-600 text-center mt-2">For Your launch parties</p>
               </div>
               
-              {/* Image 2 */}
-              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
-                <div className="h-48 mb-6">
+              {/* Item 2 */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
                     alt="Event Flexibility" 
-                    width="100%"
-                    height="auto"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font mb-4">Event Flexibility & customization</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Event Flexibility</h3>
+                <p className="text-gray-600 text-center mt-2">Customization for your needs</p>
               </div>
               
-              {/* Image 3 */}
-              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
-                <div className="h-48 mb-6">
+              {/* Item 3 */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
                     alt="Upscale theatre experience" 
-                    width="100%"
-                    height="auto"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font mb-4">Upscale theatre experience</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Upscale Theatre Experience</h3>
+                <p className="text-gray-600 text-center mt-2">Premium comfort and quality</p>
               </div>
               
-              {/* Image 4 */}
-              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
-                <div className="h-48 mb-6">
+              {/* Item 4 */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
                     alt="Catering Services" 
-                    width="100%"
-                    height="auto"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font mb-4">Catering Services</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Catering Services</h3>
+                <p className="text-gray-600 text-center mt-2">Customizable food options</p>
               </div>
               
-              {/* Image 5 */}
-              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
-                <div className="h-48 mb-6">
+              {/* Item 5 */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                     alt="Bar Services" 
-                    width="100%"
-                    height="auto"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font mb-4">Bar Services</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Bar Services</h3>
+                <p className="text-gray-600 text-center mt-2">Premium drink selections</p>
               </div>
               
-              {/* Image 6 */}
-              <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col">
-                <div className="h-48 mb-6">
+              {/* Item 6 */}
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
                     alt="Audio Visual Equipment" 
-                    width="100%"
-                    height="auto"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font mb-4">Audio Visual Equipment</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Audio Visual Equipment</h3>
+                <p className="text-gray-600 text-center mt-2">State-of-the-art technology</p>
               </div>
+            </div>
+            
+            {/* Quick Links */}
+            <div className="mt-16 flex flex-wrap justify-center gap-8 uppercase tracking-widest text-sm font-light">
+              <Link href="/experiences" className="heading-font hover:text-brand-gold transition-colors">
+                experiences & pricing
+              </Link>
+              <Link href="/media" className="heading-font hover:text-brand-gold transition-colors">
+                media & faqs
+              </Link>
+              <Link href="/book-now" className="heading-font hover:text-brand-gold transition-colors">
+                book now
+              </Link>
             </div>
           </div>
         </div>
