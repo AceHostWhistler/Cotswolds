@@ -44,7 +44,7 @@ export default function Home() {
     "@type": "LocalBusiness",
     "name": "Reel Room",
     "description": "Private Theatre Event Venue in Vancouver",
-    "image": "/photos/homepage-originals/Reel Room Logo:Favicon.png",
+    "image": "/reel-room-logo.png",
     "url": "https://reelroom.ca",
     "priceRange": "$$$",
     "address": {
@@ -74,7 +74,7 @@ export default function Home() {
       <SEO 
         title="Private Theatre Event Venue Vancouver"
         description="Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver."
-        ogImage="/photos/homepage-originals/Reel Room Logo:Favicon.png"
+        ogImage="/reel-room-logo.png"
         keywords="private theatre, event venue, Vancouver, film screenings, private parties, corporate events, Mount Pleasant, luxury cinema, private events"
         structuredData={homeStructuredData}
       />
