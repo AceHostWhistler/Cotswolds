@@ -15,8 +15,13 @@ export default function Document() {
         {/* Early connection hints for critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
+        
+        {/* Preload Futura font */}
+        <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet" />
         
         {/* Preconnect for third-party resources */}
         <link rel="preconnect" href="https://player.vimeo.com" crossOrigin="anonymous" />
@@ -36,33 +41,45 @@ export default function Document() {
             __html: `
               /* Font display optimization */
               @font-face {
-                font-family: 'Inter';
+                font-family: 'Futura PT';
+                font-style: normal;
+                font-weight: 300;
+                font-display: swap;
+                src: url('https://fonts.cdnfonts.com/s/29136/FuturaPTLight.woff2') format('woff2');
+              }
+              @font-face {
+                font-family: 'Futura PT';
                 font-style: normal;
                 font-weight: 400;
                 font-display: swap;
+                src: url('https://fonts.cdnfonts.com/s/29136/FuturaPTBook.woff2') format('woff2');
               }
               @font-face {
-                font-family: 'Inter';
+                font-family: 'Futura PT';
                 font-style: normal;
                 font-weight: 500;
                 font-display: swap;
+                src: url('https://fonts.cdnfonts.com/s/29136/FuturaPTMedium.woff2') format('woff2');
               }
               @font-face {
-                font-family: 'Inter';
+                font-family: 'Futura PT';
                 font-style: normal;
                 font-weight: 600;
                 font-display: swap;
+                src: url('https://fonts.cdnfonts.com/s/29136/FuturaPTDemi.woff2') format('woff2');
               }
               @font-face {
-                font-family: 'Inter';
+                font-family: 'Futura PT';
                 font-style: normal;
                 font-weight: 700;
                 font-display: swap;
+                src: url('https://fonts.cdnfonts.com/s/29136/FuturaPTBold.woff2') format('woff2');
               }
               
               /* Add instant page transitions to avoid perceived loading time */
               body {
                 transition: opacity 0.1s ease;
+                font-family: 'Futura PT', 'Futura', sans-serif;
               }
               body.loading {
                 opacity: 0.8;
@@ -74,6 +91,7 @@ export default function Document() {
                 margin: 0;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
+                font-family: 'Futura PT', 'Futura', sans-serif;
               }
               
               /* iOS Safari fixes */
@@ -81,6 +99,7 @@ export default function Document() {
                 html, body {
                   height: -webkit-fill-available;
                   min-height: -webkit-fill-available;
+                  font-family: 'Futura PT', 'Futura', sans-serif;
                 }
                 .fixed {
                   -webkit-transform: translateZ(0);
@@ -105,6 +124,15 @@ export default function Document() {
                 position: fixed;
                 width: 100%;
                 height: 100%;
+              }
+              
+              /* Apply Futura to all elements */
+              *, *::before, *::after {
+                font-family: 'Futura PT', 'Futura', sans-serif;
+              }
+              
+              h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea {
+                font-family: 'Futura PT', 'Futura', sans-serif;
               }
             `,
           }}

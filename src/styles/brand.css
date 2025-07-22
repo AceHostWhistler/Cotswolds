@@ -7,8 +7,8 @@
   --color-black: #000000;
   
   /* Typography */
-  --font-heading: 'Acumin Pro Thin', sans-serif;
-  --font-body: 'Futura PT Light', sans-serif;
+  --font-heading: 'Futura PT', 'Futura', sans-serif;
+  --font-body: 'Futura PT', 'Futura', sans-serif;
 }
 
 /* Brand Typography Classes */
