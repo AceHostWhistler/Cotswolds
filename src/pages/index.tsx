@@ -132,13 +132,21 @@ export default function Home() {
                         playsInline
                         muted
                         loop
+                        controls={false}
                         preload="auto"
                         className="absolute inset-0 w-full h-full object-cover"
-                        style={{ objectFit: 'cover' }}
+                        style={{ 
+                          objectFit: 'cover',
+                          objectPosition: 'center center',
+                          width: '100%',
+                          height: '100%',
+                          transform: 'scale(1.2)',
+                          zIndex: 1
+                        }}
                       >
-                        <source src="https://player.vimeo.com/progressive_redirect/playback/1082926490/rendition/1080p/file.mp4?loc=external" type="video/mp4" />
+                        <source src="https://player.vimeo.com/progressive_redirect/playback/1082926490/rendition/720p/file.mp4?loc=external" type="video/mp4" />
                       </video>
-                      <div className="absolute inset-0 bg-black opacity-50"></div>
+                      <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 2 }}></div>
                     </div>
                   ) : (
                     <LazyVimeoPlayer 
