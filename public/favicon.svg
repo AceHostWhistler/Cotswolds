@@ -1,22 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-  <g transform="rotate(45, 512, 512)">
-    <!-- Outer diamond border -->
-    <rect x="108" y="108" width="808" height="808" fill="#1A1A1A" />
-    
-    <!-- Inner diamond border -->
-    <rect x="158" y="158" width="708" height="708" stroke="#E8DFCC" stroke-width="8" fill="none" />
-    
-    <!-- Inner circle -->
-    <circle cx="512" cy="512" r="325" stroke="#E8DFCC" stroke-width="8" fill="none" />
-    
-    <!-- "R" letter -->
-    <path d="M 460 350 
-             L 460 675
-             M 460 350
-             C 460 350, 650 350, 650 450
-             C 650 550, 510 550, 510 550
-             L 650 675" 
-          stroke="#E8DFCC" stroke-width="16" fill="none" />
-  </g>
+<svg width="100%" height="100%" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-0.5,-0.5)">
+        <g transform="matrix(1.95312,0,0,1.95312,0.5,0.5)">
+            <rect x="0" y="0" width="512" height="512" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="512" height="512"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1,0,0,1,0,-0.5)">
+                    <path d="M256,0L512,256L256,512L0,256L256,0Z" style="fill:rgb(33,33,33);"/>
+                </g>
+                <g transform="matrix(0.9,0,0,0.9,25.6,25.6)">
+                    <path d="M256,0L512,256L256,512L0,256L256,0Z" style="fill:none;stroke:rgb(235,225,200);stroke-width:5px;"/>
+                </g>
+                <g transform="matrix(0.7,0,0,0.7,76.8,76.8)">
+                    <circle cx="256" cy="256" r="256" style="fill:none;stroke:rgb(235,225,200);stroke-width:5px;"/>
+                </g>
+                <g transform="matrix(1,0,0,1,0,0)">
+                    <path d="M256,100L256,412" style="fill:none;stroke:rgb(235,225,200);stroke-width:10px;"/>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg> 

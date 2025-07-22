@@ -44,7 +44,7 @@ export default function Home() {
     "@type": "LocalBusiness",
     "name": "Reel Room",
     "description": "Private Theatre Event Venue in Vancouver",
-    "image": "/favicons/Logo Reel Room.png",
+    "image": "/favicon.svg",
     "url": "https://reelroom.ca",
     "priceRange": "$$$",
     "address": {
@@ -74,7 +74,7 @@ export default function Home() {
       <SEO 
         title="Private Theatre Event Venue Vancouver"
         description="Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver."
-        ogImage="/favicons/Logo Reel Room.png"
+        ogImage="/favicon.svg"
         keywords="private theatre, event venue, Vancouver, film screenings, private parties, corporate events, Mount Pleasant, luxury cinema, private events"
         structuredData={homeStructuredData}
       />
@@ -162,7 +162,7 @@ export default function Home() {
                 <div className="mb-4 sm:mb-6">
                   <div className="border border-brand-gold p-3 sm:p-6 inline-block bg-black">
                     <img 
-                      src="/favicons/Logo Reel Room.png" 
+                      src="/favicon.svg" 
                       alt="Reel Room" 
                       className="h-16 sm:h-28 w-auto object-contain"
                       loading="eager"

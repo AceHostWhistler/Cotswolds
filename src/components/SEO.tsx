@@ -16,7 +16,7 @@ const SEO: React.FC<SEOProps> = ({
   title,
   description,
   canonical,
-  ogImage = '/favicons/Logo Reel Room.png',
+  ogImage = '/favicon.svg',
   ogType = 'website',
   keywords = 'private theatre, event venue, Vancouver, film screenings, private parties, corporate events, Mount Pleasant',
   noindex = false,
