@@ -144,7 +144,7 @@ export default function Home() {
                           zIndex: 1
                         }}
                       >
-                        <source src="https://player.vimeo.com/progressive_redirect/playback/1082926490/rendition/720p/file.mp4?loc=external" type="video/mp4" />
+                        <source src="https://player.vimeo.com/progressive_redirect/playback/1082926490/rendition/540p/file.mp4?loc=external" type="video/mp4" />
                       </video>
                       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 2 }}></div>
                     </div>

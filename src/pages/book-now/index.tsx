@@ -51,62 +51,21 @@ export default function BookNow() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <style>{`
-          @supports (-webkit-touch-callout: none) {
-            /* iOS Safari specific CSS */
-            .ios-booking-button {
-              position: static !important;
-              width: 100% !important;
-              margin-bottom: 1rem !important;
-            }
-            
-            /* Fix for iOS rendering issues */
-            .min-h-screen {
-              min-height: -webkit-fill-available !important;
-            }
-            
-            /* Prevent unwanted scrolling */
-            html, body {
-              overflow-x: hidden !important;
-              position: relative !important;
-              width: 100% !important;
-            }
-            
-            /* Fix for fixed position elements */
-            .fixed {
-              position: absolute !important;
-            }
-            
-            /* Improve tap targets */
-            a, button {
-              padding: 12px !important;
-              min-height: 44px !important;
-              min-width: 44px !important;
-            }
-            
-            /* Fix for iOS borders */
-            .rounded-lg, .rounded-xl {
-              overflow: hidden !important;
-            }
-          }
-        `}</style>
       </Head>
 
-      <div className="min-h-screen bg-white">
+      <div className="bg-white">
         <ReelRoomNavigation />
 
-        {/* Booking Contact Box - Fixed Position for Desktop Only - REMOVED */}
-
-        <main className="pt-20">
+        <main>
           {/* Hero Section */}
-          <div className="relative h-[50vh]">
+          <div className="relative h-[300px] sm:h-[400px]">
             <img
               src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
               alt="Reel Room Booking"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent flex items-center justify-center">
-              <div className="text-center max-w-4xl px-4 drop-shadow-lg">
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <div className="text-center max-w-4xl px-4">
                 <h1 className="text-4xl font-bold text-white mb-4">
                   Book Now
                 </h1>
@@ -119,16 +78,16 @@ export default function BookNow() {
 
           {/* Booking Information Content */}
           <div className="max-w-5xl mx-auto px-4 py-12">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
-              <div className="p-4 sm:p-8">
+            <div className="bg-white rounded-lg shadow-md mb-12">
+              <div className="p-6">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">How to Book Reel Room</h2>
                 
                 <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mb-8">
                   <h3 className="text-xl font-bold mb-4 text-gray-800">Contact Us to Book</h3>
-                  <p className="text-gray-700 mb-6 text-lg">
-                    Email us at <a href="mailto:info@reelroom.ca" className="text-brand-gold font-semibold hover:underline">info@reelroom.ca</a> with the following information:
+                  <p className="text-gray-700 mb-6">
+                    Email us at <a href="mailto:info@reelroom.ca" className="text-amber-600 font-semibold hover:underline">info@reelroom.ca</a> with the following information:
                   </p>
-                  <ul className="list-disc list-inside text-gray-700 space-y-3 mb-6 text-lg">
+                  <ul className="list-disc pl-5 text-gray-700 space-y-2 mb-6">
                     <li>Your full name</li>
                     <li>Email address</li>
                     <li>Phone number</li>
@@ -137,7 +96,7 @@ export default function BookNow() {
                     <li>Type of event you're planning</li>
                     <li>Any special requirements or questions</li>
                   </ul>
-                  <p className="text-gray-700 text-lg font-medium">
+                  <p className="text-gray-700 font-medium">
                     We can accommodate groups as small as 5 and groups as large as 120+.
                   </p>
                   <div className="mt-6 text-center">
@@ -160,7 +119,7 @@ export default function BookNow() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h3 className="text-xl font-bold mb-4 text-gray-800">Booking Process</h3>
-                    <p className="text-gray-700 mb-4">
+                    <p className="text-gray-700">
                       1. Email us with your event details<br/>
                       2. Our team will confirm availability<br/>
                       3. We'll discuss your specific needs and requirements<br/>
@@ -172,7 +131,7 @@ export default function BookNow() {
                   
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h3 className="text-xl font-bold mb-4 text-gray-800">Venue Information</h3>
-                    <p className="text-gray-700 mb-4">
+                    <p className="text-gray-700">
                       <strong>Location:</strong> Mount Pleasant, Vancouver<br/>
                       <strong>Capacity:</strong> 5-120+ guests<br/>
                       <strong>Amenities:</strong> Premium theatre, lounge & bar area, state-of-the-art AV system<br/>
@@ -186,15 +145,15 @@ export default function BookNow() {
             <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Event Options</h2>
             
             <div className="space-y-8 mb-12">
-              <div className="flex flex-col md:flex-row gap-6 bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="md:w-1/3 relative h-64 md:h-auto">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="relative h-64">
                   <img
                     src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
                     alt="Film Screenings"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="md:w-2/3 p-6">
+                <div className="p-6">
                   <h3 className="text-2xl font-bold mb-3">Film Screenings & Premieres</h3>
                   <p className="text-gray-600 mb-6">
                     Perfect for DCP film releases, premieres, and private screenings. Showcase your work on our high-quality projection system with premium sound. Create a memorable experience for your cast, crew, and special guests in our sophisticated venue.
@@ -202,15 +161,15 @@ export default function BookNow() {
                 </div>
               </div>
               
-              <div className="flex flex-col md:flex-row gap-6 bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="md:w-1/3 relative h-64 md:h-auto">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="relative h-64">
                   <img
                     src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
                     alt="Private Parties"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="md:w-2/3 p-6">
+                <div className="p-6">
                   <h3 className="text-2xl font-bold mb-3">Private Parties & Sports Events</h3>
                   <p className="text-gray-600 mb-6">
                     Host an unforgettable party or sports viewing event with customizable food and drink options in our luxurious private theatre venue. Whether it's a birthday celebration, anniversary, or watching the big game, Reel Room provides an exclusive experience.
@@ -218,15 +177,15 @@ export default function BookNow() {
                 </div>
               </div>
               
-              <div className="flex flex-col md:flex-row gap-6 bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="md:w-1/3 relative h-64 md:h-auto">
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="relative h-64">
                   <img
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg"
                     alt="Corporate Events"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="md:w-2/3 p-6">
+                <div className="p-6">
                   <h3 className="text-2xl font-bold mb-3">Corporate Events</h3>
                   <p className="text-gray-600 mb-6">
                     Impress clients and colleagues with presentations, team building events, and product launches in our sophisticated venue with state-of-the-art AV capabilities. Our professional setting provides the perfect backdrop for your business needs.
@@ -235,8 +194,8 @@ export default function BookNow() {
               </div>
             </div>
             
-            {/* Contact Information from Reservations page */}
-            <div className="bg-gray-50 p-8 rounded-xl shadow-lg mb-12">
+            {/* Contact Information */}
+            <div className="bg-gray-50 p-6 rounded-lg shadow-md mb-12">
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -272,7 +231,7 @@ export default function BookNow() {
               </div>
             </div>
             
-            <div className="bg-black text-white rounded-xl shadow-lg overflow-hidden p-8 text-center">
+            <div className="bg-black text-white rounded-lg shadow-md p-6 text-center">
               <h3 className="text-2xl font-bold mb-4">Ready to Book Your Event?</h3>
               <p className="text-lg mb-6">
                 Contact us today to check availability and start planning your unforgettable experience at Reel Room.
@@ -280,20 +239,18 @@ export default function BookNow() {
               {!isIOS ? (
                 <CalendlyPopupLink 
                   text="Reserve Your Date" 
-                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-amber-600 hover:text-white transition-colors text-lg font-medium"
+                  className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
                 />
               ) : (
                 <a
                   href="mailto:info@reelroom.ca"
-                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-amber-600 hover:text-white transition-colors text-lg font-medium"
+                  className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
                 >
-                  Email info@reelroom.ca
+                  Email to Book
                 </a>
               )}
             </div>
           </div>
-          
-          {/* Mobile Booking Button - Removed to fix iOS issues */}
         </main>
 
         <ReelRoomFooter />
