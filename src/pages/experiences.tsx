@@ -587,6 +587,21 @@ export default function Experiences() {
                 </div>
               </div>
             </div>
+            
+            {/* Food and Drinks Collage */}
+            <div className="mt-16 mb-8">
+              <h3 className="text-2xl font-bold mb-8 text-center">Food & Drinks Options</h3>
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img 
+                  src="https://i.imgur.com/0Vv0Kxz.jpg" 
+                  alt="Food and Drinks Collage" 
+                  className="w-full h-auto"
+                />
+              </div>
+              <p className="text-center mt-6 text-gray-600 max-w-3xl mx-auto">
+                Explore our premium catering and bar services featuring gourmet appetizers, craft cocktails, and customizable food options for your event.
+              </p>
+            </div>
           </div>
         </div>
         
