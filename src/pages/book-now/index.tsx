@@ -106,12 +106,10 @@ export default function BookNow() {
                         className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
                       />
                     ) : (
-                      <a
-                        href="mailto:info@reelroom.ca" 
+                      <CalendlyPopupLink 
+                        text="Reserve Your Date" 
                         className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
-                      >
-                        Email to Book
-                      </a>
+                      />
                     )}
                   </div>
                 </div>
@@ -242,12 +240,10 @@ export default function BookNow() {
                   className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
                 />
               ) : (
-                <a
-                  href="mailto:info@reelroom.ca"
+                <CalendlyPopupLink 
+                  text="Reserve Your Date" 
                   className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
-                >
-                  Email to Book
-                </a>
+                />
               )}
             </div>
           </div>

@@ -127,13 +127,9 @@ export default function Home() {
                 <div className="absolute inset-0">
                   {isIOS ? (
                     <div className="absolute inset-0 bg-black">
-                      <video
-                        autoPlay
-                        playsInline
-                        muted
-                        loop
-                        controls={false}
-                        preload="auto"
+                      <img 
+                        src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
+                        alt="Reel Room Background" 
                         className="absolute inset-0 w-full h-full object-cover"
                         style={{ 
                           objectFit: 'cover',
@@ -143,9 +139,7 @@ export default function Home() {
                           transform: 'scale(1.2)',
                           zIndex: 1
                         }}
-                      >
-                        <source src="https://player.vimeo.com/progressive_redirect/playback/1082926490/rendition/540p/file.mp4?loc=external" type="video/mp4" />
-                      </video>
+                      />
                       <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 2 }}></div>
                     </div>
                   ) : (
