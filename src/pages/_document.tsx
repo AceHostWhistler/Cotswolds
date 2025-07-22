@@ -204,7 +204,7 @@ export default function Document() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "The Reel Room",
-              "image": "https://reelroom.ca/favicon.svg",
+              "image": "https://reelroom.ca/photos/homepage-originals/Reel Room Logo:Favicon.png",
               "url": "https://reelroom.ca",
               "telephone": "",
               "address": {
