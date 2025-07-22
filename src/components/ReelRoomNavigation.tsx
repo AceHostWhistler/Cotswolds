@@ -78,7 +78,7 @@ export default function ReelRoomNavigation() {
           <div className="flex-shrink-0">
             <Link href="/" onClick={handleNavLinkClick} className="flex items-center">
               <img 
-                src="/reel-room-logo.png" 
+                src="/reel-room-nav-logo.svg" 
                 alt="The Reel Room" 
                 className="h-10 w-auto"
               />
