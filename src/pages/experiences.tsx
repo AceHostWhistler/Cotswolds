@@ -108,12 +108,19 @@ export default function Experiences() {
               </div>
               
               <div className="text-center">
-                <Link
-                  href="/book-now"
-                  className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
-                >
-                  Reserve Your Date
-                </Link>
+                {!isIOS ? (
+                  <CalendlyPopupLink 
+                    text="Reserve Your Date"
+                    className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
+                  />
+                ) : (
+                  <Link
+                    href="/book-now"
+                    className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
+                  >
+                    Reserve Your Date
+                  </Link>
+                )}
               </div>
             </div>
           </div>
@@ -328,12 +335,19 @@ export default function Experiences() {
                     <li>High-quality projection and sound system</li>
                     <li>Lounge area for mingling before and after the screening</li>
                   </ul>
-                  <Link
-                    href="/book-now"
-                    className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
-                  >
-                    Book Your Film Event
-                  </Link>
+                  {!isIOS ? (
+                    <CalendlyPopupLink 
+                      text="Book Your Film Event"
+                      className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
+                    />
+                  ) : (
+                    <Link
+                      href="/book-now"
+                      className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
+                    >
+                      Book Your Film Event
+                    </Link>
+                  )}
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
@@ -375,12 +389,19 @@ export default function Experiences() {
                     <li>Customizable food and drink packages</li>
                     <li>Full venue rental options</li>
                   </ul>
-                  <Link
-                    href="/book-now"
-                    className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
-                  >
-                    Book Your Party
-                  </Link>
+                  {!isIOS ? (
+                    <CalendlyPopupLink 
+                      text="Book Your Party"
+                      className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
+                    />
+                  ) : (
+                    <Link
+                      href="/book-now"
+                      className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
+                    >
+                      Book Your Party
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -401,12 +422,19 @@ export default function Experiences() {
                     <li>Brand activations</li>
                     <li>Networking opportunities</li>
                   </ul>
-                  <Link
-                    href="/book-now"
-                    className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
-                  >
-                    Book Your Corporate Event
-                  </Link>
+                  {!isIOS ? (
+                    <CalendlyPopupLink 
+                      text="Book Your Corporate Event"
+                      className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
+                    />
+                  ) : (
+                    <Link
+                      href="/book-now"
+                      className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
+                    >
+                      Book Your Corporate Event
+                    </Link>
+                  )}
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
@@ -571,12 +599,19 @@ export default function Experiences() {
             </p>
             
             <div className="flex justify-center gap-4 flex-wrap">
-              <Link
-                href="/book-now"
-                className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
-              >
-                Make a Reservation
-              </Link>
+              {!isIOS ? (
+                <CalendlyPopupLink 
+                  text="Make a Reservation"
+                  className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
+                />
+              ) : (
+                <Link
+                  href="/book-now"
+                  className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
+                >
+                  Make a Reservation
+                </Link>
+              )}
               <Link
                 href="/book-now"
                 className="inline-block bg-transparent border border-white text-white px-6 py-3 rounded-md transition-colors hover:bg-white hover:text-black"
@@ -594,12 +629,19 @@ export default function Experiences() {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Contact us today to check availability and start planning your perfect event at The Reel Room.
             </p>
-            <Link 
-              href="/book-now" 
-              className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
-            >
-              Reserve Your Dates
-            </Link>
+            {!isIOS ? (
+              <CalendlyPopupLink 
+                text="Reserve Your Dates"
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+              />
+            ) : (
+              <Link 
+                href="/book-now" 
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+              >
+                Reserve Your Dates
+              </Link>
+            )}
           </div>
         </div>
         

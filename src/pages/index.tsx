@@ -8,6 +8,7 @@ import SEO from '@/components/SEO';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 import SimpleImage from '@/components/SimpleImage';
 import { scrollToTop } from '@/utils/scrollUtils';
+import CalendlyPopupLink from '@/components/CalendlyPopupLink';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -557,12 +558,19 @@ export default function Home() {
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Contact us today to check availability and start planning your perfect event at The Reel Room.
             </p>
-            <Link 
-              href="/book-now" 
-              className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
-            >
-              Reserve Your Dates
-            </Link>
+            {!isIOS ? (
+              <CalendlyPopupLink 
+                text="Reserve Your Dates"
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+              />
+            ) : (
+              <Link 
+                href="/book-now" 
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+              >
+                Reserve Your Dates
+              </Link>
+            )}
           </div>
         </div>
       </main>
