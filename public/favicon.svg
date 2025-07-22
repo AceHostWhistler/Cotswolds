@@ -6,12 +6,6 @@
   </defs>
   <g clip-path="url(#diamond-clip)">
     <rect x="0" y="0" width="512" height="512" fill="#1A1A1A" />
-    <g transform="translate(25, 25) scale(0.9)">
-      <path d="M256,0L512,256L256,512L0,256L256,0Z" fill="none" stroke="#BA9765" stroke-width="8" />
-    </g>
-    <g transform="translate(76, 76) scale(0.7)">
-      <circle cx="256" cy="256" r="256" fill="none" stroke="#BA9765" stroke-width="8" />
-    </g>
-    <path d="M256,100L256,412" fill="none" stroke="#BA9765" stroke-width="10" />
+    <image href="/favicons/reel-room-diamond-logo.png" width="512" height="512" preserveAspectRatio="xMidYMid meet" />
   </g>
 </svg> 
