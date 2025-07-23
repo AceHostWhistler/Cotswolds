@@ -77,17 +77,13 @@ export default function ReelRoomNavigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" onClick={handleNavLinkClick} className="flex items-center">
-              <img 
-                src="/favicons/reel-room-diamond-logo.png" 
-                alt="The Reel Room" 
-                className="h-10 w-10"
-                style={{ 
-                  minWidth: '40px', 
-                  minHeight: '40px',
-                  background: 'black',
-                  display: 'block'
-                }}
-              />
+              <div className="h-10 w-10 relative">
+                <img 
+                  src="/diamond-logo.svg" 
+                  alt="The Reel Room" 
+                  className="absolute inset-0 w-full h-full"
+                />
+              </div>
               <span className="ml-3 text-white text-xl font-light tracking-wider heading-font">REEL ROOM</span>
             </Link>
           </div>
