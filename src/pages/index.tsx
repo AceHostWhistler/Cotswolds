@@ -229,10 +229,58 @@ export default function Home() {
                           className="absolute inset-0 w-full h-full object-cover opacity-60"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <a 
-                            href="https://player.vimeo.com/video/1027464900"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <button 
+                            onClick={() => {
+                              const iframe = document.createElement('iframe');
+                              iframe.src = "https://player.vimeo.com/video/1027464900?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1";
+                              iframe.allow = "autoplay; fullscreen; picture-in-picture";
+                              iframe.style.position = "absolute";
+                              iframe.style.top = "0";
+                              iframe.style.left = "0";
+                              iframe.style.width = "100%";
+                              iframe.style.height = "100%";
+                              iframe.style.border = "none";
+                              
+                              const modal = document.createElement('div');
+                              modal.style.position = "fixed";
+                              modal.style.top = "0";
+                              modal.style.left = "0";
+                              modal.style.width = "100%";
+                              modal.style.height = "100%";
+                              modal.style.backgroundColor = "rgba(0,0,0,0.9)";
+                              modal.style.zIndex = "9999";
+                              modal.style.display = "flex";
+                              modal.style.alignItems = "center";
+                              modal.style.justifyContent = "center";
+                              
+                              const container = document.createElement('div');
+                              container.style.width = "90%";
+                              container.style.maxWidth = "800px";
+                              container.style.aspectRatio = "16/9";
+                              container.style.position = "relative";
+                              
+                              const closeBtn = document.createElement('button');
+                              closeBtn.innerHTML = "×";
+                              closeBtn.style.position = "absolute";
+                              closeBtn.style.top = "-40px";
+                              closeBtn.style.right = "0";
+                              closeBtn.style.fontSize = "30px";
+                              closeBtn.style.color = "white";
+                              closeBtn.style.background = "none";
+                              closeBtn.style.border = "none";
+                              closeBtn.style.cursor = "pointer";
+                              closeBtn.onclick = () => {
+                                document.body.removeChild(modal);
+                                document.body.style.overflow = "auto";
+                              };
+                              
+                              container.appendChild(iframe);
+                              container.appendChild(closeBtn);
+                              modal.appendChild(container);
+                              
+                              document.body.appendChild(modal);
+                              document.body.style.overflow = "hidden";
+                            }}
                             className="flex flex-col items-center justify-center z-10"
                           >
                             <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
@@ -242,7 +290,7 @@ export default function Home() {
                               </svg>
                             </div>
                             <span className="text-white font-medium text-lg shadow-md">Play Film Release Video</span>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -264,10 +312,58 @@ export default function Home() {
                           className="absolute inset-0 w-full h-full object-cover opacity-60"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <a 
-                            href="https://player.vimeo.com/video/1082926490"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                          <button 
+                            onClick={() => {
+                              const iframe = document.createElement('iframe');
+                              iframe.src = "https://player.vimeo.com/video/1082926490?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1";
+                              iframe.allow = "autoplay; fullscreen; picture-in-picture";
+                              iframe.style.position = "absolute";
+                              iframe.style.top = "0";
+                              iframe.style.left = "0";
+                              iframe.style.width = "100%";
+                              iframe.style.height = "100%";
+                              iframe.style.border = "none";
+                              
+                              const modal = document.createElement('div');
+                              modal.style.position = "fixed";
+                              modal.style.top = "0";
+                              modal.style.left = "0";
+                              modal.style.width = "100%";
+                              modal.style.height = "100%";
+                              modal.style.backgroundColor = "rgba(0,0,0,0.9)";
+                              modal.style.zIndex = "9999";
+                              modal.style.display = "flex";
+                              modal.style.alignItems = "center";
+                              modal.style.justifyContent = "center";
+                              
+                              const container = document.createElement('div');
+                              container.style.width = "90%";
+                              container.style.maxWidth = "800px";
+                              container.style.aspectRatio = "16/9";
+                              container.style.position = "relative";
+                              
+                              const closeBtn = document.createElement('button');
+                              closeBtn.innerHTML = "×";
+                              closeBtn.style.position = "absolute";
+                              closeBtn.style.top = "-40px";
+                              closeBtn.style.right = "0";
+                              closeBtn.style.fontSize = "30px";
+                              closeBtn.style.color = "white";
+                              closeBtn.style.background = "none";
+                              closeBtn.style.border = "none";
+                              closeBtn.style.cursor = "pointer";
+                              closeBtn.onclick = () => {
+                                document.body.removeChild(modal);
+                                document.body.style.overflow = "auto";
+                              };
+                              
+                              container.appendChild(iframe);
+                              container.appendChild(closeBtn);
+                              modal.appendChild(container);
+                              
+                              document.body.appendChild(modal);
+                              document.body.style.overflow = "hidden";
+                            }}
                             className="flex flex-col items-center justify-center z-10"
                           >
                             <div className="w-20 h-20 rounded-full bg-brand-gold flex items-center justify-center mb-2">
@@ -277,7 +373,7 @@ export default function Home() {
                               </svg>
                             </div>
                             <span className="text-white font-medium text-lg shadow-md">Play Sports Events Video</span>
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
