@@ -139,12 +139,10 @@ export default function Document() {
         />
 
         {/* Add favicon */}
-        <link rel="icon" href="/new-assets/reel-room-logo.svg" />
-        <link rel="icon" href="/new-assets/reel-room-logo.svg" sizes="any" type="image/svg+xml" />
-        <link rel="icon" href="/new-assets/favicon-32x32.svg" sizes="32x32" type="image/svg+xml" />
-        <link rel="icon" href="/new-assets/favicon-16x16.svg" sizes="16x16" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/new-assets/reel-room-logo.svg" />
-        <link rel="mask-icon" href="/new-assets/reel-room-logo.svg" color="#1A1A1A" />
+        <link rel="icon" href="/favicons/favicon.ico" />
+        <link rel="icon" href="/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
+        <link rel="icon" href="/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#1a1a1a" />
         <meta
