@@ -139,10 +139,9 @@ export default function Document() {
         />
 
         {/* Add favicon */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
-        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/new-favicon.png" />
+        <link rel="icon" href="/new-favicon.png" sizes="any" type="image/png" />
+        <link rel="apple-touch-icon" href="/new-favicon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#1a1a1a" />
         <meta
