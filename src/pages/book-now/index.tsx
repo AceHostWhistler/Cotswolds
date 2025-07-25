@@ -59,11 +59,28 @@ export default function BookNow() {
         <main>
           {/* Hero Section */}
           <div className="relative h-[300px] sm:h-[400px]">
-            <img
-              src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg"
-              alt="Reel Room Booking"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+            <picture>
+              <source
+                media="(max-width: 799px)"
+                srcSet="/photos/optimized/DSC03264-Enhanced-NR-800.jpg"
+              />
+              <source
+                media="(min-width: 800px) and (max-width: 1279px)"
+                srcSet="/photos/optimized/DSC03264-Enhanced-NR-1280.jpg"
+              />
+              <source
+                media="(min-width: 1280px)"
+                srcSet="/photos/optimized/DSC03264-Enhanced-NR-1920.jpg"
+              />
+              <img
+                src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg"
+                alt="Reel Room Booking"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="eager"
+                fetchPriority="high"
+                sizes="100vw"
+              />
+            </picture>
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center max-w-4xl px-4">
                 <h1 className="text-4xl font-bold text-white mb-4">

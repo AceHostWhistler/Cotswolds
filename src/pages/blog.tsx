@@ -115,13 +115,29 @@ export default function Blog() {
       <main className="pt-20">
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
-          <img
-            src="/photos/originals/homepage/DSC03070-Enhanced-NR.jpg"
-            alt="The Reel Room Blog"
-            className="absolute inset-0 w-full h-full object-cover brightness-75"
-            loading="eager"
-            fetchPriority="high"
-          />
+          <picture>
+            <source
+              media="(max-width: 799px)"
+              srcSet="/photos/optimized/DSC03070-Enhanced-NR-800.jpg"
+            />
+            <source
+              media="(min-width: 800px) and (max-width: 1279px)"
+              srcSet="/photos/optimized/DSC03070-Enhanced-NR-1280.jpg"
+            />
+            <source
+              media="(min-width: 1280px)"
+              srcSet="/photos/optimized/DSC03070-Enhanced-NR-1920.jpg"
+            />
+            <img
+              src="/photos/originals/homepage/DSC03070-Enhanced-NR.jpg"
+              alt="The Reel Room Blog"
+              className="absolute inset-0 w-full h-full object-cover brightness-75"
+              loading="eager"
+              fetchPriority="high"
+              sizes="100vw"
+              decoding="async"
+            />
+          </picture>
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
