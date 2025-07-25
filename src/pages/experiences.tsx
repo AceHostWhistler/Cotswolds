@@ -50,7 +50,7 @@ export default function Experiences() {
         {/* Hero Section */}
         <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
           <img
-            src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+            src="/photos/homepage-originals/DSC03081-Enhanced-NR.jpg"
             alt="The Reel Room Experiences"
             className="absolute inset-0 w-full h-full object-cover"
           />

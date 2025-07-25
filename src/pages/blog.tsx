@@ -116,7 +116,7 @@ export default function Blog() {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <img
-            src="/photos/homepage-originals/DSC03097-Enhanced-NR.jpg"
+            src="/photos/homepage-originals/DSC03070-Enhanced-NR.jpg"
             alt="The Reel Room Blog"
             className="absolute inset-0 w-full h-full object-cover brightness-75"
           />
