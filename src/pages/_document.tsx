@@ -138,12 +138,30 @@ export default function Document() {
           }}
         />
 
-        {/* Add favicon */}
-        <link rel="icon" href="/favicons/favicon.ico" />
-        <link rel="icon" href="/favicons/favicon-32x32.png" sizes="32x32" type="image/png" />
-        <link rel="icon" href="/favicons/favicon-16x16.png" sizes="16x16" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+        {/* Add favicon with cache busting */}
+        <link rel="icon" href={`/favicons/favicon.ico?v=2`} />
+        <link rel="icon" href={`/favicons/favicon-32x32.png?v=2`} sizes="32x32" type="image/png" />
+        <link rel="icon" href={`/favicons/favicon-16x16.png?v=2`} sizes="16x16" type="image/png" />
+        <link rel="apple-touch-icon" href={`/favicons/apple-touch-icon.png?v=2`} />
         <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Script to force favicon refresh */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Force favicon refresh
+            function refreshFavicon() {
+              const links = document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]');
+              links.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href) {
+                  link.setAttribute('href', href + '?' + new Date().getTime());
+                }
+              });
+            }
+            // Run on page load
+            window.addEventListener('load', refreshFavicon);
+          `
+        }} />
         <meta name="theme-color" content="#1a1a1a" />
         <meta
           name="google-site-verification"
