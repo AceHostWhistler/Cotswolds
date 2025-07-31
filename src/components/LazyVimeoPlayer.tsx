@@ -158,7 +158,7 @@ const LazyVimeoPlayer: React.FC<LazyVimeoPlayerProps> = ({
   const iframeClass = `vimeo-player ${coverMode ? 'vimeo-cover' : ''} ${isLoaded ? 'loaded' : ''}`;
   
   // Use a larger scale factor to ensure the video fills the entire container
-  const scaleFactor = coverMode ? (isIOS ? 1.5 : 1.8) : 1;
+  const scaleFactor = coverMode ? (isIOS ? 2.0 : 2.5) : 1;
   
   // iOS specific styles for better performance with increased scale
   const iOSStyles: Partial<CSSProperties> = isIOS ? {

@@ -124,7 +124,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black">
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 bg-black opacity-30"></div>
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 flex items-center justify-center">
                   {isIOS ? (
                     <div className="absolute inset-0 bg-black">
                       <img 
