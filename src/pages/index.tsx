@@ -94,9 +94,16 @@ export default function Home() {
       <ReelRoomNavigation />
       
       <div className="relative min-h-screen bg-black pt-16">
-        {/* Top Navigation Links - Adjusted positioning and spacing */}
-        <div className="absolute top-24 xs:top-24 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
-          <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-8 sm:space-x-24 md:space-x-32">
+        {/* Gold Diamond Pattern Background */}
+        <div className="absolute inset-0 z-0 opacity-30" style={{ 
+          backgroundImage: "linear-gradient(45deg, #ba9765 25%, transparent 25%), linear-gradient(-45deg, #ba9765 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ba9765 75%), linear-gradient(-45deg, transparent 75%, #ba9765 75%)",
+          backgroundSize: "20px 20px",
+          backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px"
+        }}></div>
+        
+        {/* Top Navigation Links - Moved higher to avoid being covered by the navigation bar */}
+        <div className="absolute top-24 xs:top-32 sm:top-36 md:top-40 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
+          <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-8 sm:space-x-16 md:space-x-32 lg:space-x-40">
             <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
               <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
@@ -109,9 +116,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        
-        {/* Gold Diamond Pattern Background - Changed to solid black */}
-        <div className="absolute inset-0 z-0 bg-black"></div>
         
         {/* Circular Content Area - Improved spacing and positioning */}
         <div className="absolute inset-0 flex items-center justify-center p-4 mt-16 mb-16">
