@@ -102,8 +102,8 @@ export default function Home() {
         }}></div>
         
         {/* Top Navigation Links - Moved higher to avoid being covered by the navigation bar */}
-        <div className="absolute top-24 xs:top-32 sm:top-36 md:top-40 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
-          <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-8 sm:space-x-16 md:space-x-32 lg:space-x-40">
+        <div className="absolute top-12 xs:top-16 sm:top-20 md:top-24 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
+          <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-12 sm:space-x-24 md:space-x-48 lg:space-x-64">
             <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
               <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
@@ -118,7 +118,7 @@ export default function Home() {
         </div>
         
         {/* Circular Content Area - Improved spacing and positioning */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 mt-16 mb-16">
+        <div className="absolute inset-0 flex items-center justify-center p-4 mt-24 md:mt-32 mb-16">
           <div className="relative w-full max-w-[85vw] sm:max-w-[75vw] md:max-w-[80vw] lg:max-w-[850px] xl:max-w-[900px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video */}
             <div className="absolute inset-0 bg-black">
