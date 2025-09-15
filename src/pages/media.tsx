@@ -328,11 +328,15 @@ export default function Media() {
       },
       {
         question: "What is the capacity of The Reel Room?",
-        answer: "Our venue comfortably accommodates up to 85-95+ guests, with a theatre area and a lounge & bar area with a mounted 70\" TV."
+        answer: "Our venue comfortably accommodates anywhere between 5 and 150+ guests. The theatre comfortably sits between 40 and 44 guests, while the lounge which offers the bar area offers a mounted 70\" TV and speakers, which can hold about 60+ people confortably. There is an additional floor with elevator or stair access, that can hold 40+ people, where past groups often set up a bartender here for larger bookings."
       },
       {
         question: "Do you provide parking?",
         answer: "While we don't have our own parking lot, there is ample street parking and several paid parking lots within a short walking distance."
+      },
+      {
+        question: "Is the venue wheelchair accessible?",
+        answer: "Yes you can enter through the main door which offers access via stair case or via elevator!"
       },
       {
         question: "What are your operating hours?",

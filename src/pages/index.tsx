@@ -102,8 +102,8 @@ export default function Home() {
         }}></div>
         
         {/* Top Navigation Links - Moved higher to avoid being covered by the navigation bar */}
-        <div className="absolute top-12 xs:top-16 sm:top-20 md:top-24 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
-          <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-12 sm:space-x-24 md:space-x-48 lg:space-x-64">
+        <div className="absolute top-24 xs:top-24 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
+          <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-4 sm:space-x-8 md:space-x-16">
             <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
               <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
@@ -118,19 +118,19 @@ export default function Home() {
         </div>
         
         {/* Circular Content Area - Improved spacing and positioning */}
-        <div className="absolute inset-0 flex items-center justify-center p-4 mt-24 md:mt-32 mb-16">
+        <div className="absolute inset-0 flex items-center justify-center p-4 mt-16 mb-16">
           <div className="relative w-full max-w-[85vw] sm:max-w-[75vw] md:max-w-[80vw] lg:max-w-[850px] xl:max-w-[900px] aspect-square rounded-full overflow-hidden border-4 border-brand-gold/20">
             {/* Background Video */}
-            <div className="absolute inset-0 bg-black rounded-full overflow-hidden">
-              <div className="relative w-full h-full overflow-hidden rounded-full">
-                <div className="absolute inset-0 bg-black opacity-30 rounded-full"></div>
-                <div className="absolute inset-0 flex items-center justify-center rounded-full overflow-hidden">
+            <div className="absolute inset-0 bg-black">
+              <div className="relative w-full h-full overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-30"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
                   {isIOS ? (
-                    <div className="absolute inset-0 bg-black rounded-full overflow-hidden">
+                    <div className="absolute inset-0 bg-black">
                       <img 
                         src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
                         alt="Reel Room Background" 
-                        className="absolute inset-0 w-full h-full object-cover rounded-full"
+                        className="absolute inset-0 w-full h-full object-cover"
                         style={{ 
                           objectFit: 'cover',
                           objectPosition: 'center center',
@@ -140,22 +140,20 @@ export default function Home() {
                           zIndex: 1
                         }}
                       />
-                      <div className="absolute inset-0 bg-black opacity-30 rounded-full" style={{ zIndex: 2 }}></div>
+                      <div className="absolute inset-0 bg-black opacity-30" style={{ zIndex: 2 }}></div>
                     </div>
                   ) : (
-                    <div className="rounded-full overflow-hidden w-full h-full">
-                      <LazyVimeoPlayer 
-                        videoId="1082926490" 
-                        autoplay={true}
-                        loop={true}
-                        muted={true}
-                        background={true}
-                        coverMode={true}
-                        priority={true}
-                        width="100%"
-                        height="100%"
-                      />
-                    </div>
+                    <LazyVimeoPlayer 
+                      videoId="1082926490" 
+                      autoplay={true}
+                      loop={true}
+                      muted={true}
+                      background={true}
+                      coverMode={true}
+                      priority={true}
+                      width="100%"
+                      height="100%"
+                    />
                   )}
                 </div>
               </div>

@@ -148,28 +148,6 @@ export default function Experiences() {
         <div className="py-8 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Summer Promotion */}
-              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-amber-200 transform scale-90 mx-auto">
-                <div className="text-center mb-4">
-                  <h2 className="text-2xl font-bold text-amber-600">Summer Special!</h2>
-                  <div className="flex justify-center my-3">
-                    <div className="h-1 w-12 bg-amber-400 rounded"></div>
-                  </div>
-                  <p className="text-lg text-gray-700 mb-6">
-                    Enjoy <span className="text-xl font-bold text-amber-600">35% OFF</span> our venue fee all summer long!
-                  </p>
-                  <div className="bg-amber-50 p-4 rounded-lg mb-4 border border-amber-200">
-                    <p className="text-gray-700">
-                      Take advantage of our special summer pricing for all events booked during the summer season.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="text-center">
-                  <p className="text-xs text-gray-500">Offer valid May 1 - October 15, 2025. Cannot be combined with other promotions.</p>
-                  <p className="text-xs text-gray-500 mt-1">Message us at info@reelroom.ca for summer rate quotes.</p>
-                </div>
-              </div>
               
               {/* Weekday Evening Rates Promotion */}
               <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-200 transform scale-90 mx-auto">
