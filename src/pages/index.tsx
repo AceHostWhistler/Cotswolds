@@ -32,6 +32,30 @@ export default function Home() {
     
     // Ensure page starts from the top
     scrollToTop();
+    
+    // Aggressive video loading after page loads
+    const timer = setTimeout(() => {
+      const videos = document.querySelectorAll('video');
+      videos.forEach(video => {
+        if (video) {
+          video.load();
+          video.play().catch(err => {
+            console.log('Video autoplay failed, setting up user interaction:', err);
+            const playOnInteraction = () => {
+              video.play();
+              document.removeEventListener('click', playOnInteraction);
+              document.removeEventListener('touchstart', playOnInteraction);
+              document.removeEventListener('scroll', playOnInteraction);
+            };
+            document.addEventListener('click', playOnInteraction);
+            document.addEventListener('touchstart', playOnInteraction);
+            document.addEventListener('scroll', playOnInteraction);
+          });
+        }
+      });
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, []);
   
   const toggleMenu = () => {
@@ -128,46 +152,53 @@ export default function Home() {
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Fallback image - shown by default */}
-                  <img 
-                    src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
-                    alt="Reel Room Background" 
-                    className="absolute inset-0 w-full h-full object-cover"
-                    style={{ 
-                      objectFit: 'cover',
-                      objectPosition: 'center center',
-                      width: '100%',
-                      height: '100%',
-                      transform: 'scale(1.2)',
-                      zIndex: 1
-                    }}
-                  />
-                  
-                  {/* Video overlay - will hide image when loaded */}
+                  {/* Video with aggressive loading and fallback */}
                   <video 
+                    ref={(video) => {
+                      if (video) {
+                        // Force video to load and play aggressively
+                        video.load();
+                        const playVideo = () => {
+                          video.play().catch(err => {
+                            console.log('Autoplay failed, will try on user interaction:', err);
+                            // Add click handler to start video on user interaction
+                            const clickHandler = () => {
+                              video.play();
+                              document.removeEventListener('click', clickHandler);
+                              document.removeEventListener('touchstart', clickHandler);
+                            };
+                            document.addEventListener('click', clickHandler);
+                            document.addEventListener('touchstart', clickHandler);
+                          });
+                        };
+                        
+                        if (video.readyState >= 3) {
+                          playVideo();
+                        } else {
+                          video.addEventListener('canplay', playVideo);
+                        }
+                      }
+                    }}
                     className="absolute inset-0 w-full h-full object-cover"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     poster="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
                     onLoadedData={(e) => {
-                      // Hide fallback image when video loads
+                      console.log('Video loaded successfully');
                       const target = e.target as HTMLVideoElement;
-                      const img = target.parentElement?.querySelector('img');
-                      if (img) img.style.display = 'none';
+                      target.play().catch(err => console.log('Play failed:', err));
                     }}
                     onError={(e) => {
-                      // Show fallback image if video fails
-                      console.log('Video failed to load, showing fallback image');
-                      const target = e.target as HTMLVideoElement;
-                      target.style.display = 'none';
+                      console.error('Video failed to load');
                     }}
-                    onCanPlay={(e) => {
-                      // Ensure video starts playing
-                      const target = e.target as HTMLVideoElement;
-                      target.play().catch(err => console.log('Autoplay prevented:', err));
+                    onLoadStart={() => {
+                      console.log('Video loading started');
+                    }}
+                    onCanPlayThrough={() => {
+                      console.log('Video can play through');
                     }}
                     style={{ 
                       objectFit: 'cover',
@@ -178,11 +209,36 @@ export default function Home() {
                       zIndex: 2
                     }}
                   >
-                    {/* Try multiple sources for better compatibility */}
+                    <source src="/videos/hero-video.mov" type="video/quicktime" />
                     <source src="/videos/hero-video.mp4" type="video/mp4" />
                     <source src="/photos/Video%20Home%20Page/Reel%20Room%20Website.mp4" type="video/mp4" />
+                    <source src="/photos/Video%20Home%20Page/Reel%20Room%20Website.mov" type="video/quicktime" />
                     Your browser does not support the video tag.
                   </video>
+                  
+                  {/* Fallback image - only shows if video completely fails */}
+                  <img 
+                    src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
+                    alt="Reel Room Background" 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    style={{ 
+                      objectFit: 'cover',
+                      objectPosition: 'center center',
+                      width: '100%',
+                      height: '100%',
+                      transform: 'scale(1.2)',
+                      zIndex: 1,
+                      display: 'none'
+                    }}
+                    onLoad={() => {
+                      // Show image only if video fails
+                      const video = document.querySelector('video');
+                      if (video && (video.error || video.networkState === 3)) {
+                        const img = document.querySelector('img') as HTMLImageElement;
+                        if (img) img.style.display = 'block';
+                      }
+                    }}
+                  />
                 </div>
               </div>
               
