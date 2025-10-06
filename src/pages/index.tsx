@@ -33,6 +33,49 @@ export default function Home() {
     // Ensure page starts from the top
     scrollToTop();
     
+    // Debug video loading after page loads
+    const videoDebugTimer = setTimeout(() => {
+      const video = document.getElementById('hero-video') as HTMLVideoElement;
+      if (video) {
+        console.log('🔍 Video debug check after 3 seconds:');
+        console.log('Video element exists:', !!video);
+        console.log('Video src:', video.src);
+        console.log('Video currentSrc:', video.currentSrc);
+        console.log('Video readyState:', video.readyState);
+        console.log('Video networkState:', video.networkState);
+        console.log('Video error:', video.error);
+        console.log('Video paused:', video.paused);
+        console.log('Video ended:', video.ended);
+        console.log('Video duration:', video.duration);
+        console.log('Video current time:', video.currentTime);
+        
+        // Check if video file is accessible
+        fetch('/videos/hero-video-compressed.mp4', { method: 'HEAD' })
+          .then(response => {
+            console.log('📁 Video file check:');
+            console.log('Status:', response.status);
+            console.log('Content-Type:', response.headers.get('content-type'));
+            console.log('Content-Length:', response.headers.get('content-length'));
+            console.log('Accept-Ranges:', response.headers.get('accept-ranges'));
+          })
+          .catch(err => {
+            console.error('❌ Video file not accessible:', err);
+          });
+          
+        // Try to force load and play
+        if (video.readyState < 2) {
+          console.log('🔄 Attempting to reload video...');
+          video.load();
+          setTimeout(() => {
+            video.play().catch(err => console.error('❌ Forced play failed:', err));
+          }, 1000);
+        }
+      } else {
+        console.error('❌ Video element not found!');
+      }
+    }, 3000);
+    
+    return () => clearTimeout(videoDebugTimer);
   }, []);
   
   const toggleMenu = () => {
@@ -129,8 +172,9 @@ export default function Home() {
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Your Reel Room Video */}
+                  {/* Your Reel Room Video with comprehensive debugging */}
                   <video 
+                    id="hero-video"
                     className="absolute inset-0 w-full h-full object-cover"
                     autoPlay
                     muted
@@ -138,21 +182,82 @@ export default function Home() {
                     playsInline
                     preload="auto"
                     poster="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
-                    onError={(e) => {
-                      console.error('Video failed to load:', e);
-                      // Hide video and show fallback image
+                    onLoadStart={(e) => {
+                      console.log('🎬 Video load started');
                       const video = e.target as HTMLVideoElement;
-                      const img = video.nextElementSibling as HTMLImageElement;
-                      video.style.display = 'none';
-                      if (img) img.style.display = 'block';
+                      console.log('Video src:', video.currentSrc || video.src);
+                      console.log('Video readyState:', video.readyState);
+                      console.log('Video networkState:', video.networkState);
+                    }}
+                    onLoadedMetadata={(e) => {
+                      const video = e.target as HTMLVideoElement;
+                      console.log('📊 Video metadata loaded');
+                      console.log('Duration:', video.duration);
+                      console.log('Video dimensions:', video.videoWidth, 'x', video.videoHeight);
+                      console.log('Ready state:', video.readyState);
                     }}
                     onLoadedData={(e) => {
-                      console.log('Video loaded successfully');
-                      // Hide fallback image when video loads
+                      console.log('✅ Video data loaded successfully');
                       const video = e.target as HTMLVideoElement;
                       const img = video.nextElementSibling as HTMLImageElement;
                       if (img) img.style.display = 'none';
-                      video.play().catch(err => console.log('Autoplay failed:', err));
+                      
+                      // Force play
+                      video.play().then(() => {
+                        console.log('🎵 Video playing successfully');
+                      }).catch(err => {
+                        console.error('❌ Autoplay failed:', err);
+                        // Try to play on user interaction
+                        const playOnClick = () => {
+                          video.play().then(() => {
+                            console.log('🎵 Video playing after user interaction');
+                          }).catch(e => console.error('❌ Manual play failed:', e));
+                          document.removeEventListener('click', playOnClick);
+                        };
+                        document.addEventListener('click', playOnClick, { once: true });
+                      });
+                    }}
+                    onCanPlay={(e) => {
+                      const video = e.target as HTMLVideoElement;
+                      console.log('🎬 Video can play');
+                      console.log('Ready state:', video.readyState);
+                      console.log('Buffered ranges:', video.buffered.length);
+                      if (video.buffered.length > 0) {
+                        console.log('Buffered:', video.buffered.start(0), 'to', video.buffered.end(0));
+                      }
+                    }}
+                    onCanPlayThrough={() => {
+                      console.log('🎬 Video can play through');
+                    }}
+                    onError={(e) => {
+                      const video = e.target as HTMLVideoElement;
+                      console.error('❌ Video error occurred');
+                      console.error('Error code:', video.error?.code);
+                      console.error('Error message:', video.error?.message);
+                      console.error('Network state:', video.networkState);
+                      console.error('Ready state:', video.readyState);
+                      console.error('Current src:', video.currentSrc);
+                      
+                      // Hide video and show fallback image
+                      const img = video.nextElementSibling as HTMLImageElement;
+                      video.style.display = 'none';
+                      if (img) {
+                        img.style.display = 'block';
+                        console.log('🖼️ Showing fallback image');
+                      }
+                    }}
+                    onStalled={() => {
+                      console.warn('⚠️ Video stalled');
+                    }}
+                    onWaiting={() => {
+                      console.warn('⏳ Video waiting for data');
+                    }}
+                    onProgress={(e) => {
+                      const video = e.target as HTMLVideoElement;
+                      if (video.buffered.length > 0) {
+                        const buffered = (video.buffered.end(0) / video.duration) * 100;
+                        console.log('📊 Video buffered:', Math.round(buffered) + '%');
+                      }
                     }}
                     style={{ 
                       objectFit: 'cover',
