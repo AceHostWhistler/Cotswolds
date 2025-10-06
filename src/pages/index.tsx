@@ -129,20 +129,45 @@ export default function Home() {
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Temporary: Using existing working video until your video is uploaded to Vimeo */}
-                  <LazyVimeoPlayer 
-                    videoId="1082926490" 
-                    autoplay={true}
-                    loop={true}
-                    muted={true}
-                    background={true}
-                    coverMode={true}
-                    priority={true}
-                    width="100%"
-                    height="100%"
-                  />
+                  {/* Your Reel Room Video */}
+                  <video 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="auto"
+                    poster="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+                    onError={(e) => {
+                      console.error('Video failed to load:', e);
+                      // Hide video and show fallback image
+                      const video = e.target as HTMLVideoElement;
+                      const img = video.nextElementSibling as HTMLImageElement;
+                      video.style.display = 'none';
+                      if (img) img.style.display = 'block';
+                    }}
+                    onLoadedData={(e) => {
+                      console.log('Video loaded successfully');
+                      // Hide fallback image when video loads
+                      const video = e.target as HTMLVideoElement;
+                      const img = video.nextElementSibling as HTMLImageElement;
+                      if (img) img.style.display = 'none';
+                      video.play().catch(err => console.log('Autoplay failed:', err));
+                    }}
+                    style={{ 
+                      objectFit: 'cover',
+                      objectPosition: 'center center',
+                      width: '100%',
+                      height: '100%',
+                      transform: 'scale(1.2)',
+                      zIndex: 2
+                    }}
+                  >
+                    <source src="/photos/Video%20Home%20Page/Reel%20Room%20Website.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                   
-                  {/* Fallback image */}
+                  {/* Fallback image - shows if video fails */}
                   <img 
                     src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
                     alt="Reel Room Background" 
@@ -153,7 +178,8 @@ export default function Home() {
                       width: '100%',
                       height: '100%',
                       transform: 'scale(1.2)',
-                      zIndex: 1
+                      zIndex: 1,
+                      display: 'none'
                     }}
                   />
                 </div>
