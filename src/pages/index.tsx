@@ -163,7 +163,7 @@ export default function Home() {
                       zIndex: 2
                     }}
                   >
-                    <source src="/photos/Video%20Home%20Page/Reel%20Room%20Website.mp4" type="video/mp4" />
+                    <source src="/videos/hero-video-compressed.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                   
