@@ -128,13 +128,11 @@ export default function Home() {
               <div className="relative w-full h-full overflow-hidden">
                 <div className="absolute inset-0 bg-black opacity-30"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <video 
+                  {/* Fallback image - shown by default */}
+                  <img 
+                    src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
+                    alt="Reel Room Background" 
                     className="absolute inset-0 w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="auto"
                     style={{ 
                       objectFit: 'cover',
                       objectPosition: 'center center',
@@ -143,22 +141,47 @@ export default function Home() {
                       transform: 'scale(1.2)',
                       zIndex: 1
                     }}
+                  />
+                  
+                  {/* Video overlay - will hide image when loaded */}
+                  <video 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    poster="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+                    onLoadedData={(e) => {
+                      // Hide fallback image when video loads
+                      const target = e.target as HTMLVideoElement;
+                      const img = target.parentElement?.querySelector('img');
+                      if (img) img.style.display = 'none';
+                    }}
+                    onError={(e) => {
+                      // Show fallback image if video fails
+                      console.log('Video failed to load, showing fallback image');
+                      const target = e.target as HTMLVideoElement;
+                      target.style.display = 'none';
+                    }}
+                    onCanPlay={(e) => {
+                      // Ensure video starts playing
+                      const target = e.target as HTMLVideoElement;
+                      target.play().catch(err => console.log('Autoplay prevented:', err));
+                    }}
+                    style={{ 
+                      objectFit: 'cover',
+                      objectPosition: 'center center',
+                      width: '100%',
+                      height: '100%',
+                      transform: 'scale(1.2)',
+                      zIndex: 2
+                    }}
                   >
-                    <source src="/photos/Video Home Page/Reel Room Website.mp4" type="video/mp4" />
-                    {/* Fallback image for browsers that don't support video */}
-                    <img 
-                      src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
-                      alt="Reel Room Background" 
-                      className="absolute inset-0 w-full h-full object-cover"
-                      style={{ 
-                        objectFit: 'cover',
-                        objectPosition: 'center center',
-                        width: '100%',
-                        height: '100%',
-                        transform: 'scale(1.2)',
-                        zIndex: 1
-                      }}
-                    />
+                    {/* Try multiple sources for better compatibility */}
+                    <source src="/videos/hero-video.mp4" type="video/mp4" />
+                    <source src="/photos/Video%20Home%20Page/Reel%20Room%20Website.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
                   </video>
                 </div>
               </div>
