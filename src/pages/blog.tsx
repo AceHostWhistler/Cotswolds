@@ -32,31 +32,38 @@ export default function Blog() {
   const blogPosts = [
     {
       id: 0,
+      title: "Vancouver's Best Holiday Event Venues: Christmas & New Year Celebrations 2024",
+      slug: "/blog-articles/best-holiday-event-venues-vancouver-christmas-2024",
+      excerpt: "Discover Vancouver's most magical event venues for your Christmas parties, holiday celebrations, and New Year events. From intimate gatherings to grand celebrations!",
+      image: "/photos/homepage-originals/DSC03672-Enhanced-NR.jpg",
+    },
+    {
+      id: 1,
       title: "The Best Private Event Venue Space in Vancouver 2025",
       slug: "/blog-articles/best-private-event-venue-vancouver-2025",
       excerpt: "Discover why The Reel Room is Vancouver's premier private event venue for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!",
       image: "/photos/homepage-originals/DSC03060-Enhanced-NR.jpg",
     },
     {
-      id: 1,
+      id: 2,
       title: "DCP and Movie Premieres at The Reel Room Private Event Space",
       slug: "/blog-articles/dcp-and-movie-premieres-at-the-reel-room",
       excerpt: "Learn about DCP (Digital Cinema Package) format and how The Reel Room can host your premium movie premiere events with professional screening capabilities.",
       image: "/photos/homepage-originals/DSC03086-Enhanced-NR.jpg",
     },
     {
-      id: 2,
+      id: 3,
       title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Hottest Private Theatre Event Space!",
       slug: "/blog-articles/lights-camera-action-welcome-to-reel-room",
       excerpt: "Discover Vancouver's most exclusive private theatre venue for film screenings, corporate events, and special celebrations.",
       image: "/photos/homepage-originals/DSC03138-Enhanced-NR.jpg",
     },
     {
-      id: 3,
+      id: 4,
       title: "The Ultimate Canucks Game Day Experience at The Reel Room",
       slug: "/blog-articles/canucks-hockey-games-at-the-reel-room",
       excerpt: "Experience Vancouver Canucks hockey games like never before at The Reel Room. Our luxurious private theatre venue offers the ultimate sports viewing experience.",
-      image: "/photos/homepage-originals/DSC03672-Enhanced-NR.jpg",
+      image: "/photos/homepage-originals/DSC03259-Enhanced-NR.jpg",
     }
   ];
   

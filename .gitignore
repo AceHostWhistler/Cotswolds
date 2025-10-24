@@ -42,8 +42,13 @@ dist/
 # Exclude only video files, not all images
 /public/photos/**/*.mp4
 /public/background.mp4
-*.mp4
+# Allow our compressed hero video
+!public/videos/hero-video-compressed.mp4
+# Exclude other video formats
 *.mov
 *.avi
 *.webm
 *.mkv
+# Exclude large mp4 files but allow small compressed ones
+*.mp4
+!public/videos/*-compressed.mp4
