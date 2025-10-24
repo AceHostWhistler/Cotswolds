@@ -277,11 +277,10 @@ export default function BestHolidayEventVenues2024() {
 
                   <div className="text-center">
                     <CalendlyPopupLink
+                      text="Book Your Holiday Event Consultation"
                       url="https://calendly.com/reelroom/consultation"
                       className="inline-block bg-brand-gold text-black px-8 py-4 rounded-md font-semibold hover:bg-yellow-400 transition-colors text-lg"
-                    >
-                      Book Your Holiday Event Consultation
-                    </CalendlyPopupLink>
+                    />
                   </div>
                 </div>
 
@@ -309,11 +308,10 @@ export default function BestHolidayEventVenues2024() {
               </p>
               <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
                 <CalendlyPopupLink
+                  text="Schedule Your Consultation"
                   url="https://calendly.com/reelroom/consultation"
                   className="inline-block bg-black text-white px-8 py-4 rounded-md font-semibold hover:bg-gray-800 transition-colors"
-                >
-                  Schedule Your Consultation
-                </CalendlyPopupLink>
+                />
                 <Link
                   href="/book-now"
                   className="inline-block bg-white text-black px-8 py-4 rounded-md font-semibold hover:bg-gray-100 transition-colors border-2 border-black"
