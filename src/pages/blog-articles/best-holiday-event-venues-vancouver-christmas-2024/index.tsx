@@ -233,13 +233,6 @@ export default function BestHolidayEventVenues2024() {
                     </div>
                   </div>
 
-                  <div className="text-center">
-                    <CalendlyPopupLink
-                      text="Book Your Holiday Event Consultation"
-                      url="https://calendly.com/reelroom/consultation"
-                      className="inline-block bg-brand-gold text-black px-8 py-4 rounded-md font-semibold hover:bg-yellow-400 transition-colors text-lg"
-                    />
-                  </div>
                 </div>
 
                 <div className="text-center py-8">
