@@ -32,9 +32,9 @@ export default function Blog() {
   const blogPosts = [
     {
       id: 0,
-      title: "Vancouver's Best Holiday Event Venues: Christmas & New Year Celebrations 2024",
+      title: "The Reel Room: Vancouver's Premier Holiday Event Venue for Christmas 2024",
       slug: "/blog-articles/best-holiday-event-venues-vancouver-christmas-2024",
-      excerpt: "Discover Vancouver's most magical event venues for your Christmas parties, holiday celebrations, and New Year events. From intimate gatherings to grand celebrations!",
+      excerpt: "Host your Christmas party or holiday celebration at The Reel Room, Vancouver's most unique private theatre venue. Perfect for intimate gatherings or grand celebrations!",
       image: "/photos/homepage-originals/DSC03672-Enhanced-NR.jpg",
     },
     {
