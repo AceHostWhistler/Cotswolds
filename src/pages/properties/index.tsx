@@ -1300,6 +1300,7 @@ export default function Properties() {
               <div className="text-lg space-y-6">
                 <p className="font-semibold text-xl">Pricing: When booking through AceHost, we guarantee the lowest or equal pricing you can find for all properties listed above.</p>
                 <p>All prices are listed in Canadian Dollar (CAD). 6 or 7 Night Minimum stay required for all Christmas & New Years bookings. Pricing above is an accurate estimate, but please contact us for exact quotes.</p>
+                <p className="text-amber-700 font-medium">Kindly double-check the rate with us before booking New Year's Eve, World Cup dates, or December weekdays, as prices may be higher during these special dates.</p>
                 <p className="italic">We warmly invite travel agents to join us in offering their valued clients an unparalleled chalet villa rental experience in the breathtaking locale of Whistler. Please do not hesitate to <Link href="/contact" className="text-blue-600 hover:underline">contact us</Link> to discuss this opportunity further.</p>
               </div>
             </div>

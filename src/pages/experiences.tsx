@@ -196,9 +196,10 @@ export default function Experiences() {
                   </div>
                 </div>
                 
-                <div className="text-center">
-                  <p className="text-xs text-gray-500">Valid Monday-Thursday evenings. Cannot be combined with other promotions.</p>
-                </div>
+              <div className="text-center">
+                <p className="text-xs text-gray-500">Valid Monday-Thursday evenings. Cannot be combined with other promotions.</p>
+                <p className="text-xs text-gray-500 mt-2 font-medium">Kindly double-check the rate with us before booking New Year's Eve, World Cup dates, or December weekdays, as prices may be higher during these special dates.</p>
+              </div>
               </div>
               
               {/* Weekend Lunch Rates */}
@@ -248,9 +249,10 @@ export default function Experiences() {
                   </div>
                 </div>
                 
-                <div className="text-center">
-                  <p className="text-xs text-gray-500">Valid Friday-Sunday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
-                </div>
+              <div className="text-center">
+                <p className="text-xs text-gray-500">Valid Friday-Sunday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
+                <p className="text-xs text-gray-500 mt-2 font-medium">Kindly double-check the rate with us before booking New Year's Eve, World Cup dates, or December weekdays, as prices may be higher during these special dates.</p>
+              </div>
               </div>
               
               {/* Weekday Lunch Rates */}
@@ -300,9 +302,10 @@ export default function Experiences() {
                   </div>
                 </div>
                 
-                <div className="text-center">
-                  <p className="text-xs text-gray-500">Valid Monday-Thursday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
-                </div>
+              <div className="text-center">
+                <p className="text-xs text-gray-500">Valid Monday-Thursday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
+                <p className="text-xs text-gray-500 mt-2 font-medium">Kindly double-check the rate with us before booking New Year's Eve, World Cup dates, or December weekdays, as prices may be higher during these special dates.</p>
+              </div>
               </div>
             </div>
           </div>
