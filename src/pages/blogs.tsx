@@ -15,7 +15,7 @@ export default function Blogs() {
         <title>Blogs | Ace Cascade Lodge</title>
         <meta
           name="description"
-          content="Explore our latest blog articles about Whistler's attractions, events, and seasonal activities. Get insider tips for your stay at Ace Cascade Lodge."
+          content="Explore our latest blog articles about Whistler's attractions, seasonal activities, and mountain travel. Get insider tips for your stay at Ace Cascade Lodge."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link
