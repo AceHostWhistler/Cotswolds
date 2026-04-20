@@ -10,14 +10,14 @@ export default function BestHolidayEventVenues2024() {
   return (
     <>
       <Head>
-        <title>The Reel Room: Vancouver's Premier Holiday Event Venue for Christmas 2024 | Private Theatre</title>
+        <title>The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024 | Private Theatre</title>
         <meta
           name="description"
           content="Host your Christmas party or holiday celebration at The Reel Room, Vancouver's most unique private theatre venue. Perfect for intimate gatherings of 40 guests or grand celebrations up to 200!"
         />
-        <meta name="keywords" content="The Reel Room Vancouver, Christmas party venue, holiday events Vancouver, private theatre venue, Mount Pleasant event space, corporate holiday parties Vancouver, Christmas movie nights, private event venue Vancouver" />
+        <meta name="keywords" content="The Reel Room Vancouver, Christmas party space, holiday events Vancouver, private theatre, Mount Pleasant rental space, corporate holiday parties Vancouver, Christmas movie nights, private production studio rental Vancouver" />
         <link rel="canonical" href="https://reelroom.ca/blog-articles/best-holiday-event-venues-vancouver-christmas-2024" />
-        <meta property="og:title" content="The Reel Room: Vancouver's Premier Holiday Event Venue for Christmas 2024" />
+        <meta property="og:title" content="The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024" />
         <meta property="og:description" content="Host your Christmas party or holiday celebration at The Reel Room, Vancouver's most unique private theatre venue." />
         <meta property="og:image" content="https://reelroom.ca/photos/homepage-originals/DSC03672-Enhanced-NR.jpg" />
         <meta property="og:url" content="https://reelroom.ca/blog-articles/best-holiday-event-venues-vancouver-christmas-2024" />
@@ -32,7 +32,7 @@ export default function BestHolidayEventVenues2024() {
           <div className="relative h-[60vh]">
             <Image
               src="/photos/homepage-originals/DSC03672-Enhanced-NR.jpg"
-              alt="The Reel Room: Vancouver's Premier Holiday Event Venue"
+              alt="The Reel Room: Vancouver's premier holiday production and studio rental"
               fill
               priority
               style={{ objectFit: "cover" }}
@@ -40,7 +40,7 @@ export default function BestHolidayEventVenues2024() {
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center max-w-4xl px-4">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 heading-font">
-                  The Reel Room: Vancouver's Premier Holiday Event Venue
+                  The Reel Room: Vancouver's Premier Holiday Production & Studio Rental
                 </h1>
                 <p className="text-xl md:text-2xl text-white heading-font">
                   Christmas & New Year Celebrations 2024
@@ -71,7 +71,7 @@ export default function BestHolidayEventVenues2024() {
                 </div>
 
                 <p className="mb-6">
-                  The Reel Room isn't your typical event venue—it's a cinematic wonderland that transforms any holiday celebration into a blockbuster experience. Our unique combination of a private theatre and stylish lounge areas creates a versatile space that can be customized to match your holiday vision.
+                  The Reel Room isn't your typical rental hall—it's a cinematic wonderland that transforms any holiday celebration into a blockbuster experience. Our unique combination of a private theatre and stylish lounge areas creates a versatile space that can be customized to match your holiday vision.
                 </p>
 
                 <div className="bg-gray-50 p-6 rounded-lg mb-8">

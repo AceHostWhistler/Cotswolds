@@ -32,16 +32,16 @@ export default function Blog() {
   const blogPosts = [
     {
       id: 0,
-      title: "The Reel Room: Vancouver's Premier Holiday Event Venue for Christmas 2024",
+      title: "The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024",
       slug: "/blog-articles/best-holiday-event-venues-vancouver-christmas-2024",
       excerpt: "Host your Christmas party or holiday celebration at The Reel Room, Vancouver's most unique private theatre venue. Perfect for intimate gatherings or grand celebrations!",
       image: "/photos/homepage-originals/DSC03672-Enhanced-NR.jpg",
     },
     {
       id: 1,
-      title: "The Best Private Event Venue Space in Vancouver 2025",
+      title: "The Best Private Production & Studio Rental in Vancouver 2025",
       slug: "/blog-articles/best-private-event-venue-vancouver-2025",
-      excerpt: "Discover why The Reel Room is Vancouver's premier private event venue for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!",
+      excerpt: "Discover why The Reel Room is Vancouver's premier private production and studio rental for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!",
       image: "/photos/homepage-originals/DSC03060-Enhanced-NR.jpg",
     },
     {

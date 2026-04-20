@@ -310,7 +310,7 @@ export default function Media() {
             </button>
           </div>
           <div className="video-info">
-            <h3 className="video-title">General Parties & Sporting Event Venue</h3>
+            <h3 className="video-title">General Parties & Sports — Studio & Production Rental</h3>
             <p className="video-description">
               From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable options.
             </p>

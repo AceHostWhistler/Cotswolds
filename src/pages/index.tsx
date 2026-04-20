@@ -87,7 +87,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Reel Room",
-    "description": "Private Theatre Event Venue in Vancouver",
+    "description": "Private theatre production and studio rental in Vancouver",
     "image": "/reel-room-logo.png",
     "url": "https://reelroom.ca",
     "priceRange": "$$$",
@@ -116,10 +116,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <SEO 
-        title="Private Theatre Event Venue Vancouver"
+        title="Private Theatre Production & Studio Rental Vancouver"
         description="Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver."
         ogImage="/reel-room-logo.png"
-        keywords="private theatre, event venue, Vancouver, film screenings, private parties, corporate events, Mount Pleasant, luxury cinema, private events"
+        keywords="private theatre, production rental, studio rental, Vancouver, film screenings, private parties, corporate events, Mount Pleasant, luxury cinema, private events"
         structuredData={homeStructuredData}
       />
       <Head>
@@ -312,8 +312,8 @@ export default function Home() {
                 <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase">
                   PRIVATE THEATRE
                 </h1>
-                <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase">
-                  EVENT VENUE
+                <h1 className="heading-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase leading-tight">
+                  PRODUCTION & STUDIO RENTAL
                 </h1>
                 <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-4 sm:mb-12 uppercase">
                   VANCOUVER
@@ -581,7 +581,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sports — Studio & Production Rental</h3>
                   <p className="body-font text-gray-300 max-w-md">
                     From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable options.
                   </p>
@@ -628,7 +628,7 @@ export default function Home() {
                       ></iframe>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sporting Event Venue</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sports — Studio & Production Rental</h3>
                   <p className="body-font text-gray-300">
                     From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
                   </p>

@@ -87,7 +87,7 @@ export default function Experiences() {
         {/* Main Venue Rates */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Event Venue Rates</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">Production & Studio Rental Rates</h2>
             
             <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md mb-16">
               <div className="text-center mb-8">

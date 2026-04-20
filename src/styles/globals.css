@@ -343,12 +343,6 @@ a.inline-block,
   color: white !important;
 }
 
-/* Modify the filter to be less aggressive and maintain better contrast */
-html {
-  /* Use a very subtle filter that still removes blue but maintains contrast */
-  filter: hue-rotate(340deg) !important;
-}
-
 /* Override any text that contains the string blue with better contrast handling */
 [class*="blue"] {
   /* Instead of forcing white, use a conditional approach */

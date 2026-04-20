@@ -184,7 +184,7 @@ export default function Document() {
               "@type": "WebSite",
               "url": "https://reelroom.ca/",
               "name": "The Reel Room Vancouver",
-              "description": "Private Theatre Event Venue in Vancouver, BC. Book for film screenings, private parties, corporate events, and more.",
+              "description": "Private theatre production and studio rental in Vancouver, BC. Book for film screenings, private parties, corporate events, and more.",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://reelroom.ca/blog?search={search_term_string}",

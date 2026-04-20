@@ -94,7 +94,7 @@ export default function BlogPost() {
           
           <h3 className="heading-font text-xl font-medium mb-4">A New Kind of Event Space</h3>
           <p className="mb-5">
-            Located in the heart of Mount Pleasant, The Reel Room combines the immersive experience of a luxury cinema with the versatility of a premium event venue. Our space was designed with filmmakers, corporate clients, and private celebrations in mind.
+            Located in the heart of Mount Pleasant, The Reel Room combines the immersive experience of a luxury cinema with the versatility of a premium production and studio rental space. Our space was designed with filmmakers, corporate clients, and private celebrations in mind.
           </p>
           
           <p className="mb-5">

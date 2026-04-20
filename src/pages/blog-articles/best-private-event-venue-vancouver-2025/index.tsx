@@ -31,10 +31,10 @@ export default function BestPrivateEventVenue2025() {
   return (
     <>
       <Head>
-        <title>The Best Private Event Venue Space in Vancouver 2025 | The Reel Room</title>
+        <title>The Best Private Production & Studio Rental in Vancouver 2025 | The Reel Room</title>
         <meta
           name="description"
-          content="Discover why The Reel Room is Vancouver's premier private event venue for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!"
+          content="Discover why The Reel Room is Vancouver's premier private production and studio rental for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!"
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
@@ -47,7 +47,7 @@ export default function BestPrivateEventVenue2025() {
           <div className="relative h-[60vh]">
             <Image
               src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
-              alt="The Reel Room - Vancouver's Best Private Event Venue"
+              alt="The Reel Room - Vancouver's best private production and studio rental"
               fill
               priority
               style={{ objectFit: "cover" }}
@@ -55,7 +55,7 @@ export default function BestPrivateEventVenue2025() {
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center max-w-4xl px-4">
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 heading-font">
-                  The Best Private Event Venue Space in Vancouver 2025
+                  The Best Private Production & Studio Rental in Vancouver 2025
                 </h1>
                 <p className="text-xl md:text-2xl text-white heading-font">
                   Where Unforgettable Moments Come to Life
@@ -235,7 +235,7 @@ export default function BestPrivateEventVenue2025() {
               <h2 className="text-brand-gold heading-font mt-8">Book Your 2025 Event Now</h2>
               
               <p>
-                As Vancouver's premier private event venue, The Reel Room's calendar fills quickly. To secure your preferred date for 2025, we recommend booking well in advance. Our team is ready to discuss your vision, answer your questions, and guide you through the planning process to create an event that exceeds your expectations.
+                As Vancouver's premier private production and studio rental, The Reel Room's calendar fills quickly. To secure your preferred date for 2025, we recommend booking well in advance. Our team is ready to discuss your vision, answer your questions, and guide you through the planning process to create an event that exceeds your expectations.
               </p>
 
               <blockquote className="border-l-4 border-brand-gold pl-4 italic text-xl my-8">
