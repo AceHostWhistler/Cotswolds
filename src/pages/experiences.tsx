@@ -362,13 +362,13 @@ export default function Experiences() {
               </div>
             </div>
             
-            {/* Live sports & themed screenings */}
+            {/* Production studio events: reference playback */}
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
                     src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                    alt="Live sports and screening rental"
+                    alt="Reference playback and studio rental"
                     className="w-full h-full"
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
@@ -377,14 +377,14 @@ export default function Experiences() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">Live sports &amp; themed screenings</h3>
+                  <h3 className="text-2xl font-bold mb-4">Production studio events: reference playback</h3>
                   <p className="text-gray-600 mb-6">
-                    Rent the room for broadcast-quality sports playback, branded watch-alongs, or seasonal programming where picture and sound matter. Service style follows your technical brief—not a preset &quot;night out&quot; package.
+                    Rent the room for colour-critical reviews, client approvals, and finishing playbacks where picture and sound have to read true. Service style follows your technical brief—not a preset social package.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Theatrical playback for live or tape-fed sports</li>
-                    <li>Secondary lounge feed for talent or sponsors</li>
-                    <li>Optional themed graphics or stingers (client-supplied)</li>
+                    <li>Theatrical playback for file-based and live-signal reviews</li>
+                    <li>Secondary lounge feed for producers or clients</li>
+                    <li>Optional graphics or stingers (client-supplied)</li>
                     <li>Catering and bar scoped to the rental</li>
                     <li>Full facility buyout available</li>
                   </ul>

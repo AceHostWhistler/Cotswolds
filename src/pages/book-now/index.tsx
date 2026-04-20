@@ -180,14 +180,14 @@ export default function BookNow() {
                 <div className="relative h-64">
                   <img
                     src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                    alt="Live sports screening rental"
+                    alt="Reference playback studio rental"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3">Live sports &amp; broadcast-style screenings</h3>
+                  <h3 className="text-2xl font-bold mb-3">Production studio events: reference playback</h3>
                   <p className="text-gray-600 mb-6">
-                    Rent the theatre for live or recorded sports playback with cinema-scale image and audio. Catering and bar follow your run-of-show for teams, sponsors, or controlled guest lists.
+                    Rent the theatre for client reviews, QC passes, and finishing playbacks with cinema-scale image and audio. Catering and bar follow your run-of-show for crew and approved attendees.
                   </p>
                 </div>
               </div>

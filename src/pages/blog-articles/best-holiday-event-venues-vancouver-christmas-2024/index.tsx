@@ -15,7 +15,7 @@ export default function BestHolidayEventVenues2024() {
           name="description"
           content="Year-end studio rental at The Reel Room—holiday screenings, corporate wrap-ups, and seasonal programming in a private Vancouver cinema facility."
         />
-        <meta name="keywords" content="The Reel Room Vancouver, holiday studio rental, year-end screening Vancouver, private theatre, Mount Pleasant production space, corporate holiday screening Vancouver, Christmas movie nights, private production studio rental Vancouver" />
+        <meta name="keywords" content="The Reel Room Vancouver, holiday studio rental, year-end screening Vancouver, private theatre, Mount Pleasant production space, corporate year-end playback Vancouver, private production studio rental Vancouver" />
         <link rel="canonical" href="https://reelroom.ca/blog-articles/best-holiday-event-venues-vancouver-christmas-2024" />
         <meta property="og:title" content="The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024" />
         <meta property="og:description" content="Year-end studio rental at The Reel Room—holiday screenings and corporate wrap-ups in a private Vancouver cinema facility." />
@@ -79,7 +79,7 @@ export default function BestHolidayEventVenues2024() {
                   <ul className="list-disc pl-6 space-y-2">
                     <li><strong>Flexible capacity:</strong> Roughly 20–40 in the theatre for focused screenings, or combined layouts up to 95+ across the facility</li>
                     <li><strong>Private Theatre:</strong> Screen holiday classics, company videos, or create custom holiday content</li>
-                    <li><strong>Elegant Lounge Areas:</strong> Perfect for cocktail receptions and networking</li>
+                    <li><strong>Elegant Lounge Areas:</strong> Production studio events—crew debriefs and client review blocks—scheduled around your rental</li>
                     <li><strong>State-of-the-Art Technology:</strong> Professional sound and projection systems</li>
                     <li><strong>Customizable Lighting:</strong> Create the perfect holiday ambiance</li>
                     <li><strong>Full Bar Service:</strong> Craft cocktails and holiday-themed drinks</li>
@@ -110,14 +110,14 @@ export default function BestHolidayEventVenues2024() {
                 <div className="bg-gray-50 p-6 rounded-lg mb-8">
                   <h3 className="text-2xl font-semibold mb-4 text-black">🥂 New Year's Eve Countdown Spectacular</h3>
                   <p className="mb-4">
-                    Ring in the New Year with a studio rental: theatre countdown feed, parallel lounge program, and champagne service scoped to your run-of-show—private, controlled, and AV-led instead of a public bar night.
+                    Ring in the New Year with a studio rental: theatre countdown feed, parallel lounge program, and hospitality scoped to your run-of-show—private, controlled, and AV-led instead of a public venue night.
                   </p>
                 </div>
 
                 <div className="bg-brand-gold bg-opacity-10 p-6 rounded-lg mb-8">
                   <h3 className="text-2xl font-semibold mb-4 text-black">🎄 Corporate year-end screening</h3>
                   <p className="mb-4">
-                    Thank your team with a playback-first rental: leadership notes in the theatre, year-in-review masters on the big screen, then lounge catering timed after the technical portion. Structured like a production day, not an open reception.
+                    Thank your team with a playback-first rental: leadership notes in the theatre, year-in-review masters on the big screen, then lounge catering timed after the technical portion. Structured like a production day, not an open social reception.
                   </p>
                 </div>
 

@@ -9,7 +9,7 @@ const FAQ = () => {
     },
     {
       question: "How far in advance should I book my charter?",
-      answer: "For peak rental periods (summer and major sports or festival weekends), we recommend booking 8–12 weeks ahead when possible. Midweek technical reviews can often be placed sooner—email info@reelroom.ca with your dates and format."
+      answer: "For peak rental periods (summer and high-demand weekends), we recommend booking 8–12 weeks ahead when possible. Midweek technical reviews can often be placed sooner—email info@reelroom.ca with your dates and format."
     },
     {
       question: "What are the popular destinations from Monaco?",

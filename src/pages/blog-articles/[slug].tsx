@@ -58,8 +58,8 @@ const BlogArticle = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog-articles/canucks-hockey-games-at-the-reel-room" className="text-brand-gold hover:underline">
-                      The Ultimate Canucks Game Day Experience
+                    <Link href="/blog-articles/cinema-scale-client-playback-at-the-reel-room" className="text-brand-gold hover:underline">
+                      Cinema-Scale Client Playback at The Reel Room
                     </Link>
                   </li>
                 </ul>

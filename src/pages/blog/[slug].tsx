@@ -109,9 +109,9 @@ export default function BlogPost() {
           <ul className="list-disc pl-5 mb-5">
             <li className="mb-2">Film premieres and DCP reviews</li>
             <li className="mb-2">Corporate presentations, launches, and shareholder streams</li>
-            <li className="mb-2">Live sports and broadcast-style screenings</li>
-            <li className="mb-2">Press, influencer, or stakeholder playbacks</li>
-            <li className="mb-2">Brand activations with staged content</li>
+            <li className="mb-2">Reference playback, colour reviews, and client sign-offs</li>
+            <li className="mb-2">Press or stakeholder playbacks under your direction</li>
+            <li className="mb-2">Branded content playbacks and staged technical runs</li>
             <li className="mb-2">Photo or video shoots requiring a cinema set</li>
           </ul>
           
@@ -184,7 +184,7 @@ export default function BlogPost() {
             <li className="mb-2">Half-day and full-day studio rental</li>
             <li className="mb-2">Catering services with breakfast, lunch, and dinner options</li>
             <li className="mb-2">Beverage service including premium coffee, tea, and refreshments</li>
-            <li className="mb-2">Reception-style service in the lounge when required</li>
+            <li className="mb-2">Lounge hospitality timed to your rental when required</li>
             <li className="mb-2">Technical support for presentations and streaming</li>
             <li className="mb-2">Custom branding placements approved with facilities</li>
           </ul>
@@ -195,35 +195,35 @@ export default function BlogPost() {
         </>
       )
     },
-    'wedding-screenings': {
+    'milestone-film-screenings': {
       id: 4,
-      title: "Private Film Screenings for Life Milestones",
-      slug: "wedding-screenings",
-      excerpt: "Showcase wedding films, anniversary edits, and legacy media in a true private cinema—booked as studio rental, not a reception hall.",
+      title: "Legacy &amp; Long-Form Master Playback (Studio Rental)",
+      slug: "milestone-film-screenings",
+      excerpt: "Screen anniversary edits, memorial films, and legacy archives in a calibrated private cinema—booked as studio rental with technical support.",
       image: "/photos/homepage/DSC03369-Enhanced-NR.jpg",
       content: (
         <>
           <p className="mb-5">
-            Long-form personal films deserve a proper screening room. The Reel Room is rented as a private cinema for playback of wedding edits, anniversary pieces, memorial films, and other milestone media—with calibrated picture and sound instead of a laptop in a banquet hall.
+            Long-form personal masters deserve a proper screening room. The Reel Room is rented as a private cinema for playback of legacy documentaries, memorial films, anniversary edits, and family archives—with calibrated picture and sound instead of a laptop in a multipurpose room.
           </p>
           
           <h3 className="heading-font text-xl font-medium mb-4">Why screen in a cinema environment</h3>
           <p className="mb-5">
-            Wedding and legacy films are often finished in surround and wide colour—viewing them on small devices leaves detail on the table. Booking the theatre lets families experience the master the way your editor intended.
+            Personal and legacy films are often finished in surround and wide colour—viewing them on small devices leaves detail on the table. Booking the theatre lets viewers experience the master the way your editor intended.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Common milestone rentals</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Common closed playback rentals</h3>
           <p className="mb-5">
-            Typical private screening bookings include:
+            Typical studio bookings in this category include:
           </p>
           
           <ul className="list-disc pl-5 mb-5">
-            <li className="mb-2">Post-production reviews of wedding films for family</li>
-            <li className="mb-2">Anniversary playback sessions for extended circles</li>
-            <li className="mb-2">Montage reviews for milestone years</li>
-            <li className="mb-2">Engagement-story or proposal films presented in-theatre</li>
-            <li className="mb-2">Heritage video nights for family archives</li>
-            <li className="mb-2">Memorial films with controlled guest lists</li>
+            <li className="mb-2">Post-production reviews of long-form personal films for small groups</li>
+            <li className="mb-2">Anniversary or milestone edit playbacks</li>
+            <li className="mb-2">Montage and chapter reviews for multi-year projects</li>
+            <li className="mb-2">Director or editor notes sessions on near-final masters</li>
+            <li className="mb-2">Heritage and archive nights with controlled attendance</li>
+            <li className="mb-2">Memorial films presented as closed technical playbacks</li>
           </ul>
           
           <h3 className="heading-font text-xl font-medium mb-4">How the rental is structured</h3>

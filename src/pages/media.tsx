@@ -154,7 +154,7 @@ export default function Media() {
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-semibold heading-font mb-4">Featured Videos</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          See Reel Room in action through featured videos of screenings, sports playback, and studio configurations.
+          See Reel Room in action through featured videos of premieres, reference playback, and studio configurations.
         </p>
       </div>
       
@@ -238,7 +238,7 @@ export default function Media() {
           </div>
         </div>
         
-        {/* Halloween/Sports Video */}
+        {/* Reference playback video */}
         <div className="video-card">
           <div className="video-container">
             <button 
@@ -297,7 +297,7 @@ export default function Media() {
             >
               <img 
                 src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                alt="Live sports screening video thumbnail"
+                alt="Reference playback video thumbnail"
                 className="video-thumbnail"
               />
               <div className="video-play-overlay">
@@ -310,9 +310,9 @@ export default function Media() {
             </button>
           </div>
           <div className="video-info">
-            <h3 className="video-title">Live sports &amp; broadcast-style screenings</h3>
+            <h3 className="video-title">Production studio events: reference playback</h3>
             <p className="video-description">
-              Rent the theatre for championship-level sports playback and branded watch-alongs—AV-first, with hospitality scoped to your rental.
+              Rent the theatre for client reviews and finishing playbacks—AV-first, with hospitality scoped to your rental block.
             </p>
           </div>
         </div>

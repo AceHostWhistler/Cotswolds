@@ -344,7 +344,7 @@ export default function Home() {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to The Reel Room | Private Theatre Production &amp; Studio Rental in Vancouver</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
-                The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the theatre and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, live sports broadcasts on the big screen, and other licensed production uses.
+                The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the theatre and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, reference playback and client reviews, and other licensed production uses.
               </p>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font mt-4">
                 With a dedicated theatre and stylish lounge, we offer a controlled, professional environment built for picture, sound, and crew—not a public hall.
@@ -513,14 +513,14 @@ export default function Home() {
                   </p>
                 </div>
                 
-                {/* Halloween/Sports Video for iOS */}
+                {/* Reference playback video for iOS */}
                 <div className="space-y-6">
                   <div className="rounded-md overflow-hidden border border-brand-gold relative" style={{ paddingBottom: "56.25%" }}>
                     <div className="absolute inset-0 flex items-center justify-center bg-black">
                       <div className="relative w-full h-full">
                         <img 
                           src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                          alt="Live sports screening video thumbnail"
+                          alt="Reference playback and client review video thumbnail"
                           className="absolute inset-0 w-full h-full object-cover opacity-60"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -584,15 +584,15 @@ export default function Home() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </div>
-                            <span className="text-white font-medium text-lg shadow-md">Play Live Sports Screening Video</span>
+                            <span className="text-white font-medium text-lg shadow-md">Play reference playback video</span>
                           </button>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">Live Sports &amp; Broadcast-Style Screenings</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">Production studio events: reference playback</h3>
                   <p className="body-font text-gray-300 max-w-md">
-                    Rent the theatre for championship-level picture and sound on the big screen—ideal for team screenings, sponsor playback, and controlled group viewings with catering and bar configured to your production.
+                    Rent the theatre for colour-critical reviews, client sign-offs, and alternate-cut playback with cinema-scale picture and sound—catering and bar follow your technical schedule.
                   </p>
                 </div>
               </div>
@@ -623,7 +623,7 @@ export default function Home() {
                   </p>
                 </div>
                 
-                {/* Halloween/Sports Video */}
+                {/* Reference playback video */}
                 <div className="space-y-6">
                   <div className="rounded-md overflow-hidden border border-brand-gold">
                     <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
@@ -632,14 +632,14 @@ export default function Home() {
                         frameBorder="0" 
                         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                         style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                        title="Reel Room studio rental | sports and themed screenings"
+                        title="Reel Room studio rental | reference playback and client reviews"
                         className="vimeo-player"
                       ></iframe>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">Live Sports &amp; Broadcast-Style Screenings</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">Production studio events: reference playback</h3>
                   <p className="body-font text-gray-300">
-                    Rent the theatre for live sports and playback sessions with cinema-scale image and audio. Lighting, sound, and catering are configured around your rental block—built for teams, brands, and productions that need a private screening room, not a bar crowd.
+                    Use the room for finishing reviews, agency approvals, and technical playbacks with cinema-scale image and audio. Lighting, sound, and catering are configured around your rental block—built for crews that need a private screening facility, not open programming.
                   </p>
                 </div>
               </div>
@@ -741,7 +741,7 @@ export default function Home() {
                 The facility supports roughly 85–95+ people across the theatre and lounges, with a bar area and a mounted 70&quot; display for parallel playback or program feeds.
               </p>
               <p className="text-lg text-gray-600 mb-8 body-font">
-                Typical bookings include DCP and digital premieres, colour-critical reviews, branded content playbacks, live sports and broadcast feeds, crew-facing Q&amp;As, and controlled press or influencer screenings—always as a rental, under your direction.
+                Typical bookings include DCP and digital premieres, colour-critical reviews, branded content playbacks, line-cut and approval sessions, crew-facing Q&amp;As, and controlled press screenings—always as a rental, under your direction.
               </p>
               <p className="text-lg text-gray-600 mb-8 body-font">
                 You get a private cinema environment with lounge support: schedule-driven, tech-forward, and intended for productions—not open public programming.

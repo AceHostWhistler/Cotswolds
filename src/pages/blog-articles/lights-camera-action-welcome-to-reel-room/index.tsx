@@ -12,7 +12,7 @@ export default function LightsCameraAction() {
         <title>Lights, Camera, Action! Welcome to Reel Room | Vancouver Private Theatre Studio</title>
         <meta
           name="description"
-          content="The Reel Room is Vancouver's private theatre production and studio rental—premieres, corporate playbacks, sports screenings, and controlled cinema bookings."
+          content="The Reel Room is Vancouver's private theatre production and studio rental—premieres, corporate playbacks, reference reviews, and controlled cinema bookings."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
@@ -69,7 +69,7 @@ export default function LightsCameraAction() {
               </p>
 
               <p>
-                Typical rentals include DCP and digital premieres, colour-critical reviews, corporate shareholder streams, branded content playbacks, live sports feeds at cinema scale, and photo or video shoots that need a theatre set. Each booking is scoped to run-of-show and technical requirements.
+                Typical rentals include DCP and digital premieres, colour-critical reviews, corporate shareholder streams, branded content playbacks, client sign-offs at cinema scale, and photo or video shoots that need a theatre set. Each booking is scoped to run-of-show and technical requirements.
               </p>
 
               <h2 className="text-brand-gold heading-font">Elevating Your Culinary Experience</h2>

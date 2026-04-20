@@ -34,7 +34,7 @@ export default function BestPrivateEventVenue2025() {
         <title>The Best Private Production & Studio Rental in Vancouver 2025 | The Reel Room</title>
         <meta
           name="description"
-          content="Why The Reel Room leads Vancouver private production and studio rental in 2025—DCP premieres, corporate playbacks, sports screenings, and controlled cinema bookings."
+          content="Why The Reel Room leads Vancouver private production and studio rental in 2025—DCP premieres, corporate playbacks, reference reviews, and controlled cinema bookings."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
@@ -117,20 +117,20 @@ export default function BestPrivateEventVenue2025() {
                 Launch films, sizzle reels, shareholder streams, and internal town halls benefit from a real cinema canvas. Connectivity, switching, and record paths are planned with your IT or production lead—not guessed on the day.
               </p>
 
-              <h3 className="text-white font-semibold">Live sports &amp; broadcast-style screenings</h3>
+              <h3 className="text-white font-semibold">Production studio events: reference playback</h3>
               <p>
-                When sponsors or talent need stadium energy without stadium logistics, we run live or tape feeds on the big screen with lounge redundancy for parallel program feeds.
+                Book the theatre for client approvals, finishing reviews, and QC passes on a true cinema canvas—with lounge redundancy when producers need a parallel feed.
               </p>
 
               <h3 className="text-white font-semibold">Private film &amp; legacy playback</h3>
               <p>
-                Wedding edits, memorial films, and anniversary masters are screened as studio rentals—calibrated playback for people who care about seeing the final grade properly.
+                Long-form personal masters, memorial films, and anniversary edits are screened as studio rentals—calibrated playback for people who care about seeing the final grade properly.
               </p>
 
               <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg" 
-                  alt="Sports and screening configuration at The Reel Room" 
+                  alt="Reference playback configuration at The Reel Room" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
@@ -154,7 +154,7 @@ export default function BestPrivateEventVenue2025() {
               <h2 className="text-brand-gold heading-font mt-8">Technology &amp; crew discipline</h2>
               
               <p>
-                Projection, sound, lighting, and signal routing are maintained for screening work first. That foundation is what makes corporate, sports, or long-form playback reliable—everything else is configuration on top.
+                Projection, sound, lighting, and signal routing are maintained for screening work first. That foundation is what makes corporate, finishing, or long-form playback reliable—everything else is configuration on top.
               </p>
 
               <h2 className="text-brand-gold heading-font mt-8">Mount Pleasant access</h2>
@@ -184,7 +184,7 @@ export default function BestPrivateEventVenue2025() {
 
               <div className="mt-12 bg-black p-8 rounded-lg border border-brand-gold">
                 <h3 className="text-2xl font-bold text-brand-gold mb-4 heading-font">Ready to book your studio rental?</h3>
-                <p className="mb-6 text-lg">Tour the facility and line up technical prep for your next premiere, corporate playback, or sports screening.</p>
+                <p className="mb-6 text-lg">Tour the facility and line up technical prep for your next premiere, corporate playback, or reference review.</p>
                 <Link 
                   href="/book-now" 
                   className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"

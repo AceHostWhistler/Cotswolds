@@ -172,11 +172,11 @@ export default function DCPMoviePremieres() {
                 </div>
 
                 <div className="bg-black rounded-lg overflow-hidden shadow-md border border-brand-gold/30">
-                  <Link href="/blog-articles/canucks-hockey-games-at-the-reel-room">
+                  <Link href="/blog-articles/cinema-scale-client-playback-at-the-reel-room">
                     <div className="relative h-48">
                       <Image
                         src="/photos/Blogs/canucks-hockey-games/theatre.jpg"
-                        alt="Canucks Hockey Games at Reel Room"
+                        alt="Cinema-scale client playback at Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
                       />
@@ -184,15 +184,15 @@ export default function DCPMoviePremieres() {
                   </Link>
                   <div className="p-5">
                     <h3 className="text-xl font-bold mb-2 text-black">
-                      <Link href="/blog-articles/canucks-hockey-games-at-the-reel-room">
-                        The Ultimate Canucks Game Day Experience
+                      <Link href="/blog-articles/cinema-scale-client-playback-at-the-reel-room">
+                        Cinema-Scale Client Playback at The Reel Room
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Canucks hockey with cinema-scale picture and sound in a private screening rental.
+                      Reference reviews and client sign-offs with cinema-scale picture and sound in a private screening rental.
                     </p>
                     <Link
-                      href="/blog-articles/canucks-hockey-games-at-the-reel-room"
+                      href="/blog-articles/cinema-scale-client-playback-at-the-reel-room"
                       className="text-brand-gold font-medium hover:text-brand-cream"
                     >
                       Read More →

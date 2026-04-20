@@ -60,9 +60,9 @@ export default function Blog() {
     },
     {
       id: 4,
-      title: "The Ultimate Canucks Game Day Experience at The Reel Room",
-      slug: "/blog-articles/canucks-hockey-games-at-the-reel-room",
-      excerpt: "Canucks hockey on the big screen at The Reel Room—private theatre rental built for broadcast-style sports playback.",
+      title: "Cinema-Scale Client Playback at The Reel Room",
+      slug: "/blog-articles/cinema-scale-client-playback-at-the-reel-room",
+      excerpt: "Private theatre rental for reference reviews, client playbacks, and technical sign-offs with cinema-scale picture and sound.",
       image: "/photos/homepage-originals/DSC03259-Enhanced-NR.jpg",
     }
   ];

@@ -73,7 +73,7 @@ export default function Videos() {
                 </p>
               </div>
               
-              {/* Halloween/Sports Video */}
+              {/* Reference playback video */}
               <div className="space-y-6">
                 <div className="rounded-md overflow-hidden border border-gray-200">
                   <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
@@ -82,14 +82,14 @@ export default function Videos() {
                       frameBorder="0" 
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                      title="Reel Room studio rental | sports and themed screenings"
+                      title="Reel Room studio rental | reference playback and client reviews"
                       className="vimeo-player"
                     ></iframe>
                   </div>
                 </div>
-                <h2 className="heading-font text-2xl font-light">Live sports &amp; screening rentals</h2>
+                <h2 className="heading-font text-2xl font-light">Production studio events: reference playback</h2>
                 <p className="body-font text-gray-700">
-                  Explore broadcast-style sports playback and themed screening setups with cinema-scale AV and controlled hospitality.
+                  See how the room supports client reviews and finishing playbacks with cinema-scale AV and hospitality scoped to your rental.
                 </p>
               </div>
             </div>

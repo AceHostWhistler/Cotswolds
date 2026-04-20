@@ -162,6 +162,16 @@ const nextConfig = {
         destination: '/book-now',
         permanent: true,
       },
+      {
+        source: '/blog-articles/canucks-hockey-games-at-the-reel-room',
+        destination: '/blog-articles/cinema-scale-client-playback-at-the-reel-room',
+        permanent: true,
+      },
+      {
+        source: '/blog/wedding-screenings',
+        destination: '/blog/milestone-film-screenings',
+        permanent: true,
+      },
     ]
   },
 }

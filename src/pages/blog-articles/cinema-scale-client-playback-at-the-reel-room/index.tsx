@@ -5,14 +5,14 @@ import Link from "next/link";
 import ReelRoomNavigation from "@/components/ReelRoomNavigation";
 import ReelRoomFooter from "@/components/ReelRoomFooter";
 
-export default function CanucksHockeyGames() {
+export default function CinemaScaleClientPlayback() {
   return (
     <>
       <Head>
-        <title>Canucks Hockey Games at The Reel Room | Private Sports Screening Rental Vancouver</title>
+        <title>Cinema-Scale Client Playback at The Reel Room | Vancouver Studio Rental</title>
         <meta
           name="description"
-          content="Rent The Reel Room for Vancouver Canucks hockey with cinema-scale 4K picture and 7.1 sound—private theatre playback for teams, sponsors, and controlled guest lists."
+          content="Rent The Reel Room for reference-grade client playback and technical reviews—cinema-scale 4K picture, 7.1 surround, and a run-of-show you control."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
@@ -21,11 +21,10 @@ export default function CanucksHockeyGames() {
         <ReelRoomNavigation />
 
         <main className="pt-20">
-          {/* Hero Section */}
           <div className="relative h-[50vh]">
             <Image
               src="/photos/Blogs/canucks-hockey-games/theatre.jpg"
-              alt="The Reel Room Theatre Space"
+              alt="The Reel Room theatre for client playback and studio rental"
               fill
               priority
               style={{ objectFit: "cover" }}
@@ -33,16 +32,15 @@ export default function CanucksHockeyGames() {
             <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
               <div className="text-center max-w-4xl px-4">
                 <h1 className="text-4xl font-bold text-white mb-4 heading-font">
-                  The Ultimate Canucks Game Day Experience
+                  Cinema-Scale Client Playback
                 </h1>
                 <p className="text-2xl text-white heading-font">
-                  Private theatre rental built for broadcast-style sports playback
+                  Private theatre rental for reference reviews and studio sign-offs
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Blog Content */}
           <div className="max-w-4xl mx-auto px-4 py-12 text-white">
             <div className="flex items-center text-gray-400 mb-8">
               <time dateTime="2024-05-10">May 10, 2024</time>
@@ -52,91 +50,74 @@ export default function CanucksHockeyGames() {
 
             <div className="prose prose-lg max-w-none prose-invert">
               <p className="text-xl leading-relaxed">
-                When the feed matters, a bar TV is not enough. The Reel Room is a private cinema you rent for live or tape-fed hockey—big screen, surround sound, and a run-of-show you control instead of a public crowd.
+                When approvals depend on what people see and hear, a conference-room TV is not enough. The Reel Room is a private cinema you rent for colour-critical reviews, client playbacks, and technical sign-offs—big screen, surround sound, and a schedule you own from load-in to strike.
               </p>
 
-              <h2 className="text-brand-gold heading-font">The Big Screen Advantage</h2>
-              
-              <p>
-                Picture this: The Canucks facing off against their rivals on our massive 25-foot Severtson matte white woven fabric screen with crystal-clear 4K resolution. Every save, goal, and bone-crushing hit is displayed in stunning detail that makes you feel like you're right at center ice. Our Dolby CP750 Digital cinema processor with 7.1 surround sound ensures you hear every skate cut, stick tap, and crowd roar with perfect clarity.
-              </p>
-
-              <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
-                <Image 
-                  src="/photos/Blogs/canucks-hockey-games/theatre.jpg" 
-                  alt="Luxury Theatre Seating" 
-                  fill 
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              
-              <h2 className="text-brand-gold heading-font">Dual-room playback layout</h2>
-              
-              <p>
-                The theatre seats 40+ for primary picture, while combined lounges support roughly 85–95+ people across the facility. A 70-inch display in the lounge mirrors or carries secondary program feeds so attendees can step out for notes or hospitality without losing the action.
-              </p>
+              <h2 className="text-brand-gold heading-font">Reference playback on a theatrical canvas</h2>
 
               <p>
-                Book for sponsor groups, corporate hospitality, media playback reviews, or controlled fan screenings. Set dressing and brand cues stay subject to facility guidelines—this remains a rental, not an open public night.
+                Your masters land on a 25-foot Severtson matte white woven fabric screen with crisp 4K presentation and a Dolby CP750 digital cinema processor feeding 7.1 surround. That combination is built for crews who need to trust shadow detail, dialogue intelligibility, and dynamics—not guess from a laptop feed.
               </p>
 
               <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
-                <Image 
-                  src="/photos/Blogs/canucks-hockey-games/bar.jpg" 
-                  alt="Premium Bar Experience" 
-                  fill 
+                <Image
+                  src="/photos/Blogs/canucks-hockey-games/theatre.jpg"
+                  alt="Theatre seating for studio playback"
+                  fill
                   style={{ objectFit: "cover" }}
                 />
               </div>
-              
-              <h2 className="text-brand-gold heading-font">Elevated Game Day Eats</h2>
-              
+
+              <h2 className="text-brand-gold heading-font">Dual-room layout for production days</h2>
+
               <p>
-                Catering and bar are scoped to your rental: tasting menus for clients, beer-and-wings for crew, or branded non-alc service for daytime shoots. Service follows the technical schedule—not the other way around.
+                The theatre seats 40+ for primary picture, while combined lounges support roughly 85–95+ people across the facility. A 70-inch display in the lounge can mirror program feeds or carry parallel reference so producers and clients can step out for notes without losing sync with the main pass.
               </p>
 
               <p>
-                Signature cocktails, wine picks, or colour-themed drinks can be built into the run-of-show when requested, always within licensing and staffing for your booking.
+                Book for finishing reviews, agency approvals, QC blocks, and closed technical runs. Set dressing and signage stay subject to facility guidelines—this remains a rental under your direction, not open programming.
               </p>
 
-              <h2 className="text-brand-gold heading-font">The Perfect Playoff Headquarters</h2>
-              
-              <p>
-                Playoff hockey benefits from full dynamic range audio and a screen that keeps every zone readable. Rent the room when you need immersion without stadium logistics—ideal for sponsor holds, influencer capture, or team-only reviews of broadcast cuts.
-              </p>
+              <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
+                <Image
+                  src="/photos/Blogs/canucks-hockey-games/bar.jpg"
+                  alt="Lounge and bar configured for studio rental"
+                  fill
+                  style={{ objectFit: "cover" }}
+                />
+              </div>
+
+              <h2 className="text-brand-gold heading-font">Catering aligned to the technical schedule</h2>
 
               <p>
-                Even better? You won't miss a moment standing in line for food or drinks. Our attentive staff ensures your game-day favorites and beverages arrive right when you need them, so you never miss that crucial goal or game-changing save.
+                Catering and bar are scoped to your rental: working lunches for long review days, coffee service for morning notes, or evening wrap hospitality after playback locks. Service follows the technical schedule—not the other way around.
               </p>
 
-              <h2 className="text-brand-gold heading-font">Beyond The Game</h2>
-              
-              <p>
-                Use pre-game blocks for sponsor reels or fantasy drafts, and post-game blocks for immediate replay review on the big screen—our AV paths support live and file-based playback in the same rental day.
-              </p>
+              <h2 className="text-brand-gold heading-font">Built for finishing discipline</h2>
 
               <p>
-                For productions that need both live feed and instant replay review, schedule a technical advance so switching, recording, and levels match your deliverable.
+                Full dynamic range audio and a screen large enough to read fine detail make this room useful for final passes before delivery. Schedule a technical advance so switching, levels, and file formats match your pipeline—live play-out and file-based playback can share the same rental day when planned.
               </p>
 
               <blockquote className="border-l-4 border-brand-gold pl-4 italic text-xl">
-                "The only thing better than watching the Canucks win is watching them win on a 25-foot screen with perfect sound, comfortable seating, and a drink in hand!"
+                &quot;If the room does not feel like a real cinema, the sign-off is not real either—we book here when the master has to read true.&quot;
               </blockquote>
 
               <div className="mt-8 bg-black p-6 rounded-lg border border-brand-gold">
-                <h3 className="text-xl font-bold text-brand-gold mb-4 heading-font">Ready to Experience Canucks Hockey in Style?</h3>
-                <p className="mb-4">Book The Reel Room for your next game-day screening rental—hold dates, confirm feeds, and line up staffing with our team.</p>
-                <Link 
-                  href="/reservations" 
+                <h3 className="text-xl font-bold text-brand-gold mb-4 heading-font">Book a studio playback block</h3>
+                <p className="mb-4">
+                  Hold dates, confirm formats, and line up staffing with our team for your next reference review or client session.
+                </p>
+                <Link
+                  href="/book-now"
                   className="inline-block bg-black text-brand-gold px-6 py-3 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold"
                 >
-                  Make a Reservation
+                  Book now
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* Related Articles */}
           <div className="bg-gray-900 py-12">
             <div className="max-w-6xl mx-auto px-4">
               <h2 className="text-3xl font-bold mb-8 text-center text-white heading-font">Related Articles</h2>
@@ -175,7 +156,7 @@ export default function CanucksHockeyGames() {
                     <div className="relative h-48">
                       <Image
                         src="/photos/Blogs/dcp-and-movie-premieres/premier.jpg"
-                        alt="Movie Premiere at Reel Room"
+                        alt="Movie premiere at Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
                       />
@@ -188,7 +169,7 @@ export default function CanucksHockeyGames() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Learn about our state-of-the-art digital cinema package system for exclusive movie screenings.
+                      Learn about our digital cinema package workflows for premiere screenings.
                     </p>
                     <Link
                       href="/blog-articles/dcp-and-movie-premieres-at-the-reel-room"
@@ -204,7 +185,7 @@ export default function CanucksHockeyGames() {
                     <div className="relative h-48">
                       <Image
                         src="/photos/homepage/DSC03529-Enhanced-NR.jpg"
-                        alt="Experience at Reel Room"
+                        alt="Studio rental at Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
                       />
@@ -212,12 +193,10 @@ export default function CanucksHockeyGames() {
                   </Link>
                   <div className="p-5">
                     <h3 className="text-xl font-bold mb-2 text-black">
-                      <Link href="/experiences">
-                        Experiences & Pricing
-                      </Link>
+                      <Link href="/experiences">Experiences &amp; Pricing</Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Explore rental packages and pricing for your next screening or production day.
+                      Explore rental packages for your next screening or production day.
                     </p>
                     <Link
                       href="/experiences"
@@ -236,4 +215,4 @@ export default function CanucksHockeyGames() {
       </div>
     </>
   );
-} 
+}

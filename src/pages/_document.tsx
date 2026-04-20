@@ -202,7 +202,7 @@ export default function Document() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "The Reel Room",
-              "description": "Private theatre production and studio rental in Vancouver for premieres, DCP screenings, corporate productions, and broadcast-style sports playback.",
+              "description": "Private theatre production and studio rental in Vancouver for premieres, DCP screenings, corporate productions, and reference playback.",
               "image": "https://reelroom.ca/reel-room-logo.png",
               "url": "https://reelroom.ca",
               "telephone": "",
