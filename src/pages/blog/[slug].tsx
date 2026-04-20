@@ -197,7 +197,7 @@ export default function BlogPost() {
     },
     'milestone-film-screenings': {
       id: 4,
-      title: "Legacy &amp; Long-Form Master Playback (Studio Rental)",
+      title: "Legacy & Long-Form Master Playback (Studio Rental)",
       slug: "milestone-film-screenings",
       excerpt: "Screen anniversary edits, memorial films, and legacy archives in a calibrated private cinema—booked as studio rental with technical support.",
       image: "/photos/homepage/DSC03369-Enhanced-NR.jpg",
