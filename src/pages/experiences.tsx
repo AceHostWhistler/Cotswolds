@@ -36,7 +36,7 @@ export default function Experiences() {
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
         <title>Experiences & Pricing | The Reel Room</title>
-        <meta name="description" content="Discover the range of experiences and pricing options at The Reel Room. From film screenings to private events, we offer customizable options for every occasion." />
+        <meta name="description" content="Production and studio rental rates at The Reel Room—film premieres, DCP screenings, shoots, and corporate productions in Vancouver." />
         {/* Add iOS-specific meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -77,14 +77,14 @@ export default function Experiences() {
               <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Experiences & Pricing</h1>
                 <p className="text-xl mb-8">
-                  Customize your event at The Reel Room for a unique and memorable experience.
+                  Customize your studio rental at The Reel Room for screenings, shoots, and productions.
                 </p>
               </div>
             </div>
           </div>
         </div>
         
-        {/* Main Venue Rates */}
+        {/* Main rental rates */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-12 text-center">Production & Studio Rental Rates</h2>
@@ -95,7 +95,7 @@ export default function Experiences() {
                 <p className="text-4xl font-light text-brand-gold">$2,100</p>
                 <p className="text-gray-600 mt-2">for a 4-hour rental time slot</p>
                 <div className="mt-4 pt-4 border-t border-gray-300">
-                  <p className="text-gray-700">+ Event Manager ($255) + Cleaning Fee ($300)</p>
+                  <p className="text-gray-700">+ On-site coordinator ($255) + Cleaning Fee ($300)</p>
                   <p className="text-gray-700 mt-2">Subtotal: $2,655</p>
                   <p className="text-gray-700">+ 5% Tax: $132.75</p>
                   <p className="text-gray-700 mt-2 font-semibold">Final Price: $2,787.75</p>
@@ -105,7 +105,7 @@ export default function Experiences() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <h4 className="text-lg font-bold mb-3">Additional Hours</h4>
-                  <p className="text-gray-600 mb-2">Need more time for your event?</p>
+                  <p className="text-gray-600 mb-2">Need more time in the facility?</p>
                   <p className="text-xl font-semibold text-brand-gold">$500/hour</p>
                 </div>
                 
@@ -118,10 +118,10 @@ export default function Experiences() {
               <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
                 <h4 className="text-lg font-bold mb-3">Catering Suggestions</h4>
                 <p className="text-gray-600 mb-4">
-                  We suggest hors d'oeuvres/small bites, cocktails, & refreshments to pair with your event or celebration. Once the venue is reserved for your requested date, we will put you in touch with our catering partners for menu development and next steps.
+                  We suggest hors d'oeuvres/small bites, cocktails, & refreshments to pair with your rental block. Once the studio is reserved for your requested date, we will put you in touch with our catering partners for menu development and next steps.
                 </p>
                 <p className="text-gray-600">
-                  Depending on your event, we are able to sell drink tickets in advance for your guests, create a cash bar where guests pay for their own drinks upon ordering at the bar, billed all together, etc... We are flexible and open to working with your event style.
+                  Depending on your production, we can sell drink tickets in advance for attendees, run a cash bar, or consolidate bar billing—we align service with your run-of-show and rental agreement.
                 </p>
               </div>
               
@@ -163,7 +163,7 @@ export default function Experiences() {
                 
                 <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">Base Venue Fee:</span>
+                    <span className="text-gray-700">Base rental fee:</span>
                     <span className="text-gray-700">$2,100</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
@@ -171,11 +171,11 @@ export default function Experiences() {
                     <span className="text-blue-700 font-medium">-$525</span>
                   </div>
                   <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700">Discounted Venue Fee:</span>
+                    <span className="text-gray-700">Discounted rental fee:</span>
                     <span className="text-gray-700">$1,575</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Event Manager:</span>
+                    <span className="text-gray-700">+ On-site coordinator:</span>
                     <span className="text-gray-700">$255</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
@@ -216,7 +216,7 @@ export default function Experiences() {
                 
                 <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">Base Venue Fee:</span>
+                    <span className="text-gray-700">Base rental fee:</span>
                     <span className="text-gray-700">$2,100</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
@@ -224,11 +224,11 @@ export default function Experiences() {
                     <span className="text-green-700 font-medium">-$525</span>
                   </div>
                   <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700">Discounted Venue Fee:</span>
+                    <span className="text-gray-700">Discounted rental fee:</span>
                     <span className="text-gray-700">$1,575</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Event Manager:</span>
+                    <span className="text-gray-700">+ On-site coordinator:</span>
                     <span className="text-gray-700">$255</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
@@ -269,7 +269,7 @@ export default function Experiences() {
                 
                 <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">Base Venue Fee:</span>
+                    <span className="text-gray-700">Base rental fee:</span>
                     <span className="text-gray-700">$2,100</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
@@ -277,11 +277,11 @@ export default function Experiences() {
                     <span className="text-purple-700 font-medium">-$945</span>
                   </div>
                   <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700">Discounted Venue Fee:</span>
+                    <span className="text-gray-700">Discounted rental fee:</span>
                     <span className="text-gray-700">$1,155</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Event Manager:</span>
+                    <span className="text-gray-700">+ On-site coordinator:</span>
                     <span className="text-gray-700">$255</span>
                   </div>
                   <div className="flex justify-between items-center mb-1">
@@ -311,32 +311,32 @@ export default function Experiences() {
           </div>
         </div>
         
-        {/* Event Types */}
+        {/* Rental types */}
         <div className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Event Types</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">Rental types</h2>
             
-            {/* DCP Film Release Events */}
+            {/* DCP & premiere screenings */}
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4">DCP Film Release Events</h3>
+                  <h3 className="text-2xl font-bold mb-4">DCP &amp; premiere screenings</h3>
                   <p className="text-gray-600 mb-6">
-                    Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
+                    Lock your colour grade and audio mix with a reference screening for cast, crew, financiers, or distributors. The Reel Room is set up as a private cinema stage—not a banquet hall—so playback stays the priority.
                   </p>
                   <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
-                    <p className="text-gray-800 italic">DCP Available upon request.</p>
+                    <p className="text-gray-800 italic">DCP available upon request.</p>
                   </div>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Private theatre experience for your film</li>
-                    <li>Customizable food and drink options</li>
-                    <li>Space for up to 85-95+ guests</li>
-                    <li>High-quality projection and sound system</li>
-                    <li>Lounge area for mingling before and after the screening</li>
+                    <li>Private theatre tuned for critical viewing</li>
+                    <li>Optional catering and bar tied to your schedule</li>
+                    <li>Capacity up to roughly 85–95+ across theatre and lounges</li>
+                    <li>High-quality projection and sound</li>
+                    <li>Lounge for notes, interviews, or secondary playback</li>
                   </ul>
                   {!isIOS ? (
                     <CalendlyPopupLink 
-                      text="Book Your Film Event"
+                      text="Book a screening rental"
                       className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                     />
                   ) : (
@@ -344,14 +344,14 @@ export default function Experiences() {
                       href="/book-now"
                       className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                     >
-                      Book Your Film Event
+                      Book a screening rental
                     </Link>
                   )}
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
                     src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
-                    alt="DCP Film Release Events"
+                    alt="DCP and premiere screening rental"
                     className="w-full h-full"
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
@@ -362,13 +362,13 @@ export default function Experiences() {
               </div>
             </div>
             
-            {/* Private Parties */}
+            {/* Live sports & themed screenings */}
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
                     src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                    alt="Private Parties & Sports Events"
+                    alt="Live sports and screening rental"
                     className="w-full h-full"
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
@@ -377,20 +377,20 @@ export default function Experiences() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">Private Parties & Sports Events</h3>
+                  <h3 className="text-2xl font-bold mb-4">Live sports &amp; themed screenings</h3>
                   <p className="text-gray-600 mb-6">
-                    At the Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference. Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
+                    Rent the room for broadcast-quality sports playback, branded watch-alongs, or seasonal programming where picture and sound matter. Service style follows your technical brief—not a preset &quot;night out&quot; package.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Halloween movie nights</li>
-                    <li>Sports viewing parties</li>
-                    <li>Birthday celebrations</li>
-                    <li>Customizable food and drink packages</li>
-                    <li>Full venue rental options</li>
+                    <li>Theatrical playback for live or tape-fed sports</li>
+                    <li>Secondary lounge feed for talent or sponsors</li>
+                    <li>Optional themed graphics or stingers (client-supplied)</li>
+                    <li>Catering and bar scoped to the rental</li>
+                    <li>Full facility buyout available</li>
                   </ul>
                   {!isIOS ? (
                     <CalendlyPopupLink 
-                      text="Book Your Party"
+                      text="Book a screening rental"
                       className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                     />
                   ) : (
@@ -398,32 +398,32 @@ export default function Experiences() {
                       href="/book-now"
                       className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                     >
-                      Book Your Party
+                      Book a screening rental
                     </Link>
                   )}
                 </div>
               </div>
             </div>
             
-            {/* Corporate Events */}
+            {/* Corporate & brand productions */}
             <div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4">Corporate Events</h3>
+                  <h3 className="text-2xl font-bold mb-4">Corporate &amp; brand productions</h3>
                   <p className="text-gray-600 mb-6">
-                    Reel Room offers a unique and impressive venue for corporate events. From product launches to team building movie nights, our space provides a sophisticated setting with state-of-the-art audio-visual capabilities.
+                    The Reel Room functions as a presentation theatre and content stage: investor streams, launch films, sizzle reels, internal town halls with playback, and press screenings with controlled access.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Corporate presentations</li>
-                    <li>Team building events</li>
-                    <li>Product launches</li>
-                    <li>PR and media events</li>
-                    <li>Brand activations</li>
-                    <li>Networking opportunities</li>
+                    <li>Executive presentations with cinema-scale picture</li>
+                    <li>Team screenings and training modules</li>
+                    <li>Product launches and demo reels</li>
+                    <li>Media and stakeholder reviews</li>
+                    <li>Brand activations with staged playback</li>
+                    <li>Controlled guest lists and run-of-show support</li>
                   </ul>
                   {!isIOS ? (
                     <CalendlyPopupLink 
-                      text="Book Your Corporate Event"
+                      text="Book a corporate rental"
                       className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                     />
                   ) : (
@@ -431,14 +431,14 @@ export default function Experiences() {
                       href="/book-now"
                       className="inline-block bg-black text-white px-6 py-3 rounded-md transition-colors hover:bg-gray-800"
                     >
-                      Book Your Corporate Event
+                      Book a corporate rental
                     </Link>
                   )}
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg"
-                    alt="Corporate Events"
+                    alt="Corporate studio rental"
                     className="w-full h-full"
                     loading="eager"
                     fallbackSrc="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
@@ -468,7 +468,7 @@ export default function Experiences() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Catering Services</h3>
                 <p className="text-gray-600 mb-4">
-                  Enhance your event with our premium catering options, featuring a variety of customizable menus to suit your preferences and dietary requirements.
+                  Enhance your rental with premium catering, featuring customizable menus to suit your preferences and dietary requirements.
                 </p>
                 <p className="font-semibold text-gray-800">Prices starting from $25 per person</p>
               </div>
@@ -484,7 +484,7 @@ export default function Experiences() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Bar Services</h3>
                 <p className="text-gray-600 mb-4">
-                  Including bartenders, drinks, and glassware rentals. Drinks can be purchased as a cash bar and split amongst invited guests for your private event booking.
+                  Including bartenders, drinks, and glassware rentals. Drinks can be purchased as a cash bar and split amongst attendees for your private rental booking.
                 </p>
                 <p className="font-semibold text-gray-800">Typically $1,400-$3,500 depending on consumption</p>
               </div>
@@ -516,7 +516,7 @@ export default function Experiences() {
                 </div>
                 <h3 className="text-xl font-bold mb-3">Photo Booth</h3>
                 <p className="text-gray-600 mb-4">
-                  Add a fun and memorable photo booth experience to your event. Includes professional equipment, staff assistance, and printed photos for your guests.
+                  Add a photo booth capture station to your rental. Includes professional equipment, staff assistance, and printed photos for attendees.
                 </p>
                 <p className="font-semibold text-gray-800">$1,000 for 4 hours</p>
               </div>
@@ -527,7 +527,7 @@ export default function Experiences() {
         {/* Photo Gallery Section */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Event Space Gallery</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">Studio gallery</h2>
             
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-12">
               {/* Each image is in a fixed-ratio container */}
@@ -600,7 +600,7 @@ export default function Experiences() {
                 />
               </div>
               <p className="text-center mt-6 text-gray-600 max-w-3xl mx-auto">
-                Explore our premium catering and bar services featuring gourmet appetizers, craft cocktails, and customizable food options for your event.
+                Explore our premium catering and bar services featuring gourmet appetizers, craft cocktails, and customizable food options for your rental.
               </p>
             </div>
           </div>
@@ -609,9 +609,9 @@ export default function Experiences() {
         {/* CTA Section */}
         <div className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Create Your Custom Experience</h2>
+            <h2 className="text-3xl font-bold mb-6">Scope your custom rental</h2>
             <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-              Contact us today to discuss how we can tailor our venue and services to create the perfect event for your specific needs.
+              Contact us today to align the facility, AV, and add-ons with your production or screening brief.
             </p>
             
             <div className="flex justify-center gap-4 flex-wrap">
@@ -641,9 +641,9 @@ export default function Experiences() {
         {/* Reserve Your Dates - Bottom CTA */}
         <div className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Create Your Unforgettable Event?</h2>
+            <h2 className="text-3xl font-bold mb-6">Ready to lock your rental dates?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Contact us today to check availability and start planning your perfect event at The Reel Room.
+              Contact us for availability and a quote scoped to your screening, shoot, or corporate production.
             </p>
             {!isIOS ? (
               <CalendlyPopupLink 

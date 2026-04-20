@@ -9,10 +9,10 @@ export default function CanucksHockeyGames() {
   return (
     <>
       <Head>
-        <title>Canucks Hockey Games at The Reel Room | Vancouver's Ultimate Sports Viewing Venue</title>
+        <title>Canucks Hockey Games at The Reel Room | Private Sports Screening Rental Vancouver</title>
         <meta
           name="description"
-          content="Experience Vancouver Canucks hockey games like never before at The Reel Room. Our luxurious private theatre venue offers the ultimate sports viewing experience with premium food and drinks."
+          content="Rent The Reel Room for Vancouver Canucks hockey with cinema-scale 4K picture and 7.1 sound—private theatre playback for teams, sponsors, and controlled guest lists."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
@@ -36,7 +36,7 @@ export default function CanucksHockeyGames() {
                   The Ultimate Canucks Game Day Experience
                 </h1>
                 <p className="text-2xl text-white heading-font">
-                  Why The Reel Room is Vancouver's Premier Hockey Viewing Destination
+                  Private theatre rental built for broadcast-style sports playback
                 </p>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function CanucksHockeyGames() {
 
             <div className="prose prose-lg max-w-none prose-invert">
               <p className="text-xl leading-relaxed">
-                Hockey night in Vancouver just got a serious upgrade! Forget crowded sports bars with obstructed views or watching from your couch – The Reel Room offers a game-changing way to experience Canucks hockey that combines the energy of Rogers Arena with the luxury of a private VIP box.
+                When the feed matters, a bar TV is not enough. The Reel Room is a private cinema you rent for live or tape-fed hockey—big screen, surround sound, and a run-of-show you control instead of a public crowd.
               </p>
 
               <h2 className="text-brand-gold heading-font">The Big Screen Advantage</h2>
@@ -70,14 +70,14 @@ export default function CanucksHockeyGames() {
                 />
               </div>
               
-              <h2 className="text-brand-gold heading-font">A Party-Perfect Setting</h2>
+              <h2 className="text-brand-gold heading-font">Dual-room playback layout</h2>
               
               <p>
-                The theatre can seat 40+ comfortably, while our two additional lounge spaces combined can host up to 85-95+ people. With our new 70-inch TV in the lounge & bar area, we've noticed groups equally split between the two main rooms, especially for sports games. Guests are able to watch the game or movies in the theatre, and walk back and forth to the lounge if they want to grab a drink/take a break and socialize while not getting FOMO by leaving the theatre!
+                The theatre seats 40+ for primary picture, while combined lounges support roughly 85–95+ people across the facility. A 70-inch display in the lounge mirrors or carries secondary program feeds so attendees can step out for notes or hospitality without losing the action.
               </p>
 
               <p>
-                Whether you're hosting a corporate event, a birthday celebration, or just gathering a group of die-hard fans, our flexible space adapts to your needs. Transform the venue into a sea of blue and green with customized decorations, or keep it elegantly neutral – the choice is yours.
+                Book for sponsor groups, corporate hospitality, media playback reviews, or controlled fan screenings. Set dressing and brand cues stay subject to facility guidelines—this remains a rental, not an open public night.
               </p>
 
               <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
@@ -92,17 +92,17 @@ export default function CanucksHockeyGames() {
               <h2 className="text-brand-gold heading-font">Elevated Game Day Eats</h2>
               
               <p>
-                Forget typical sports bar fare. Our food and beverage team excels in customization to suit your event preferences. For sports events, we can even design cocktails matching team colors, enhancing the overall experience and creating memorable moments for you and your guests.
+                Catering and bar are scoped to your rental: tasting menus for clients, beer-and-wings for crew, or branded non-alc service for daytime shoots. Service follows the technical schedule—not the other way around.
               </p>
 
               <p>
-                Whether it's your favorite cocktails like espresso martinis or sours, specific wines, or thematic creations tailored to your event, we've got you covered. For sports events, we can even design cocktails matching team colors, enhancing the overall experience and creating memorable moments for you and your guests.
+                Signature cocktails, wine picks, or colour-themed drinks can be built into the run-of-show when requested, always within licensing and staffing for your booking.
               </p>
 
               <h2 className="text-brand-gold heading-font">The Perfect Playoff Headquarters</h2>
               
               <p>
-                As the Canucks make their playoff push, there's no better venue to experience the intensity of postseason hockey. Imagine the electric atmosphere as dozens of passionate fans cheer on every power play, penalty kill, and overtime winner in our state-of-the-art theatre. It's an immersive experience that turns regular season games into unforgettable events and playoff games into lifetime memories.
+                Playoff hockey benefits from full dynamic range audio and a screen that keeps every zone readable. Rent the room when you need immersion without stadium logistics—ideal for sponsor holds, influencer capture, or team-only reviews of broadcast cuts.
               </p>
 
               <p>
@@ -112,11 +112,11 @@ export default function CanucksHockeyGames() {
               <h2 className="text-brand-gold heading-font">Beyond The Game</h2>
               
               <p>
-                The Reel Room experience extends beyond just watching the game. Arrive early for pre-game analysis and stay late to celebrate victories or debate coaching decisions. With our premium AV equipment, you could even organize fantasy hockey draft nights, hockey movie marathons, or view classic Canucks games from years past.
+                Use pre-game blocks for sponsor reels or fantasy drafts, and post-game blocks for immediate replay review on the big screen—our AV paths support live and file-based playback in the same rental day.
               </p>
 
               <p>
-                For diehard fans, imagine hosting the ultimate hockey party – watching the live game followed by an immediate replay of all the best moments on the big screen, complete with your own commentary and analysis!
+                For productions that need both live feed and instant replay review, schedule a technical advance so switching, recording, and levels match your deliverable.
               </p>
 
               <blockquote className="border-l-4 border-brand-gold pl-4 italic text-xl">
@@ -125,7 +125,7 @@ export default function CanucksHockeyGames() {
 
               <div className="mt-8 bg-black p-6 rounded-lg border border-brand-gold">
                 <h3 className="text-xl font-bold text-brand-gold mb-4 heading-font">Ready to Experience Canucks Hockey in Style?</h3>
-                <p className="mb-4">Book The Reel Room for your next game day event and transform watching hockey into an unforgettable premium experience.</p>
+                <p className="mb-4">Book The Reel Room for your next game-day screening rental—hold dates, confirm feeds, and line up staffing with our team.</p>
                 <Link 
                   href="/reservations" 
                   className="inline-block bg-black text-brand-gold px-6 py-3 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold"
@@ -159,7 +159,7 @@ export default function CanucksHockeyGames() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Discover Vancouver's hottest private theatre event space and what makes it special.
+                      Discover Vancouver&apos;s private theatre studio for screenings and productions.
                     </p>
                     <Link
                       href="/blog-articles/lights-camera-action-welcome-to-reel-room"
@@ -217,7 +217,7 @@ export default function CanucksHockeyGames() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Explore our various packages and pricing options for your next event.
+                      Explore rental packages and pricing for your next screening or production day.
                     </p>
                     <Link
                       href="/experiences"

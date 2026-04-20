@@ -22,7 +22,7 @@ const ReelRoomFooter: React.FC = () => {
               </div>
             </div>
             <p className="body-font text-gray-400 max-w-xs text-center md:text-left text-sm sm:text-base">
-              Vancouver's premier private film and media production venue located in Mount Pleasant.
+              Vancouver's premier private film and media production studio for rental in Mount Pleasant.
             </p>
           </div>
           

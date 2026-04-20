@@ -22,7 +22,7 @@ export default function Videos() {
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
         <title>The Reel Room Videos | Vancouver's Premier Film and Media Productions</title>
-        <meta name="description" content="View featured videos of The Reel Room venue, events, and more to get a feel for our premier film and media production space in Vancouver." />
+        <meta name="description" content="Featured videos of The Reel Room—private theatre production and studio rental in Vancouver for premieres, screenings, and corporate productions." />
       </Head>
       
       <ReelRoomNavigation />
@@ -62,14 +62,14 @@ export default function Videos() {
                       frameBorder="0" 
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                      title="Film Release/Launch Parties at The Reel Room Vancouver"
+                      title="Film premiere and DCP screening at The Reel Room Vancouver"
                       className="vimeo-player"
                     ></iframe>
                   </div>
                 </div>
-                <h2 className="heading-font text-2xl font-light">Film Release Events</h2>
+                <h2 className="heading-font text-2xl font-light">Premieres &amp; DCP screenings</h2>
                 <p className="body-font text-gray-700">
-                  See how The Reel Room transforms for film premiere events, providing filmmakers with a professional and elegant setting to showcase their work.
+                  See how the facility is configured for premiere playback and crew reviews—built for picture and sound first.
                 </p>
               </div>
               
@@ -82,14 +82,14 @@ export default function Videos() {
                       frameBorder="0" 
                       allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                       style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                      title="Reel Room Events | Halloween, Sports Games"
+                      title="Reel Room studio rental | sports and themed screenings"
                       className="vimeo-player"
                     ></iframe>
                   </div>
                 </div>
-                <h2 className="heading-font text-2xl font-light">Parties & Sports Events</h2>
+                <h2 className="heading-font text-2xl font-light">Live sports &amp; screening rentals</h2>
                 <p className="body-font text-gray-700">
-                  Explore how we create the perfect atmosphere for themed parties and sports viewing events, combining premium viewing with sophisticated hospitality.
+                  Explore broadcast-style sports playback and themed screening setups with cinema-scale AV and controlled hospitality.
                 </p>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function Videos() {
                 <div className="md:w-1/2 p-8">
                   <h2 className="heading-font text-2xl font-light mb-4">Featured in Elle Magazine</h2>
                   <p className="body-font mb-6 text-gray-700">
-                    The Reel Room was recently featured in a bold and colorful wedding inspiration photoshoot with unique and creative vibes. Our venue provided the perfect backdrop for this vibrant event.
+                    The Reel Room was recently featured in an editorial photoshoot with bold, creative styling—the studio served as a cinematic backdrop for the production.
                   </p>
                   <Link
                     href="/media"
@@ -130,7 +130,7 @@ export default function Videos() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="heading-font text-3xl font-light mb-6">Ready to Experience The Reel Room?</h2>
             <p className="body-font text-gray-300 max-w-2xl mx-auto mb-8">
-              Contact us today to schedule a tour or discuss how we can bring your event vision to life.
+              Contact us today to schedule a tour or discuss your screening or production requirements.
             </p>
             <div className="flex justify-center gap-4 flex-wrap">
               <Link href="/reservations" className="inline-block bg-white text-black px-6 py-3 rounded-md transition-colors hover:bg-gray-100">

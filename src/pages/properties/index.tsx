@@ -430,7 +430,7 @@ export default function Properties() {
               "Ultimate Luxury Experience",
             ],
             priceRange: "$8,000-$11,500+ per night",
-            winterPrice: "Request for Event & Wedding Venue Whistler Pricing",
+            winterPrice: "Request for private rental & production-use Whistler pricing",
             holidayPrice: "Request for Nightly rates",
           },
           {
@@ -668,7 +668,7 @@ export default function Properties() {
               "Heli-Skiing Access",
               "Private Chef Included"
             ],
-            priceRange: "Pricing: $30,000-35,000 per event",
+            priceRange: "Pricing: $30,000-35,000 per booking",
             winterPrice: "Availability for Heli & Wellness Retreats coming soon",
             holidayPrice: "Includes 2 Night Accommodation",
           },

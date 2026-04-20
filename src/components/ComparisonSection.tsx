@@ -32,7 +32,7 @@ const ComparisonSection = () => {
       title: "Exquisite Dining",
       description: "Culinary excellence at sea",
       details:
-        "Our world-class chefs create personalized menus featuring the finest ingredients, paired with premium wines from our curated cellar. From intimate dinners to grand celebrations.",
+        "Our world-class chefs create personalized menus featuring the finest ingredients, paired with premium wines from our curated cellar. From intimate dinners to full-scale hosted dining productions.",
       icon: Utensils,
       image:
         "/photos/CHRISTINAO/6691a5a37796c8b5d1049025_christina-o-bbq-2018.jpg",

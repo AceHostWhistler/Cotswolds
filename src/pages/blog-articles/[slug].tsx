@@ -16,7 +16,7 @@ const BlogArticle = () => {
         <title>Blog Article | The Reel Room</title>
         <meta
           name="description"
-          content="Read our latest blog articles about The Reel Room venue, events, and special offerings."
+          content="Read our latest articles about The Reel Room—production and studio rental in Vancouver."
         />
       </Head>
 

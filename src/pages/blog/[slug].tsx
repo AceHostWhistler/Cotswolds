@@ -32,14 +32,14 @@ export default function BlogPost() {
   const blogPosts: Record<string, BlogPost> = {
     'dcp-movie-premieres': {
       id: 1,
-      title: "DCP and Movie Premieres at The Reel Room Private Event Space",
+      title: "DCP and Movie Premieres at The Reel Room Private Screening Studio",
       slug: "dcp-movie-premieres",
-      excerpt: "Learn about DCP (Digital Cinema Package) format and how The Reel Room can host your premium movie premiere events with professional screening capabilities.",
+      excerpt: "Learn about DCP (Digital Cinema Package) and how The Reel Room supports premium premiere screenings with professional playback.",
       image: "/photos/homepage/DSC03396-Enhanced-NR.jpg",
       content: (
         <>
           <p className="mb-5">
-            When it comes to hosting a movie premiere, the quality of your projection system matters. At The Reel Room, we understand the importance of showcasing your film in the best possible format.
+            When it comes to presenting a movie premiere, projection quality is everything. At The Reel Room, we understand the importance of showcasing your film in the best possible format.
           </p>
           
           <h3 className="heading-font text-xl font-medium mb-4">What is DCP?</h3>
@@ -53,7 +53,7 @@ export default function BlogPost() {
           
           <h3 className="heading-font text-xl font-medium mb-4">The Perfect Premiere Experience</h3>
           <p className="mb-5">
-            Hosting your film premiere at The Reel Room offers numerous advantages:
+            Booking a premiere screening at The Reel Room offers numerous advantages:
           </p>
           
           <ul className="list-disc pl-5 mb-5">
@@ -71,62 +71,62 @@ export default function BlogPost() {
           
           <h3 className="heading-font text-xl font-medium mb-4">Planning Your Premiere</h3>
           <p className="mb-5">
-            Our team works closely with filmmakers to ensure every detail of your premiere is perfect. From testing your DCP file in advance to arranging the ideal seating configuration, we handle the technical aspects so you can focus on celebrating your achievement.
+            Our team works closely with filmmakers to ensure every detail of your premiere is perfect. From testing your DCP file in advance to arranging the ideal seating configuration, we handle the technical aspects so you can focus on the work on screen.
           </p>
           
           <p className="mb-5">
-            Ready to host your film premiere at Vancouver's premiere private theatre venue? Contact us today to discuss your event requirements and book your preferred date.
+            Ready to book a premiere screening at Vancouver&apos;s private cinema facility? Contact us today to discuss technical requirements and reserve your dates.
           </p>
         </>
       )
     },
     'welcome-to-reel-room': {
       id: 2,
-      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Hottest Private Theatre Event Space!",
+      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Private Theatre Studio",
       slug: "welcome-to-reel-room",
-      excerpt: "Discover Vancouver's most exclusive private theatre venue for film screenings, corporate events, and special celebrations.",
+      excerpt: "Discover Vancouver's private cinema facility for film screenings, corporate productions, and studio rental.",
       image: "/photos/homepage/DSC03672-Enhanced-NR.jpg",
       content: (
         <>
           <p className="mb-5">
-            We're thrilled to officially introduce The Reel Room to Vancouver's vibrant event scene! As the city's premier private theatre venue, we offer a unique setting where cinematic magic meets elegant event hosting.
+            We&apos;re thrilled to introduce The Reel Room to Vancouver&apos;s production community—a private cinema built for critical viewing, corporate playback, and controlled studio rental.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">A New Kind of Event Space</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">A production-first screening room</h3>
           <p className="mb-5">
-            Located in the heart of Mount Pleasant, The Reel Room combines the immersive experience of a luxury cinema with the versatility of a premium production and studio rental space. Our space was designed with filmmakers, corporate clients, and private celebrations in mind.
+            Located in Mount Pleasant, The Reel Room pairs a luxury cinema environment with flexible studio rental. The facility is designed for filmmakers, agencies, and corporate content teams who need reliable picture, sound, and schedule discipline.
           </p>
           
           <p className="mb-5">
-            The centerpiece of our venue is a state-of-the-art theatre featuring professional-grade projection and sound systems, complemented by an elegant lounge and bar area perfect for networking, dining, and socializing.
+            The centerpiece is a state-of-the-art theatre with professional-grade projection and sound, plus a lounge and bar zone for notes, interviews, or secondary playback.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Perfect For Any Occasion</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Typical bookings</h3>
           <p className="mb-5">
-            The Reel Room is ideal for a wide range of events:
+            The Reel Room supports a focused set of rental uses:
           </p>
           
           <ul className="list-disc pl-5 mb-5">
-            <li className="mb-2">Film premieres and screenings</li>
-            <li className="mb-2">Corporate presentations and product launches</li>
-            <li className="mb-2">Private viewing parties for sports events or award shows</li>
-            <li className="mb-2">Milestone celebrations</li>
-            <li className="mb-2">Networking events</li>
-            <li className="mb-2">Brand activations and influencer events</li>
+            <li className="mb-2">Film premieres and DCP reviews</li>
+            <li className="mb-2">Corporate presentations, launches, and shareholder streams</li>
+            <li className="mb-2">Live sports and broadcast-style screenings</li>
+            <li className="mb-2">Press, influencer, or stakeholder playbacks</li>
+            <li className="mb-2">Brand activations with staged content</li>
+            <li className="mb-2">Photo or video shoots requiring a cinema set</li>
           </ul>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Customized For You</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Built around your run-of-show</h3>
           <p className="mb-5">
-            Every event at The Reel Room is tailored to your vision. Our flexible space can be configured to accommodate up to 70 guests, while our partnerships with top local caterers and beverage providers ensure a delicious culinary experience.
+            Every rental is scoped to your technical brief and timeline. The space can be configured for roughly 70 seated attendees in the theatre, with additional lounge capacity as needed. Catering partners are available when food service supports the production day.
           </p>
           
           <p className="mb-5">
-            Our dedicated team handles every detail, from technical setup to food and beverage service, creating a seamless experience for you and your guests.
+            Our team prioritizes signal path, calibration, and staffing so your crew can stay focused on the work.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Book Your Experience</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Book a tour</h3>
           <p className="mb-5">
-            Ready to host an unforgettable event? We invite you to schedule a tour of The Reel Room and discuss how we can bring your vision to life.
+            Ready to walk the room? Schedule a tour and we&apos;ll map the facility to your next screening or shoot.
           </p>
           
           <p className="mb-5">
@@ -137,32 +137,32 @@ export default function BlogPost() {
     },
     'corporate-events': {
       id: 3,
-      title: "Host Your Corporate Event at The Reel Room",
+      title: "Corporate Productions at The Reel Room",
       slug: "corporate-events",
-      excerpt: "Elevate your next corporate gathering with our premium private theatre venue offering state-of-the-art technology and sophisticated ambiance.",
+      excerpt: "Elevate your next corporate screening or presentation with our private cinema studio and broadcast-style AV.",
       image: "/photos/homepage/DSC03507-Enhanced-NR.jpg",
       content: (
         <>
           <p className="mb-5">
-            Corporate events deserve a venue that makes a lasting impression. The Reel Room provides a unique setting that combines professional presentation capabilities with an atmosphere of elegance and exclusivity.
+            Corporate storytelling deserves a picture-first room. The Reel Room combines presentation-grade AV with the impact of a true cinema environment—built for leadership keynotes, launch films, and stakeholder reviews.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Beyond Traditional Corporate Venues</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Beyond hotel ballrooms</h3>
           <p className="mb-5">
-            Step away from conventional hotel conference rooms and banquet halls. The Reel Room offers a refreshing alternative with our cinema-inspired venue that immediately engages attendees and creates a memorable experience.
+            Skip the folding screens. Our cinema layout keeps attention on your content while lounges support breakout conversations and hospitality that follows your schedule.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Perfect for Professional Presentations</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Built for professional playback</h3>
           <p className="mb-5">
-            Our venue is ideally suited for a variety of corporate functions:
+            Typical corporate rentals include:
           </p>
           
           <ul className="list-disc pl-5 mb-5">
-            <li className="mb-2">Product launches and demonstrations</li>
+            <li className="mb-2">Product launches and demo reels</li>
             <li className="mb-2">Quarterly reviews and company announcements</li>
-            <li className="mb-2">Client appreciation events</li>
-            <li className="mb-2">Training sessions and workshops</li>
-            <li className="mb-2">Team building film screenings</li>
+            <li className="mb-2">Client and partner screenings</li>
+            <li className="mb-2">Training modules and compliance playback</li>
+            <li className="mb-2">Team screenings tied to culture initiatives</li>
             <li className="mb-2">Annual meetings and investor presentations</li>
           </ul>
           
@@ -172,67 +172,67 @@ export default function BlogPost() {
           </p>
           
           <p className="mb-5">
-            Our in-house technicians can assist with setup and remain on hand throughout your event to ensure everything runs smoothly.
+            Our technicians assist with setup and stay available through your rental block to keep playback and switching on schedule.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Customized Corporate Packages</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Corporate rental packages</h3>
           <p className="mb-5">
-            We offer tailored packages designed specifically for corporate clients, including:
+            We tailor quotes around production needs, including:
           </p>
           
           <ul className="list-disc pl-5 mb-5">
-            <li className="mb-2">Half-day and full-day rental options</li>
+            <li className="mb-2">Half-day and full-day studio rental</li>
             <li className="mb-2">Catering services with breakfast, lunch, and dinner options</li>
             <li className="mb-2">Beverage service including premium coffee, tea, and refreshments</li>
-            <li className="mb-2">Cocktail reception add-ons for networking events</li>
-            <li className="mb-2">Technical support for presentations</li>
-            <li className="mb-2">Custom branding opportunities throughout the venue</li>
+            <li className="mb-2">Reception-style service in the lounge when required</li>
+            <li className="mb-2">Technical support for presentations and streaming</li>
+            <li className="mb-2">Custom branding placements approved with facilities</li>
           </ul>
           
           <p className="mb-5">
-            Contact our corporate events team today to discuss how The Reel Room can elevate your next business gathering and leave a lasting impression on your team or clients.
+            Contact our team to align The Reel Room with your next corporate screening, launch, or internal production day.
           </p>
         </>
       )
     },
     'wedding-screenings': {
       id: 4,
-      title: "Wedding Screenings & Special Celebrations",
+      title: "Private Film Screenings for Life Milestones",
       slug: "wedding-screenings",
-      excerpt: "Create unforgettable moments by showcasing your wedding videos or anniversary montages in our luxurious private cinema setting.",
+      excerpt: "Showcase wedding films, anniversary edits, and legacy media in a true private cinema—booked as studio rental, not a reception hall.",
       image: "/photos/homepage/DSC03369-Enhanced-NR.jpg",
       content: (
         <>
           <p className="mb-5">
-            Special life moments deserve special celebrations. The Reel Room offers a unique and intimate venue for screening wedding videos, anniversary montages, and other milestone celebration media in a setting that elevates the experience beyond the ordinary.
+            Long-form personal films deserve a proper screening room. The Reel Room is rented as a private cinema for playback of wedding edits, anniversary pieces, memorial films, and other milestone media—with calibrated picture and sound instead of a laptop in a banquet hall.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">A Cinematic Approach to Wedding Celebrations</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Why screen in a cinema environment</h3>
           <p className="mb-5">
-            Many couples invest significantly in wedding videography, yet often these beautiful films are only viewed casually on small screens. The Reel Room provides an opportunity to showcase your wedding film in a true cinema environment, allowing you and your loved ones to experience the magic of your special day in magnificent detail.
+            Wedding and legacy films are often finished in surround and wide colour—viewing them on small devices leaves detail on the table. Booking the theatre lets families experience the master the way your editor intended.
           </p>
           
-          <h3 className="heading-font text-xl font-medium mb-4">Perfect for Multiple Celebrations</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">Common milestone rentals</h3>
           <p className="mb-5">
-            Our venue is ideal for various special occasions:
+            Typical private screening bookings include:
           </p>
           
           <ul className="list-disc pl-5 mb-5">
-            <li className="mb-2">Post-wedding screenings for couples and their families</li>
-            <li className="mb-2">First anniversary celebrations with friends who couldn't attend the wedding</li>
-            <li className="mb-2">Milestone anniversary parties featuring a montage of memories</li>
-            <li className="mb-2">Engagement celebrations with a customized film about the couple</li>
-            <li className="mb-2">Family reunion screenings of heritage videos and photo collections</li>
-            <li className="mb-2">Memorial celebrations honoring loved ones</li>
+            <li className="mb-2">Post-production reviews of wedding films for family</li>
+            <li className="mb-2">Anniversary playback sessions for extended circles</li>
+            <li className="mb-2">Montage reviews for milestone years</li>
+            <li className="mb-2">Engagement-story or proposal films presented in-theatre</li>
+            <li className="mb-2">Heritage video nights for family archives</li>
+            <li className="mb-2">Memorial films with controlled guest lists</li>
           </ul>
           
-          <h3 className="heading-font text-xl font-medium mb-4">The Complete Experience</h3>
+          <h3 className="heading-font text-xl font-medium mb-4">How the rental is structured</h3>
           <p className="mb-5">
-            At The Reel Room, we create a comprehensive celebration experience:
+            Your booking is a studio rental with technical support:
           </p>
           
           <p className="mb-5">
-            Our intimate theatre features comfortable seating for up to 70 guests, creating the perfect environment for sharing these precious moments. The adjacent lounge area provides an elegant space for pre or post-screening gatherings, with customizable food and beverage options available to complete the experience.
+            The theatre seats up to roughly 70 for focused viewing, with a lounge for pre- or post-playback discussion. Food and beverage are optional add-ons scheduled around your approved run-of-show.
           </p>
           
           <h3 className="heading-font text-xl font-medium mb-4">Technical Excellence</h3>
@@ -241,7 +241,7 @@ export default function BlogPost() {
           </p>
           
           <p className="mb-5">
-            Contact us today to discuss how The Reel Room can help you celebrate life's special moments in a truly memorable way.
+            Contact us to book a private screening block and confirm format, runtime, and staffing for your playback day.
           </p>
         </>
       )

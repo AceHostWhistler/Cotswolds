@@ -9,7 +9,7 @@ const FAQ = () => {
     },
     {
       question: "How far in advance should I book my charter?",
-      answer: "For peak season (July-August) and special events like the Monaco Grand Prix, we recommend booking 6-12 months in advance. For other periods, 3-6 months ahead is advisable to ensure the best yacht selection and allow time for proper trip planning."
+      answer: "For peak rental periods (summer and major sports or festival weekends), we recommend booking 8–12 weeks ahead when possible. Midweek technical reviews can often be placed sooner—email info@reelroom.ca with your dates and format."
     },
     {
       question: "What are the popular destinations from Monaco?",

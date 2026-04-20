@@ -28,7 +28,7 @@ export default function Reservations() {
     <div className="min-h-screen bg-white">
       <Head>
         <title>Reservations | The Reel Room</title>
-        <meta name="description" content="Book your private theatre event at The Reel Room. Check availability and schedule a consultation to start planning your perfect event." />
+        <meta name="description" content="Book private theatre production and studio rental at The Reel Room. Check availability and schedule a consultation for your screening or shoot." />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -60,7 +60,7 @@ export default function Reservations() {
               <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Reservations</h1>
                 <p className="text-xl">
-                  Book your private theatre event at The Reel Room
+                  Book your studio rental at The Reel Room
                 </p>
               </div>
             </div>
@@ -71,9 +71,9 @@ export default function Reservations() {
         <div className="py-16 bg-gray-100 border-t border-gray-200">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Book Your Event</h2>
+              <h2 className="text-3xl font-bold mb-4">Book your rental</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Check availability and schedule a consultation to start planning your perfect event at The Reel Room.
+                Check availability and schedule a consultation to plan your screening, shoot, or corporate production at The Reel Room.
               </p>
             </div>
             
@@ -99,7 +99,7 @@ export default function Reservations() {
                   <div className="p-8 text-center">
                     <h3 className="text-xl font-semibold mb-4">Contact Us to Book</h3>
                     <p className="mb-6">
-                      Please email us with your event details and preferred dates:
+                      Please email us with your rental brief and preferred dates:
                     </p>
                     <a 
                       href="mailto:info@reelroom.ca" 

@@ -92,7 +92,7 @@ export default function Privacy() {
             <li className="mb-2">
               <strong>Communication:</strong> To respond to your inquiries,
               provide information about your bookings, and inform you about our
-              services, special offers, and events that may interest you
+              services, special offers, and updates that may interest you
             </li>
             <li className="mb-2">
               <strong>Improvement of services:</strong> To analyze how our

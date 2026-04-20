@@ -9,7 +9,7 @@ export default function DCPMoviePremieres() {
   return (
     <>
       <Head>
-        <title>DCP and Movie Premieres at The Reel Room | Private Event Space Vancouver</title>
+        <title>DCP and Movie Premieres at The Reel Room | Private Screening Studio Vancouver</title>
         <meta
           name="description"
           content="The Reel Room offers state-of-the-art DCP systems for exclusive movie screenings and premieres in Vancouver. Perfect for filmmakers and studios."
@@ -25,7 +25,7 @@ export default function DCPMoviePremieres() {
           <div className="relative h-[50vh]">
             <Image
               src="/photos/Blogs/dcp-and-movie-premieres/premier.jpg"
-              alt="The Reel Room Premier Event Space"
+              alt="The Reel Room premiere screening studio"
               fill
               priority
               style={{ objectFit: "cover" }}
@@ -36,7 +36,7 @@ export default function DCPMoviePremieres() {
                   DCP and Movie Premieres
                 </h1>
                 <p className="text-2xl text-white heading-font">
-                  at The Reel Room Private Event Space
+                  at The Reel Room private screening studio
                 </p>
               </div>
             </div>
@@ -51,10 +51,10 @@ export default function DCPMoviePremieres() {
             </div>
 
             <div className="prose prose-lg max-w-none prose-invert">
-              <h2 className="text-brand-gold heading-font">Movie Premiere Rental Space: A Cinematic Haven for Filmmakers and Studios</h2>
+              <h2 className="text-brand-gold heading-font">Premiere rental: a cinema room for filmmakers and studios</h2>
               
               <p className="text-xl leading-relaxed">
-                The Reel Room Event Space, nestled in the vibrant heart of Vancouver, is not just the best venue for private events in Vancouver, but a top-tier cinema for exclusive movie screenings as well. Whether it's showcasing unreleased films or hosting private viewings, The Reel Room offers a state-of-the-art digital cinema package (DCP) system that meets the industry's highest standards.
+                The Reel Room in Vancouver is a private cinema facility built for exclusive screenings and critical review. Whether you are presenting unreleased work or running distributor-ready DCP, our digital cinema package (DCP) path is tuned to professional standards—not a banquet retrofit.
               </p>
 
               <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
@@ -80,13 +80,13 @@ export default function DCPMoviePremieres() {
 
               <h3 className="text-white heading-font">3. Privacy and Security</h3>
               <p>
-                With an emphasis on confidentiality, The Reel Room is the perfect spot for screening unreleased movies. The venue guarantees a secure environment, allowing filmmakers and studios to present their work without concerns over leaks or unauthorized sharing.
+                With an emphasis on confidentiality, The Reel Room is suited to unreleased playback. The facility is operated as a closed rental, helping teams manage access and protect work-in-progress materials.
               </p>
 
               <h2 className="text-brand-gold heading-font">Last-Minute Accommodations</h2>
               
               <p>
-                Recognizing the challenges of securing a venue for upscale events on short notice, The Reel Room goes the extra mile to accommodate last-minute requests. This flexibility ensures that even the most urgent screening needs are met with professionalism and ease, making it a reliable choice for high-profile launches.
+                Tight delivery schedules happen. When calendar allows, we work to accommodate urgent screening requests so finishing teams can lock picture and sound without losing a day to logistics.
               </p>
 
               <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
@@ -107,13 +107,13 @@ export default function DCPMoviePremieres() {
               <h2 className="text-brand-gold heading-font">Client Testimonials</h2>
               
               <p>
-                Feedback from previous clients highlights their satisfaction with the seamless experience of hosting screenings at The Reel Room. The venue's ability to cater to the specific technical and hospitality needs of film professionals makes it a preferred choice in Vancouver.
+                Crews return because playback days stay focused on technical delivery—signal path, seating, and timing—while hospitality stays optional and secondary to the screening brief.
               </p>
 
               <h2 className="text-brand-gold heading-font">Conclusion</h2>
               
               <p>
-                For filmmakers looking for a venue to present their latest work, or for studios in need of a secure location for private screenings, The Reel Room offers unparalleled services and facilities. Its commitment to quality, flexibility, and confidentiality ensures that every screening is a success.
+                For filmmakers presenting new work—or studios that need a secure private cinema—The Reel Room offers a purpose-built screening rental with emphasis on quality, flexibility, and confidentiality.
               </p>
               
               <p>
@@ -160,7 +160,7 @@ export default function DCPMoviePremieres() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Discover Vancouver's hottest private theatre event space and what makes it special.
+                      Discover Vancouver&apos;s private theatre studio for premieres and screenings.
                     </p>
                     <Link
                       href="/blog-articles/lights-camera-action-welcome-to-reel-room"
@@ -189,7 +189,7 @@ export default function DCPMoviePremieres() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Experience Canucks hockey games like never before in our luxury private theatre venue.
+                      Canucks hockey with cinema-scale picture and sound in a private screening rental.
                     </p>
                     <Link
                       href="/blog-articles/canucks-hockey-games-at-the-reel-room"
@@ -218,7 +218,7 @@ export default function DCPMoviePremieres() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Explore our various packages and pricing options for your next event.
+                      Explore rental rates and add-ons for your next screening or production day.
                     </p>
                     <Link
                       href="/experiences"

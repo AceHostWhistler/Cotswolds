@@ -34,7 +34,7 @@ export default function BestPrivateEventVenue2025() {
         <title>The Best Private Production & Studio Rental in Vancouver 2025 | The Reel Room</title>
         <meta
           name="description"
-          content="Discover why The Reel Room is Vancouver's premier private production and studio rental for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!"
+          content="Why The Reel Room leads Vancouver private production and studio rental in 2025—DCP premieres, corporate playbacks, sports screenings, and controlled cinema bookings."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
@@ -58,7 +58,7 @@ export default function BestPrivateEventVenue2025() {
                   The Best Private Production & Studio Rental in Vancouver 2025
                 </h1>
                 <p className="text-xl md:text-2xl text-white heading-font">
-                  Where Unforgettable Moments Come to Life
+                  Built for picture, sound, and schedule—not open-door programming
                 </p>
               </div>
             </div>
@@ -74,182 +74,122 @@ export default function BestPrivateEventVenue2025() {
 
             <div className="prose prose-lg max-w-none prose-invert">
               <p className="text-xl leading-relaxed">
-                As we step into 2025, Vancouver's entertainment and event scene continues to evolve, offering increasingly sophisticated and unique experiences. Standing at the forefront of this evolution is The Reel Room—a venue that has redefined what it means to host a truly memorable event in the heart of Mount Pleasant.
+                In 2025, Vancouver productions need private rooms where DCP, colour, and surround actually translate—not rented halls with a projector bolted on. The Reel Room is a cinema facility you book by the day or session, with staff who speak frame rates, holdbacks, and run-of-show.
               </p>
 
-              <h2 className="text-brand-gold heading-font mt-8">A Venue Unlike Any Other</h2>
+              <h2 className="text-brand-gold heading-font mt-8">A screening studio, not a banquet room</h2>
               
               <p>
-                What sets The Reel Room apart from the myriad of event spaces scattered throughout Vancouver? It's the seamless blend of cinematic luxury, versatile functionality, and personalized service that creates an atmosphere where imagination knows no bounds. Whether you're planning an intimate gathering or a grand celebration, The Reel Room transforms your vision into reality with unparalleled attention to detail.
+                Mount Pleasant is full of flexible spaces, but few are tuned for critical viewing. We combine plush seating, acoustic discipline, and reference playback paths so your crew trusts what they are seeing and hearing. Rentals are closed-door: your list, your schedule, your technical notes.
               </p>
 
               <div className="my-8 relative h-96 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg" 
-                  alt="Luxury Theatre Experience at The Reel Room" 
+                  alt="Theatre screening environment at The Reel Room" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
               </div>
               
-              <h2 className="text-brand-gold heading-font">The Perfect Setting for Every Celebration</h2>
+              <h2 className="text-brand-gold heading-font">What crews book here</h2>
               
               <p>
-                The versatility of The Reel Room makes it the ideal canvas for a wide spectrum of events. Let's explore the possibilities:
+                Common 2025 bookings include:
               </p>
 
-              <h3 className="text-white font-semibold">Film Premieres & Screenings</h3>
+              <h3 className="text-white font-semibold">Premieres &amp; DCP reviews</h3>
               <p>
-                For filmmakers and cinema enthusiasts, The Reel Room offers a professional-grade screening environment with state-of-the-art digital cinema package (DCP) systems. Imagine debuting your latest creation to an audience of industry professionals, friends, and family in a setting that rivals commercial theaters but offers an intimacy that can't be found elsewhere. The acoustics, lighting, and seating are meticulously designed to create the perfect viewing experience.
+                Finish with a distributor-ready pass or a friends-and-family screening that still respects your colour pipeline. We support digital cinema workflows and laptop play-out with advance testing.
               </p>
 
               <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
-                  alt="Film Premiere Setup at The Reel Room" 
+                  alt="Premiere playback setup at The Reel Room" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
               </div>
 
-              <h3 className="text-white font-semibold">Corporate Events with Impact</h3>
+              <h3 className="text-white font-semibold">Corporate &amp; brand productions</h3>
               <p>
-                Business gatherings take on a new dimension at The Reel Room. Product launches, team-building activities, client presentations, and company celebrations all benefit from the venue's sophisticated ambiance and technical capabilities. The combination of a professional atmosphere with luxury amenities creates an environment where business and pleasure coexist harmoniously.
+                Launch films, sizzle reels, shareholder streams, and internal town halls benefit from a real cinema canvas. Connectivity, switching, and record paths are planned with your IT or production lead—not guessed on the day.
               </p>
 
-              <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
-                <Image 
-                  src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg" 
-                  alt="Corporate Event Setup at The Reel Room" 
-                  fill 
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-
-              <h3 className="text-white font-semibold">Milestone Celebrations</h3>
+              <h3 className="text-white font-semibold">Live sports &amp; broadcast-style screenings</h3>
               <p>
-                From milestone birthdays to anniversaries, bar/bat mitzvahs to retirement parties, The Reel Room provides a backdrop that elevates any celebration. The venue's flexibility allows for personalized decorations, custom lighting schemes, and tailored entertainment options that reflect the unique personality of the guest of honor.
+                When sponsors or talent need stadium energy without stadium logistics, we run live or tape feeds on the big screen with lounge redundancy for parallel program feeds.
               </p>
 
-              <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
-                <Image 
-                  src="/photos/homepage-originals/DSC03166-Enhanced-NR.jpg" 
-                  alt="Birthday Celebration at The Reel Room" 
-                  fill 
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-
-              <h3 className="text-white font-semibold">Intimate Weddings & Receptions</h3>
+              <h3 className="text-white font-semibold">Private film &amp; legacy playback</h3>
               <p>
-                For couples seeking a non-traditional wedding venue that offers both elegance and character, The Reel Room presents a compelling alternative to conventional banquet halls. The cinematic atmosphere creates a romantic backdrop for exchanging vows, while the versatile space transitions seamlessly from ceremony to reception. Our team works closely with wedding planners to ensure every detail, from lighting to sound, contributes to the couple's perfect day.
-              </p>
-
-              <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
-                <Image 
-                  src="/photos/homepage-originals/DSC03159-Enhanced-NR.jpg" 
-                  alt="Wedding Setup at The Reel Room" 
-                  fill 
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-
-              <h3 className="text-white font-semibold">Sports Viewing Parties</h3>
-              <p>
-                Experience the thrill of game day like never before! The Reel Room transforms sports viewing from a casual activity into an extraordinary event. Watch the Canucks, Whitecaps, or international tournaments on our massive screen with crystal-clear picture quality and immersive sound that makes you feel like you're right in the action. Add premium catering and a full bar service, and you've got the ultimate sports viewing party that your friends will talk about for years.
+                Wedding edits, memorial films, and anniversary masters are screened as studio rentals—calibrated playback for people who care about seeing the final grade properly.
               </p>
 
               <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg" 
-                  alt="Sports Viewing Party at The Reel Room" 
+                  alt="Sports and screening configuration at The Reel Room" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
               </div>
 
-              <h2 className="text-brand-gold heading-font mt-8">Culinary Excellence & Premium Beverages</h2>
+              <h2 className="text-brand-gold heading-font mt-8">Catering &amp; bar as production support</h2>
               
               <p>
-                No exceptional event is complete without outstanding food and drink. The Reel Room partners with Vancouver's finest caterers to offer culinary experiences that complement the sophistication of the venue. From elegant canapés to multi-course meals, the food service is tailored to match the theme and requirements of your event.
-              </p>
-
-              <p>
-                The bar service at The Reel Room is equally impressive, featuring craft cocktails, premium spirits, local wines, and a selection of beers that satisfy even the most discerning palates. Our experienced bartenders can create custom drink menus that align with your event's theme or highlight a signature cocktail for your special occasion.
+                Food and beverage are optional layers on top of your rental block—structured around load-in, playback, and strike. We coordinate with catering partners so service never fights the technical schedule.
               </p>
 
               <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
-                  alt="Premium Bar Service at The Reel Room" 
+                  alt="Lounge and bar support at The Reel Room" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
               </div>
 
-              <h2 className="text-brand-gold heading-font mt-8">State-of-the-Art Technology</h2>
+              <h2 className="text-brand-gold heading-font mt-8">Technology &amp; crew discipline</h2>
               
               <p>
-                The technical capabilities of The Reel Room set it apart from other venues in Vancouver. The advanced projection system, professional-grade sound equipment, and customizable lighting create an immersive environment that can be adapted to suit any event's mood and purpose. Whether you're showcasing a film, delivering a presentation, or creating an atmospheric backdrop for a party, the technology at The Reel Room elevates your event to extraordinary heights.
+                Projection, sound, lighting, and signal routing are maintained for screening work first. That foundation is what makes corporate, sports, or long-form playback reliable—everything else is configuration on top.
               </p>
 
-              <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
-                <Image 
-                  src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
-                  alt="Advanced Technology at The Reel Room" 
-                  fill 
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-
-              <h2 className="text-brand-gold heading-font mt-8">Personalized Service & Attention to Detail</h2>
+              <h2 className="text-brand-gold heading-font mt-8">Mount Pleasant access</h2>
               
               <p>
-                What truly distinguishes The Reel Room is the dedication of its team to providing personalized service that anticipates and exceeds expectations. From the initial consultation to the final moments of your event, our staff works tirelessly to ensure every detail is perfect. We understand that each event is unique, and we pride ourselves on our ability to adapt and customize our services to match your vision.
-              </p>
-
-              <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
-                <Image 
-                  src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
-                  alt="Personalized Service at The Reel Room" 
-                  fill 
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-
-              <h2 className="text-brand-gold heading-font mt-8">Location, Location, Location</h2>
-              
-              <p>
-                Situated in the vibrant Mount Pleasant neighborhood, The Reel Room enjoys a location that combines convenience with character. Just minutes from downtown Vancouver, the venue is easily accessible yet feels like a hidden gem. The surrounding area offers a wealth of amenities, including accommodation options for out-of-town guests, restaurants for pre or post-event dining, and parking facilities for attendees.
+                Minutes from downtown with nearby parking and hotels for out-of-town crew. Load-in routes and timing are confirmed when you book so departments know when the room is truly theirs.
               </p>
 
               <div className="my-8 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg" 
-                  alt="The Reel Room Location" 
+                  alt="The Reel Room Mount Pleasant location" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
               </div>
 
-              <h2 className="text-brand-gold heading-font mt-8">Book Your 2025 Event Now</h2>
+              <h2 className="text-brand-gold heading-font mt-8">Hold your 2025 dates early</h2>
               
               <p>
-                As Vancouver's premier private production and studio rental, The Reel Room's calendar fills quickly. To secure your preferred date for 2025, we recommend booking well in advance. Our team is ready to discuss your vision, answer your questions, and guide you through the planning process to create an event that exceeds your expectations.
+                Prime screening weekends and festival-adjacent slots move quickly. Send your technical brief, headcount, and schedule—we will return a rental quote with staffing and add-ons spelled out.
               </p>
 
               <blockquote className="border-l-4 border-brand-gold pl-4 italic text-xl my-8">
-                "The Reel Room isn't just a venue—it's a canvas where memories are painted, stories are told, and moments become unforgettable."
+                &quot;Book it like a stage: lights down, transport locked, crew quiet—everything else is just hospitality on the right cue.&quot;
               </blockquote>
 
               <div className="mt-12 bg-black p-8 rounded-lg border border-brand-gold">
-                <h3 className="text-2xl font-bold text-brand-gold mb-4 heading-font">Ready to Create Your Extraordinary Event?</h3>
-                <p className="mb-6 text-lg">Contact us today to schedule a tour of The Reel Room and begin planning your 2025 event in Vancouver's most distinctive venue.</p>
+                <h3 className="text-2xl font-bold text-brand-gold mb-4 heading-font">Ready to book your studio rental?</h3>
+                <p className="mb-6 text-lg">Tour the facility and line up technical prep for your next premiere, corporate playback, or sports screening.</p>
                 <Link 
                   href="/book-now" 
                   className="inline-block bg-black text-brand-gold px-8 py-4 rounded-md font-medium hover:bg-brand-gold/10 transition-colors border border-brand-gold text-lg"
                 >
-                  Book Your Event
+                  Book your rental
                 </Link>
               </div>
             </div>

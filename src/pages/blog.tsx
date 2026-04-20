@@ -34,35 +34,35 @@ export default function Blog() {
       id: 0,
       title: "The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024",
       slug: "/blog-articles/best-holiday-event-venues-vancouver-christmas-2024",
-      excerpt: "Host your Christmas party or holiday celebration at The Reel Room, Vancouver's most unique private theatre venue. Perfect for intimate gatherings or grand celebrations!",
+      excerpt: "Year-end studio rental at The Reel Room—holiday screenings, corporate wrap-ups, and seasonal programming in a private Vancouver cinema facility.",
       image: "/photos/homepage-originals/DSC03672-Enhanced-NR.jpg",
     },
     {
       id: 1,
       title: "The Best Private Production & Studio Rental in Vancouver 2025",
       slug: "/blog-articles/best-private-event-venue-vancouver-2025",
-      excerpt: "Discover why The Reel Room is Vancouver's premier private production and studio rental for 2025. Perfect for film screenings, parties, weddings, corporate events, and more!",
+      excerpt: "Why The Reel Room leads Vancouver private production and studio rental in 2025—premieres, DCP, shoots, and corporate playbacks.",
       image: "/photos/homepage-originals/DSC03060-Enhanced-NR.jpg",
     },
     {
       id: 2,
-      title: "DCP and Movie Premieres at The Reel Room Private Event Space",
+      title: "DCP and Movie Premieres at The Reel Room Private Screening Studio",
       slug: "/blog-articles/dcp-and-movie-premieres-at-the-reel-room",
-      excerpt: "Learn about DCP (Digital Cinema Package) format and how The Reel Room can host your premium movie premiere events with professional screening capabilities.",
+      excerpt: "Learn about DCP (Digital Cinema Package) and how The Reel Room supports premium premiere screenings with professional playback.",
       image: "/photos/homepage-originals/DSC03086-Enhanced-NR.jpg",
     },
     {
       id: 3,
-      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Hottest Private Theatre Event Space!",
+      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Private Theatre Studio",
       slug: "/blog-articles/lights-camera-action-welcome-to-reel-room",
-      excerpt: "Discover Vancouver's most exclusive private theatre venue for film screenings, corporate events, and special celebrations.",
+      excerpt: "Discover Vancouver's private cinema facility for film screenings, corporate productions, and controlled studio rentals.",
       image: "/photos/homepage-originals/DSC03138-Enhanced-NR.jpg",
     },
     {
       id: 4,
       title: "The Ultimate Canucks Game Day Experience at The Reel Room",
       slug: "/blog-articles/canucks-hockey-games-at-the-reel-room",
-      excerpt: "Experience Vancouver Canucks hockey games like never before at The Reel Room. Our luxurious private theatre venue offers the ultimate sports viewing experience.",
+      excerpt: "Canucks hockey on the big screen at The Reel Room—private theatre rental built for broadcast-style sports playback.",
       image: "/photos/homepage-originals/DSC03259-Enhanced-NR.jpg",
     }
   ];
@@ -71,7 +71,7 @@ export default function Blog() {
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
         <title>The Reel Room Blog | Vancouver's Premier Film and Media Productions</title>
-        <meta name="description" content="Read articles about The Reel Room, Vancouver's premier private theatre and event space for film screenings, corporate events, and special celebrations." />
+        <meta name="description" content="Articles about The Reel Room—Vancouver private theatre production and studio rental for premieres, screenings, and corporate productions." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>{`
           /* Force black text on blog cards */
@@ -150,7 +150,7 @@ export default function Blog() {
               <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">The Reel Room Blog</h1>
                 <p className="text-xl mb-8">
-                  Stories, insights, and updates from Vancouver's premier private theatre venue.
+                  Stories, insights, and updates from Vancouver&apos;s private theatre production and studio rental team.
                 </p>
               </div>
             </div>

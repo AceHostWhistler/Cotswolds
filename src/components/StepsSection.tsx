@@ -65,7 +65,7 @@ const StepsSection = () => {
         "Design your menu",
         "Select fine wines",
         "Choose entertainment options",
-        "Plan special occasions",
+        "Plan bespoke itinerary details",
       ],
     },
   ];

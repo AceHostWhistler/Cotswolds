@@ -20,8 +20,8 @@ const Testimonials = () => {
       {
         src: "https://randomuser.me/api/portraits/men/45.jpg",
         name: "Alessandro Romano",
-        role: "Corporate Event Planner",
-        text: "Organized a corporate retreat through Riviera Yachts. The team's expertise in planning and execution made our event a tremendous success. Highly recommended!",
+        role: "Production Coordinator",
+        text: "The team treated our screening day like a real load-in—signal checks, run-of-show, and crew communication were dialed. Playback felt as tight as a finishing suite.",
       },
     ];
 

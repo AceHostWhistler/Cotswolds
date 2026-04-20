@@ -106,10 +106,19 @@ export default function Home() {
         "closes": "01:00"
       }
     ],
-    "event": {
-      "@type": "Event",
-      "name": "Private Theatre Events",
-      "description": "Host your private film screenings, parties, and corporate events in our luxury theatre venue."
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Studio rental",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Theatre and studio rental",
+            "description": "Private cinema facility for film premieres, DCP screenings, productions, and corporate studio bookings."
+          }
+        }
+      ]
     }
   };
 
@@ -117,9 +126,9 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <SEO 
         title="Private Theatre Production & Studio Rental Vancouver"
-        description="Welcome to the Reel Room, a haven where private luxury meets the magic of cinema and events. Situated in Mount Pleasant, only minutes away from downtown Vancouver."
+        description="Welcome to the Reel Room—private theatre production and studio rental in Mount Pleasant, minutes from downtown Vancouver. Premieres, DCP screenings, shoots, and corporate productions."
         ogImage="/reel-room-logo.png"
-        keywords="private theatre, production rental, studio rental, Vancouver, film screenings, private parties, corporate events, Mount Pleasant, luxury cinema, private events"
+        keywords="private theatre, production rental, studio rental, Vancouver, film screenings, DCP, corporate productions, Mount Pleasant, luxury cinema"
         structuredData={homeStructuredData}
       />
       <Head>
@@ -333,12 +342,12 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to The Reel Room | A Unique Venue for Private Events in Vancouver</h2>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to The Reel Room | Private Theatre Production &amp; Studio Rental in Vancouver</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
-                Looking for a private event space in Vancouver? The Reel Room is the perfect place to host your next gathering. Located in Mount Pleasant, just minutes from downtown Vancouver, our venue is ideal for movie nights, cocktail parties, birthday parties, corporate events, receptions, and more.
+                The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the theatre and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, live sports broadcasts on the big screen, and other licensed production uses.
               </p>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font mt-4">
-                With a private theatre and a stylish lounge spaces, The Reel Room offers a one-of-a-kind setting for events of all kinds.
+                With a dedicated theatre and stylish lounge, we offer a controlled, professional environment built for picture, sound, and crew—not a public hall.
               </p>
             </div>
           </div>
@@ -348,7 +357,7 @@ export default function Home() {
         <div className="py-12 md:py-16 bg-gray-50">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-4">Experience The Reel Room Venue Walkthrough</h2>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-4">Experience The Reel Room Studio Walkthrough</h2>
             </div>
             
             <div className="flex justify-center">
@@ -498,9 +507,9 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">Film Premieres &amp; DCP Screenings</h3>
                   <p className="body-font text-gray-300">
-                    Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
+                    Present your film the way it was meant to be seen. Our private theatre gives filmmakers a professional screening environment for cast, crew, investors, and press—with reference-grade projection, sound, and a lounge for review sessions.
                   </p>
                 </div>
                 
@@ -511,7 +520,7 @@ export default function Home() {
                       <div className="relative w-full h-full">
                         <img 
                           src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                          alt="Sports Events Video Thumbnail"
+                          alt="Live sports screening video thumbnail"
                           className="absolute inset-0 w-full h-full object-cover opacity-60"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -575,15 +584,15 @@ export default function Home() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </div>
-                            <span className="text-white font-medium text-lg shadow-md">Play Sports Events Video</span>
+                            <span className="text-white font-medium text-lg shadow-md">Play Live Sports Screening Video</span>
                           </button>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sports — Studio & Production Rental</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">Live Sports &amp; Broadcast-Style Screenings</h3>
                   <p className="body-font text-gray-300 max-w-md">
-                    From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable options.
+                    Rent the theatre for championship-level picture and sound on the big screen—ideal for team screenings, sponsor playback, and controlled group viewings with catering and bar configured to your production.
                   </p>
                 </div>
               </div>
@@ -603,14 +612,14 @@ export default function Home() {
                         frameBorder="0" 
                         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                         style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                        title="Film Release/Launch Parties at Reel Room Vancouver"
+                        title="Film premiere and DCP screening at Reel Room Vancouver"
                         className="vimeo-player"
                       ></iframe>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">Film Release Event Parties</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">Film Premieres &amp; DCP Screenings</h3>
                   <p className="body-font text-gray-300">
-                    Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests. Complete with state-of-the-art projection and sound equipment, our space elevates any film screening to a memorable occasion.
+                    Present your film the way it was meant to be seen. Our private theatre gives filmmakers a professional screening environment for cast, crew, investors, and press—with reference-grade projection, sound, and a lounge for review sessions.
                   </p>
                 </div>
                 
@@ -623,14 +632,14 @@ export default function Home() {
                         frameBorder="0" 
                         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" 
                         style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                        title="Reel Room Events | Halloween, Sports Games"
+                        title="Reel Room studio rental | sports and themed screenings"
                         className="vimeo-player"
                       ></iframe>
                     </div>
                   </div>
-                  <h3 className="heading-font text-2xl font-light mt-8">General Parties & Sports — Studio & Production Rental</h3>
+                  <h3 className="heading-font text-2xl font-light mt-8">Live Sports &amp; Broadcast-Style Screenings</h3>
                   <p className="body-font text-gray-300">
-                    From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable lighting, sound, and catering options. Whether it's a championship game or a holiday gathering, we provide an atmosphere that can't be replicated at home.
+                    Rent the theatre for live sports and playback sessions with cinema-scale image and audio. Lighting, sound, and catering are configured around your rental block—built for teams, brands, and productions that need a private screening room, not a bar crowd.
                   </p>
                 </div>
               </div>
@@ -645,10 +654,10 @@ export default function Home() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">The Space</h2>
                 <p className="text-lg text-gray-600 mb-6 body-font">
-                  At Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
+                  Pair reference-grade picture and sound with optional catering and bar service, structured around your rental schedule—not open-door hospitality.
                 </p>
                 <p className="text-lg text-gray-600 body-font">
-                  Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
+                  We focus on technical delivery, crew comfort, and a polished environment for screenings, tapings, and client-facing reviews.
                 </p>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
@@ -664,43 +673,43 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Parties Section */}
+        {/* Premieres & reviews */}
         <div className="py-16 md:py-24 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
                 <img 
                   src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg" 
-                  alt="Reel Room Parties" 
+                  alt="Reel Room film premiere and screening rental" 
                   className="w-full h-full rounded-lg object-cover"
                   loading="eager"
                   style={{ display: 'block' }}
                 />
               </div>
               <div className="md:order-1">
-                <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Parties</h2>
+                <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Premieres &amp; crew screenings</h2>
                 <p className="text-lg text-gray-300 mb-6 body-font">
-                  Celebrate the culmination of months of hard work by watching your film come to life on the big screen with your cast, crew, and team. At Reel Room, you can share this unforgettable milestone in a private theatre designed to make your cinematic dreams shine.
+                  Finish your post pipeline with a locked cut on the big screen. The Reel Room is built for cast-and-crew playback, investor reviews, and distributor-ready DCP runs in a private, sound-treated room.
                 </p>
                 <p className="text-lg text-gray-300 body-font">
-                  Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
+                  Technical prep, holdbacks, and schedule are handled with your production in mind—this is a working screening facility first.
                 </p>
               </div>
             </div>
           </div>
         </div>
         
-        {/* Private Events Section */}
+        {/* Studio & corporate productions */}
         <div className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Private Events</h2>
+                <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Studio &amp; corporate productions</h2>
                 <p className="text-lg text-gray-600 mb-6 body-font">
-                  At Reel Room you can imagine pairing your favourite film or sports games with the finest food and drinks customizable to your preference.
+                  Book the theatre and lounge for shareholder webcasts, all-hands with picture-in-picture playback, sizzle reels, training modules, and press-screening workflows—all with broadcast-style AV support.
                 </p>
                 <p className="text-lg text-gray-600 body-font">
-                  Our mission is to elevate your private event theatre experience into an extravagant and luxurious time, while offering your friends or guests a unique and memorable 5-star experience.
+                  Layout, connectivity, and run-of-show follow your rental agreement; add-ons like catering stay secondary to the technical brief.
                 </p>
                 <div className="mt-8">
                   <Link 
@@ -714,7 +723,7 @@ export default function Home() {
               <div className="relative h-96 rounded-lg overflow-hidden">
                 <img 
                   src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
-                  alt="Reel Room Private Events" 
+                  alt="Reel Room studio and corporate production rental" 
                   className="w-full h-full rounded-lg object-cover"
                   loading="eager"
                   style={{ display: 'block' }}
@@ -724,18 +733,18 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Venue Description */}
+        {/* Capacity & use cases */}
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-lg text-gray-600 mb-8 body-font">
-                Our venue comfortably accommodates up to 85-95+ guests, complimented by a lounge & bar area with a mounted 70" TV. It is the perfect space for your private event.
+                The facility supports roughly 85–95+ people across the theatre and lounges, with a bar area and a mounted 70&quot; display for parallel playback or program feeds.
               </p>
               <p className="text-lg text-gray-600 mb-8 body-font">
-                Intimate screenings, live sports streaming, corporate bookings, PR soirées, brand and influencer showcases, or simply indulging in a unique cinematic experience with friends.
+                Typical bookings include DCP and digital premieres, colour-critical reviews, branded content playbacks, live sports and broadcast feeds, crew-facing Q&amp;As, and controlled press or influencer screenings—always as a rental, under your direction.
               </p>
               <p className="text-lg text-gray-600 mb-8 body-font">
-                Reel Room stands as the ultimate destination for those seeking an exclusive, private, and unforgettable event space experience with the bonus of having your own private movie theatre, allowing for creative event planning.
+                You get a private cinema environment with lounge support: schedule-driven, tech-forward, and intended for productions—not open public programming.
               </p>
               <div className="mt-8">
                 <Link
@@ -749,10 +758,10 @@ export default function Home() {
           </div>
         </div>
         
-        {/* What Our Event Space Offers */}
+        {/* What the studio offers */}
         <div className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-light heading-font mb-12 text-center">What our event space offers</h2>
+            <h2 className="text-3xl md:text-4xl font-light heading-font mb-12 text-center">What our studio rental includes</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Item 1 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
@@ -764,7 +773,7 @@ export default function Home() {
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font text-center">Film & Screenings</h3>
-                <p className="text-gray-600 text-center mt-2">For Your launch parties</p>
+                <p className="text-gray-600 text-center mt-2">Premieres &amp; review screenings</p>
               </div>
               
               {/* Item 2 */}
@@ -772,11 +781,11 @@ export default function Home() {
                 <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
-                    alt="Event Flexibility" 
+                    alt="Rental flexibility" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font text-center">Event Flexibility</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Rental flexibility</h3>
                 <p className="text-gray-600 text-center mt-2">Customization for your needs</p>
               </div>
               
@@ -868,9 +877,9 @@ export default function Home() {
         {/* Reserve Your Dates - Bottom CTA */}
         <div className="py-16 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Create Your Unforgettable Event?</h2>
+            <h2 className="text-3xl font-bold mb-6">Ready to book your production or studio rental?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Contact us today to check availability and start planning your perfect event at The Reel Room.
+              Contact us for hold dates, technical specs, and a rental quote tailored to your shoot or screening.
             </p>
             {!isIOS ? (
               <CalendlyPopupLink 

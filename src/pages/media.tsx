@@ -90,7 +90,7 @@ export default function Media() {
       <div className="mb-8 text-center">
         <h2 className="text-3xl font-semibold heading-font mb-4">Explore Our Space</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Browse our gallery showcasing The Reel Room's elegant interior, versatile event space, and premium amenities.
+          Browse our gallery showcasing The Reel Room&apos;s elegant interior, versatile rental layout, and premium technical amenities.
         </p>
         <p className="text-sm text-gray-500 mt-2">
           Showing {indexOfFirstImage + 1}-{Math.min(indexOfLastImage, galleryImages.length)} of {galleryImages.length} images
@@ -154,7 +154,7 @@ export default function Media() {
       <div className="mb-12 text-center">
         <h2 className="text-3xl font-semibold heading-font mb-4">Featured Videos</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          See Reel Room in action through our featured video content showcasing various events and experiences.
+          See Reel Room in action through featured videos of screenings, sports playback, and studio configurations.
         </p>
       </div>
       
@@ -231,9 +231,9 @@ export default function Media() {
             </button>
           </div>
           <div className="video-info">
-            <h3 className="video-title">Film Release Event Parties</h3>
+            <h3 className="video-title">Film premieres &amp; DCP screenings</h3>
             <p className="video-description">
-              Experience the elegance of Reel Room's film premiere events. Our venue provides filmmakers with a sophisticated setting to showcase their work to cast, crew, investors, and special guests.
+              Reference-grade playback for filmmakers presenting work to cast, crew, investors, and press in a private cinema environment.
             </p>
           </div>
         </div>
@@ -297,7 +297,7 @@ export default function Media() {
             >
               <img 
                 src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                alt="Sports Events Video Thumbnail"
+                alt="Live sports screening video thumbnail"
                 className="video-thumbnail"
               />
               <div className="video-play-overlay">
@@ -310,9 +310,9 @@ export default function Media() {
             </button>
           </div>
           <div className="video-info">
-            <h3 className="video-title">General Parties & Sports — Studio & Production Rental</h3>
+            <h3 className="video-title">Live sports &amp; broadcast-style screenings</h3>
             <p className="video-description">
-              From themed celebrations to sports viewing parties, Reel Room transforms any occasion into an extraordinary experience. Our versatile space accommodates various events with customizable options.
+              Rent the theatre for championship-level sports playback and branded watch-alongs—AV-first, with hospitality scoped to your rental.
             </p>
           </div>
         </div>
@@ -328,37 +328,37 @@ export default function Media() {
       },
       {
         question: "What is the capacity of The Reel Room?",
-        answer: "Our venue comfortably accommodates anywhere between 5 and 150+ guests. The theatre comfortably sits between 40 and 44 guests, while the lounge which offers the bar area offers a mounted 70\" TV and speakers, which can hold about 60+ people confortably. There is an additional floor with elevator or stair access, that can hold 40+ people, where past groups often set up a bartender here for larger bookings."
+        answer: "The facility comfortably accommodates roughly 5 to 150+ attendees depending on layout. The theatre seats about 40–44, the lounge with bar and a 70\" display holds about 60+, and an additional floor (elevator or stairs) can hold 40+—often used for secondary bar service on larger rentals."
       },
       {
         question: "Do you provide parking?",
         answer: "While we don't have our own parking lot, there is ample street parking and several paid parking lots within a short walking distance."
       },
       {
-        question: "Is the venue wheelchair accessible?",
+        question: "Is the facility wheelchair accessible?",
         answer: "Yes you can enter through the main door which offers access via stair case or via elevator!"
       },
       {
         question: "What are your operating hours?",
-        answer: "The Reel Room is available for bookings 7 days a week. Our standard event times are between 10am and 12am, but we can accommodate special requests outside these hours."
+        answer: "The Reel Room is available for bookings 7 days a week. Standard rental windows are between 10am and 12am, with extensions possible by arrangement."
       }
     ],
     booking: [
       {
-        question: "How far in advance should I book my event?",
-        answer: "We recommend booking at least 4-6 weeks in advance for weekend events and 2-4 weeks for weekday events to ensure availability."
+        question: "How far in advance should I book my rental?",
+        answer: "We recommend booking at least 4–6 weeks in advance for peak weekend slots and 2–4 weeks for weekdays to secure technical prep time."
       },
       {
         question: "What is your cancellation policy?",
-        answer: "Cancellations made 14 days or more before the event date will receive a full refund of the deposit. Cancellations made less than 14 days before will forfeit the deposit."
+        answer: "Cancellations made 14 days or more before the rental date will receive a full refund of the deposit. Cancellations made less than 14 days before will forfeit the deposit."
       },
       {
         question: "Can I visit the space before booking?",
-        answer: "Yes! We encourage potential clients to schedule a tour of our venue. Please contact us at info@reelroom.ca to arrange a viewing."
+        answer: "Yes! We encourage potential clients to schedule a tour of the studio. Please contact us at info@reelroom.ca to arrange a viewing."
       },
       {
         question: "Is a deposit required to secure a booking?",
-        answer: "Yes, a 50% deposit is required to secure your reservation. The remaining balance is due 7 days before your event."
+        answer: "Yes, a 50% deposit is required to secure your reservation. The remaining balance is due 7 days before your rental."
       }
     ],
     services: [
@@ -376,7 +376,7 @@ export default function Media() {
       },
       {
         question: "Can I bring my own decoration?",
-        answer: "Yes, you are welcome to bring your own decorations. Please note that they must be easily removable and not cause any damage to the venue."
+        answer: "Yes, you are welcome to bring your own set dressing. It must be easily removable and must not damage the facility."
       }
     ],
     technical: [
@@ -386,11 +386,11 @@ export default function Media() {
       },
       {
         question: "Can I connect my laptop or device to your system?",
-        answer: "Yes, our system supports HDMI, DisplayPort, and wireless connections for most devices. We can assist with setup and testing prior to your event."
+        answer: "Yes, our system supports HDMI, DisplayPort, and wireless connections for most devices. We can assist with setup and testing prior to your rental block."
       },
       {
         question: "Do you offer live streaming capabilities?",
-        answer: "Yes, we can set up professional live streaming for your event to platforms like YouTube, Vimeo, Facebook, and others."
+        answer: "Yes, we can set up professional live streaming for your production to platforms like YouTube, Vimeo, Facebook, and others."
       },
       {
         question: "What is the quality of your projection system?",

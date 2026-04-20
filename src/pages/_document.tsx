@@ -184,7 +184,7 @@ export default function Document() {
               "@type": "WebSite",
               "url": "https://reelroom.ca/",
               "name": "The Reel Room Vancouver",
-              "description": "Private theatre production and studio rental in Vancouver, BC. Book for film screenings, private parties, corporate events, and more.",
+              "description": "Private theatre production and studio rental in Vancouver, BC. Film premieres, DCP screenings, shoots, and corporate productions.",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": "https://reelroom.ca/blog?search={search_term_string}",
@@ -202,6 +202,7 @@ export default function Document() {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "The Reel Room",
+              "description": "Private theatre production and studio rental in Vancouver for premieres, DCP screenings, corporate productions, and broadcast-style sports playback.",
               "image": "https://reelroom.ca/reel-room-logo.png",
               "url": "https://reelroom.ca",
               "telephone": "",

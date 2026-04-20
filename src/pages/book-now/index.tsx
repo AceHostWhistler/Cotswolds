@@ -42,7 +42,7 @@ export default function BookNow() {
         <title>Book Now | Reel Room</title>
         <meta
           name="description"
-          content="Book Reel Room for your next event. Our private theatre venue in Vancouver is perfect for film screenings, corporate events, and private parties."
+          content="Book The Reel Room for production and studio rental in Vancouver—premieres, DCP screenings, shoots, and corporate productions."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -87,7 +87,7 @@ export default function BookNow() {
                   Book Now
                 </h1>
                 <p className="text-xl text-white">
-                  Create unforgettable memories at Reel Room, Vancouver's premier private theatre venue.
+                  Book Vancouver&apos;s private cinema facility for your next screening or production.
                 </p>
               </div>
             </div>
@@ -109,8 +109,8 @@ export default function BookNow() {
                     <li>Email address</li>
                     <li>Phone number</li>
                     <li>Preferred date and start time</li>
-                    <li>Number of guests</li>
-                    <li>Type of event you're planning</li>
+                    <li>Expected headcount</li>
+                    <li>Type of rental or production (e.g. premiere, corporate playback, shoot)</li>
                     <li>Any special requirements or questions</li>
                   </ul>
                   <p className="text-gray-700 font-medium">
@@ -135,20 +135,20 @@ export default function BookNow() {
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h3 className="text-xl font-bold mb-4 text-gray-800">Booking Process</h3>
                     <p className="text-gray-700">
-                      1. Email us with your event details<br/>
+                      1. Email us with your rental brief and schedule<br/>
                       2. Our team will confirm availability<br/>
-                      3. We'll discuss your specific needs and requirements<br/>
+                      3. We&apos;ll align technical and staffing needs<br/>
                       4. Receive a detailed quote<br/>
                       5. Confirm your booking with a deposit<br/>
-                      6. Enjoy your event at Reel Room!
+                      6. Load in for your screening or production at Reel Room
                     </p>
                   </div>
                   
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <h3 className="text-xl font-bold mb-4 text-gray-800">Venue Information</h3>
+                    <h3 className="text-xl font-bold mb-4 text-gray-800">Facility information</h3>
                     <p className="text-gray-700">
                       <strong>Location:</strong> Mount Pleasant, Vancouver<br/>
-                      <strong>Capacity:</strong> 5-120+ guests<br/>
+                      <strong>Capacity:</strong> 5–120+ attendees (layout-dependent)<br/>
                       <strong>Amenities:</strong> Premium theatre, lounge & bar area, state-of-the-art AV system<br/>
                       <strong>Services:</strong> Customizable food and beverage options available
                     </p>
@@ -157,7 +157,7 @@ export default function BookNow() {
               </div>
             </div>
             
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Our Event Options</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Rental options</h2>
             
             <div className="space-y-8 mb-12">
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -171,7 +171,7 @@ export default function BookNow() {
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-3">Film Screenings & Premieres</h3>
                   <p className="text-gray-600 mb-6">
-                    Perfect for DCP film releases, premieres, and private screenings. Showcase your work on our high-quality projection system with premium sound. Create a memorable experience for your cast, crew, and special guests in our sophisticated venue.
+                    Perfect for DCP film releases, premieres, and private screenings. Showcase your work on our high-quality projection system with premium sound for cast, crew, investors, and press in a purpose-built screening room.
                   </p>
                 </div>
               </div>
@@ -180,14 +180,14 @@ export default function BookNow() {
                 <div className="relative h-64">
                   <img
                     src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
-                    alt="Private Parties"
+                    alt="Live sports screening rental"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3">Private Parties & Sports Events</h3>
+                  <h3 className="text-2xl font-bold mb-3">Live sports &amp; broadcast-style screenings</h3>
                   <p className="text-gray-600 mb-6">
-                    Host an unforgettable party or sports viewing event with customizable food and drink options in our luxurious private theatre venue. Whether it's a birthday celebration, anniversary, or watching the big game, Reel Room provides an exclusive experience.
+                    Rent the theatre for live or recorded sports playback with cinema-scale image and audio. Catering and bar follow your run-of-show for teams, sponsors, or controlled guest lists.
                   </p>
                 </div>
               </div>
@@ -196,14 +196,14 @@ export default function BookNow() {
                 <div className="relative h-64">
                   <img
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg"
-                    alt="Corporate Events"
+                    alt="Corporate studio rental"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3">Corporate Events</h3>
+                  <h3 className="text-2xl font-bold mb-3">Corporate productions</h3>
                   <p className="text-gray-600 mb-6">
-                    Impress clients and colleagues with presentations, team building events, and product launches in our sophisticated venue with state-of-the-art AV capabilities. Our professional setting provides the perfect backdrop for your business needs.
+                    Presentations, shareholder streams, launch films, and internal screenings in a cinema-calibre room with professional AV paths and on-site coordination.
                   </p>
                 </div>
               </div>
@@ -247,9 +247,9 @@ export default function BookNow() {
             </div>
             
             <div className="bg-black text-white rounded-lg shadow-md p-6 text-center">
-              <h3 className="text-2xl font-bold mb-4">Ready to Book Your Event?</h3>
+              <h3 className="text-2xl font-bold mb-4">Ready to book your rental?</h3>
               <p className="text-lg mb-6">
-                Contact us today to check availability and start planning your unforgettable experience at Reel Room.
+                Contact us today for availability and a quote tailored to your screening or production.
               </p>
               {!isIOS ? (
                 <CalendlyPopupLink 

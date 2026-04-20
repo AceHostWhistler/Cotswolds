@@ -12,7 +12,7 @@ export default function Contact() {
     <div className="min-h-screen bg-white flex items-center justify-center">
       <Head>
         <title>Contact Us | The Reel Room</title>
-        <meta name="description" content="Get in touch with The Reel Room team in Vancouver, BC. Contact us for event inquiries, tours, or any questions about our venue." />
+        <meta name="description" content="Get in touch with The Reel Room team in Vancouver, BC. Contact us for production and studio rental inquiries, tours, or technical questions." />
       </Head>
       
       <div className="text-center p-8">
