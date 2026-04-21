@@ -100,7 +100,7 @@ export default function ReelRoomNavigation() {
               onClick={handleNavLinkClick}
               className={`heading-font text-sm uppercase tracking-widest text-white hover:text-brand-gold transition-colors ${router.pathname === '/experiences' ? 'text-brand-gold' : ''}`}
             >
-              Experiences & Pricing
+              Studio Use &amp; Pricing
             </Link>
             <Link 
               href="/media" 
@@ -156,7 +156,7 @@ export default function ReelRoomNavigation() {
             onClick={handleNavLinkClick}
             className={`block px-3 py-2 text-base font-medium text-white hover:text-brand-gold transition-colors ${router.pathname === '/experiences' ? 'text-brand-gold' : ''}`}
           >
-            Experiences & Pricing
+            Studio Use &amp; Pricing
           </Link>
           <Link 
             href="/media"

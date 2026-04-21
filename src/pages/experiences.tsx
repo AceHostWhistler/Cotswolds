@@ -35,7 +35,7 @@ export default function Experiences() {
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
-        <title>Experiences & Pricing | The Reel Room</title>
+        <title>Studio Use &amp; Pricing | The Reel Room</title>
         <meta name="description" content="Production and studio rental rates at The Reel Room—film premieres, DCP screenings, shoots, and corporate productions in Vancouver." />
         {/* Add iOS-specific meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
@@ -64,7 +64,7 @@ export default function Experiences() {
             />
             <img
               src="/photos/originals/homepage/DSC03081-Enhanced-NR.jpg"
-              alt="The Reel Room Experiences"
+              alt="The Reel Room studio use and pricing"
               className="absolute inset-0 w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"
@@ -75,7 +75,7 @@ export default function Experiences() {
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Experiences & Pricing</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4">Studio Use &amp; Pricing</h1>
                 <p className="text-xl mb-8">
                   Customize your studio rental at The Reel Room for screenings, shoots, and productions.
                 </p>
@@ -102,33 +102,18 @@ export default function Experiences() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div className="max-w-xl mx-auto mb-8">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h4 className="text-lg font-bold mb-3">Additional Hours</h4>
+                  <h4 className="text-lg font-bold mb-3">Additional hours</h4>
                   <p className="text-gray-600 mb-2">Need more time in the facility?</p>
                   <p className="text-xl font-semibold text-brand-gold">$500/hour</p>
                 </div>
-                
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h4 className="text-lg font-bold mb-3">Food & Beverage</h4>
-                  <p className="text-gray-600">Food and beverage service is an additional cost. We'll connect you with our catering partners once your date is reserved.</p>
-                </div>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm mb-8">
-                <h4 className="text-lg font-bold mb-3">Catering Suggestions</h4>
-                <p className="text-gray-600 mb-4">
-                  We suggest hors d'oeuvres/small bites, cocktails, & refreshments to pair with your rental block. Once the studio is reserved for your requested date, we will put you in touch with our catering partners for menu development and next steps.
-                </p>
-                <p className="text-gray-600">
-                  Depending on your production, we can sell drink tickets in advance for attendees, run a cash bar, or consolidate bar billing—we align service with your run-of-show and rental agreement.
-                </p>
               </div>
               
               <div className="text-center">
                 {!isIOS ? (
                   <CalendlyPopupLink 
-                    text="Reserve Your Date"
+                    text="Request a Booking"
                     className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
                   />
                 ) : (
@@ -136,176 +121,9 @@ export default function Experiences() {
                     href="/book-now"
                     className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
                   >
-                    Reserve Your Date
+                    Request a Booking
                   </Link>
                 )}
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Promotions Section */}
-        <div className="py-8 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              {/* Weekday Evening Rates Promotion */}
-              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-blue-200 transform scale-90 mx-auto">
-                <div className="text-center mb-4">
-                  <h2 className="text-2xl font-bold text-blue-600">Weekday Evening Rates!</h2>
-                  <div className="flex justify-center my-3">
-                    <div className="h-1 w-12 bg-blue-400 rounded"></div>
-                  </div>
-                  <p className="text-lg text-gray-700">
-                    Enjoy <span className="text-xl font-bold text-blue-600">25% OFF</span> for weekday evening bookings!
-                  </p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">Base rental fee:</span>
-                    <span className="text-gray-700">$2,100</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-blue-700 font-medium">Weekday Evening Discount (25%):</span>
-                    <span className="text-blue-700 font-medium">-$525</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700">Discounted rental fee:</span>
-                    <span className="text-gray-700">$1,575</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ On-site coordinator:</span>
-                    <span className="text-gray-700">$255</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Cleaning Fee:</span>
-                    <span className="text-gray-700">$300</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700 font-medium">Subtotal:</span>
-                    <span className="text-gray-700 font-medium">$2,130</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ 5% Tax:</span>
-                    <span className="text-gray-700">$106.50</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
-                    <span className="text-blue-700 font-bold">Final Price:</span>
-                    <span className="text-blue-700 font-bold">$2,236.50</span>
-                  </div>
-                </div>
-                
-              <div className="text-center">
-                <p className="text-xs text-gray-500">Valid Monday-Thursday evenings. Cannot be combined with other promotions.</p>
-                <p className="text-xs text-gray-500 mt-2 font-medium">Kindly double-check the rate with us before booking New Year's Eve, World Cup dates, or December weekdays, as prices may be higher during these special dates.</p>
-              </div>
-              </div>
-              
-              {/* Weekend Lunch Rates */}
-              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-green-200 transform scale-90 mx-auto">
-                <div className="text-center mb-4">
-                  <h2 className="text-2xl font-bold text-green-600">Weekend Lunch Rates!</h2>
-                  <div className="flex justify-center my-3">
-                    <div className="h-1 w-12 bg-green-400 rounded"></div>
-                  </div>
-                  <p className="text-lg text-gray-700">
-                    Enjoy <span className="text-xl font-bold text-green-600">25% OFF</span> for weekend lunch bookings!
-                  </p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">Base rental fee:</span>
-                    <span className="text-gray-700">$2,100</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-green-700 font-medium">Weekend Lunch Discount (25%):</span>
-                    <span className="text-green-700 font-medium">-$525</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700">Discounted rental fee:</span>
-                    <span className="text-gray-700">$1,575</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ On-site coordinator:</span>
-                    <span className="text-gray-700">$255</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Cleaning Fee:</span>
-                    <span className="text-gray-700">$300</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700 font-medium">Subtotal:</span>
-                    <span className="text-gray-700 font-medium">$2,130</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ 5% Tax:</span>
-                    <span className="text-gray-700">$106.50</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
-                    <span className="text-green-700 font-bold">Final Price:</span>
-                    <span className="text-green-700 font-bold">$2,236.50</span>
-                  </div>
-                </div>
-                
-              <div className="text-center">
-                <p className="text-xs text-gray-500">Valid Friday-Sunday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
-                <p className="text-xs text-gray-500 mt-2 font-medium">Kindly double-check the rate with us before booking New Year's Eve, World Cup dates, or December weekdays, as prices may be higher during these special dates.</p>
-              </div>
-              </div>
-              
-              {/* Weekday Lunch Rates */}
-              <div className="bg-white p-6 rounded-xl shadow-md border-2 border-purple-200 transform scale-90 mx-auto">
-                <div className="text-center mb-4">
-                  <h2 className="text-2xl font-bold text-purple-600">Weekday Lunch Rates!</h2>
-                  <div className="flex justify-center my-3">
-                    <div className="h-1 w-12 bg-purple-400 rounded"></div>
-                  </div>
-                  <p className="text-lg text-gray-700">
-                    Enjoy <span className="text-xl font-bold text-purple-600">45% OFF</span> for weekday lunch bookings!
-                  </p>
-                </div>
-                
-                <div className="bg-white p-4 rounded-lg mb-4 text-sm border border-gray-200">
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">Base rental fee:</span>
-                    <span className="text-gray-700">$2,100</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-purple-700 font-medium">Weekday Lunch Discount (45%):</span>
-                    <span className="text-purple-700 font-medium">-$945</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700">Discounted rental fee:</span>
-                    <span className="text-gray-700">$1,155</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ On-site coordinator:</span>
-                    <span className="text-gray-700">$255</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ Cleaning Fee:</span>
-                    <span className="text-gray-700">$300</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1 pt-1 border-t border-gray-200">
-                    <span className="text-gray-700 font-medium">Subtotal:</span>
-                    <span className="text-gray-700 font-medium">$1,710</span>
-                  </div>
-                  <div className="flex justify-between items-center mb-1">
-                    <span className="text-gray-700">+ 5% Tax:</span>
-                    <span className="text-gray-700">$85.50</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-1 border-t border-gray-200">
-                    <span className="text-purple-700 font-bold">Final Price:</span>
-                    <span className="text-purple-700 font-bold">$1,795.50</span>
-                  </div>
-                </div>
-                
-              <div className="text-center">
-                <p className="text-xs text-gray-500">Valid Monday-Thursday, bookings ending before 4:00 PM. Cannot be combined with other promotions.</p>
-                <p className="text-xs text-gray-500 mt-2 font-medium">Kindly double-check the rate with us before booking New Year's Eve, World Cup dates, or December weekdays, as prices may be higher during these special dates.</p>
-              </div>
               </div>
             </div>
           </div>
@@ -329,7 +147,7 @@ export default function Experiences() {
                   </div>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
                     <li>Private screen room tuned for critical viewing</li>
-                    <li>Optional catering and bar tied to your schedule</li>
+                    <li>Optional lounge hospitality tied to your technical schedule</li>
                     <li>Capacity up to roughly 85–95+ across the screen room and lounges</li>
                     <li>High-quality projection and sound</li>
                     <li>Lounge for notes, interviews, or secondary playback</li>
@@ -385,7 +203,7 @@ export default function Experiences() {
                     <li>Cinema-scale playback for file-based and live-signal reviews</li>
                     <li>Secondary lounge feed for producers or clients</li>
                     <li>Optional graphics or stingers (client-supplied)</li>
-                    <li>Catering and bar scoped to the rental</li>
+                    <li>Production support and hospitality scoped to the rental</li>
                     <li>Full facility buyout available</li>
                   </ul>
                   {!isIOS ? (
@@ -454,71 +272,22 @@ export default function Experiences() {
         {/* Additional Options */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Additional Options</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">Additional options</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Food Options */}
-              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
-                  <SimpleImage
-                    src="/photos/homepage-originals/DSC03070-Enhanced-NR.jpg"
-                    alt="Food Options"
-                    className="w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Catering Services</h3>
-                <p className="text-gray-600 mb-4">
-                  Enhance your rental with premium catering, featuring customizable menus to suit your preferences and dietary requirements.
-                </p>
-                <p className="font-semibold text-gray-800">Prices starting from $25 per person</p>
-              </div>
-              
-              {/* Drink Options */}
-              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
-                  <SimpleImage
-                    src="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
-                    alt="Bar Services"
-                    className="w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Bar Services</h3>
-                <p className="text-gray-600 mb-4">
-                  Including bartenders, drinks, and glassware rentals. Drinks can be purchased as a cash bar and split amongst attendees for your private rental booking.
-                </p>
-                <p className="font-semibold text-gray-800">Typically $1,400-$3,500 depending on consumption</p>
-              </div>
-              
-              {/* AV Options */}
+            <div className="max-w-md mx-auto">
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
                 <div className="h-48 mb-6 rounded overflow-hidden">
                   <SimpleImage
                     src="/photos/homepage-originals/DSC03106-Enhanced-NR.jpg"
-                    alt="DCP Audio-Visual Options"
+                    alt="DCP audio-visual options"
                     className="w-full h-full"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-3">DCP Audio-Visual Enhancements</h3>
+                <h3 className="text-xl font-bold mb-3">DCP audio-visual enhancements</h3>
                 <p className="text-gray-600 mb-4">
-                  Take advantage of our state-of-the-art audio-visual system, with options for specialized lighting, sound, and projection enhancements.
+                  Take advantage of our reference audio-visual system, with options for specialized lighting, sound, and projection add-ons for your technical brief.
                 </p>
                 <p className="font-semibold text-gray-800">$100 per hour</p>
-              </div>
-              
-              {/* Photo Booth */}
-              <div className="bg-gray-50 p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
-                  <SimpleImage
-                    src="/photos/homepage-originals/DSC03104-Enhanced-NR.jpg"
-                    alt="Photo Booth"
-                    className="w-full h-full"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-3">Photo Booth</h3>
-                <p className="text-gray-600 mb-4">
-                  Add a photo booth capture station to your rental. Includes professional equipment, staff assistance, and printed photos for attendees.
-                </p>
-                <p className="font-semibold text-gray-800">$1,000 for 4 hours</p>
               </div>
             </div>
           </div>
@@ -587,22 +356,6 @@ export default function Experiences() {
               </div>
             </div>
             
-            {/* Food and Drinks Collage */}
-            <div className="mt-16 mb-8">
-              <h3 className="text-2xl font-bold mb-8 text-center">Food & Drinks Options</h3>
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <SimpleImage 
-                  src="/photos/catering/food-drinks-collage.png" 
-                  alt="Food and Drinks Collage" 
-                  className="w-full h-auto"
-                  loading="eager"
-                  fallbackSrc="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
-                />
-              </div>
-              <p className="text-center mt-6 text-gray-600 max-w-3xl mx-auto">
-                Explore our premium catering and bar services featuring gourmet appetizers, craft cocktails, and customizable food options for your rental.
-              </p>
-            </div>
           </div>
         </div>
         
@@ -617,7 +370,7 @@ export default function Experiences() {
             <div className="flex justify-center gap-4 flex-wrap">
               {!isIOS ? (
                 <CalendlyPopupLink 
-                  text="Make a Reservation"
+                  text="Request a Booking"
                   className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
                 />
               ) : (
@@ -625,7 +378,7 @@ export default function Experiences() {
                   href="/book-now"
                   className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
                 >
-                  Make a Reservation
+                  Request a Booking
                 </Link>
               )}
               <Link
@@ -647,7 +400,7 @@ export default function Experiences() {
             </p>
             {!isIOS ? (
               <CalendlyPopupLink 
-                text="Reserve Your Dates"
+                text="Request a Booking"
                 className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
               />
             ) : (
@@ -655,7 +408,7 @@ export default function Experiences() {
                 href="/book-now" 
                 className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
               >
-                Reserve Your Dates
+                Request a Booking
               </Link>
             )}
           </div>

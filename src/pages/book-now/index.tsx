@@ -119,12 +119,12 @@ export default function BookNow() {
                   <div className="mt-6 text-center">
                     {!isIOS ? (
                       <CalendlyPopupLink 
-                        text="Reserve Your Date" 
+                        text="Request a Booking" 
                         className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
                       />
                     ) : (
                       <CalendlyPopupLink 
-                        text="Reserve Your Date" 
+                        text="Request a Booking" 
                         className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
                       />
                     )}
@@ -150,7 +150,7 @@ export default function BookNow() {
                       <strong>Location:</strong> Mount Pleasant, Vancouver<br/>
                       <strong>Capacity:</strong> 5–120+ attendees (layout-dependent)<br/>
                       <strong>Amenities:</strong> Premium screen room, lounge & bar area, state-of-the-art AV system<br/>
-                      <strong>Services:</strong> Customizable food and beverage options available
+                      <strong>Services:</strong> On-site coordination, technical support, and add-ons per your production brief
                     </p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function BookNow() {
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-3">Production studio events: reference playback</h3>
                   <p className="text-gray-600 mb-6">
-                    Rent the screen room for client reviews, QC passes, and finishing playbacks with cinema-scale image and audio. Catering and bar follow your run-of-show for crew and approved attendees.
+                    Rent the screen room for client reviews, QC passes, and finishing playbacks with cinema-scale image and audio. Hospitality is scoped to your run-of-show for crew and approved attendees.
                   </p>
                 </div>
               </div>
@@ -253,12 +253,12 @@ export default function BookNow() {
               </p>
               {!isIOS ? (
                 <CalendlyPopupLink 
-                  text="Reserve Your Date" 
+                  text="Request a Booking" 
                   className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
                 />
               ) : (
                 <CalendlyPopupLink 
-                  text="Reserve Your Date" 
+                  text="Request a Booking" 
                   className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
                 />
               )}

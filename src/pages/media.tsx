@@ -323,6 +323,10 @@ export default function Media() {
   const faqSections: FaqSections = {
     general: [
       {
+        question: "What does \"private-use studio\" mean at The Reel Room?",
+        answer: "The Reel Room is offered as a private-use screening and production studio, not a public venue, nightclub, or open party space. Bookings are for professional and technical work—screenings, reviews, shoots, and corporate content playback—under a rental agreement, with access and run-of-show controlled by the production and facility staff."
+      },
+      {
         question: "Where is The Reel Room located?",
         answer: "The Reel Room is located in the Mount Pleasant neighborhood of Vancouver, BC, just minutes away from downtown."
       },
@@ -362,14 +366,6 @@ export default function Media() {
       }
     ],
     services: [
-      {
-        question: "Can you accommodate my own catering?",
-        answer: "While we have preferred catering partners, we can discuss accommodating outside catering for special dietary needs or cultural preferences."
-      },
-      {
-        question: "Do you provide alcohol service?",
-        answer: "Yes, we offer a full bar service with a selection of premium spirits, wines, beers, and custom cocktails. We have the appropriate licenses and trained staff."
-      },
       {
         question: "What audio-visual equipment is available?",
         answer: "We provide state-of-the-art projection, sound systems, microphones, and lighting. Our technical team can help set up and manage any special AV requirements."

@@ -37,7 +37,7 @@ const ReelRoomFooter: React.FC = () => {
               </li>
               <li>
                 <Link href="/experiences" className="body-font text-gray-400 hover:text-brand-gold transition-colors block py-3 sm:py-2">
-                  Experiences & Pricing
+                  Studio Use &amp; Pricing
                 </Link>
               </li>
               <li>
@@ -99,6 +99,9 @@ const ReelRoomFooter: React.FC = () => {
         
         {/* Bottom copyright bar - Adding safe area padding for mobile */}
         <div className="pt-6 border-t border-gray-800 text-center" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 1rem)' }}>
+          <p className="body-font text-gray-500 text-xs sm:text-sm max-w-3xl mx-auto mb-4 px-2">
+            The Reel Room is a private-use screening and production studio. Rentals are for professional and technical work—screenings, reviews, shoots, and corporate content playback—and are not offered as a public event venue, nightclub, or open party space.
+          </p>
           <p className="body-font text-gray-500 text-xs sm:text-sm">
             &copy; {new Date().getFullYear()} Reel Room. All rights reserved.
           </p>

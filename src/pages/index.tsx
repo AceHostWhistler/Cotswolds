@@ -163,7 +163,7 @@ export default function Home() {
             <Link href="/experiences" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
               <span className="absolute inset-0 bg-gradient-to-r from-brand-gold/0 via-brand-gold/10 to-brand-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-              <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">EXPERIENCES & PRICING</span>
+              <span className="relative z-10 group-hover:text-brand-gold transition-colors duration-300">STUDIO USE &amp; PRICING</span>
             </Link>
             <Link href="/book-now" className="heading-font uppercase tracking-widest text-sm font-light relative overflow-hidden group bg-black/50 backdrop-blur-sm px-4 sm:px-8 py-3 transition-all shadow-lg text-center">
               <span className="absolute inset-0 border border-brand-gold transform transition-transform duration-300 group-hover:scale-95"></span>
@@ -709,14 +709,14 @@ export default function Home() {
                   Book the screen room and lounge for shareholder webcasts, all-hands with picture-in-picture playback, sizzle reels, training modules, and press-screening workflows—all with broadcast-style AV support.
                 </p>
                 <p className="text-lg text-gray-600 body-font">
-                  Layout, connectivity, and run-of-show follow your rental agreement; add-ons like catering stay secondary to the technical brief.
+                  Layout, connectivity, and run-of-show follow your rental agreement; add-ons stay secondary to the technical brief.
                 </p>
                 <div className="mt-8">
                   <Link 
                     href="/experiences" 
                     className="inline-block border border-brand-gold bg-black text-brand-gold px-8 py-3 uppercase tracking-widest text-sm font-light hover:bg-brand-gold/10 transition-colors"
                   >
-                    View Experiences
+                    View studio use &amp; pricing
                   </Link>
                 </div>
               </div>
@@ -807,12 +807,12 @@ export default function Home() {
                 <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
-                    alt="Catering Services" 
+                    alt="Lounge for production use" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font text-center">Catering Services</h3>
-                <p className="text-gray-600 text-center mt-2">Customizable food options</p>
+                <h3 className="text-xl font-medium heading-font text-center">Lounge (production use)</h3>
+                <p className="text-gray-600 text-center mt-2">Notes, review sessions, scheduled breaks</p>
               </div>
               
               {/* Item 5 */}
@@ -820,12 +820,12 @@ export default function Home() {
                 <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
-                    alt="Bar Services" 
+                    alt="On-site production support" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font text-center">Bar Services</h3>
-                <p className="text-gray-600 text-center mt-2">Premium drink selections</p>
+                <h3 className="text-xl font-medium heading-font text-center">On-site coordination</h3>
+                <p className="text-gray-600 text-center mt-2">Staffing aligned with your run-of-show</p>
               </div>
               
               {/* Item 6 */}
@@ -845,7 +845,7 @@ export default function Home() {
             {/* Quick Links */}
             <div className="mt-16 flex flex-wrap justify-center gap-8 uppercase tracking-widest text-sm font-light">
               <Link href="/experiences" className="heading-font hover:text-brand-gold transition-colors">
-                experiences & pricing
+                studio use &amp; pricing
               </Link>
               <Link href="/media" className="heading-font hover:text-brand-gold transition-colors">
                 media & faqs
@@ -862,7 +862,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap justify-center gap-8 uppercase tracking-widest text-sm font-light">
               <Link href="/experiences" className="heading-font hover:text-brand-gold transition-colors">
-                experiences & pricing
+                studio use &amp; pricing
               </Link>
               <Link href="/media" className="heading-font hover:text-brand-gold transition-colors">
                 media & faqs
@@ -883,7 +883,7 @@ export default function Home() {
             </p>
             {!isIOS ? (
               <CalendlyPopupLink 
-                text="Reserve Your Dates"
+                text="Request a Booking"
                 className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
               />
             ) : (
@@ -891,7 +891,7 @@ export default function Home() {
                 href="/book-now" 
                 className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
               >
-                Reserve Your Dates
+                Request a Booking
               </Link>
             )}
           </div>
