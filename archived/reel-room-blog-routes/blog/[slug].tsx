@@ -44,7 +44,7 @@ export default function BlogPost() {
           
           <h3 className="heading-font text-xl font-medium mb-4">What is DCP?</h3>
           <p className="mb-5">
-            DCP (Digital Cinema Package) is the standard format used in professional movie theaters worldwide. It provides the highest quality digital projection with superior color accuracy, contrast, and resolution compared to consumer formats like MP4 or MOV.
+            DCP (Digital Cinema Package) is the standard format used in professional commercial cinemas worldwide. It provides the highest quality digital projection with superior color accuracy, contrast, and resolution compared to consumer formats like MP4 or MOV.
           </p>
           
           <p className="mb-5">
@@ -58,7 +58,7 @@ export default function BlogPost() {
           
           <ul className="list-disc pl-5 mb-5">
             <li className="mb-2">Professional-grade DCP projection capabilities</li>
-            <li className="mb-2">Intimate theatre setting with comfortable seating for up to 70 guests</li>
+            <li className="mb-2">Intimate screen room setting with comfortable seating for up to 70 guests</li>
             <li className="mb-2">Premium sound system for immersive audio experience</li>
             <li className="mb-2">Elegant lounge area for pre and post-screening mingling</li>
             <li className="mb-2">Customizable food and beverage options</li>
@@ -82,7 +82,7 @@ export default function BlogPost() {
     },
     'welcome-to-reel-room': {
       id: 2,
-      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Private Theatre Studio",
+      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Private screen room Studio",
       slug: "welcome-to-reel-room",
       excerpt: "Discover Vancouver's private cinema facility for film screenings, corporate productions, and studio rental.",
       image: "/photos/homepage/DSC03672-Enhanced-NR.jpg",
@@ -98,7 +98,7 @@ export default function BlogPost() {
           </p>
           
           <p className="mb-5">
-            The centerpiece is a state-of-the-art theatre with professional-grade projection and sound, plus a lounge and bar zone for notes, interviews, or secondary playback.
+            The centerpiece is a state-of-the-art screen room with professional-grade projection and sound, plus a lounge and bar zone for notes, interviews, or secondary playback.
           </p>
           
           <h3 className="heading-font text-xl font-medium mb-4">Typical bookings</h3>
@@ -117,7 +117,7 @@ export default function BlogPost() {
           
           <h3 className="heading-font text-xl font-medium mb-4">Built around your run-of-show</h3>
           <p className="mb-5">
-            Every rental is scoped to your technical brief and timeline. The space can be configured for roughly 70 seated attendees in the theatre, with additional lounge capacity as needed. Catering partners are available when food service supports the production day.
+            Every rental is scoped to your technical brief and timeline. The space can be configured for roughly 70 seated attendees in the screen room, with additional lounge capacity as needed. Catering partners are available when food service supports the production day.
           </p>
           
           <p className="mb-5">
@@ -209,7 +209,7 @@ export default function BlogPost() {
           
           <h3 className="heading-font text-xl font-medium mb-4">Why screen in a cinema environment</h3>
           <p className="mb-5">
-            Personal and legacy films are often finished in surround and wide colour—viewing them on small devices leaves detail on the table. Booking the theatre lets viewers experience the master the way your editor intended.
+            Personal and legacy films are often finished in surround and wide colour—viewing them on small devices leaves detail on the table. Booking the screen room lets viewers experience the master the way your editor intended.
           </p>
           
           <h3 className="heading-font text-xl font-medium mb-4">Common closed playback rentals</h3>
@@ -232,7 +232,7 @@ export default function BlogPost() {
           </p>
           
           <p className="mb-5">
-            The theatre seats up to roughly 70 for focused viewing, with a lounge for pre- or post-playback discussion. Food and beverage are optional add-ons scheduled around your approved run-of-show.
+            The screen room seats up to roughly 70 for focused viewing, with a lounge for pre- or post-playback discussion. Food and beverage are optional add-ons scheduled around your approved run-of-show.
           </p>
           
           <h3 className="heading-font text-xl font-medium mb-4">Technical Excellence</h3>

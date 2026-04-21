@@ -50,11 +50,6 @@ const ReelRoomFooter: React.FC = () => {
                   Media & FAQs
                 </Link>
               </li>
-              <li>
-                <Link href="/blog" className="body-font text-gray-400 hover:text-brand-gold transition-colors block py-3 sm:py-2">
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
           

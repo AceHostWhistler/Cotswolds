@@ -312,7 +312,7 @@ export default function Media() {
           <div className="video-info">
             <h3 className="video-title">Production studio events: reference playback</h3>
             <p className="video-description">
-              Rent the theatre for client reviews and finishing playbacks—AV-first, with hospitality scoped to your rental block.
+              Rent the screen room for client reviews and finishing playbacks—AV-first, with hospitality scoped to your rental block.
             </p>
           </div>
         </div>
@@ -328,7 +328,7 @@ export default function Media() {
       },
       {
         question: "What is the capacity of The Reel Room?",
-        answer: "The facility comfortably accommodates roughly 5 to 150+ attendees depending on layout. The theatre seats about 40–44, the lounge with bar and a 70\" display holds about 60+, and an additional floor (elevator or stairs) can hold 40+—often used for secondary bar service on larger rentals."
+        answer: "The facility comfortably accommodates roughly 5 to 150+ attendees depending on layout. The screen room seats about 40–44, the lounge with bar and a 70\" display holds about 60+, and an additional floor (elevator or stairs) can hold 40+—often used for secondary bar service on larger rentals."
       },
       {
         question: "Do you provide parking?",

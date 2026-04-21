@@ -86,7 +86,7 @@ export default function BestPrivateEventVenue2025() {
               <div className="my-8 relative h-96 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg" 
-                  alt="Theatre screening environment at The Reel Room" 
+                  alt="Screen room screening environment at The Reel Room" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
@@ -119,7 +119,7 @@ export default function BestPrivateEventVenue2025() {
 
               <h3 className="text-white font-semibold">Production studio events: reference playback</h3>
               <p>
-                Book the theatre for client approvals, finishing reviews, and QC passes on a true cinema canvas—with lounge redundancy when producers need a parallel feed.
+                Book the screen room for client approvals, finishing reviews, and QC passes on a true cinema canvas—with lounge redundancy when producers need a parallel feed.
               </p>
 
               <h3 className="text-white font-semibold">Private film &amp; legacy playback</h3>

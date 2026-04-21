@@ -328,9 +328,9 @@ export default function Experiences() {
                     <p className="text-gray-800 italic">DCP available upon request.</p>
                   </div>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Private theatre tuned for critical viewing</li>
+                    <li>Private screen room tuned for critical viewing</li>
                     <li>Optional catering and bar tied to your schedule</li>
-                    <li>Capacity up to roughly 85–95+ across theatre and lounges</li>
+                    <li>Capacity up to roughly 85–95+ across the screen room and lounges</li>
                     <li>High-quality projection and sound</li>
                     <li>Lounge for notes, interviews, or secondary playback</li>
                   </ul>
@@ -382,7 +382,7 @@ export default function Experiences() {
                     Rent the room for colour-critical reviews, client approvals, and finishing playbacks where picture and sound have to read true. Service style follows your technical brief—not a preset social package.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Theatrical playback for file-based and live-signal reviews</li>
+                    <li>Cinema-scale playback for file-based and live-signal reviews</li>
                     <li>Secondary lounge feed for producers or clients</li>
                     <li>Optional graphics or stingers (client-supplied)</li>
                     <li>Catering and bar scoped to the rental</li>
@@ -411,7 +411,7 @@ export default function Experiences() {
                 <div className="order-2 md:order-1">
                   <h3 className="text-2xl font-bold mb-4">Corporate &amp; brand productions</h3>
                   <p className="text-gray-600 mb-6">
-                    The Reel Room functions as a presentation theatre and content stage: investor streams, launch films, sizzle reels, internal town halls with playback, and press screenings with controlled access.
+                    The Reel Room functions as a presentation screen room and content stage: investor streams, launch films, sizzle reels, internal town halls with playback, and press screenings with controlled access.
                   </p>
                   <ul className="list-disc list-inside text-gray-600 mb-6">
                     <li>Executive presentations with cinema-scale picture</li>

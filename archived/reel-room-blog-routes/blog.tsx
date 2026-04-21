@@ -53,7 +53,7 @@ export default function Blog() {
     },
     {
       id: 3,
-      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Private Theatre Studio",
+      title: "Lights, Camera, Action! Welcome to Reel Room: Vancouver's Private screen room Studio",
       slug: "/blog-articles/lights-camera-action-welcome-to-reel-room",
       excerpt: "Discover Vancouver's private cinema facility for film screenings, corporate productions, and controlled studio rentals.",
       image: "/photos/homepage-originals/DSC03138-Enhanced-NR.jpg",
@@ -62,7 +62,7 @@ export default function Blog() {
       id: 4,
       title: "Cinema-Scale Client Playback at The Reel Room",
       slug: "/blog-articles/cinema-scale-client-playback-at-the-reel-room",
-      excerpt: "Private theatre rental for reference reviews, client playbacks, and technical sign-offs with cinema-scale picture and sound.",
+      excerpt: "Private screen room rental for reference reviews, client playbacks, and technical sign-offs with cinema-scale picture and sound.",
       image: "/photos/homepage-originals/DSC03259-Enhanced-NR.jpg",
     }
   ];
@@ -71,7 +71,7 @@ export default function Blog() {
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
         <title>The Reel Room Blog | Vancouver's Premier Film and Media Productions</title>
-        <meta name="description" content="Articles about The Reel Room—Vancouver private theatre production and studio rental for premieres, screenings, and corporate productions." />
+        <meta name="description" content="Articles about The Reel Room—Vancouver private screen room production and studio rental for premieres, screenings, and corporate productions." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>{`
           /* Force black text on blog cards */
@@ -150,7 +150,7 @@ export default function Blog() {
               <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">The Reel Room Blog</h1>
                 <p className="text-xl mb-8">
-                  Stories, insights, and updates from Vancouver&apos;s private theatre production and studio rental team.
+                  Stories, insights, and updates from Vancouver&apos;s private screen room production and studio rental team.
                 </p>
               </div>
             </div>

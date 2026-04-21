@@ -60,7 +60,7 @@ export default function DCPMoviePremieres() {
               <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
                   src="/photos/Blogs/dcp-and-movie-premieres/screening.jpg" 
-                  alt="Reel Room Theatre Setup" 
+                  alt="Reel Room Setup" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
@@ -70,7 +70,7 @@ export default function DCPMoviePremieres() {
               
               <h3 className="text-white heading-font">1. Advanced Technology</h3>
               <p>
-                The Reel Room is equipped with cutting-edge projection technology, ensuring that every frame of your movie is displayed with crystal-clear quality. The theater supports various formats, including DCP, ensuring compatibility with the latest industry standards for film screenings.
+                The Reel Room is equipped with cutting-edge projection technology, ensuring that every frame of your movie is displayed with crystal-clear quality. The screen room supports various formats, including DCP, ensuring compatibility with the latest industry standards for film screenings.
               </p>
 
               <h3 className="text-white heading-font">2. Tailored Viewing Experience</h3>
@@ -98,10 +98,10 @@ export default function DCPMoviePremieres() {
                 />
               </div>
               
-              <h2 className="text-brand-gold heading-font">Theatre Specifications</h2>
+              <h2 className="text-brand-gold heading-font">Screen room specifications</h2>
               
               <p>
-                The theatre boasts a seating capacity of over 85-95+, plush seating arrangements, and an ambiance that exudes both comfort and sophistication. Coupled with its high-quality sound systems and large, vivid screens, it offers an immersive viewing experience that is both intimate and impressive.
+                The screen room boasts a seating capacity of over 85-95+, plush seating arrangements, and an ambiance that exudes both comfort and sophistication. Coupled with its high-quality sound systems and large, vivid screens, it offers an immersive viewing experience that is both intimate and impressive.
               </p>
 
               <h2 className="text-brand-gold heading-font">Client Testimonials</h2>
@@ -147,7 +147,7 @@ export default function DCPMoviePremieres() {
                     <div className="relative h-48">
                       <Image
                         src="/photos/Blogs/lights-camera-action/cinema.jpg"
-                        alt="Reel Room Theatre"
+                        alt="Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
                       />
@@ -160,7 +160,7 @@ export default function DCPMoviePremieres() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Discover Vancouver&apos;s private theatre studio for premieres and screenings.
+                      Discover Vancouver&apos;s private screen room studio for premieres and screenings.
                     </p>
                     <Link
                       href="/blog-articles/lights-camera-action-welcome-to-reel-room"
@@ -175,7 +175,7 @@ export default function DCPMoviePremieres() {
                   <Link href="/blog-articles/cinema-scale-client-playback-at-the-reel-room">
                     <div className="relative h-48">
                       <Image
-                        src="/photos/Blogs/canucks-hockey-games/theatre.jpg"
+                        src="/photos/Blogs/canucks-hockey-games/screen-room.jpg"
                         alt="Cinema-scale client playback at Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
@@ -205,7 +205,7 @@ export default function DCPMoviePremieres() {
                     <div className="relative h-48">
                       <Image
                         src="/photos/homepage/DSC03507-Enhanced-NR.jpg"
-                        alt="Theatre Experience at Reel Room"
+                        alt="Screen room experience at Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
                       />

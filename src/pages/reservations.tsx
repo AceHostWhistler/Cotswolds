@@ -28,7 +28,7 @@ export default function Reservations() {
     <div className="min-h-screen bg-white">
       <Head>
         <title>Reservations | The Reel Room</title>
-        <meta name="description" content="Book private theatre production and studio rental at The Reel Room. Check availability and schedule a consultation for your screening or shoot." />
+        <meta name="description" content="Book private screen room production and studio rental at The Reel Room. Check availability and schedule a consultation for your screening or shoot." />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

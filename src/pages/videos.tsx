@@ -22,7 +22,7 @@ export default function Videos() {
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
       <Head>
         <title>The Reel Room Videos | Vancouver's Premier Film and Media Productions</title>
-        <meta name="description" content="Featured videos of The Reel Room—private theatre production and studio rental in Vancouver for premieres, screenings, and corporate productions." />
+        <meta name="description" content="Featured videos of The Reel Room—private screen room production and studio rental in Vancouver for premieres, screenings, and corporate productions." />
       </Head>
       
       <ReelRoomNavigation />

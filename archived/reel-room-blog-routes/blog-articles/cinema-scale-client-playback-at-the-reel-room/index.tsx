@@ -23,8 +23,8 @@ export default function CinemaScaleClientPlayback() {
         <main className="pt-20">
           <div className="relative h-[50vh]">
             <Image
-              src="/photos/Blogs/canucks-hockey-games/theatre.jpg"
-              alt="The Reel Room theatre for client playback and studio rental"
+              src="/photos/Blogs/canucks-hockey-games/screen-room.jpg"
+              alt="The Reel Room screen room for client playback and studio rental"
               fill
               priority
               style={{ objectFit: "cover" }}
@@ -35,7 +35,7 @@ export default function CinemaScaleClientPlayback() {
                   Cinema-Scale Client Playback
                 </h1>
                 <p className="text-2xl text-white heading-font">
-                  Private theatre rental for reference reviews and studio sign-offs
+                  Private screen room rental for reference reviews and studio sign-offs
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function CinemaScaleClientPlayback() {
                 When approvals depend on what people see and hear, a conference-room TV is not enough. The Reel Room is a private cinema you rent for colour-critical reviews, client playbacks, and technical sign-offs—big screen, surround sound, and a schedule you own from load-in to strike.
               </p>
 
-              <h2 className="text-brand-gold heading-font">Reference playback on a theatrical canvas</h2>
+              <h2 className="text-brand-gold heading-font">Reference playback on a cinema-style canvas</h2>
 
               <p>
                 Your masters land on a 25-foot Severtson matte white woven fabric screen with crisp 4K presentation and a Dolby CP750 digital cinema processor feeding 7.1 surround. That combination is built for crews who need to trust shadow detail, dialogue intelligibility, and dynamics—not guess from a laptop feed.
@@ -61,8 +61,8 @@ export default function CinemaScaleClientPlayback() {
 
               <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image
-                  src="/photos/Blogs/canucks-hockey-games/theatre.jpg"
-                  alt="Theatre seating for studio playback"
+                  src="/photos/Blogs/canucks-hockey-games/screen-room.jpg"
+                  alt="The screen room seating for studio playback"
                   fill
                   style={{ objectFit: "cover" }}
                 />
@@ -71,7 +71,7 @@ export default function CinemaScaleClientPlayback() {
               <h2 className="text-brand-gold heading-font">Dual-room layout for production days</h2>
 
               <p>
-                The theatre seats 40+ for primary picture, while combined lounges support roughly 85–95+ people across the facility. A 70-inch display in the lounge can mirror program feeds or carry parallel reference so producers and clients can step out for notes without losing sync with the main pass.
+                The screen room seats 40+ for primary picture, while combined lounges support roughly 85–95+ people across the facility. A 70-inch display in the lounge can mirror program feeds or carry parallel reference so producers and clients can step out for notes without losing sync with the main pass.
               </p>
 
               <p>
@@ -127,7 +127,7 @@ export default function CinemaScaleClientPlayback() {
                     <div className="relative h-48">
                       <Image
                         src="/photos/Blogs/lights-camera-action/cinema.jpg"
-                        alt="Reel Room Theatre"
+                        alt="Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
                       />
@@ -140,7 +140,7 @@ export default function CinemaScaleClientPlayback() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Discover Vancouver&apos;s private theatre studio for screenings and productions.
+                      Discover Vancouver&apos;s private screen room studio for screenings and productions.
                     </p>
                     <Link
                       href="/blog-articles/lights-camera-action-welcome-to-reel-room"

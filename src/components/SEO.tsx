@@ -18,7 +18,7 @@ const SEO: React.FC<SEOProps> = ({
   canonical,
   ogImage = '/reel-room-logo.png',
   ogType = 'website',
-  keywords = 'private theatre, production rental, studio rental, Vancouver, film screenings, DCP, corporate productions, Mount Pleasant',
+  keywords = 'private screen room, production rental, studio rental, Vancouver, film screenings, DCP, corporate productions, Mount Pleasant',
   noindex = false,
   structuredData,
 }) => {

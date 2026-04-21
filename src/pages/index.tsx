@@ -87,7 +87,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Reel Room",
-    "description": "Private theatre production and studio rental in Vancouver",
+    "description": "Private screen room production and studio rental in Vancouver",
     "image": "/reel-room-logo.png",
     "url": "https://reelroom.ca",
     "priceRange": "$$$",
@@ -114,7 +114,7 @@ export default function Home() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Theatre and studio rental",
+            "name": "Screen room and studio rental",
             "description": "Private cinema facility for film premieres, DCP screenings, productions, and corporate studio bookings."
           }
         }
@@ -125,10 +125,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <SEO 
-        title="Private Theatre Production & Studio Rental Vancouver"
-        description="Welcome to the Reel Room—private theatre production and studio rental in Mount Pleasant, minutes from downtown Vancouver. Premieres, DCP screenings, shoots, and corporate productions."
+        title="Private Screen Room Production & Studio Rental Vancouver"
+        description="Welcome to the Reel Room—private screen room production and studio rental in Mount Pleasant, minutes from downtown Vancouver. Premieres, DCP screenings, shoots, and corporate productions."
         ogImage="/reel-room-logo.png"
-        keywords="private theatre, production rental, studio rental, Vancouver, film screenings, DCP, corporate productions, Mount Pleasant, luxury cinema"
+        keywords="private screen room, production rental, studio rental, Vancouver, film screenings, DCP, corporate productions, Mount Pleasant, luxury cinema"
         structuredData={homeStructuredData}
       />
       <Head>
@@ -319,7 +319,7 @@ export default function Home() {
                 </p>
                 
                 <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase">
-                  PRIVATE THEATRE
+                  PRIVATE SCREEN ROOM
                 </h1>
                 <h1 className="heading-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase leading-tight">
                   PRODUCTION & STUDIO RENTAL
@@ -342,12 +342,12 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to The Reel Room | Private Theatre Production &amp; Studio Rental in Vancouver</h2>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to The Reel Room | Private Screen Room Production &amp; Studio Rental in Vancouver</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
-                The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the theatre and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, reference playback and client reviews, and other licensed production uses.
+                The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the screen room and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, reference playback and client reviews, and other licensed production uses.
               </p>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font mt-4">
-                With a dedicated theatre and stylish lounge, we offer a controlled, professional environment built for picture, sound, and crew—not a public hall.
+                With a dedicated screen room and stylish lounge, we offer a controlled, professional environment built for picture, sound, and crew—not a public hall.
               </p>
             </div>
           </div>
@@ -509,7 +509,7 @@ export default function Home() {
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">Film Premieres &amp; DCP Screenings</h3>
                   <p className="body-font text-gray-300">
-                    Present your film the way it was meant to be seen. Our private theatre gives filmmakers a professional screening environment for cast, crew, investors, and press—with reference-grade projection, sound, and a lounge for review sessions.
+                    Present your film the way it was meant to be seen. Our private screen room gives filmmakers a professional screening environment for cast, crew, investors, and press—with reference-grade projection, sound, and a lounge for review sessions.
                   </p>
                 </div>
                 
@@ -592,7 +592,7 @@ export default function Home() {
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">Production studio events: reference playback</h3>
                   <p className="body-font text-gray-300 max-w-md">
-                    Rent the theatre for colour-critical reviews, client sign-offs, and alternate-cut playback with cinema-scale picture and sound—catering and bar follow your technical schedule.
+                    Rent the screen room for colour-critical reviews, client sign-offs, and alternate-cut playback with cinema-scale picture and sound—catering and bar follow your technical schedule.
                   </p>
                 </div>
               </div>
@@ -619,7 +619,7 @@ export default function Home() {
                   </div>
                   <h3 className="heading-font text-2xl font-light mt-8">Film Premieres &amp; DCP Screenings</h3>
                   <p className="body-font text-gray-300">
-                    Present your film the way it was meant to be seen. Our private theatre gives filmmakers a professional screening environment for cast, crew, investors, and press—with reference-grade projection, sound, and a lounge for review sessions.
+                    Present your film the way it was meant to be seen. Our private screen room gives filmmakers a professional screening environment for cast, crew, investors, and press—with reference-grade projection, sound, and a lounge for review sessions.
                   </p>
                 </div>
                 
@@ -706,7 +706,7 @@ export default function Home() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Studio &amp; corporate productions</h2>
                 <p className="text-lg text-gray-600 mb-6 body-font">
-                  Book the theatre and lounge for shareholder webcasts, all-hands with picture-in-picture playback, sizzle reels, training modules, and press-screening workflows—all with broadcast-style AV support.
+                  Book the screen room and lounge for shareholder webcasts, all-hands with picture-in-picture playback, sizzle reels, training modules, and press-screening workflows—all with broadcast-style AV support.
                 </p>
                 <p className="text-lg text-gray-600 body-font">
                   Layout, connectivity, and run-of-show follow your rental agreement; add-ons like catering stay secondary to the technical brief.
@@ -738,7 +738,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <p className="text-lg text-gray-600 mb-8 body-font">
-                The facility supports roughly 85–95+ people across the theatre and lounges, with a bar area and a mounted 70&quot; display for parallel playback or program feeds.
+                The facility supports roughly 85–95+ people across the screen room and lounges, with a bar area and a mounted 70&quot; display for parallel playback or program feeds.
               </p>
               <p className="text-lg text-gray-600 mb-8 body-font">
                 Typical bookings include DCP and digital premieres, colour-critical reviews, branded content playbacks, line-cut and approval sessions, crew-facing Q&amp;As, and controlled press screenings—always as a rental, under your direction.
@@ -794,11 +794,11 @@ export default function Home() {
                 <div className="h-48 mb-4 overflow-hidden rounded">
                   <img 
                     src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
-                    alt="Upscale theatre experience" 
+                    alt="Upscale screen room experience" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-medium heading-font text-center">Upscale Theatre Experience</h3>
+                <h3 className="text-xl font-medium heading-font text-center">Upscale Screen Room Experience</h3>
                 <p className="text-gray-600 text-center mt-2">Premium comfort and quality</p>
               </div>
               

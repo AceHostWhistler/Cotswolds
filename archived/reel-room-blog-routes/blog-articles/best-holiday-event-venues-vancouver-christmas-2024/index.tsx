@@ -10,12 +10,12 @@ export default function BestHolidayEventVenues2024() {
   return (
     <>
       <Head>
-        <title>The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024 | Private Theatre</title>
+        <title>The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024 | Private screen room</title>
         <meta
           name="description"
           content="Year-end studio rental at The Reel Room—holiday screenings, corporate wrap-ups, and seasonal programming in a private Vancouver cinema facility."
         />
-        <meta name="keywords" content="The Reel Room Vancouver, holiday studio rental, year-end screening Vancouver, private theatre, Mount Pleasant production space, corporate year-end playback Vancouver, private production studio rental Vancouver" />
+        <meta name="keywords" content="The Reel Room Vancouver, holiday studio rental, year-end screening Vancouver, private screen room, Mount Pleasant production space, corporate year-end playback Vancouver, private production studio rental Vancouver" />
         <link rel="canonical" href="https://reelroom.ca/blog-articles/best-holiday-event-venues-vancouver-christmas-2024" />
         <meta property="og:title" content="The Reel Room: Vancouver's Premier Holiday Production & Studio Rental for Christmas 2024" />
         <meta property="og:description" content="Year-end studio rental at The Reel Room—holiday screenings and corporate wrap-ups in a private Vancouver cinema facility." />
@@ -71,14 +71,14 @@ export default function BestHolidayEventVenues2024() {
                 </div>
 
                 <p className="mb-6">
-                  The Reel Room is not a banquet retrofit—it is a private theatre with lounge support, tuned for seasonal content playback, year-in-review reels, and client-facing screenings where picture and sound carry the night.
+                  The Reel Room is not a banquet retrofit—it is a private screen room with lounge support, tuned for seasonal content playback, year-in-review reels, and client-facing screenings where picture and sound carry the night.
                 </p>
 
                 <div className="bg-gray-50 p-6 rounded-lg mb-8">
                   <h3 className="text-xl font-semibold mb-4 text-black">✨ What makes holiday rentals work here:</h3>
                   <ul className="list-disc pl-6 space-y-2">
-                    <li><strong>Flexible capacity:</strong> Roughly 20–40 in the theatre for focused screenings, or combined layouts up to 95+ across the facility</li>
-                    <li><strong>Private Theatre:</strong> Screen holiday classics, company videos, or create custom holiday content</li>
+                    <li><strong>Flexible capacity:</strong> Roughly 20–40 in the screen room for focused screenings, or combined layouts up to 95+ across the facility</li>
+                    <li><strong>Private screen room:</strong> Screen holiday classics, company videos, or create custom holiday content</li>
                     <li><strong>Elegant Lounge Areas:</strong> Production studio events—crew debriefs and client review blocks—scheduled around your rental</li>
                     <li><strong>State-of-the-Art Technology:</strong> Professional sound and projection systems</li>
                     <li><strong>Customizable Lighting:</strong> Create the perfect holiday ambiance</li>
@@ -93,7 +93,7 @@ export default function BestHolidayEventVenues2024() {
                 <div className="my-8">
                   <Image
                     src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
-                    alt="The Reel Room - Vancouver private theatre studio"
+                    alt="The Reel Room - Vancouver private screen room studio"
                     width={800}
                     height={500}
                     className="rounded-lg shadow-lg"
@@ -110,21 +110,21 @@ export default function BestHolidayEventVenues2024() {
                 <div className="bg-gray-50 p-6 rounded-lg mb-8">
                   <h3 className="text-2xl font-semibold mb-4 text-black">🥂 New Year's Eve Countdown Spectacular</h3>
                   <p className="mb-4">
-                    Ring in the New Year with a studio rental: theatre countdown feed, parallel lounge program, and hospitality scoped to your run-of-show—private, controlled, and AV-led instead of a public venue night.
+                    Ring in the New Year with a studio rental: on-screen countdown feed, parallel lounge program, and hospitality scoped to your run-of-show—private, controlled, and AV-led instead of a public venue night.
                   </p>
                 </div>
 
                 <div className="bg-brand-gold bg-opacity-10 p-6 rounded-lg mb-8">
                   <h3 className="text-2xl font-semibold mb-4 text-black">🎄 Corporate year-end screening</h3>
                   <p className="mb-4">
-                    Thank your team with a playback-first rental: leadership notes in the theatre, year-in-review masters on the big screen, then lounge catering timed after the technical portion. Structured like a production day, not an open social reception.
+                    Thank your team with a playback-first rental: leadership notes in the screen room, year-in-review masters on the big screen, then lounge catering timed after the technical portion. Structured like a production day, not an open social reception.
                   </p>
                 </div>
 
                 <div className="bg-gray-50 p-6 rounded-lg mb-8">
                   <h3 className="text-2xl font-semibold mb-4 text-black">🎁 Holiday product launch or client appreciation screening</h3>
                   <p className="mb-4">
-                    Present year-end results, sizzle reels, or SKU stories on the big screen, then move to the lounge for a controlled hospitality block. The room stays a presentation theatre first, with networking staged around your approved schedule.
+                    Present year-end results, sizzle reels, or SKU stories on the big screen, then move to the lounge for a controlled hospitality block. The room stays a presentation screen room first, with networking staged around your approved schedule.
                   </p>
                 </div>
 
@@ -146,12 +146,12 @@ export default function BestHolidayEventVenues2024() {
 
                 <h3 className="text-xl font-semibold mb-4">Focused screenings (20–40 attendees)</h3>
                 <p className="mb-6">
-                  The theatre seats 40+ for critical viewing—perfect for leadership reels, client appreciation playbacks, family masters, and holiday film nights booked as private rentals.
+                  The screen room seats 40+ for critical viewing—perfect for leadership reels, client appreciation playbacks, family masters, and holiday film nights booked as private rentals.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-4">Mid-size rentals (40–80 attendees)</h3>
                 <p className="mb-6">
-                  Combine theatre and lounge for mid-size corporate screenings with parallel program feeds, sponsor loops, or secondary audio zones while keeping the main screen authoritative.
+                  Combine the screen room and lounge for mid-size corporate screenings with parallel program feeds, sponsor loops, or secondary audio zones while keeping the main screen authoritative.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-4">Full-facility buyouts (80–95+ attendees)</h3>
@@ -164,7 +164,7 @@ export default function BestHolidayEventVenues2024() {
                 <div className="my-8">
                   <Image
                     src="/photos/homepage-originals/DSC03138-Enhanced-NR.jpg"
-                    alt="The Reel Room's unique theatre setup"
+                    alt="The Reel Room's unique screen room setup"
                     width={800}
                     height={500}
                     className="rounded-lg shadow-lg"
@@ -172,11 +172,11 @@ export default function BestHolidayEventVenues2024() {
                 </div>
 
                 <p className="mb-6">
-                  What sets holiday rentals apart here is private theatre playback: classics, year-in-review masters, slideshows, or custom stingers on a professional projection stack—something conventional rental halls rarely duplicate accurately.
+                  What sets holiday rentals apart here is private screen room playback: classics, year-in-review masters, slideshows, or custom stingers on a professional projection stack—something conventional rental halls rarely duplicate accurately.
                 </p>
 
                 <p className="mb-6">
-                  Lounges complement the theatre for notes, dining, and secondary feeds—transitioning from presentation to playback blocks inside one rental agreement.
+                  Lounges complement the screen room for notes, dining, and secondary feeds—transitioning from presentation to playback blocks inside one rental agreement.
                 </p>
 
                 <h2 className="text-3xl font-bold mb-6 heading-font text-black">💡 Holiday Planning Tips at The Reel Room</h2>
@@ -194,7 +194,7 @@ export default function BestHolidayEventVenues2024() {
                 <ul className="list-disc pl-6 space-y-3 mb-8">
                   <li><strong>Book Early:</strong> The holiday season is our busiest time of year. We recommend booking 2-3 months in advance to secure your preferred date.</li>
                   <li><strong>Consider Off-Peak Dates:</strong> Early December and mid-January dates often have better availability and potential for special rates.</li>
-                  <li><strong>Discuss AV Needs:</strong> If you plan to use our theatre for presentations or special content, let us know in advance so we can ensure everything is set up perfectly.</li>
+                  <li><strong>Discuss AV Needs:</strong> If you plan to use our screen room for presentations or special content, let us know in advance so we can ensure everything is set up perfectly.</li>
                   <li><strong>Explore catering options:</strong> We work with preferred caterers who can build holiday menus around your rental schedule.</li>
                   <li><strong>Plan bar service:</strong> From holiday-themed cocktails to wine and beer packages, bar service follows your run-of-show.</li>
                   <li><strong>Consider transportation:</strong> We&apos;re in Mount Pleasant with parking nearby; larger rentals may need coordinated shuttles for attendees.</li>
@@ -223,7 +223,7 @@ export default function BestHolidayEventVenues2024() {
                     <div>
                       <h4 className="font-semibold mb-2 text-brand-gold">What's Included:</h4>
                       <ul className="text-sm space-y-1">
-                        <li>• Private Theatre & Lounge Access</li>
+                        <li>• Private screen room & Lounge Access</li>
                         <li>• Professional AV Equipment</li>
                         <li>• Customizable Lighting</li>
                         <li>• Full Bar Service Available</li>
@@ -240,7 +240,7 @@ export default function BestHolidayEventVenues2024() {
                     Ready to create holiday memories that will last a lifetime?
                   </p>
                   <p className="text-sm text-gray-500">
-                    Contact The Reel Room today at <a href="mailto:info@reelroom.ca" className="text-amber-600 font-semibold hover:underline">info@reelroom.ca</a> to discuss your holiday rental brief and technical needs for Vancouver&apos;s private theatre studio.
+                    Contact The Reel Room today at <a href="mailto:info@reelroom.ca" className="text-amber-600 font-semibold hover:underline">info@reelroom.ca</a> to discuss your holiday rental brief and technical needs for Vancouver&apos;s private screen room studio.
                   </p>
                 </div>
 
@@ -255,7 +255,7 @@ export default function BestHolidayEventVenues2024() {
                 Make This Holiday Season Unforgettable at The Reel Room
               </h2>
               <p className="text-xl text-black mb-8">
-                From compact crew screenings to full-facility buyouts, our private theatre studio supports holiday rentals built around playback—not open public programming.
+                From compact crew screenings to full-facility buyouts, our private screen room studio supports holiday rentals built around playback—not open public programming.
               </p>
               <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center">
                 <CalendlyPopupLink

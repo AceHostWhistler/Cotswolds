@@ -162,15 +162,26 @@ const nextConfig = {
         destination: '/book-now',
         permanent: true,
       },
+      // Reel Room blog archived — send all former blog URLs to home (temporary 307)
       {
-        source: '/blog-articles/canucks-hockey-games-at-the-reel-room',
-        destination: '/blog-articles/cinema-scale-client-playback-at-the-reel-room',
-        permanent: true,
+        source: '/blog',
+        destination: '/',
+        permanent: false,
       },
       {
-        source: '/blog/wedding-screenings',
-        destination: '/blog/milestone-film-screenings',
-        permanent: true,
+        source: '/blog/:path*',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/blog-articles',
+        destination: '/',
+        permanent: false,
+      },
+      {
+        source: '/blog-articles/:path*',
+        destination: '/',
+        permanent: false,
       },
     ]
   },

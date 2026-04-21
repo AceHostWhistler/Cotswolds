@@ -9,10 +9,10 @@ export default function LightsCameraAction() {
   return (
     <>
       <Head>
-        <title>Lights, Camera, Action! Welcome to Reel Room | Vancouver Private Theatre Studio</title>
+        <title>Lights, Camera, Action! Welcome to Reel Room | Vancouver Private screen room Studio</title>
         <meta
           name="description"
-          content="The Reel Room is Vancouver's private theatre production and studio rental—premieres, corporate playbacks, reference reviews, and controlled cinema bookings."
+          content="The Reel Room is Vancouver's private screen room production and studio rental—premieres, corporate playbacks, reference reviews, and controlled cinema bookings."
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
@@ -25,7 +25,7 @@ export default function LightsCameraAction() {
           <div className="relative h-[50vh]">
             <Image
               src="/photos/Blogs/lights-camera-action/cinema.jpg"
-              alt="The Reel Room Theatre Space"
+              alt="The Reel Room Space"
               fill
               priority
               style={{ objectFit: "cover" }}
@@ -36,7 +36,7 @@ export default function LightsCameraAction() {
                   Lights, Camera, Action!
                 </h1>
                 <p className="text-2xl text-white heading-font">
-                  Welcome to Reel Room: Vancouver&apos;s private theatre studio
+                  Welcome to Reel Room: Vancouver&apos;s private screen room studio
                 </p>
               </div>
             </div>
@@ -57,8 +57,8 @@ export default function LightsCameraAction() {
 
               <div className="my-6 relative h-80 rounded-lg overflow-hidden border border-brand-gold">
                 <Image 
-                  src="/photos/Blogs/lights-camera-action/theatre.jpg" 
-                  alt="Luxury Theatre Seating" 
+                  src="/photos/Blogs/lights-camera-action/screen-room.jpg" 
+                  alt="Luxury screen room seating" 
                   fill 
                   style={{ objectFit: "cover" }}
                 />
@@ -69,7 +69,7 @@ export default function LightsCameraAction() {
               </p>
 
               <p>
-                Typical rentals include DCP and digital premieres, colour-critical reviews, corporate shareholder streams, branded content playbacks, client sign-offs at cinema scale, and photo or video shoots that need a theatre set. Each booking is scoped to run-of-show and technical requirements.
+                Typical rentals include DCP and digital premieres, colour-critical reviews, corporate shareholder streams, branded content playbacks, client sign-offs at cinema scale, and photo or video shoots that need a screen room set. Each booking is scoped to run-of-show and technical requirements.
               </p>
 
               <h2 className="text-brand-gold heading-font">Elevating Your Culinary Experience</h2>
@@ -96,7 +96,7 @@ export default function LightsCameraAction() {
               <h2 className="text-brand-gold heading-font">Capacity that scales with your rental</h2>
               
               <p>
-                Roughly 85–95+ people can move through the full facility depending on layout, with 40+ seated in the theatre for critical viewing. Lounge and bar zones handle parallel playback, notes, or hospitality timed to your schedule.
+                Roughly 85–95+ people can move through the full facility depending on layout, with 40+ seated in the screen room for critical viewing. Lounge and bar zones handle parallel playback, notes, or hospitality timed to your schedule.
               </p>
 
               <p>
@@ -159,7 +159,7 @@ export default function LightsCameraAction() {
                     <div className="relative h-48">
                       <Image
                         src="/photos/homepage/DSC03507-Enhanced-NR.jpg"
-                        alt="Theatre Experience at Reel Room"
+                        alt="Screen room experience at Reel Room"
                         fill
                         style={{ objectFit: "cover" }}
                       />
@@ -201,7 +201,7 @@ export default function LightsCameraAction() {
                       </Link>
                     </h3>
                     <p className="text-gray-400 mb-4">
-                      Browse photos of the facility, theatre, and lounge configurations.
+                      Browse photos of the facility, the screen room, and lounge configurations.
                     </p>
                     <Link
                       href="/media"
