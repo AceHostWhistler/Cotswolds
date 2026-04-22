@@ -150,13 +150,6 @@ export default function Home() {
       <ReelRoomNavigation />
       
       <div className="relative min-h-screen bg-black pt-16">
-        {/* Gold Diamond Pattern Background */}
-        <div className="absolute inset-0 z-0 opacity-30" style={{ 
-          backgroundImage: "linear-gradient(45deg, #ba9765 25%, transparent 25%), linear-gradient(-45deg, #ba9765 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ba9765 75%), linear-gradient(-45deg, transparent 75%, #ba9765 75%)",
-          backgroundSize: "20px 20px",
-          backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px"
-        }}></div>
-        
         {/* Top Navigation Links - Moved higher to avoid being covered by the navigation bar */}
         <div className="absolute top-24 xs:top-24 left-0 w-full z-30 flex justify-center px-4 sm:px-0">
           <div className="flex flex-col xs:flex-row space-y-2 xs:space-y-0 xs:space-x-4 sm:space-x-8 md:space-x-16">
