@@ -342,7 +342,7 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Welcome to The Reel Room | Private Screen Room Production &amp; Studio Rental in Vancouver</h2>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Private Screening Room &amp; Production Studio Rental in Vancouver, BC</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
                 The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the screen room and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, reference playback and client reviews, and other licensed production uses.
               </p>

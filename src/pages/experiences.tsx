@@ -92,13 +92,13 @@ export default function Experiences() {
             <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md mb-16">
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-2">Base Rental Rate</h3>
-                <p className="text-4xl font-light text-brand-gold">$2,100</p>
+                <p className="text-4xl font-light text-brand-gold">$2,300</p>
                 <p className="text-gray-600 mt-2">for a 4-hour rental time slot</p>
                 <div className="mt-4 pt-4 border-t border-gray-300">
                   <p className="text-gray-700">+ On-site coordinator ($255) + Cleaning Fee ($300)</p>
-                  <p className="text-gray-700 mt-2">Subtotal: $2,655</p>
-                  <p className="text-gray-700">+ 5% Tax: $132.75</p>
-                  <p className="text-gray-700 mt-2 font-semibold">Final Price: $2,787.75</p>
+                  <p className="text-gray-700 mt-2">Subtotal: $2,855</p>
+                  <p className="text-gray-700">+ 5% Tax: $142.75</p>
+                  <p className="text-gray-700 mt-2 font-semibold">Final Price: $2,997.75</p>
                 </div>
               </div>
               
