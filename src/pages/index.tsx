@@ -125,7 +125,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <SEO 
-        title="Private Screen Room Production & Studio Rental Vancouver"
+        title="Private Screening Room &amp; Production Studio Rental Vancouver"
         description="Welcome to the Reel Room—private screen room production and studio rental in Mount Pleasant, minutes from downtown Vancouver. Premieres, DCP screenings, shoots, and corporate productions."
         ogImage="/reel-room-logo.png"
         keywords="private screen room, production rental, studio rental, Vancouver, film screenings, DCP, corporate productions, Mount Pleasant, luxury cinema"
@@ -319,10 +319,10 @@ export default function Home() {
                 </p>
                 
                 <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase">
-                  PRIVATE SCREEN ROOM
+                  PRIVATE SCREENING ROOM &amp;
                 </h1>
                 <h1 className="heading-font text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extralight tracking-widest mb-1 sm:mb-2 uppercase leading-tight">
-                  PRODUCTION & STUDIO RENTAL
+                  PRODUCTION STUDIO RENTAL
                 </h1>
                 <h1 className="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-widest mb-4 sm:mb-12 uppercase">
                   VANCOUVER
