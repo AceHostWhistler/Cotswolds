@@ -106,7 +106,7 @@ export default function Experiences() {
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <h4 className="text-lg font-bold mb-3">Additional hours</h4>
                   <p className="text-gray-600 mb-2">Need more time in the facility?</p>
-                  <p className="text-xl font-semibold text-brand-gold">$500/hour</p>
+                  <p className="text-xl font-semibold text-brand-gold">$400/hour</p>
                 </div>
               </div>
               
