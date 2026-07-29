@@ -8,6 +8,8 @@ import SimpleImage from '../components/SimpleImage';
 import LazyVimeoPlayer from '../components/LazyVimeoPlayer';
 import { scrollToTop } from '@/utils/scrollUtils';
 import CalendlyPopupLink from '@/components/CalendlyPopupLink';
+import SEO from '@/components/SEO';
+import { buildServiceSchema, buildWebPageSchema, SITE_URL } from '@/utils/seo';
 
 export default function Experiences() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
@@ -34,10 +36,40 @@ export default function Experiences() {
   
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
+      <SEO
+        title="Studio Use &amp; Pricing"
+        description="Production and studio rental rates at The Reel Room in Mount Pleasant, Vancouver—film premieres, DCP screenings, shoots, and corporate productions."
+        canonical={`${SITE_URL}/experiences`}
+        ogImage="/photos/optimized/DSC03081-Enhanced-NR-1280.jpg"
+        keywords="studio rental pricing Vancouver, screen room rates, DCP screening rental, production studio Mount Pleasant, Reel Room pricing"
+        structuredData={[
+          buildWebPageSchema({
+            name: 'Studio Use & Pricing | The Reel Room Vancouver',
+            description:
+              'Production and studio rental rates at The Reel Room in Mount Pleasant, Vancouver.',
+            url: `${SITE_URL}/experiences`,
+          }),
+          buildServiceSchema({
+            name: 'Private screen room and studio rental',
+            description:
+              '4-hour private cinema and production studio rental in Vancouver with optional additional hours.',
+            url: `${SITE_URL}/experiences`,
+            offers: [
+              {
+                name: '4-hour base rental',
+                description: 'Private screen room rental including coordinator and cleaning fees.',
+                price: '2300',
+              },
+              {
+                name: 'Additional hour',
+                description: 'Extended studio time beyond the base 4-hour block.',
+                price: '400',
+              },
+            ],
+          }),
+        ]}
+      />
       <Head>
-        <title>Studio Use &amp; Pricing | The Reel Room</title>
-        <meta name="description" content="Production and studio rental rates at The Reel Room—film premieres, DCP screenings, shoots, and corporate productions in Vancouver." />
-        {/* Add iOS-specific meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
       </Head>

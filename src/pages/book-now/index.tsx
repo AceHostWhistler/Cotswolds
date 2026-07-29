@@ -5,6 +5,8 @@ import ReelRoomNavigation from "@/components/ReelRoomNavigation";
 import ReelRoomFooter from "@/components/ReelRoomFooter";
 import { scrollToTop } from "@/utils/scrollUtils";
 import CalendlyPopupLink from "@/components/CalendlyPopupLink";
+import SEO from "@/components/SEO";
+import { buildWebPageSchema, SITE_URL } from "@/utils/seo";
 
 export default function BookNow() {
   const [isIOS, setIsIOS] = useState(false);
@@ -38,12 +40,34 @@ export default function BookNow() {
   
   return (
     <>
+      <SEO
+        title="Book Now"
+        description="Book The Reel Room for private screening room and production studio rental in Mount Pleasant, Vancouver—premieres, DCP screenings, shoots, and corporate productions."
+        canonical={`${SITE_URL}/book-now`}
+        ogImage="/photos/optimized/DSC03264-Enhanced-NR-1280.jpg"
+        keywords="book Reel Room Vancouver, studio rental booking, private cinema reservation, DCP screening booking Mount Pleasant"
+        structuredData={[
+          buildWebPageSchema({
+            name: 'Book Now | The Reel Room Vancouver',
+            description: 'Request a booking or tour for private studio rental in Vancouver.',
+            url: `${SITE_URL}/book-now`,
+          }),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'ReserveAction',
+            target: {
+              '@type': 'EntryPoint',
+              urlTemplate: `${SITE_URL}/book-now`,
+              actionPlatform: [
+                'http://schema.org/DesktopWebPlatform',
+                'http://schema.org/MobileWebPlatform',
+              ],
+            },
+            object: { '@id': `${SITE_URL}/#business` },
+          },
+        ]}
+      />
       <Head>
-        <title>Book Now | Reel Room</title>
-        <meta
-          name="description"
-          content="Book The Reel Room for production and studio rental in Vancouver—premieres, DCP screenings, shoots, and corporate productions."
-        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

@@ -1,6 +1,5 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 const SITE_URL = 'https://reelroom.ca';
 
@@ -29,17 +28,16 @@ ${urls}
 </urlset>`;
 }
 
-export default function handler(_req: NextApiRequest, res: NextApiResponse) {
-  res.setHeader('Content-Type', 'application/xml');
-  res.setHeader('Cache-Control', 'public, max-age=86400, s-maxage=86400');
-
-  const sitemap = generateSitemapXml();
-
-  try {
-    fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), sitemap);
-  } catch (error) {
-    console.error('Error writing sitemap file:', error);
-  }
-
-  res.status(200).send(sitemap);
+function writeSitemapFile(outputPath) {
+  const xml = generateSitemapXml();
+  fs.writeFileSync(outputPath, xml);
+  return xml;
 }
+
+module.exports = {
+  SITE_URL,
+  SITEMAP_PAGES,
+  generateSitemapXml,
+  writeSitemapFile,
+  OUTPUT_PATH: path.join(process.cwd(), 'public', 'sitemap.xml'),
+};

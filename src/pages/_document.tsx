@@ -155,8 +155,11 @@ export default function Document() {
         <meta name="author" content="The Reel Room" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="geo.region" content="CA-BC" />
-        <meta name="geo.placename" content="Vancouver" />
+        <meta name="geo.placename" content="Vancouver, Mount Pleasant" />
+        <meta name="geo.position" content="49.2634;-123.1022" />
+        <meta name="ICBM" content="49.2634, -123.1022" />
         <meta name="language" content="English" />
+        <link rel="alternate" type="text/plain" href="https://reelroom.ca/llms.txt" title="LLMs.txt" />
         
         {/* Default OpenGraph metadata for social sharing and search results */}
         <meta property="og:site_name" content="The Reel Room Vancouver" />
@@ -182,35 +185,57 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": "https://reelroom.ca/#website",
               "url": "https://reelroom.ca/",
               "name": "The Reel Room Vancouver",
-              "description": "Private screen room production and studio rental in Vancouver, BC. Film premieres, DCP screenings, shoots, and corporate productions."
+              "description": "Private screen room production and studio rental in Vancouver, BC. Film premieres, DCP screenings, shoots, and corporate productions.",
+              "publisher": { "@id": "https://reelroom.ca/#business" },
+              "inLanguage": "en-CA"
             })
           }}
         />
         
-        {/* Local Business Schema */}
+        {/* Local Business / Venue Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": ["LocalBusiness", "EventVenue"],
+              "@id": "https://reelroom.ca/#business",
               "name": "The Reel Room",
-              "description": "Private screen room production and studio rental in Vancouver for premieres, DCP screenings, corporate productions, and reference playback.",
+              "description": "Private screening room and production studio rental in Mount Pleasant, Vancouver for premieres, DCP screenings, corporate productions, and reference playback.",
               "image": "https://reelroom.ca/reel-room-logo.png",
+              "logo": "https://reelroom.ca/favicons/Logo%20Reel%20Room.png",
               "url": "https://reelroom.ca",
-              "telephone": "",
+              "email": "info@reelroom.ca",
+              "priceRange": "$$$",
               "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "Mount Pleasant",
                 "addressLocality": "Vancouver",
                 "addressRegion": "BC",
                 "addressCountry": "CA"
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": "49.2634",
-                "longitude": "-123.1022"
+                "latitude": 49.2634,
+                "longitude": -123.1022
+              },
+              "areaServed": {
+                "@type": "City",
+                "name": "Vancouver",
+                "containedInPlace": {
+                  "@type": "AdministrativeArea",
+                  "name": "British Columbia"
+                }
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "info@reelroom.ca",
+                "areaServed": "CA",
+                "availableLanguage": ["English"]
               },
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
@@ -227,8 +252,15 @@ export default function Document() {
                 "closes": "01:00"
               },
               "sameAs": [
-                "https://www.instagram.com/reelroomvancouver/",
+                "https://www.instagram.com/reelroom.yvr/",
+                "https://www.tiktok.com/@reelroom.yvr",
                 "https://www.facebook.com/reelroomvancouver/"
+              ],
+              "knowsAbout": [
+                "Private cinema rental",
+                "DCP screening",
+                "Film premiere venue",
+                "Production studio rental Vancouver"
               ]
             })
           }}

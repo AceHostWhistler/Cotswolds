@@ -5,6 +5,8 @@ import Link from 'next/link';
 import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import { scrollToTop } from '@/utils/scrollUtils';
+import SEO from '@/components/SEO';
+import { buildFaqPageSchema, buildWebPageSchema, SITE_URL } from '@/utils/seo';
 
 // Type for FAQ sections
 interface FaqItem {
@@ -426,11 +428,27 @@ export default function Media() {
     </div>
   );
   
+  const allFaqs = Object.values(faqSections).flat();
+
   return (
     <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
+      <SEO
+        title="Media, Gallery &amp; FAQs"
+        description="Photo gallery, facility videos, and FAQs for The Reel Room—private screening room and production studio rental in Mount Pleasant, Vancouver, BC."
+        canonical={`${SITE_URL}/media`}
+        ogImage="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+        keywords="Reel Room gallery, Vancouver studio photos, private cinema FAQ, DCP screening Vancouver, production studio Mount Pleasant"
+        structuredData={[
+          buildWebPageSchema({
+            name: 'Media, Gallery & FAQs | The Reel Room Vancouver',
+            description:
+              'Explore The Reel Room gallery and frequently asked questions about studio rental in Vancouver.',
+            url: `${SITE_URL}/media`,
+          }),
+          buildFaqPageSchema(allFaqs),
+        ]}
+      />
       <Head>
-        <title>Media & FAQs | Reel Room</title>
-        <meta name="description" content="Explore our photo gallery, videos, and find answers to frequently asked questions about Reel Room in Vancouver, BC." />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <style>{`
           /* Basic reset for iOS */

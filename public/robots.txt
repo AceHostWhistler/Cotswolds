@@ -1,18 +1,47 @@
 # The Reel Room - Robots.txt
 User-agent: *
 Allow: /
+Allow: /llms.txt
 
-# Disallow admin and private areas
+# Disallow admin, API, legacy, and test routes
 Disallow: /api/
 Disallow: /admin/
 Disallow: /upload/
+Disallow: /test
+Disallow: /calendly-test
+Disallow: /properties
+Disallow: /properties/
+Disallow: /listings
+Disallow: /listings/
+Disallow: /list-with-us
+Disallow: /blogs
+Disallow: /blog
+Disallow: /blog-articles
 Disallow: /media-and-gallery
-Disallow: /media-and-gallery/
 Disallow: /media-gallery
-Disallow: /media-gallery/
 
-# Sitemap location
+# AI search crawlers — allow public marketing pages
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /upload/
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Disallow: /api/
+Disallow: /upload/
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://reelroom.ca/sitemap.xml
-
-# Crawl delay to prevent server overload
-Crawl-delay: 1 

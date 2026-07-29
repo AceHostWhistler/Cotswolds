@@ -5,6 +5,7 @@ import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import Script from 'next/script';
 import SEO from '@/components/SEO';
+import { buildWebPageSchema, buildServiceSchema, SITE_URL } from '@/utils/seo';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 import SimpleImage from '@/components/SimpleImage';
 import { scrollToTop } from '@/utils/scrollUtils';
@@ -82,45 +83,27 @@ export default function Home() {
     setMenuOpen(!menuOpen);
   };
   
-  // Define structured data for SEO
-  const homeStructuredData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Reel Room",
-    "description": "Private screen room production and studio rental in Vancouver",
-    "image": "/reel-room-logo.png",
-    "url": "https://reelroom.ca",
-    "priceRange": "$$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Vancouver",
-      "addressRegion": "BC",
-      "addressCountry": "CA"
-    },
-    "telephone": "",
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "08:00",
-        "closes": "01:00"
-      }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Studio rental",
-      "itemListElement": [
+  const homeStructuredData = [
+    buildWebPageSchema({
+      name: 'Private Screening Room & Production Studio Rental Vancouver',
+      description:
+        'Private screening room and production studio rental in Mount Pleasant, Vancouver, BC. Film premieres, DCP screenings, shoots, and corporate productions.',
+      url: SITE_URL,
+    }),
+    buildServiceSchema({
+      name: 'Screen room and studio rental',
+      description:
+        'Private cinema facility for film premieres, DCP screenings, productions, and corporate studio bookings in Vancouver.',
+      url: SITE_URL,
+      offers: [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Screen room and studio rental",
-            "description": "Private cinema facility for film premieres, DCP screenings, productions, and corporate studio bookings."
-          }
-        }
-      ]
-    }
-  };
+          name: '4-hour studio rental',
+          description: 'Base private screen room rental block with on-site coordinator and cleaning.',
+          price: '2300',
+        },
+      ],
+    }),
+  ];
 
   return (
     <div className="min-h-screen bg-white">

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { SITE_URL, normalizeStructuredData, type StructuredData } from '@/utils/seo';
 
 interface SEOProps {
   title: string;
@@ -9,7 +10,7 @@ interface SEOProps {
   ogType?: string;
   keywords?: string;
   noindex?: boolean;
-  structuredData?: Record<string, any>;
+  structuredData?: StructuredData;
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -23,53 +24,51 @@ const SEO: React.FC<SEOProps> = ({
   structuredData,
 }) => {
   const router = useRouter();
-  const siteUrl = 'https://reelroom.ca';
-  const fullUrl = canonical || `${siteUrl}${router.asPath}`;
+  const canonicalPath = canonical || `${SITE_URL}${router.asPath.split('?')[0]}`;
   const formattedTitle = `${title} | The Reel Room Vancouver`;
-  
+  const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
+  const schemaBlocks = normalizeStructuredData(structuredData);
+
   return (
     <Head>
-      {/* Primary Meta Tags */}
       <title>{formattedTitle}</title>
       <meta name="title" content={formattedTitle} />
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
-      
-      {/* Canonical Link */}
-      <link rel="canonical" href={fullUrl} />
-      
-      {/* Open Graph / Facebook */}
+
+      <link rel="canonical" href={canonicalPath} />
+      <link rel="alternate" type="text/plain" href={`${SITE_URL}/llms.txt`} title="LLMs.txt" />
+
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={fullUrl} />
+      <meta property="og:url" content={canonicalPath} />
       <meta property="og:title" content={formattedTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
+      <meta property="og:image" content={absoluteOgImage} />
       <meta property="og:site_name" content="The Reel Room Vancouver" />
       <meta property="og:locale" content="en_CA" />
-      
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={fullUrl} />
-      <meta property="twitter:title" content={formattedTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`} />
-      
-      {/* Robots */}
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={canonicalPath} />
+      <meta name="twitter:title" content={formattedTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={absoluteOgImage} />
+      <meta name="twitter:site" content="@reelroomvancouver" />
+
       {noindex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
-        <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
       )}
-      
-      {/* Structured Data */}
-      {structuredData && (
+
+      {schemaBlocks.map((schema, index) => (
         <script
+          key={`schema-${index}`}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
-      )}
+      ))}
     </Head>
   );
 };
 
-export default SEO; 
+export default SEO;
