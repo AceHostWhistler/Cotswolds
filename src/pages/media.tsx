@@ -40,11 +40,11 @@ export default function Media() {
   const galleryImages = [
     'DSC03125-Enhanced-NR.jpg',
     'DSC03081-Enhanced-NR.jpg',
+    'DSC03217-Enhanced-NR.jpg',
     'DSC03060-Enhanced-NR.jpg',
     'DSC03101-Enhanced-NR.jpg',
     'DSC03222-Enhanced-NR.jpg',
     'DSC03106-Enhanced-NR.jpg',
-    'DSC03198-Enhanced-NR.jpg',
     'DSC03070-Enhanced-NR.jpg',
     'DSC03138-Enhanced-NR.jpg',
     'DSC03223-Enhanced-NR.jpg',
