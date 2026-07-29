@@ -107,7 +107,7 @@ export default function BookNow() {
             </picture>
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center max-w-4xl px-4">
-                <h1 className="text-4xl font-bold text-white mb-4">
+                <h1 className="text-4xl font-light page-heading text-white mb-4">
                   Book Now
                 </h1>
                 <p className="text-xl text-white">
@@ -121,12 +121,12 @@ export default function BookNow() {
           <div className="max-w-5xl mx-auto px-4 py-12">
             <div className="bg-white rounded-lg shadow-md mb-12">
               <div className="p-6">
-                <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">How to Book Reel Room</h2>
+                <h2 className="text-3xl font-light page-heading text-gray-800 mb-8 text-center">How to Book Reel Room</h2>
                 
-                <div className="bg-amber-50 p-6 rounded-lg border border-amber-200 mb-8">
-                  <h3 className="text-xl font-bold mb-4 text-gray-800">Contact Us to Book</h3>
+                <div className="bg-brand-cream/30 p-6 rounded-lg border border-brand-gold/30 mb-8">
+                  <h3 className="text-xl font-light page-heading mb-4 text-gray-800">Contact Us to Book</h3>
                   <p className="text-gray-700 mb-6">
-                    Email us at <a href="mailto:info@reelroom.ca" className="text-amber-600 font-semibold hover:underline">info@reelroom.ca</a> with the following information:
+                    Email us at <a href="mailto:info@reelroom.ca" className="text-brand-gold font-semibold hover:underline">info@reelroom.ca</a> with the following information:
                   </p>
                   <ul className="list-disc pl-5 text-gray-700 space-y-2 mb-6">
                     <li>Your full name</li>
@@ -144,12 +144,12 @@ export default function BookNow() {
                     {!isIOS ? (
                       <CalendlyPopupLink 
                         text="Request a Booking" 
-                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                        className="inline-block px-6 py-3 bg-brand-gold text-black rounded-md font-medium hover:bg-brand-cream transition-colors"
                       />
                     ) : (
                       <CalendlyPopupLink 
                         text="Request a Booking" 
-                        className="inline-block px-6 py-3 bg-amber-500 text-black rounded-md font-medium hover:bg-amber-600 transition-colors"
+                        className="inline-block px-6 py-3 bg-brand-gold text-black rounded-md font-medium hover:bg-brand-cream transition-colors"
                       />
                     )}
                   </div>
@@ -157,7 +157,7 @@ export default function BookNow() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <h3 className="text-xl font-bold mb-4 text-gray-800">Booking Process</h3>
+                    <h3 className="text-xl font-light page-heading mb-4 text-gray-800">Booking Process</h3>
                     <p className="text-gray-700">
                       1. Email us with your rental brief and schedule<br/>
                       2. Our team will confirm availability<br/>
@@ -169,7 +169,7 @@ export default function BookNow() {
                   </div>
                   
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                    <h3 className="text-xl font-bold mb-4 text-gray-800">Facility information</h3>
+                    <h3 className="text-xl font-light page-heading mb-4 text-gray-800">Facility information</h3>
                     <p className="text-gray-700">
                       <strong>Location:</strong> Mount Pleasant, Vancouver<br/>
                       <strong>Capacity:</strong> 5–120+ attendees (layout-dependent)<br/>
@@ -181,7 +181,7 @@ export default function BookNow() {
               </div>
             </div>
             
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Rental options</h2>
+            <h2 className="text-3xl font-light page-heading text-gray-800 mb-8 text-center">Rental options</h2>
             
             <div className="space-y-8 mb-12">
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -193,7 +193,7 @@ export default function BookNow() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3">Film Screenings & Premieres</h3>
+                  <h3 className="text-2xl font-light page-heading mb-3">Film Screenings & Premieres</h3>
                   <p className="text-gray-600 mb-6">
                     Perfect for DCP film releases, premieres, and private screenings. Showcase your work on our high-quality projection system with premium sound for cast, crew, investors, and press in a purpose-built screening room.
                   </p>
@@ -209,7 +209,7 @@ export default function BookNow() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3">Production studio events: reference playback</h3>
+                  <h3 className="text-2xl font-light page-heading mb-3">Production studio events: reference playback</h3>
                   <p className="text-gray-600 mb-6">
                     Rent the screen room for client reviews, QC passes, and finishing playbacks with cinema-scale image and audio. Hospitality is scoped to your run-of-show for crew and approved attendees.
                   </p>
@@ -225,7 +225,7 @@ export default function BookNow() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-3">Corporate productions</h3>
+                  <h3 className="text-2xl font-light page-heading mb-3">Corporate productions</h3>
                   <p className="text-gray-600 mb-6">
                     Presentations, shareholder streams, launch films, and internal screenings in a cinema-calibre room with professional AV paths and on-site coordination.
                   </p>
@@ -236,7 +236,7 @@ export default function BookNow() {
             {/* Contact Information */}
             <div className="bg-gray-50 p-6 rounded-lg shadow-md mb-12">
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
+                <h2 className="text-3xl font-light page-heading mb-4">Contact Us</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   Have questions about booking or need more information? Reach out to us directly.
                 </p>
@@ -244,15 +244,15 @@ export default function BookNow() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                  <svg className="w-12 h-12 mx-auto mb-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-12 h-12 mx-auto mb-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <h3 className="text-xl font-semibold mb-2">Email</h3>
-                  <a href="mailto:info@reelroom.ca" className="text-amber-600 hover:text-amber-700">info@reelroom.ca</a>
+                  <a href="mailto:info@reelroom.ca" className="text-brand-gold hover:text-brand-cream">info@reelroom.ca</a>
                 </div>
                 
                 <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                  <svg className="w-12 h-12 mx-auto mb-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-12 h-12 mx-auto mb-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
@@ -261,7 +261,7 @@ export default function BookNow() {
                 </div>
                 
                 <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-                  <svg className="w-12 h-12 mx-auto mb-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="w-12 h-12 mx-auto mb-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <h3 className="text-xl font-semibold mb-2">Hours</h3>
@@ -271,19 +271,19 @@ export default function BookNow() {
             </div>
             
             <div className="bg-black text-white rounded-lg shadow-md p-6 text-center">
-              <h3 className="text-2xl font-bold mb-4">Ready to book your rental?</h3>
+              <h3 className="text-2xl font-light page-heading mb-4">Ready to book your rental?</h3>
               <p className="text-lg mb-6">
                 Contact us today for availability and a quote tailored to your screening or production.
               </p>
               {!isIOS ? (
                 <CalendlyPopupLink 
                   text="Request a Booking" 
-                  className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
+                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-brand-cream transition-colors text-lg font-medium"
                 />
               ) : (
                 <CalendlyPopupLink 
                   text="Request a Booking" 
-                  className="inline-block px-8 py-4 bg-amber-500 text-black rounded-md hover:bg-amber-600 transition-colors text-lg font-medium"
+                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-brand-cream transition-colors text-lg font-medium"
                 />
               )}
             </div>

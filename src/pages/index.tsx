@@ -837,19 +837,19 @@ export default function Home() {
         {/* Reserve Your Dates - Bottom CTA */}
         <div className="py-16 bg-gray-900 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to book your production or studio rental?</h2>
+            <h2 className="text-3xl font-light section-heading mb-6">Ready to book your production or studio rental?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Contact us for hold dates, technical specs, and a rental quote tailored to your shoot or screening.
             </p>
             {!isIOS ? (
               <CalendlyPopupLink 
                 text="Request a Booking"
-                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
               />
             ) : (
               <Link 
                 href="/book-now" 
-                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
               >
                 Request a Booking
               </Link>

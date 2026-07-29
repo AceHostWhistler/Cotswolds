@@ -20,7 +20,7 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
         
-        {/* Preload Futura font */}
+        {/* Reel Room brand fonts: Acumin Pro Thin (headings), Futura PT Light (body) */}
         <link href="https://fonts.cdnfonts.com/css/futura-pt" rel="stylesheet" />
         
         {/* Preconnect for third-party resources */}

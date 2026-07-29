@@ -1,6 +1,7 @@
 {
-  "name": "Reel Room",
+  "name": "The Reel Room Vancouver",
   "short_name": "Reel Room",
+  "description": "Private screening room and production studio rental in Vancouver, BC",
   "icons": [
     {
       "src": "/favicon-16x16.png",
@@ -18,7 +19,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#1a1a1a",
-  "background_color": "#1a1a1a",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone"
-} 
+}

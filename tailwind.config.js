@@ -10,6 +10,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Futura PT', 'Futura', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        heading: ['Acumin Pro', 'Futura PT', 'Futura', 'sans-serif'],
+        body: ['Futura PT', 'Futura', 'sans-serif'],
       },
       screens: {
         'xs': '375px',

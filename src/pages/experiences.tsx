@@ -107,7 +107,7 @@ export default function Experiences() {
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Studio Use &amp; Pricing</h1>
+                <h1 className="text-4xl md:text-5xl font-light page-heading mb-4">Studio Use &amp; Pricing</h1>
                 <p className="text-xl mb-8">
                   Customize your studio rental at The Reel Room for screenings, shoots, and productions.
                 </p>
@@ -119,11 +119,11 @@ export default function Experiences() {
         {/* Main rental rates */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Production & Studio Rental Rates</h2>
+            <h2 className="text-3xl font-light page-heading mb-12 text-center">Production & Studio Rental Rates</h2>
             
             <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md mb-16">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Base Rental Rate</h3>
+                <h3 className="text-2xl font-light page-heading mb-2">Base Rental Rate</h3>
                 <p className="text-4xl font-light text-brand-gold">$2,300</p>
                 <p className="text-gray-600 mt-2">for a 4-hour rental time slot</p>
                 <div className="mt-4 pt-4 border-t border-gray-300">
@@ -136,7 +136,7 @@ export default function Experiences() {
               
               <div className="max-w-xl mx-auto mb-8">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h4 className="text-lg font-bold mb-3">Additional hours</h4>
+                  <h4 className="text-lg font-light page-heading mb-3">Additional hours</h4>
                   <p className="text-gray-600 mb-2">Need more time in the facility?</p>
                   <p className="text-xl font-semibold text-brand-gold">$400/hour</p>
                 </div>
@@ -164,13 +164,13 @@ export default function Experiences() {
         {/* Rental types */}
         <div className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Rental types</h2>
+            <h2 className="text-3xl font-light page-heading mb-12 text-center">Rental types</h2>
             
             {/* DCP & premiere screenings */}
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4">DCP &amp; premiere screenings</h3>
+                  <h3 className="text-2xl font-light page-heading mb-4">DCP &amp; premiere screenings</h3>
                   <p className="text-gray-600 mb-6">
                     Lock your colour grade and audio mix with a reference screening for cast, crew, financiers, or distributors. The Reel Room is set up as a private cinema stage—not a banquet hall—so playback stays the priority.
                   </p>
@@ -227,7 +227,7 @@ export default function Experiences() {
                   />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold mb-4">Production studio events: reference playback</h3>
+                  <h3 className="text-2xl font-light page-heading mb-4">Production studio events: reference playback</h3>
                   <p className="text-gray-600 mb-6">
                     Rent the room for colour-critical reviews, client approvals, and finishing playbacks where picture and sound have to read true. Service style follows your technical brief—not a preset social package.
                   </p>
@@ -259,7 +259,7 @@ export default function Experiences() {
             <div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
-                  <h3 className="text-2xl font-bold mb-4">Corporate &amp; brand productions</h3>
+                  <h3 className="text-2xl font-light page-heading mb-4">Corporate &amp; brand productions</h3>
                   <p className="text-gray-600 mb-6">
                     The Reel Room functions as a presentation screen room and content stage: investor streams, launch films, sizzle reels, internal town halls with playback, and press screenings with controlled access.
                   </p>
@@ -304,7 +304,7 @@ export default function Experiences() {
         {/* Additional Options */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Additional options</h2>
+            <h2 className="text-3xl font-light page-heading mb-12 text-center">Additional options</h2>
             
             <div className="max-w-md mx-auto">
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
@@ -315,7 +315,7 @@ export default function Experiences() {
                     className="w-full h-full"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-3">DCP audio-visual enhancements</h3>
+                <h3 className="text-xl font-light page-heading mb-3">DCP audio-visual enhancements</h3>
                 <p className="text-gray-600 mb-4">
                   Take advantage of our reference audio-visual system, with options for specialized lighting, sound, and projection add-ons for your technical brief.
                 </p>
@@ -328,64 +328,27 @@ export default function Experiences() {
         {/* Photo Gallery Section */}
         <div className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center">Studio gallery</h2>
+            <h2 className="text-3xl font-light page-heading mb-12 text-center">Studio gallery</h2>
             
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-12">
-              {/* Each image is in a fixed-ratio container */}
-              <div className="col-span-2 row-span-2 aspect-square overflow-hidden rounded-lg">
-                <div className="w-full h-full">
-                  <SimpleImage 
-                    src="/photos/homepage-originals/DSC03198-Enhanced-NR.jpg"
-                    alt="Reel Room Space"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
+              {[
+                { src: 'DSC03060-Enhanced-NR.jpg', alt: 'Reel Room lounge seating and bar area', span: 'col-span-2 row-span-2' },
+                { src: 'DSC03081-Enhanced-NR.jpg', alt: 'Reel Room bar with gold accents', span: 'col-span-1 row-span-1' },
+                { src: 'DSC03106-Enhanced-NR.jpg', alt: 'Reel Room lobby and staircase', span: 'col-span-1 row-span-1' },
+                { src: 'DSC03125-Enhanced-NR.jpg', alt: 'Reel Room private screening room', span: 'col-span-2 row-span-2' },
+                { src: 'DSC03301-Enhanced-NR.jpg', alt: 'Reel Room velvet lounge detail', span: 'col-span-1 row-span-1' },
+                { src: 'DSC03389-Enhanced-NR.jpg', alt: 'Reel Room bar cocktail detail', span: 'col-span-1 row-span-1' },
+              ].map((photo) => (
+                <div key={photo.src} className={`${photo.span} aspect-square overflow-hidden rounded-lg`}>
+                  <div className="w-full h-full">
+                    <SimpleImage
+                      src={`/photos/homepage-originals/${photo.src}`}
+                      alt={photo.alt}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
-                <div className="w-full h-full">
-                  <SimpleImage 
-                    src="/photos/homepage-originals/DSC03217-Enhanced-NR.jpg"
-                    alt="Reel Room Space"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
-                <div className="w-full h-full">
-                  <SimpleImage 
-                    src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg"
-                    alt="Reel Room Space"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className="col-span-2 row-span-2 aspect-square overflow-hidden rounded-lg">
-                <div className="w-full h-full">
-                  <SimpleImage 
-                    src="/photos/homepage-originals/DSC03287-Enhanced-NR.jpg"
-                    alt="Reel Room Space"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
-                <div className="w-full h-full">
-                  <SimpleImage 
-                    src="/photos/homepage-originals/DSC03313-Enhanced-NR.jpg"
-                    alt="Reel Room Space"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className="col-span-1 row-span-1 aspect-square overflow-hidden rounded-lg">
-                <div className="w-full h-full">
-                  <SimpleImage 
-                    src="/photos/homepage-originals/DSC03389-Enhanced-NR.jpg"
-                    alt="Reel Room Space"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
             
           </div>
@@ -394,7 +357,7 @@ export default function Experiences() {
         {/* CTA Section */}
         <div className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Scope your custom rental</h2>
+            <h2 className="text-3xl font-light page-heading mb-6">Scope your custom rental</h2>
             <p className="text-gray-300 max-w-2xl mx-auto mb-8">
               Contact us today to align the facility, AV, and add-ons with your production or screening brief.
             </p>
@@ -403,12 +366,12 @@ export default function Experiences() {
               {!isIOS ? (
                 <CalendlyPopupLink 
                   text="Request a Booking"
-                  className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
+                  className="inline-block bg-brand-gold text-black px-6 py-3 rounded-md transition-colors hover:bg-brand-cream"
                 />
               ) : (
                 <Link
                   href="/book-now"
-                  className="inline-block bg-red-600 text-white px-6 py-3 rounded-md transition-colors hover:bg-red-700"
+                  className="inline-block bg-brand-gold text-black px-6 py-3 rounded-md transition-colors hover:bg-brand-cream"
                 >
                   Request a Booking
                 </Link>
@@ -426,19 +389,19 @@ export default function Experiences() {
         {/* Reserve Your Dates - Bottom CTA */}
         <div className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to lock your rental dates?</h2>
+            <h2 className="text-3xl font-light page-heading mb-6">Ready to lock your rental dates?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Contact us for availability and a quote scoped to your screening, shoot, or corporate production.
             </p>
             {!isIOS ? (
               <CalendlyPopupLink 
                 text="Request a Booking"
-                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
               />
             ) : (
               <Link 
                 href="/book-now" 
-                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-amber-400 transition-colors"
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
               >
                 Request a Booking
               </Link>

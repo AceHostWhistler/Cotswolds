@@ -1,28 +1,40 @@
 :root {
-  /* Brand Colors */
-  --color-blue: #5d87a1;
-  --color-cream: #f1e3c5;
-  --color-gold: #ba9765;
-  --color-white: #FFFFFF;
+  /* Reel Room brand palette */
+  --color-white: #ffffff;
   --color-black: #000000;
-  
-  /* Typography */
-  --font-heading: 'Futura PT', 'Futura', sans-serif;
+  --color-gold: #ba9765;
+  --color-cream: #f1e3c5;
+  --color-blue: #5d87a1;
+
+  /* Typography: Acumin Pro Thin (headings), Futura PT Light (body) */
+  --font-heading: 'Acumin Pro', 'Futura PT', 'Futura', sans-serif;
   --font-body: 'Futura PT', 'Futura', sans-serif;
 }
 
-/* Brand Typography Classes */
 .heading-font {
   font-family: var(--font-heading);
-  font-weight: 300;
+  font-weight: 100;
+  letter-spacing: 0.08em;
 }
 
 .body-font {
   font-family: var(--font-body);
   font-weight: 300;
+  line-height: 1.6;
 }
 
-/* Brand Color Classes */
+.page-heading {
+  font-family: var(--font-heading);
+  font-weight: 100;
+  letter-spacing: 0.06em;
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-weight: 100;
+  letter-spacing: 0.05em;
+}
+
 .text-brand-blue { color: var(--color-blue); }
 .text-brand-cream { color: var(--color-cream); }
 .text-brand-gold { color: var(--color-gold); }
@@ -35,10 +47,34 @@
 .border-brand-cream { border-color: var(--color-cream); }
 .border-brand-gold { border-color: var(--color-gold); }
 
-/* Art Deco Pattern Background */
+.btn-brand-primary {
+  display: inline-block;
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-brand-primary:hover {
+  background-color: var(--color-cream);
+  color: var(--color-black);
+}
+
+.btn-brand-outline {
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-brand-outline:hover {
+  background-color: rgba(186, 151, 101, 0.12);
+  color: var(--color-cream);
+}
+
 .bg-art-deco {
-  background-color: #000000;
+  background-color: var(--color-black);
   background-image: url('/brand/art-deco-pattern.svg');
   background-size: 400px;
   background-repeat: repeat;
-} 
+}

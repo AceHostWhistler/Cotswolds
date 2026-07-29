@@ -672,7 +672,7 @@ export default function Media() {
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Media & FAQs</h1>
+                <h1 className="text-4xl md:text-5xl font-light page-heading mb-4">Media & FAQs</h1>
                 <p className="text-xl mb-8">
                   Explore our space through photos and videos, and find answers to common questions.
                 </p>
@@ -729,7 +729,7 @@ export default function Media() {
         {/* Contact CTA */}
         <div className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">Still Have Questions?</h2>
+            <h2 className="text-3xl font-light page-heading mb-6">Still Have Questions?</h2>
             <p className="text-gray-300 max-w-2xl mx-auto mb-8">
               If you couldn't find the information you were looking for, please don't hesitate to contact us directly.
             </p>
