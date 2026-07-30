@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config');
+const { buildNextRedirects } = require('./redirects/legacy-seo-redirects');
 
 const nextConfig = {
   reactStrictMode: true,
@@ -156,34 +157,7 @@ const nextConfig = {
     scrollRestoration: true,
   },
   async redirects() {
-    return [
-      {
-        source: '/reservations',
-        destination: '/book-now',
-        permanent: true,
-      },
-      // Reel Room blog archived — send all former blog URLs to home (temporary 307)
-      {
-        source: '/blog',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/blog/:path*',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/blog-articles',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/blog-articles/:path*',
-        destination: '/',
-        permanent: false,
-      },
-    ]
+    return buildNextRedirects();
   },
 }
 

@@ -3,22 +3,12 @@ User-agent: *
 Allow: /
 Allow: /llms.txt
 
-# Disallow admin, API, legacy, and test routes
+# Block non-public routes only (legacy URLs are handled via 301/404, not robots blocks)
 Disallow: /api/
 Disallow: /admin/
 Disallow: /upload/
 Disallow: /test
 Disallow: /calendly-test
-Disallow: /properties
-Disallow: /properties/
-Disallow: /listings
-Disallow: /listings/
-Disallow: /list-with-us
-Disallow: /blogs
-Disallow: /blog
-Disallow: /blog-articles
-Disallow: /media-and-gallery
-Disallow: /media-gallery
 
 # AI search crawlers — allow public marketing pages
 User-agent: GPTBot
@@ -44,4 +34,4 @@ Allow: /llms.txt
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://reelroom.ca/sitemap.xml
+Sitemap: https://www.reelroom.ca/sitemap.xml

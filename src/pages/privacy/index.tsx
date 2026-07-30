@@ -1,21 +1,20 @@
 import React from "react";
-import Head from "next/head";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import ReelRoomNavigation from "@/components/ReelRoomNavigation";
+import ReelRoomFooter from "@/components/ReelRoomFooter";
+import SEO from "@/components/SEO";
+import { SITE_URL } from "@/utils/seo";
 import Link from "next/link";
 
 export default function Privacy() {
   return (
     <>
-      <Head>
-        <title>Privacy Policy | AceHost</title>
-        <meta
-          name="description"
-          content="Privacy Policy for AceHost - Learn how we handle and protect your personal information when you use our luxury property rental services in Whistler."
-        />
-      </Head>
-      <Navigation />
-      <main className="container mx-auto px-4 py-16 max-w-5xl">
+      <SEO
+        title="Privacy Policy"
+        description="Privacy Policy for The Reel Room — how we handle and protect your personal information when you inquire about or book our Vancouver screening room and studio rental."
+        canonical={`${SITE_URL}/privacy`}
+      />
+      <ReelRoomNavigation />
+      <main className="container mx-auto px-4 py-16 pt-32 max-w-5xl">
         <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
 
         <section className="mb-8">
@@ -28,10 +27,10 @@ export default function Privacy() {
             })}
           </p>
           <p className="mb-4">
-            At AceHost, we value your privacy and are committed to protecting
+            At The Reel Room, we value your privacy and are committed to protecting
             your personal data. This privacy policy explains how we collect,
-            use, and safeguard your information when you use our website or our
-            luxury property rental services in Whistler, British Columbia.
+            use, and safeguard your information when you use our website or book
+            our private screening room and production studio rental in Vancouver, British Columbia.
           </p>
         </section>
 
@@ -291,17 +290,17 @@ export default function Privacy() {
             privacy practices, please contact us at:
           </p>
           <p className="mb-4">
-            <strong>AceHost</strong>
+            <strong>The Reel Room</strong>
             <br />
-            Email: privacy@acehost.com
+            Email: info@reelroom.ca
             <br />
             Phone: +1 (604) 555-1234
             <br />
-            Address: 4567 Slopes Way, Whistler, BC V0N 1B4, Canada
+            Mount Pleasant, Vancouver, BC, Canada
           </p>
         </section>
       </main>
-      <Footer />
+      <ReelRoomFooter />
     </>
   );
 }

@@ -107,11 +107,11 @@ const ReelRoomFooter: React.FC = () => {
             &copy; {new Date().getFullYear()} Reel Room. All rights reserved.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-4">
-            <Link href="/privacy-policy" className="body-font text-gray-500 text-xs sm:text-sm hover:text-brand-gold transition-colors py-2 px-3">
+            <Link href="/privacy" className="body-font text-gray-500 text-xs sm:text-sm hover:text-brand-gold transition-colors py-2 px-3">
               Privacy Policy
             </Link>
-            <Link href="/legal-disclaimer" className="body-font text-gray-500 text-xs sm:text-sm hover:text-brand-gold transition-colors py-2 px-3">
-              Legal Disclaimer
+            <Link href="/terms" className="body-font text-gray-500 text-xs sm:text-sm hover:text-brand-gold transition-colors py-2 px-3">
+              Terms of Service
             </Link>
           </div>
         </div>

@@ -159,12 +159,12 @@ export default function Document() {
         <meta name="geo.position" content="49.2634;-123.1022" />
         <meta name="ICBM" content="49.2634, -123.1022" />
         <meta name="language" content="English" />
-        <link rel="alternate" type="text/plain" href="https://reelroom.ca/llms.txt" title="LLMs.txt" />
+        <link rel="alternate" type="text/plain" href="https://www.reelroom.ca/llms.txt" title="LLMs.txt" />
         
         {/* Default OpenGraph metadata for social sharing and search results */}
         <meta property="og:site_name" content="The Reel Room Vancouver" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://reelroom.ca/favicons/Logo Reel Room.png" />
+        <meta property="og:image" content="https://www.reelroom.ca/favicons/Logo Reel Room.png" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
         <meta property="og:image:alt" content="The Reel Room Vancouver Logo" />
@@ -172,7 +172,7 @@ export default function Document() {
         
         {/* Twitter Card data */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="https://reelroom.ca/favicons/Logo Reel Room.png" />
+        <meta name="twitter:image" content="https://www.reelroom.ca/favicons/Logo Reel Room.png" />
         <meta name="twitter:site" content="@reelroomvancouver" />
 
         {/* Enable DNS prefetching */}
@@ -185,11 +185,11 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "@id": "https://reelroom.ca/#website",
-              "url": "https://reelroom.ca/",
+              "@id": "https://www.reelroom.ca/#website",
+              "url": "https://www.reelroom.ca/",
               "name": "The Reel Room Vancouver",
               "description": "Private screen room production and studio rental in Vancouver, BC. Film premieres, DCP screenings, shoots, and corporate productions.",
-              "publisher": { "@id": "https://reelroom.ca/#business" },
+              "publisher": { "@id": "https://www.reelroom.ca/#business" },
               "inLanguage": "en-CA"
             })
           }}
@@ -202,12 +202,12 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": ["LocalBusiness", "EventVenue"],
-              "@id": "https://reelroom.ca/#business",
+              "@id": "https://www.reelroom.ca/#business",
               "name": "The Reel Room",
               "description": "Private screening room and production studio rental in Mount Pleasant, Vancouver for premieres, DCP screenings, corporate productions, and reference playback.",
-              "image": "https://reelroom.ca/reel-room-logo.png",
-              "logo": "https://reelroom.ca/favicons/Logo%20Reel%20Room.png",
-              "url": "https://reelroom.ca",
+              "image": "https://www.reelroom.ca/reel-room-logo.png",
+              "logo": "https://www.reelroom.ca/favicons/Logo%20Reel%20Room.png",
+              "url": "https://www.reelroom.ca",
               "email": "info@reelroom.ca",
               "priceRange": "$$$",
               "address": {

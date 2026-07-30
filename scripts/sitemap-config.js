@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://reelroom.ca';
+const SITE_URL = 'https://www.reelroom.ca';
 
 const SITEMAP_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },

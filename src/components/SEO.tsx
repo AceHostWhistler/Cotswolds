@@ -24,7 +24,11 @@ const SEO: React.FC<SEOProps> = ({
   structuredData,
 }) => {
   const router = useRouter();
-  const canonicalPath = canonical || `${SITE_URL}${router.asPath.split('?')[0]}`;
+  const path = router.asPath.split('?')[0].split('#')[0];
+  const canonicalPath = (canonical || `${SITE_URL}${path === '/' ? '' : path}`).replace(
+    'https://reelroom.ca',
+    SITE_URL
+  );
   const formattedTitle = `${title} | The Reel Room Vancouver`;
   const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${SITE_URL}${ogImage}`;
   const schemaBlocks = normalizeStructuredData(structuredData);

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://reelroom.ca';
+const SITE_URL = 'https://www.reelroom.ca';
 
 const SITEMAP_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },

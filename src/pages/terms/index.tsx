@@ -1,23 +1,22 @@
 import React from "react";
-import Head from "next/head";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import ReelRoomNavigation from "@/components/ReelRoomNavigation";
+import ReelRoomFooter from "@/components/ReelRoomFooter";
+import SEO from "@/components/SEO";
+import { SITE_URL } from "@/utils/seo";
 
 const TermsOfService = () => {
   return (
     <>
-      <Head>
-        <title>Terms of Service | AceHost</title>
-        <meta
-          name="description"
-          content="View the terms of service for AceHost, detailing the conditions for using our luxury property rental services in Whistler."
-        />
-      </Head>
+      <SEO
+        title="Terms of Service"
+        description="Terms of service for The Reel Room Vancouver private screening room and production studio rental."
+        canonical={`${SITE_URL}/terms`}
+      />
 
       <div className="min-h-screen bg-white">
-        <Navigation />
+        <ReelRoomNavigation />
 
-        <section className="pt-24 pb-12">
+        <section className="pt-32 pb-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl font-light text-gray-900 mb-8 tracking-tight">
               Terms of Service
@@ -37,14 +36,14 @@ const TermsOfService = () => {
                   Introduction
                 </h2>
                 <p>
-                  Welcome to AceHost. These terms and conditions govern your use
+                  Welcome to The Reel Room. These terms and conditions govern your use
                   of our website and services. By accessing our website or using
                   our services, you agree to these terms. Please read them
                   carefully.
                 </p>
                 <p>
                   These Terms of Service (&quot;Terms&quot;) constitute a
-                  legally binding agreement between you and AceHost governing
+                  legally binding agreement between you and The Reel Room governing
                   your access to and use of the website and services.
                 </p>
               </section>
@@ -54,25 +53,23 @@ const TermsOfService = () => {
                   Use of Services
                 </h2>
                 <p>
-                  AceHost provides a platform for users to browse, inquire
-                  about, and book luxury property rentals. Our services include:
+                  The Reel Room provides a private screening room and production studio
+                  for rent in Vancouver, BC. Our services include:
                 </p>
                 <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-600">
-                  <li>Luxury property booking and inquiry services</li>
+                  <li>Private cinema and studio rental booking inquiries</li>
                   <li>
-                    Information about property specifications, availability, and
+                    Information about facility specifications, availability, and
                     pricing
                   </li>
                   <li>
-                    Communication channels between clients and our property
-                    specialists
+                    Communication channels between clients and our booking team
                   </li>
                   <li>
-                    Informational content about Whistler properties and
-                    experiences
+                    Informational content about The Reel Room facility and rental
+                    options
                   </li>
-                  <li>VIP concierge services for Whistler visitors</li>
-                  <li>Property management services for homeowners</li>
+                  <li>On-site coordination for screenings and productions</li>
                 </ul>
               </section>
 
@@ -154,7 +151,7 @@ const TermsOfService = () => {
                   Property Rules and Regulations
                 </h2>
                 <p>
-                  When staying at any property booked through AceHost, you agree
+                  When staying at any property booked through The Reel Room, you agree
                   to:
                 </p>
                 <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-600">
@@ -183,7 +180,7 @@ const TermsOfService = () => {
                 </h2>
                 <p>
                   All content on our website, including text, graphics, logos,
-                  images, audio, video, and software, is the property of AceHost
+                  images, audio, video, and software, is the property of The Reel Room
                   or its content suppliers and is protected by international
                   copyright laws.
                 </p>
@@ -200,13 +197,13 @@ const TermsOfService = () => {
                 </h2>
                 <p>
                   Our services are provided on an &quot;as is&quot; and &quot;as
-                  available&quot; basis. AceHost makes no representations or
+                  available&quot; basis. The Reel Room makes no representations or
                   warranties of any kind, express or implied, regarding the
                   operation of our services or the information, content,
                   materials, or products included on our website.
                 </p>
                 <p>
-                  To the full extent permissible by applicable law, AceHost
+                  To the full extent permissible by applicable law, The Reel Room
                   disclaims all warranties, express or implied, including but
                   not limited to, implied warranties of merchantability and
                   fitness for a particular purpose.
@@ -218,7 +215,7 @@ const TermsOfService = () => {
                   Limitation of Liability
                 </h2>
                 <p>
-                  AceHost will not be liable for any damages of any kind arising
+                  The Reel Room will not be liable for any damages of any kind arising
                   from the use of our services, including but not limited to
                   direct, indirect, incidental, punitive, and consequential
                   damages.
@@ -230,7 +227,7 @@ const TermsOfService = () => {
                   Indemnification
                 </h2>
                 <p>
-                  You agree to indemnify, defend, and hold harmless AceHost, its
+                  You agree to indemnify, defend, and hold harmless The Reel Room, its
                   officers, directors, employees, agents, and suppliers from and
                   against all losses, expenses, damages, and costs, including
                   reasonable attorneys' fees, resulting from any violation
@@ -285,20 +282,18 @@ const TermsOfService = () => {
                   us:
                 </p>
                 <p className="mt-4">
-                  <strong>AceHost</strong>
+                  <strong>The Reel Room</strong>
                   <br />
-                  Email: terms@acehost.com
+                  Email: info@reelroom.ca
                   <br />
-                  Phone: +1 (604) 555-1234
-                  <br />
-                  Address: 4567 Slopes Way, Whistler, BC V0N 1B4, Canada
+                  Mount Pleasant, Vancouver, BC, Canada
                 </p>
               </section>
             </div>
           </div>
         </section>
 
-        <Footer />
+        <ReelRoomFooter />
       </div>
     </>
   );

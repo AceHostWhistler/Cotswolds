@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://reelroom.ca';
+export const SITE_URL = 'https://www.reelroom.ca';
 
 export const BUSINESS = {
   name: 'The Reel Room',

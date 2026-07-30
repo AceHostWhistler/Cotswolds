@@ -1,25 +1,64 @@
+import type { GetServerSideProps } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
-import { FC } from 'react';
+import ReelRoomNavigation from '@/components/ReelRoomNavigation';
+import ReelRoomFooter from '@/components/ReelRoomFooter';
 
-const ListingPage: FC = () => {
-  return (
-    <div className="bg-gray-50 p-6 rounded-lg">
-      <h3 className="text-xl font-bold mb-4">Interested in this listing?</h3>
-      <p className="mb-4">Please contact our front desk for availability and booking information.</p>
-      <div className="flex items-center mb-4">
-        <svg className="h-5 w-5 text-[#0066CC] mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-        </svg>
-        <span>Call: (XXX) XXX-XXXX</span>
-      </div>
-      <Link 
-        href="/listings"
-        className="inline-block bg-[#0066CC] hover:bg-[#004C99] text-white px-6 py-2 rounded transition-colors"
-      >
-        View All Listings
-      </Link>
-    </div>
-  );
+const {
+  ACEHOST_LISTING_GONE,
+  ACEHOST_LISTING_REDIRECTS,
+} = require('../../../redirects/legacy-seo-redirects');
+
+type PageProps = {
+  gone?: boolean;
 };
 
-export default ListingPage; 
+export default function LegacyListingRoute({ gone }: PageProps) {
+  if (!gone) return null;
+
+  return (
+    <>
+      <Head>
+        <title>Page Removed | The Reel Room Vancouver</title>
+        <meta name="robots" content="noindex, follow" />
+      </Head>
+      <div className="min-h-screen bg-white">
+        <ReelRoomNavigation />
+        <main className="pt-32 pb-20 px-4 text-center max-w-xl mx-auto">
+          <h1 className="text-3xl font-light page-heading mb-4">This page has been removed</h1>
+          <p className="text-gray-600 body-font mb-8">
+            This listing is no longer available on reelroom.ca.
+          </p>
+          <Link
+            href="/"
+            className="inline-block border border-brand-gold text-brand-gold px-6 py-3 uppercase tracking-widest text-sm font-light hover:bg-brand-gold/10 transition-colors"
+          >
+            Back to The Reel Room
+          </Link>
+        </main>
+        <ReelRoomFooter />
+      </div>
+    </>
+  );
+}
+
+export const getServerSideProps: GetServerSideProps<PageProps> = async ({ params, res }) => {
+  const slug = typeof params?.slug === 'string' ? params.slug : '';
+
+  if (ACEHOST_LISTING_GONE.has(slug)) {
+    res.statusCode = 410;
+    return { props: { gone: true } };
+  }
+
+  const destination = ACEHOST_LISTING_REDIRECTS[slug];
+  if (destination) {
+    return {
+      redirect: {
+        destination,
+        permanent: true,
+      },
+    };
+  }
+
+  return { notFound: true };
+};
