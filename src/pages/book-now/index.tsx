@@ -187,7 +187,7 @@ export default function BookNow() {
                     <h3 className="text-xl font-light page-heading mb-4 text-gray-800">Facility information</h3>
                     <div className="stat-row justify-start mb-0">
                       <div className="stat-chip">
-                        <span className="stat-chip__value">MTN PLEASANT</span>
+                        <span className="stat-chip__value stat-chip__value--long">Mount Pleasant</span>
                         <span className="stat-chip__label">Vancouver</span>
                       </div>
                       <div className="stat-chip">

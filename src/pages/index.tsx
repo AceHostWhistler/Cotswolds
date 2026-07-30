@@ -302,17 +302,13 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <span className="section-eyebrow">Your private screen room</span>
+              <span className="section-eyebrow">Your private screening room</span>
               <h2 className="text-3xl md:text-4xl font-light heading-font mb-4">Private Screening Room &amp; Production Studio Rental in Vancouver, BC</h2>
               <p className="section-tagline mb-8">Picture-perfect. Sound-sealed. Yours for the night.</p>
               <div className="fun-divider" aria-hidden="true"><span className="fun-divider__gem" /></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
                 The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the screen room and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, reference playback and client reviews, and other licensed production uses.
               </p>
-              <blockquote className="cinema-quote max-w-2xl mx-auto text-left md:text-center md:border-l-0 md:border-t md:pt-6 md:pl-0 md:bg-none md:italic">
-                A controlled, professional environment built for picture, sound, and crew—not a public hall.
-                <cite>The Reel Room</cite>
-              </blockquote>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-10">
                 <Link href="/experiences" className="quick-action-card">
                   <span className="quick-action-card__label">Studio &amp; Pricing</span>
@@ -749,7 +745,7 @@ export default function Home() {
                   <span className="stat-chip__label">On request</span>
                 </div>
                 <div className="stat-chip">
-                  <span className="stat-chip__value">MTN PLEASANT</span>
+                  <span className="stat-chip__value stat-chip__value--long">Mount Pleasant</span>
                   <span className="stat-chip__label">Vancouver, BC</span>
                 </div>
               </div>
