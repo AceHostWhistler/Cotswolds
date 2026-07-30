@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import ReelRoomNavigation from "@/components/ReelRoomNavigation";
@@ -9,28 +9,7 @@ import SEO from "@/components/SEO";
 import { buildWebPageSchema, SITE_URL } from "@/utils/seo";
 
 export default function BookNow() {
-  const [isIOS, setIsIOS] = useState(false);
-  
   useEffect(() => {
-    // Detect iOS devices
-    const detectIOS = () => {
-      try {
-        if (typeof window === 'undefined' || !window.navigator) return;
-        
-        const userAgent = navigator.userAgent.toLowerCase();
-        const isIOSDevice = 
-          /iphone|ipod|ipad/i.test(userAgent) || 
-          (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-          /iPhone|iPad|iPod/.test(navigator.userAgent);
-        setIsIOS(isIOSDevice);
-      } catch (error) {
-        console.error("Error detecting iOS device:", error);
-      }
-    };
-    
-    detectIOS();
-    
-    // Ensure page starts from the top
     try {
       scrollToTop();
     } catch (error) {
@@ -77,7 +56,7 @@ export default function BookNow() {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
 
-      <div className="bg-white">
+      <div className="bg-white pb-20 md:pb-0">
         <ReelRoomNavigation />
 
         <main>
@@ -110,10 +89,21 @@ export default function BookNow() {
                 <h1 className="text-4xl font-light page-heading text-white mb-4">
                   Book Now
                 </h1>
-                <p className="text-xl text-white">
+                <p className="text-xl text-white mb-2">
                   Book Vancouver&apos;s private cinema facility for your next screening or production.
                 </p>
+                <p className="text-base text-brand-cream/80 italic">
+                  Email us with questions, or book directly online—either works.
+                </p>
               </div>
+            </div>
+          </div>
+
+          <div className="info-strip">
+            <div className="info-strip__inner">
+              <span className="info-strip__item"><span className="info-strip__dot" aria-hidden="true" />Typical reply within 1–2 business days</span>
+              <span className="info-strip__item"><span className="info-strip__dot" aria-hidden="true" />Groups from 5 to 120+</span>
+              <span className="info-strip__item"><span className="info-strip__dot" aria-hidden="true" /><Link href="/experiences" className="text-brand-gold hover:text-brand-cream">View pricing</Link></span>
             </div>
           </div>
 
@@ -121,61 +111,96 @@ export default function BookNow() {
           <div className="max-w-5xl mx-auto px-4 py-12">
             <div className="bg-white rounded-lg shadow-md mb-12">
               <div className="p-6">
-                <h2 className="text-3xl font-light page-heading text-gray-800 mb-8 text-center">How to Book Reel Room</h2>
+                <span className="section-eyebrow block text-center">Two ways to get started</span>
+                <h2 className="text-3xl font-light page-heading text-gray-800 mb-4 text-center">How to Book Reel Room</h2>
+                <p className="section-tagline text-center mb-10">
+                  Email us with questions, or book directly online—either way, we&apos;ll take it from there.
+                </p>
                 
-                <div className="bg-brand-cream/30 p-6 rounded-lg border border-brand-gold/30 mb-8">
-                  <h3 className="text-xl font-light page-heading mb-4 text-gray-800">Contact Us to Book</h3>
-                  <p className="text-gray-700 mb-6">
-                    Email us at <a href="mailto:info@reelroom.ca" className="text-brand-gold font-semibold hover:underline">info@reelroom.ca</a> with the following information:
-                  </p>
-                  <ul className="list-disc pl-5 text-gray-700 space-y-2 mb-6">
-                    <li>Your full name</li>
-                    <li>Email address</li>
-                    <li>Phone number</li>
-                    <li>Preferred date and start time</li>
-                    <li>Expected headcount</li>
-                    <li>Type of rental or production (e.g. premiere, corporate playback, shoot)</li>
-                    <li>Any special requirements or questions</li>
-                  </ul>
-                  <p className="text-gray-700 font-medium">
-                    We can accommodate groups as small as 5 and groups as large as 120+.
-                  </p>
-                  <div className="mt-6 text-center">
-                    {!isIOS ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  <div className="text-panel h-full">
+                    <h3 className="text-xl font-light page-heading mb-3 text-gray-800">Questions? Email us</h3>
+                    <p className="text-gray-700 mb-4">
+                      Email is best for inquiries—pricing questions, technical specs, custom requests, or if you&apos;re still planning your event. Send us a note and we&apos;ll reply with answers and next steps.
+                    </p>
+                    <p className="text-gray-700 mb-4">
+                      <a href="mailto:info@reelroom.ca" className="text-brand-gold font-semibold hover:underline">info@reelroom.ca</a>
+                    </p>
+                    <p className="text-sm text-gray-600 mb-3">Helpful to include:</p>
+                    <div className="checklist-grid">
+                      <span className="checklist-item">Your full name</span>
+                      <span className="checklist-item">Email address</span>
+                      <span className="checklist-item">Phone number</span>
+                      <span className="checklist-item">Preferred date &amp; time</span>
+                      <span className="checklist-item">Expected headcount</span>
+                      <span className="checklist-item">Type of rental</span>
+                      <span className="checklist-item">Your questions</span>
+                    </div>
+                  </div>
+
+                  <div className="text-panel h-full flex flex-col">
+                    <h3 className="text-xl font-light page-heading mb-3 text-gray-800">Ready to book? Go direct</h3>
+                    <p className="text-gray-700 mb-4">
+                      Use our online booking page to request dates and submit your rental details. You&apos;ll be taken to our scheduling page to pick a time and share your event info—we&apos;ll confirm availability from there.
+                    </p>
+                    <blockquote className="cinema-quote mb-6 text-base flex-grow">
+                      Groups from 5 to 120+. Typical reply within 1–2 business days.
+                    </blockquote>
+                    <div className="text-center mt-auto pt-2">
                       <CalendlyPopupLink 
-                        text="Request a Booking" 
+                        text="Or Book Now Directly" 
                         className="inline-block px-6 py-3 bg-brand-gold text-black rounded-md font-medium hover:bg-brand-cream transition-colors"
                       />
-                    ) : (
-                      <CalendlyPopupLink 
-                        text="Request a Booking" 
-                        className="inline-block px-6 py-3 bg-brand-gold text-black rounded-md font-medium hover:bg-brand-cream transition-colors"
-                      />
-                    )}
+                      <p className="text-xs text-gray-500 mt-3">Opens our online booking page</p>
+                    </div>
                   </div>
                 </div>
+
+                <p className="text-center text-gray-600 body-font text-sm max-w-2xl mx-auto mb-8">
+                  Not sure which to choose? Email if you have questions first; use the booking button when you&apos;re ready to request dates. Both work—we&apos;ll follow up either way.
+                </p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h3 className="text-xl font-light page-heading mb-4 text-gray-800">Booking Process</h3>
-                    <p className="text-gray-700">
-                      1. Email us with your rental brief and schedule<br/>
-                      2. Our team will confirm availability<br/>
-                      3. We&apos;ll align technical and staffing needs<br/>
-                      4. Receive a detailed quote<br/>
-                      5. Confirm your booking with a deposit<br/>
-                      6. Load in for your screening or production at Reel Room
-                    </p>
+                    <div className="process-steps">
+                      <div className="process-step">
+                        <span className="process-step__num">1</span>
+                        <span className="process-step__text">Email us with questions, or book directly online</span>
+                      </div>
+                      <div className="process-step">
+                        <span className="process-step__num">2</span>
+                        <span className="process-step__text">Once booked, we can help arrange anything you need for your booking</span>
+                      </div>
+                      <div className="process-step">
+                        <span className="process-step__num">3</span>
+                        <span className="process-step__text">We will help you with every step of the way before, during, and after your event</span>
+                      </div>
+                      <div className="process-step">
+                        <span className="process-step__num">4</span>
+                        <span className="process-step__text">Have the most amazing time! :)</span>
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
                     <h3 className="text-xl font-light page-heading mb-4 text-gray-800">Facility information</h3>
-                    <p className="text-gray-700">
-                      <strong>Location:</strong> Mount Pleasant, Vancouver<br/>
-                      <strong>Capacity:</strong> 5–120+ attendees (layout-dependent)<br/>
-                      <strong>Amenities:</strong> Premium screen room, lounge & bar area, state-of-the-art AV system<br/>
-                      <strong>Services:</strong> On-site coordination, technical support, and add-ons per your production brief
-                    </p>
+                    <div className="stat-row justify-start mb-0">
+                      <div className="stat-chip">
+                        <span className="stat-chip__value">MTN PLEASANT</span>
+                        <span className="stat-chip__label">Vancouver</span>
+                      </div>
+                      <div className="stat-chip">
+                        <span className="stat-chip__value">5–120+</span>
+                        <span className="stat-chip__label">Capacity</span>
+                      </div>
+                    </div>
+                    <div className="feature-tags mt-4">
+                      <span className="feature-tag">Premium screen room</span>
+                      <span className="feature-tag">Lounge &amp; bar</span>
+                      <span className="feature-tag">State-of-the-art AV</span>
+                      <span className="feature-tag">On-site coordination</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -238,7 +263,7 @@ export default function BookNow() {
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-light page-heading mb-4">Contact Us</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  Have questions about booking or need more information? Reach out to us directly.
+                  Questions about the space, pricing, or your production? Email us anytime.
                 </p>
               </div>
               
@@ -248,6 +273,7 @@ export default function BookNow() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <h3 className="text-xl font-semibold mb-2">Email</h3>
+                  <p className="text-sm text-gray-500 mb-2">For questions &amp; inquiries</p>
                   <a href="mailto:info@reelroom.ca" className="text-brand-gold hover:text-brand-cream">info@reelroom.ca</a>
                 </div>
                 
@@ -271,21 +297,18 @@ export default function BookNow() {
             </div>
             
             <div className="bg-black text-white rounded-lg shadow-md p-6 text-center">
-              <h3 className="text-2xl font-light page-heading mb-4">Ready to book your rental?</h3>
-              <p className="text-lg mb-6">
-                Contact us today for availability and a quote tailored to your screening or production.
+              <h3 className="text-2xl font-light page-heading mb-4">Ready to request your dates?</h3>
+              <p className="text-lg mb-2 text-gray-300">
+                Book directly through our online scheduling page, or email{' '}
+                <a href="mailto:info@reelroom.ca" className="text-brand-gold hover:underline">info@reelroom.ca</a>{' '}
+                if you have questions first.
               </p>
-              {!isIOS ? (
-                <CalendlyPopupLink 
-                  text="Request a Booking" 
-                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-brand-cream transition-colors text-lg font-medium"
-                />
-              ) : (
-                <CalendlyPopupLink 
-                  text="Request a Booking" 
-                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-brand-cream transition-colors text-lg font-medium"
-                />
-              )}
+              <p className="text-sm text-gray-400 mb-6">Either option works—we&apos;ll confirm availability and follow up with next steps.</p>
+              <CalendlyPopupLink 
+                text="Or Book Now Directly" 
+                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md hover:bg-brand-cream transition-colors text-lg font-medium"
+              />
+              <p className="text-xs text-gray-500 mt-3">Opens our online booking page</p>
             </div>
           </div>
         </main>

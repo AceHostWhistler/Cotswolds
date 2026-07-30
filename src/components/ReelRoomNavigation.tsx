@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { scrollToTop } from '@/utils/scrollUtils';
 import CalendlyPopupLink from './CalendlyPopupLink';
+import MobileBookBar from './MobileBookBar';
 
 export default function ReelRoomNavigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,6 +72,7 @@ export default function ReelRoomNavigation() {
   };
   
   return (
+    <>
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black shadow-lg' : 'bg-black/80 backdrop-blur-md'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -175,5 +177,7 @@ export default function ReelRoomNavigation() {
         </div>
       </div>
     </header>
+    <MobileBookBar />
+    </>
   );
 } 

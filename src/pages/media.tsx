@@ -26,6 +26,7 @@ export default function Media() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState('gallery'); // Changed default to gallery
   const [activeFaqSection, setActiveFaqSection] = useState('general');
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [currentPage, setCurrentPage] = useState(1);
   const imagesPerPage = 12; // Reduced to 12 images per page for better performance
   
@@ -35,6 +36,10 @@ export default function Media() {
     // Ensure page starts from the top
     scrollToTop();
   }, []);
+
+  useEffect(() => {
+    setOpenFaqIndex(0);
+  }, [activeFaqSection]);
   
   // Curated gallery order — mixed for visual variety (not sequential by filename)
   const galleryImages = [
@@ -89,9 +94,10 @@ export default function Media() {
   const renderGallerySection = () => (
     <div>
       <div className="mb-8 text-center">
-        <h2 className="text-3xl font-semibold heading-font mb-4">Explore Our Space</h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Browse our gallery showcasing The Reel Room&apos;s elegant interior, versatile rental layout, and premium technical amenities.
+        <span className="section-eyebrow">Step inside</span>
+        <h2 className="text-3xl font-light heading-font mb-4">Explore Our Space</h2>
+        <p className="section-tagline mb-4">
+          Gold accents, velvet seating, cinema-scale picture—the kind of room that makes your content look even better.
         </p>
         <p className="text-sm text-gray-500 mt-2">
           Showing {indexOfFirstImage + 1}-{Math.min(indexOfLastImage, galleryImages.length)} of {galleryImages.length} images
@@ -100,15 +106,16 @@ export default function Media() {
       
       {/* Simple Gallery Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {currentImages.map((img, index) => (
+        {currentImages.map((img) => (
           <div 
-            key={index} 
+            key={img} 
             className="gallery-item"
           >
             <img 
               src={`/photos/homepage-originals/${img}`} 
-              alt={`Reel Room Gallery Image ${indexOfFirstImage + index + 1}`}
+              alt={`The Reel Room — ${img.replace(/^DSC|\.jpg$/g, '').replace(/-/g, ' ')}`}
               className="gallery-image"
+              loading="lazy"
             />
           </div>
         ))}
@@ -398,6 +405,10 @@ export default function Media() {
   
   const renderFaqSection = () => (
     <div className="space-y-8">
+      <div className="text-center mb-4">
+        <span className="section-eyebrow">Got questions?</span>
+        <p className="section-tagline">Everything from parking to popcorn—well, the bar part at least.</p>
+      </div>
       {/* FAQ Navigation */}
       <div className="flex flex-wrap gap-2 justify-center mb-8">
         {Object.keys(faqSections).map((section) => (
@@ -416,13 +427,31 @@ export default function Media() {
       </div>
       
       {/* FAQ Questions and Answers */}
-      <div className="space-y-6 max-w-4xl mx-auto">
-        {faqSections[activeFaqSection].map((faq, index) => (
-          <div key={index} className="border-b border-gray-200 pb-6 hover:border-brand-gold/30 transition-colors duration-300">
-            <h3 className="text-xl font-semibold mb-3 text-black">{faq.question}</h3>
-            <p className="text-gray-600">{faq.answer}</p>
-          </div>
-        ))}
+      <div className="space-y-3 max-w-4xl mx-auto">
+        {faqSections[activeFaqSection].map((faq, index) => {
+          const isOpen = openFaqIndex === index;
+          return (
+            <div
+              key={faq.question}
+              className={`faq-accordion-item${isOpen ? ' is-open' : ''}`}
+            >
+              <button
+                type="button"
+                className="faq-accordion-trigger"
+                onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                aria-expanded={isOpen}
+              >
+                <span>{faq.question}</span>
+                <svg className="faq-accordion-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+                </svg>
+              </button>
+              {isOpen && (
+                <div className="faq-accordion-panel">{faq.answer}</div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -656,7 +685,7 @@ export default function Media() {
       
       <ReelRoomNavigation />
       
-      <main className="pt-20">
+      <main className="pt-20 pb-20 md:pb-0">
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <div className="absolute inset-0">
@@ -672,8 +701,11 @@ export default function Media() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-light page-heading mb-4">Media & FAQs</h1>
-                <p className="text-xl mb-8">
-                  Explore our space through photos and videos, and find answers to common questions.
+                <p className="text-xl mb-2 section-tagline section-tagline--light">
+                  Explore our space through photos and videos—and get the answers you need.
+                </p>
+                <p className="text-lg italic text-brand-cream/70">
+                  Peek inside before you book. No spoiler alerts.
                 </p>
               </div>
             </div>
@@ -726,16 +758,18 @@ export default function Media() {
         </div>
         
         {/* Contact CTA */}
-        <div className="py-16 bg-black text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-light page-heading mb-6">Still Have Questions?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-              If you couldn't find the information you were looking for, please don't hesitate to contact us directly.
+        <div className="py-16 bg-black text-white cta-spotlight relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span className="cta-spotlight__eyebrow">We&apos;re real people</span>
+            <h2 className="text-3xl font-light page-heading mb-4">Still Have Questions?</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto mb-2 section-tagline section-tagline--light">
+              Didn&apos;t find what you need? Drop us a line—we love talking shop.
             </p>
+            <div className="fun-divider" aria-hidden="true"><span className="fun-divider__gem" /></div>
             
             <Link
               href="/book-now"
-              className="inline-block border border-white text-white px-8 py-3 uppercase tracking-widest text-sm font-light hover:bg-white/10 transition-colors"
+              className="inline-block mt-8 border border-white text-white px-8 py-3 uppercase tracking-widest text-sm font-light hover:bg-white/10 transition-colors"
             >
               Make a Reservation
             </Link>

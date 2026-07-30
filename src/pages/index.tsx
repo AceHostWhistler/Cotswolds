@@ -297,18 +297,36 @@ export default function Home() {
       </div>
       
       {/* Main Content - Added more padding to ensure proper spacing after the hero section */}
-      <main className="bg-white pt-16">
+      <main className="bg-white pt-16 pb-20 md:pb-0">
         {/* Welcome Section */}
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Private Screening Room &amp; Production Studio Rental in Vancouver, BC</h2>
+              <span className="section-eyebrow">Your private screen room</span>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-4">Private Screening Room &amp; Production Studio Rental in Vancouver, BC</h2>
+              <p className="section-tagline mb-8">Picture-perfect. Sound-sealed. Yours for the night.</p>
+              <div className="fun-divider" aria-hidden="true"><span className="fun-divider__gem" /></div>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font">
                 The Reel Room is a private cinema facility for rent in Mount Pleasant—minutes from downtown Vancouver. Book the screen room and lounge for film premieres and DCP screenings, photo and video shoots, corporate presentations and recordings, reference playback and client reviews, and other licensed production uses.
               </p>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto body-font mt-4">
-                With a dedicated screen room and stylish lounge, we offer a controlled, professional environment built for picture, sound, and crew—not a public hall.
-              </p>
+              <blockquote className="cinema-quote max-w-2xl mx-auto text-left md:text-center md:border-l-0 md:border-t md:pt-6 md:pl-0 md:bg-none md:italic">
+                A controlled, professional environment built for picture, sound, and crew—not a public hall.
+                <cite>The Reel Room</cite>
+              </blockquote>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-10">
+                <Link href="/experiences" className="quick-action-card">
+                  <span className="quick-action-card__label">Studio &amp; Pricing</span>
+                  <span className="quick-action-card__hint">Rates, gallery &amp; rental types</span>
+                </Link>
+                <Link href="/media" className="quick-action-card">
+                  <span className="quick-action-card__label">Media &amp; FAQs</span>
+                  <span className="quick-action-card__hint">Photos, videos &amp; answers</span>
+                </Link>
+                <Link href="/book-now" className="quick-action-card">
+                  <span className="quick-action-card__label">Book Now</span>
+                  <span className="quick-action-card__hint">Request dates or a tour</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -317,7 +335,9 @@ export default function Home() {
         <div className="py-12 md:py-16 bg-gray-50">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-6">
-              <h2 className="text-3xl md:text-4xl font-light heading-font mb-4">Experience The Reel Room Studio Walkthrough</h2>
+              <span className="section-eyebrow">Take the tour</span>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-3">Experience The Reel Room Studio Walkthrough</h2>
+              <p className="section-tagline">Two minutes. Zero commitment. Maximum FOMO.</p>
             </div>
             
             <div className="flex justify-center">
@@ -612,13 +632,19 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
+                <span className="section-eyebrow">The facility</span>
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">The Space</h2>
-                <p className="text-lg text-gray-600 mb-6 body-font">
-                  Pair reference-grade picture and sound with optional catering and bar service, structured around your rental schedule—not open-door hospitality.
-                </p>
+                <blockquote className="cinema-quote mb-6">
+                  Reference-grade picture and sound, optional catering and bar—structured around your rental schedule, not open-door hospitality.
+                </blockquote>
                 <p className="text-lg text-gray-600 body-font">
                   We focus on technical delivery, crew comfort, and a polished environment for screenings, tapings, and client-facing reviews.
                 </p>
+                <div className="feature-tags mt-8">
+                  <span className="feature-tag">Sound-treated screen room</span>
+                  <span className="feature-tag">Lounge &amp; bar</span>
+                  <span className="feature-tag">Schedule-driven service</span>
+                </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
                 <img 
@@ -647,13 +673,19 @@ export default function Home() {
                 />
               </div>
               <div className="md:order-1">
+                <span className="section-eyebrow">Lights down, credits roll</span>
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Premieres &amp; crew screenings</h2>
-                <p className="text-lg text-gray-300 mb-6 body-font">
-                  Finish your post pipeline with a locked cut on the big screen. The Reel Room is built for cast-and-crew playback, investor reviews, and distributor-ready DCP runs in a private, sound-treated room.
-                </p>
+                <blockquote className="cinema-quote cinema-quote--dark mb-6">
+                  Finish your post pipeline with a locked cut on the big screen—for cast, crew, investors, and distributor-ready DCP runs.
+                </blockquote>
                 <p className="text-lg text-gray-300 body-font">
                   Technical prep, holdbacks, and schedule are handled with your production in mind—this is a working screening facility first.
                 </p>
+                <div className="feature-tags mt-8">
+                  <span className="feature-tag feature-tag--dark">DCP playback</span>
+                  <span className="feature-tag feature-tag--dark">Cast &amp; crew nights</span>
+                  <span className="feature-tag feature-tag--dark">Investor reviews</span>
+                </div>
               </div>
             </div>
           </div>
@@ -664,13 +696,16 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
+                <span className="section-eyebrow">Beyond the velvet rope</span>
                 <h2 className="text-3xl md:text-4xl font-light heading-font mb-6">Studio &amp; corporate productions</h2>
                 <p className="text-lg text-gray-600 mb-6 body-font">
                   Book the screen room and lounge for shareholder webcasts, all-hands with picture-in-picture playback, sizzle reels, training modules, and press-screening workflows—all with broadcast-style AV support.
                 </p>
-                <p className="text-lg text-gray-600 body-font">
-                  Layout, connectivity, and run-of-show follow your rental agreement; add-ons stay secondary to the technical brief.
-                </p>
+                <div className="text-panel">
+                  <p className="text-lg text-gray-700 body-font mb-0">
+                    Layout, connectivity, and run-of-show follow your rental agreement—add-ons stay secondary to the technical brief.
+                  </p>
+                </div>
                 <div className="mt-8">
                   <Link 
                     href="/experiences" 
@@ -697,15 +732,37 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
-              <p className="text-lg text-gray-600 mb-8 body-font">
-                The facility supports roughly 85–95+ people across the screen room and lounges, with a bar area and a mounted 70&quot; display for parallel playback or program feeds.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 body-font">
-                Typical bookings include DCP and digital premieres, colour-critical reviews, branded content playbacks, line-cut and approval sessions, crew-facing Q&amp;As, and controlled press screenings—always as a rental, under your direction.
-              </p>
-              <p className="text-lg text-gray-600 mb-8 body-font">
-                You get a private cinema environment with lounge support: schedule-driven, tech-forward, and intended for productions—not open public programming.
-              </p>
+              <span className="section-eyebrow">At a glance</span>
+              <h2 className="text-3xl md:text-4xl font-light heading-font mb-4">Built for productions that mean business</h2>
+              <p className="section-tagline mb-6">Private cinema. Lounge support. Your run-of-show.</p>
+              <div className="stat-row">
+                <div className="stat-chip">
+                  <span className="stat-chip__value">85–95+</span>
+                  <span className="stat-chip__label">Guest capacity</span>
+                </div>
+                <div className="stat-chip">
+                  <span className="stat-chip__value">70&quot;</span>
+                  <span className="stat-chip__label">Secondary display</span>
+                </div>
+                <div className="stat-chip">
+                  <span className="stat-chip__value">DCP</span>
+                  <span className="stat-chip__label">On request</span>
+                </div>
+                <div className="stat-chip">
+                  <span className="stat-chip__value">MTN PLEASANT</span>
+                  <span className="stat-chip__label">Vancouver, BC</span>
+                </div>
+              </div>
+              <div className="feature-tags justify-center mb-8">
+                <span className="feature-tag">Premieres &amp; DCP</span>
+                <span className="feature-tag">Colour-critical reviews</span>
+                <span className="feature-tag">Branded playbacks</span>
+                <span className="feature-tag">Press screenings</span>
+                <span className="feature-tag">Crew Q&amp;As</span>
+              </div>
+              <blockquote className="cinema-quote max-w-2xl mx-auto text-left md:text-center md:border-l-0 md:border-t md:pt-6 md:pl-0 md:bg-none">
+                Schedule-driven, tech-forward, and intended for productions—not open public programming.
+              </blockquote>
               <div className="mt-8">
                 <Link
                   href="/book-now" 
@@ -721,11 +778,13 @@ export default function Home() {
         {/* What the studio offers */}
         <div className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-light heading-font mb-12 text-center">What our studio rental includes</h2>
+            <span className="section-eyebrow block text-center">Everything included</span>
+            <h2 className="text-3xl md:text-4xl font-light heading-font mb-4 text-center">What our studio rental includes</h2>
+            <p className="section-tagline text-center mb-12">The full package—minus the red carpet. (We can talk about that.)</p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Item 1 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-48 mb-4 overflow-hidden rounded">
+              <div className="inclusion-card">
+                <div className="inclusion-card__img">
                   <img 
                     src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
                     alt="Film & Screenings" 
@@ -737,8 +796,8 @@ export default function Home() {
               </div>
               
               {/* Item 2 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-48 mb-4 overflow-hidden rounded">
+              <div className="inclusion-card">
+                <div className="inclusion-card__img">
                   <img 
                     src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
                     alt="Rental flexibility" 
@@ -750,8 +809,8 @@ export default function Home() {
               </div>
               
               {/* Item 3 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-48 mb-4 overflow-hidden rounded">
+              <div className="inclusion-card">
+                <div className="inclusion-card__img">
                   <img 
                     src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
                     alt="Upscale screen room experience" 
@@ -763,8 +822,8 @@ export default function Home() {
               </div>
               
               {/* Item 4 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-48 mb-4 overflow-hidden rounded">
+              <div className="inclusion-card">
+                <div className="inclusion-card__img">
                   <img 
                     src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
                     alt="Lounge for production use" 
@@ -776,8 +835,8 @@ export default function Home() {
               </div>
               
               {/* Item 5 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-48 mb-4 overflow-hidden rounded">
+              <div className="inclusion-card">
+                <div className="inclusion-card__img">
                   <img 
                     src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
                     alt="On-site production support" 
@@ -789,8 +848,8 @@ export default function Home() {
               </div>
               
               {/* Item 6 */}
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="h-48 mb-4 overflow-hidden rounded">
+              <div className="inclusion-card">
+                <div className="inclusion-card__img">
                   <img 
                     src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
                     alt="Audio Visual Equipment" 
@@ -817,7 +876,11 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Quick Links */}
+        {/* Vibe banner + quick links */}
+        <div className="vibe-banner">
+          <p className="vibe-banner__quote">&ldquo;Your premiere. Your crew. Your room.&rdquo;</p>
+          <p className="vibe-banner__sub">Mount Pleasant&apos;s private cinema—booked on your schedule.</p>
+        </div>
         <div className="py-12 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap justify-center gap-8 uppercase tracking-widest text-sm font-light">
@@ -835,25 +898,29 @@ export default function Home() {
         </div>
         
         {/* Reserve Your Dates - Bottom CTA */}
-        <div className="py-16 bg-gray-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-light section-heading mb-6">Ready to book your production or studio rental?</h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Contact us for hold dates, technical specs, and a rental quote tailored to your shoot or screening.
+        <div className="py-16 bg-gray-900 text-white cta-spotlight relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span className="cta-spotlight__eyebrow">Roll credits on the search</span>
+            <h2 className="text-3xl font-light section-heading mb-4">Ready to book your production or studio rental?</h2>
+            <p className="text-xl mb-2 max-w-2xl mx-auto section-tagline section-tagline--light">
+              Hold dates, technical specs, and a quote tailored to your shoot or screening.
             </p>
-            {!isIOS ? (
-              <CalendlyPopupLink 
-                text="Request a Booking"
-                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
-              />
-            ) : (
-              <Link 
-                href="/book-now" 
-                className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
-              >
-                Request a Booking
-              </Link>
-            )}
+            <div className="fun-divider" aria-hidden="true"><span className="fun-divider__gem" /></div>
+            <div className="mt-8">
+              {!isIOS ? (
+                <CalendlyPopupLink 
+                  text="Request a Booking"
+                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
+                />
+              ) : (
+                <Link 
+                  href="/book-now" 
+                  className="inline-block px-8 py-4 bg-brand-gold text-black rounded-md text-lg font-medium hover:bg-brand-cream transition-colors"
+                >
+                  Request a Booking
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </main>

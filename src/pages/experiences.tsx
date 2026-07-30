@@ -78,7 +78,7 @@ export default function Experiences() {
       
       {/* Booking Contact Box - Fixed Position for Desktop - REMOVED */}
       
-      <main className="pt-20">
+      <main className="pt-20 pb-20 md:pb-0">
         {/* Hero Section */}
         <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
           <picture>
@@ -108,55 +108,65 @@ export default function Experiences() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-light page-heading mb-4">Studio Use &amp; Pricing</h1>
-                <p className="text-xl mb-8">
-                  Customize your studio rental at The Reel Room for screenings, shoots, and productions.
+                <p className="text-xl mb-2 section-tagline section-tagline--light">
+                  Customize your studio rental for screenings, shoots, and productions.
+                </p>
+                <p className="text-lg italic text-brand-cream/70">
+                  Four-hour blocks. Reference-grade AV. Your run-of-show.
                 </p>
               </div>
             </div>
           </div>
         </div>
+
+        <div className="info-strip">
+          <div className="info-strip__inner">
+            <span className="info-strip__item"><span className="info-strip__dot" aria-hidden="true" />Mount Pleasant, Vancouver</span>
+            <span className="info-strip__item"><span className="info-strip__dot" aria-hidden="true" />4-hour blocks from $2,300</span>
+            <span className="info-strip__item"><span className="info-strip__dot" aria-hidden="true" /><a href="mailto:info@reelroom.ca">info@reelroom.ca</a></span>
+          </div>
+        </div>
         
         {/* Main rental rates */}
-        <div className="py-16 bg-white">
+        <div id="pricing" className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-light page-heading mb-12 text-center">Production & Studio Rental Rates</h2>
+            <h2 className="text-3xl font-light page-heading mb-4 text-center">Production &amp; Studio Rental Rates</h2>
+            <p className="section-tagline text-center mb-12">Four hours. Full facility. Zero velvet-rope nonsense.</p>
             
-            <div className="max-w-4xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md mb-16">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-light page-heading mb-2">Base Rental Rate</h3>
-                <p className="text-4xl font-light text-brand-gold">$2,300</p>
-                <p className="text-gray-600 mt-2">for a 4-hour rental time slot</p>
-                <div className="mt-4 pt-4 border-t border-gray-300">
-                  <p className="text-gray-700">+ On-site coordinator ($255) + Cleaning Fee ($300)</p>
-                  <p className="text-gray-700 mt-2">Subtotal: $2,855</p>
-                  <p className="text-gray-700">+ 5% Tax: $142.75</p>
-                  <p className="text-gray-700 mt-2 font-semibold">Final Price: $2,997.75</p>
-                </div>
+            <div className="pricing-showcase">
+              <p className="pricing-showcase__tagline">Lights. Picture. Your room.</p>
+              <h3 className="text-xl font-light page-heading text-center mb-2 text-brand-cream">Base Rental Rate</h3>
+              <p className="pricing-showcase__price">$2,300</p>
+              <p className="text-center text-brand-cream/75 mt-2 body-font">for a 4-hour rental time slot</p>
+              <div className="pricing-showcase__breakdown">
+                <p>+ On-site coordinator ($255) + Cleaning Fee ($300)</p>
+                <p className="mt-2">Subtotal: $2,855 · + 5% Tax: $142.75</p>
+                <p className="pricing-showcase__total">Final Price: $2,997.75</p>
               </div>
-              
-              <div className="max-w-xl mx-auto mb-8">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h4 className="text-lg font-light page-heading mb-3">Additional hours</h4>
-                  <p className="text-gray-600 mb-2">Need more time in the facility?</p>
-                  <p className="text-xl font-semibold text-brand-gold">$400/hour</p>
-                </div>
+            </div>
+            
+            <div className="max-w-xl mx-auto mb-16">
+              <div className="text-panel text-center">
+                <h4 className="text-lg font-light page-heading mb-2">Need more time?</h4>
+                <p className="text-gray-600 mb-2 body-font">Stay in the room—add hours to your block.</p>
+                <p className="text-2xl font-light text-brand-gold page-heading">$400/hour</p>
               </div>
-              
-              <div className="text-center">
-                {!isIOS ? (
-                  <CalendlyPopupLink 
-                    text="Request a Booking"
-                    className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
-                  />
-                ) : (
-                  <Link
-                    href="/book-now"
-                    className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
-                  >
-                    Request a Booking
-                  </Link>
-                )}
-              </div>
+            </div>
+            
+            <div className="text-center mb-16">
+              {!isIOS ? (
+                <CalendlyPopupLink 
+                  text="Request a Booking"
+                  className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
+                />
+              ) : (
+                <Link
+                  href="/book-now"
+                  className="inline-block bg-black text-white px-8 py-4 rounded-md text-lg transition-colors hover:bg-gray-800"
+                >
+                  Request a Booking
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -164,26 +174,28 @@ export default function Experiences() {
         {/* Rental types */}
         <div className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span className="section-eyebrow block text-center">Pick your production</span>
             <h2 className="text-3xl font-light page-heading mb-12 text-center">Rental types</h2>
             
             {/* DCP & premiere screenings */}
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
+                  <span className="section-eyebrow">Screenings</span>
                   <h3 className="text-2xl font-light page-heading mb-4">DCP &amp; premiere screenings</h3>
                   <p className="text-gray-600 mb-6">
                     Lock your colour grade and audio mix with a reference screening for cast, crew, financiers, or distributors. The Reel Room is set up as a private cinema stage—not a banquet hall—so playback stays the priority.
                   </p>
-                  <div className="bg-white p-4 rounded-lg shadow-sm mb-6">
-                    <p className="text-gray-800 italic">DCP available upon request.</p>
+                  <blockquote className="cinema-quote mb-6 text-base">
+                    DCP available upon request.
+                  </blockquote>
+                  <div className="feature-tags mb-6">
+                    <span className="feature-tag">Critical viewing</span>
+                    <span className="feature-tag">Lounge hospitality</span>
+                    <span className="feature-tag">85–95+ capacity</span>
+                    <span className="feature-tag">Reference projection</span>
+                    <span className="feature-tag">Secondary playback</span>
                   </div>
-                  <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Private screen room tuned for critical viewing</li>
-                    <li>Optional lounge hospitality tied to your technical schedule</li>
-                    <li>Capacity up to roughly 85–95+ across the screen room and lounges</li>
-                    <li>High-quality projection and sound</li>
-                    <li>Lounge for notes, interviews, or secondary playback</li>
-                  </ul>
                   {!isIOS ? (
                     <CalendlyPopupLink 
                       text="Book a screening rental"
@@ -227,17 +239,18 @@ export default function Experiences() {
                   />
                 </div>
                 <div>
+                  <span className="section-eyebrow">Finishing suite vibes</span>
                   <h3 className="text-2xl font-light page-heading mb-4">Production studio events: reference playback</h3>
                   <p className="text-gray-600 mb-6">
                     Rent the room for colour-critical reviews, client approvals, and finishing playbacks where picture and sound have to read true. Service style follows your technical brief—not a preset social package.
                   </p>
-                  <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Cinema-scale playback for file-based and live-signal reviews</li>
-                    <li>Secondary lounge feed for producers or clients</li>
-                    <li>Optional graphics or stingers (client-supplied)</li>
-                    <li>Production support and hospitality scoped to the rental</li>
-                    <li>Full facility buyout available</li>
-                  </ul>
+                  <div className="feature-tags mb-6">
+                    <span className="feature-tag">Cinema-scale playback</span>
+                    <span className="feature-tag">Secondary lounge feed</span>
+                    <span className="feature-tag">Client graphics</span>
+                    <span className="feature-tag">Production support</span>
+                    <span className="feature-tag">Full facility buyout</span>
+                  </div>
                   {!isIOS ? (
                     <CalendlyPopupLink 
                       text="Book a screening rental"
@@ -259,18 +272,19 @@ export default function Experiences() {
             <div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="order-2 md:order-1">
+                  <span className="section-eyebrow">Boardroom meets big screen</span>
                   <h3 className="text-2xl font-light page-heading mb-4">Corporate &amp; brand productions</h3>
                   <p className="text-gray-600 mb-6">
                     The Reel Room functions as a presentation screen room and content stage: investor streams, launch films, sizzle reels, internal town halls with playback, and press screenings with controlled access.
                   </p>
-                  <ul className="list-disc list-inside text-gray-600 mb-6">
-                    <li>Executive presentations with cinema-scale picture</li>
-                    <li>Team screenings and training modules</li>
-                    <li>Product launches and demo reels</li>
-                    <li>Media and stakeholder reviews</li>
-                    <li>Brand activations with staged playback</li>
-                    <li>Controlled guest lists and run-of-show support</li>
-                  </ul>
+                  <div className="feature-tags mb-6">
+                    <span className="feature-tag">Executive presentations</span>
+                    <span className="feature-tag">Team screenings</span>
+                    <span className="feature-tag">Product launches</span>
+                    <span className="feature-tag">Media reviews</span>
+                    <span className="feature-tag">Brand activations</span>
+                    <span className="feature-tag">Controlled guest lists</span>
+                  </div>
                   {!isIOS ? (
                     <CalendlyPopupLink 
                       text="Book a corporate rental"

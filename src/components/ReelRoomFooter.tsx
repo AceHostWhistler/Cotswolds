@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import BackToTop from './BackToTop';
 
 const ReelRoomFooter: React.FC = () => {
   return (
@@ -115,6 +116,7 @@ const ReelRoomFooter: React.FC = () => {
           </div>
         </div>
       </div>
+      <BackToTop />
     </footer>
   );
 };
