@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config');
-const { buildNextRedirects } = require('./redirects/legacy-seo-redirects');
 
 const nextConfig = {
   reactStrictMode: true,
@@ -119,16 +118,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'acehost.ca',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'acehost.vercel.app',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'img.youtube.com',
         pathname: '/**',
       },
@@ -157,7 +146,49 @@ const nextConfig = {
     scrollRestoration: true,
   },
   async redirects() {
-    return buildNextRedirects();
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'reelroom.ca' }],
+        destination: 'https://www.reelroom.ca/:path*',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/book-now',
+        permanent: true,
+      },
+      {
+        source: '/reservations',
+        destination: '/book-now',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/legal-disclaimer',
+        destination: '/terms',
+        permanent: true,
+      },
+      {
+        source: '/media-and-gallery',
+        destination: '/media',
+        permanent: true,
+      },
+      {
+        source: '/media-gallery',
+        destination: '/media',
+        permanent: true,
+      },
+      {
+        source: '/videos',
+        destination: '/media',
+        permanent: true,
+      },
+    ];
   },
 }
 

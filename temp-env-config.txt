@@ -1,3 +1,0 @@
-NEXT_PUBLIC_SITE_URL=https://reelroom.ca
-SMTP_USER=benkirsh1@gmail.com
-SMTP_PASSWORD=jreg ytvb dmcs kpej 

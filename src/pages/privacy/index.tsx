@@ -49,8 +49,8 @@ export default function Privacy() {
               identification details (when required for booking)
             </li>
             <li className="mb-2">
-              <strong>Booking information:</strong> Dates of stay, property
-              preferences, number of guests, special requests, and payment
+              <strong>Booking information:</strong> Preferred dates and times,
+              session duration, guest or crew count, event type, and payment
               information
             </li>
             <li className="mb-2">
@@ -66,7 +66,7 @@ export default function Privacy() {
             <li className="mb-2">
               <strong>Usage data:</strong> Information about how you use our
               website, including the pages you visit, the time and date of your
-              visit, the time spent on those pages, and the properties you view
+              visit, and the time spent on those pages
             </li>
           </ul>
         </section>
@@ -81,12 +81,12 @@ export default function Privacy() {
           <ul className="list-disc ml-6 mb-4">
             <li className="mb-2">
               <strong>Facilitating bookings:</strong> To process and fulfill
-              your property rental requests, manage payments, and provide
+              your studio rental requests, manage payments, and provide
               customer support
             </li>
             <li className="mb-2">
-              <strong>Personalized service:</strong> To tailor our property
-              recommendations and services to your preferences and needs
+              <strong>Personalized service:</strong> To tailor our facility
+              recommendations and services to your event or production needs
             </li>
             <li className="mb-2">
               <strong>Communication:</strong> To respond to your inquiries,
@@ -116,8 +116,8 @@ export default function Privacy() {
           <ul className="list-disc ml-6 mb-4">
             <li className="mb-2">
               <strong>Contract performance:</strong> Processing is necessary to
-              fulfill our contractual obligations to you when you book a
-              property
+              fulfill our contractual obligations to you when you book the
+              studio
             </li>
             <li className="mb-2">
               <strong>Legitimate interests:</strong> Processing is necessary for
@@ -142,10 +142,6 @@ export default function Privacy() {
           <p className="mb-4">We may share your personal information with:</p>
           <ul className="list-disc ml-6 mb-4">
             <li className="mb-2">
-              <strong>Property owners:</strong> To facilitate your stay and
-              provide personalized service
-            </li>
-            <li className="mb-2">
               <strong>Service providers:</strong> Third parties who provide
               services on our behalf, such as payment processing, website
               hosting, IT support, and marketing
@@ -155,9 +151,9 @@ export default function Privacy() {
               order, or governmental regulation
             </li>
             <li className="mb-2">
-              <strong>Business partners:</strong> In connection with providing
-              you with additional services such as transportation, concierge
-              services, ski and snowboard rentals, or other experiences
+              <strong>Production partners:</strong> In connection with providing
+              you with additional services such as catering coordination,
+              technical support, or other event-related services
             </li>
           </ul>
           <p className="mb-4">

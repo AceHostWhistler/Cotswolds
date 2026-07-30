@@ -37,6 +37,8 @@ dist/
 
 # Ignore media uploads
 /media_uploads/
+/contact-submissions/
+temp-env-config.txt
 
 # Large files
 # Exclude only video files, not all images

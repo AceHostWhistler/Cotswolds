@@ -106,19 +106,19 @@ const TermsOfService = () => {
                   Booking and Payments
                 </h2>
                 <p>
-                  All property rental bookings are subject to availability and
+                  All studio rental bookings are subject to availability and
                   confirmation. Prices are as quoted on our website or as
                   otherwise communicated to you.
                 </p>
                 <p>
                   A deposit is required to confirm your booking, with the
-                  balance due before the rental date as specified in your rental
-                  agreement. Payment terms will be detailed in your booking
+                  balance due before your session date as specified in your
+                  rental agreement. Payment terms will be detailed in your booking
                   confirmation.
                 </p>
                 <p>
-                  Cancellation policies vary depending on the property and
-                  rental period. Specific cancellation terms will be provided in
+                  Cancellation policies vary depending on the booking type and
+                  session length. Specific cancellation terms will be provided in
                   your rental agreement.
                 </p>
               </section>
@@ -148,29 +148,28 @@ const TermsOfService = () => {
 
               <section className="mb-10">
                 <h2 className="text-2xl font-medium mb-4 text-gray-900">
-                  Property Rules and Regulations
+                  Studio Rules and Regulations
                 </h2>
                 <p>
-                  When staying at any property booked through The Reel Room, you agree
-                  to:
+                  When using The Reel Room facility, you agree to:
                 </p>
                 <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-600">
-                  <li>Respect the property and its contents</li>
+                  <li>Respect the facility, equipment, and furnishings</li>
                   <li>
-                    Comply with occupancy limits specified for the property
+                    Comply with guest or crew limits specified for your booking
                   </li>
                   <li>
-                    Follow any house rules provided for the specific property
+                    Follow all studio rules provided before or during your session
                   </li>
-                  <li>Report any damages or issues promptly</li>
-                  <li>Be considerate of neighbors and the local community</li>
+                  <li>Report any damages or equipment issues promptly</li>
+                  <li>Be considerate of neighbouring tenants and the building</li>
                   <li>
-                    Leave the property in a reasonable condition upon departure
+                    Leave the studio in a reasonable condition upon departure
                   </li>
                 </ul>
                 <p>
-                  Additional property-specific rules may apply and will be
-                  communicated to you before or at the time of check-in.
+                  Additional session-specific rules may apply and will be
+                  communicated to you before your booking.
                 </p>
               </section>
 

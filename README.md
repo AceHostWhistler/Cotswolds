@@ -70,60 +70,17 @@ const MyPage = () => {
 
 ## Homepage Video
 
-The homepage uses a Vimeo video background for the main circular hero section. The video is embedded using the `LazyVimeoPlayer` component, which optimizes loading and playback.
+The homepage uses a self-hosted MP4 background for the main hero section, with adaptive loading for mobile and slow connections. A poster image is preloaded for faster first paint.
 
-### Implementation Details
+## Site Structure
 
-- The video is loaded only when it's in the viewport (lazy loading)
-- A fallback image is displayed if video loading fails
-- Playback is muted and loops continuously
-- The player is embedded in background mode for a cleaner UI
+The Reel Room site includes these indexable pages:
 
-## Property Gallery Component
+- `/` — Home
+- `/experiences` — Facility and rental options
+- `/book-now` — Booking inquiries and Calendly scheduling
+- `/media` — Photo and video gallery
+- `/privacy` — Privacy policy
+- `/terms` — Terms of service
 
-The `PropertyGallery` component can be used to display a grid of property photos with a fullscreen viewer. This component is designed to be reused across all property listing pages.
-
-### Usage
-
-```jsx
-import PropertyGallery from "@/components/PropertyGallery";
-
-// In your property page component:
-const MyPropertyPage = () => {
-  const photos = [
-    "/photos/properties/my-property/1.jpg",
-    "/photos/properties/my-property/2.jpg",
-    "/photos/properties/my-property/3.jpg",
-    // ... more photos
-  ];
-
-  return (
-    <div>
-      <h1>My Amazing Property</h1>
-      {/* Other property content */}
-      
-      <div ref={photosRef}>
-        <PropertyGallery 
-          photos={photos}
-          propertyName="My Property"
-          maxInitialPhotos={9} // Optional, defaults to 8
-        />
-      </div>
-    </div>
-  );
-};
-```
-
-### Props
-
-- `photos` (required): An array of photo URLs to display in the gallery
-- `propertyName` (required): The name of the property, used for alt text and modal titles
-- `maxInitialPhotos` (optional): Maximum number of photos to show initially before "View All" button appears (defaults to 8)
-
-### Features
-
-- Responsive grid layout
-- Fullscreen modal gallery when "View All" is clicked
-- Individual photo fullscreen view with navigation
-- Lazy loading for performance optimization
-- Mobile-friendly design
+Legacy routes from the prior site are not served; they return 404.
