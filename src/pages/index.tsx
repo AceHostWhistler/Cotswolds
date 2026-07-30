@@ -11,13 +11,33 @@ import SimpleImage from '@/components/SimpleImage';
 import { scrollToTop } from '@/utils/scrollUtils';
 import CalendlyPopupLink from '@/components/CalendlyPopupLink';
 
+const HERO_VIDEO_DESKTOP = '/videos/hero-video-compressed.mp4';
+const HERO_VIDEO_MOBILE = '/videos/hero-video-mobile.mp4';
+const HERO_VIDEO_POSTER = '/photos/homepage-originals/DSC03060-Enhanced-NR.jpg';
+
+function getHeroVideoSrc(): string {
+  if (typeof window === 'undefined') return HERO_VIDEO_MOBILE;
+
+  const connection = (navigator as Navigator & {
+    connection?: { saveData?: boolean; effectiveType?: string };
+  }).connection;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const slowConnection =
+    connection?.saveData ||
+    ['slow-2g', '2g', '3g'].includes(connection?.effectiveType ?? '');
+
+  return isMobile || slowConnection ? HERO_VIDEO_MOBILE : HERO_VIDEO_DESKTOP;
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const [heroVideoSrc, setHeroVideoSrc] = useState<string | null>(null);
   
   useEffect(() => {
     setIsPageLoaded(true);
+    setHeroVideoSrc(getHeroVideoSrc());
     
     // Detect iOS devices
     const detectIOS = () => {
@@ -33,50 +53,6 @@ export default function Home() {
     
     // Ensure page starts from the top
     scrollToTop();
-    
-    // Debug video loading after page loads
-    const videoDebugTimer = setTimeout(() => {
-      const video = document.getElementById('hero-video') as HTMLVideoElement;
-      if (video) {
-        console.log('🔍 Video debug check after 3 seconds:');
-        console.log('Video element exists:', !!video);
-        console.log('Video src:', video.src);
-        console.log('Video currentSrc:', video.currentSrc);
-        console.log('Video readyState:', video.readyState);
-        console.log('Video networkState:', video.networkState);
-        console.log('Video error:', video.error);
-        console.log('Video paused:', video.paused);
-        console.log('Video ended:', video.ended);
-        console.log('Video duration:', video.duration);
-        console.log('Video current time:', video.currentTime);
-        
-        // Check if video file is accessible
-        fetch('/videos/hero-video-compressed.mp4', { method: 'HEAD' })
-          .then(response => {
-            console.log('📁 Video file check:');
-            console.log('Status:', response.status);
-            console.log('Content-Type:', response.headers.get('content-type'));
-            console.log('Content-Length:', response.headers.get('content-length'));
-            console.log('Accept-Ranges:', response.headers.get('accept-ranges'));
-          })
-          .catch(err => {
-            console.error('❌ Video file not accessible:', err);
-          });
-          
-        // Try to force load and play
-        if (video.readyState < 2) {
-          console.log('🔄 Attempting to reload video...');
-          video.load();
-          setTimeout(() => {
-            video.play().catch(err => console.error('❌ Forced play failed:', err));
-          }, 1000);
-        }
-      } else {
-        console.error('❌ Video element not found!');
-      }
-    }, 3000);
-    
-    return () => clearTimeout(videoDebugTimer);
   }, []);
   
   const toggleMenu = () => {
@@ -122,6 +98,10 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="preload" as="image" href={HERO_VIDEO_POSTER} />
+        {heroVideoSrc && (
+          <link rel="preload" as="video" href={heroVideoSrc} type="video/mp4" />
+        )}
       </Head>
 
       {/* Include video loader helper script */}
@@ -144,89 +124,32 @@ export default function Home() {
                   {/* Your Reel Room Video with comprehensive debugging */}
                   <video 
                     id="hero-video"
+                    key={heroVideoSrc ?? 'poster-only'}
+                    src={heroVideoSrc ?? undefined}
                     className="absolute inset-0 w-full h-full object-cover"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    preload="auto"
-                    poster="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
-                    onLoadStart={(e) => {
-                      console.log('🎬 Video load started');
-                      const video = e.target as HTMLVideoElement;
-                      console.log('Video src:', video.currentSrc || video.src);
-                      console.log('Video readyState:', video.readyState);
-                      console.log('Video networkState:', video.networkState);
-                    }}
-                    onLoadedMetadata={(e) => {
-                      const video = e.target as HTMLVideoElement;
-                      console.log('📊 Video metadata loaded');
-                      console.log('Duration:', video.duration);
-                      console.log('Video dimensions:', video.videoWidth, 'x', video.videoHeight);
-                      console.log('Ready state:', video.readyState);
-                    }}
+                    preload={heroVideoSrc ? 'auto' : 'none'}
+                    poster={HERO_VIDEO_POSTER}
                     onLoadedData={(e) => {
-                      console.log('✅ Video data loaded successfully');
                       const video = e.target as HTMLVideoElement;
                       const img = video.nextElementSibling as HTMLImageElement;
                       if (img) img.style.display = 'none';
-                      
-                      // Force play
-                      video.play().then(() => {
-                        console.log('🎵 Video playing successfully');
-                      }).catch(err => {
-                        console.error('❌ Autoplay failed:', err);
-                        // Try to play on user interaction
+                      video.play().catch(() => {
                         const playOnClick = () => {
-                          video.play().then(() => {
-                            console.log('🎵 Video playing after user interaction');
-                          }).catch(e => console.error('❌ Manual play failed:', e));
+                          video.play().catch(() => {});
                           document.removeEventListener('click', playOnClick);
                         };
                         document.addEventListener('click', playOnClick, { once: true });
                       });
                     }}
-                    onCanPlay={(e) => {
-                      const video = e.target as HTMLVideoElement;
-                      console.log('🎬 Video can play');
-                      console.log('Ready state:', video.readyState);
-                      console.log('Buffered ranges:', video.buffered.length);
-                      if (video.buffered.length > 0) {
-                        console.log('Buffered:', video.buffered.start(0), 'to', video.buffered.end(0));
-                      }
-                    }}
-                    onCanPlayThrough={() => {
-                      console.log('🎬 Video can play through');
-                    }}
                     onError={(e) => {
                       const video = e.target as HTMLVideoElement;
-                      console.error('❌ Video error occurred');
-                      console.error('Error code:', video.error?.code);
-                      console.error('Error message:', video.error?.message);
-                      console.error('Network state:', video.networkState);
-                      console.error('Ready state:', video.readyState);
-                      console.error('Current src:', video.currentSrc);
-                      
-                      // Hide video and show fallback image
                       const img = video.nextElementSibling as HTMLImageElement;
                       video.style.display = 'none';
-                      if (img) {
-                        img.style.display = 'block';
-                        console.log('🖼️ Showing fallback image');
-                      }
-                    }}
-                    onStalled={() => {
-                      console.warn('⚠️ Video stalled');
-                    }}
-                    onWaiting={() => {
-                      console.warn('⏳ Video waiting for data');
-                    }}
-                    onProgress={(e) => {
-                      const video = e.target as HTMLVideoElement;
-                      if (video.buffered.length > 0) {
-                        const buffered = (video.buffered.end(0) / video.duration) * 100;
-                        console.log('📊 Video buffered:', Math.round(buffered) + '%');
-                      }
+                      if (img) img.style.display = 'block';
                     }}
                     style={{ 
                       objectFit: 'cover',
@@ -236,14 +159,11 @@ export default function Home() {
                       transform: 'scale(1.2)',
                       zIndex: 2
                     }}
-                  >
-                    <source src="/videos/hero-video-compressed.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  />
                   
-                  {/* Fallback image - shows if video fails */}
+                  {/* Fallback image - shows before video loads or if video fails */}
                   <img 
-                    src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
+                    src={HERO_VIDEO_POSTER} 
                     alt="Reel Room Background" 
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ 
