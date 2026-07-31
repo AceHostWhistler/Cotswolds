@@ -61,12 +61,12 @@ export default function BlogPostPage({ post }: BlogPostPageProps) {
         <ReelRoomNavigation />
 
         <main>
-          <div className="relative h-[320px] sm:h-[420px]">
+          <div className="relative bg-black">
             <ResponsivePhoto
               src={post.heroImage}
               alt={post.title}
-              className="absolute inset-0 w-full h-full"
-              imgClassName="absolute inset-0 w-full h-full object-cover"
+              className="w-full"
+              imgClassName="w-full h-auto object-contain"
               loading="eager"
               fetchPriority="high"
               layout="hero"
@@ -129,7 +129,7 @@ export default function BlogPostPage({ post }: BlogPostPageProps) {
                           src={related.heroImage}
                           alt={related.title}
                           className="w-full h-full"
-                          imgClassName="w-full h-full object-cover"
+                          imgClassName="w-full h-auto object-contain"
                           layout="gallery"
                           loading="lazy"
                         />

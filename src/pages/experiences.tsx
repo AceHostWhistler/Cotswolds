@@ -101,12 +101,12 @@ export default function Experiences() {
       
       <main className="pt-20 pb-20 md:pb-0">
         {/* Hero Section */}
-        <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
+        <div className="relative bg-black overflow-hidden">
           <ResponsivePhoto
             src="/photos/originals/homepage/DSC03081-Enhanced-NR.jpg"
             alt="The Reel Room studio use and pricing"
-            className="absolute inset-0 w-full h-full"
-            imgClassName="absolute inset-0 w-full h-full object-cover"
+            className="w-full"
+            imgClassName="w-full h-auto object-contain"
             loading="eager"
             fetchPriority="high"
             layout="hero"
@@ -217,7 +217,7 @@ export default function Experiences() {
                     </Link>
                   )}
                 </div>
-                <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
+                <div className="order-1 md:order-2 relative rounded-lg overflow-hidden bg-black">
                   <SimpleImage
                     src="/photos/originals/homepage/DSC03066-Enhanced-NR.jpg"
                     alt="DCP and premiere screening rental"
@@ -234,7 +234,7 @@ export default function Experiences() {
             {/* Production studio events: reference playback */}
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
-                <div className="relative h-96 rounded-lg overflow-hidden">
+                <div className="relative rounded-lg overflow-hidden bg-black">
                   <SimpleImage
                     src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
                     alt="Reference playback and studio rental"
@@ -306,7 +306,7 @@ export default function Experiences() {
                     </Link>
                   )}
                 </div>
-                <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
+                <div className="order-1 md:order-2 relative rounded-lg overflow-hidden bg-black">
                   <SimpleImage
                     src="/photos/originals/homepage/DSC03167-Enhanced-NR.jpg"
                     alt="Corporate studio rental"
@@ -329,7 +329,7 @@ export default function Experiences() {
             
             <div className="max-w-md mx-auto">
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
-                <div className="h-48 mb-6 rounded overflow-hidden">
+                <div className="mb-6 rounded overflow-hidden bg-black">
                   <SimpleImage
                     src="/photos/originals/homepage/DSC03106-Enhanced-NR.jpg"
                     alt="DCP audio-visual options"
@@ -361,7 +361,7 @@ export default function Experiences() {
                 { src: 'DSC03301-Enhanced-NR.jpg', alt: 'Reel Room velvet lounge detail', span: 'col-span-1 row-span-1' },
                 { src: 'DSC03389-Enhanced-NR.jpg', alt: 'Reel Room bar cocktail detail', span: 'col-span-1 row-span-1' },
               ].map((photo) => (
-                <div key={photo.src} className={`${photo.span} aspect-square overflow-hidden rounded-lg`}>
+                <div key={photo.src} className={`${photo.span} overflow-hidden rounded-lg bg-black`}>
                   <SimpleImage
                     src={`/photos/originals/homepage/${photo.src}`}
                     alt={photo.alt}

@@ -568,18 +568,18 @@
 }
 
 .inclusion-card__img {
-  height: 12rem;
   margin-bottom: 1rem;
   overflow: hidden;
   border-radius: 2px;
+  background: #000;
 }
 
-.inclusion-card__img img {
-  transition: transform 0.5s ease;
-}
-
-.inclusion-card:hover .inclusion-card__img img {
-  transform: scale(1.06);
+.inclusion-card__img img,
+.inclusion-card__img picture {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .checklist-grid {
@@ -714,13 +714,13 @@
 }
 
 .blog-card__image {
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #111;
 }
 
 .blog-card__image--compact {
-  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
 }
 
 .blog-card__body {
@@ -807,10 +807,17 @@
 }
 
 .blog-prose__figure-image {
-  aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: 0.5rem;
   background: #111;
+}
+
+.blog-prose__figure-image img,
+.blog-prose__figure-image picture {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .blog-prose__caption {

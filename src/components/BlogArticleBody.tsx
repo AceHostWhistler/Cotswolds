@@ -44,8 +44,8 @@ export default function BlogArticleBody({ sections }: BlogArticleBodyProps) {
                   <ResponsivePhoto
                     src={section.src}
                     alt={section.alt}
-                    className="w-full h-full"
-                    imgClassName="w-full h-full object-cover"
+                    className="w-full"
+                    imgClassName="w-full h-auto object-contain"
                     layout="content"
                     loading="lazy"
                   />

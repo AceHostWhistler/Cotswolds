@@ -43,7 +43,7 @@ export default function ResponsivePhoto({
   src,
   alt,
   className = '',
-  imgClassName = 'w-full h-full object-cover',
+  imgClassName = 'w-full h-auto object-contain',
   loading = 'lazy',
   fetchPriority,
   decoding = 'async',
