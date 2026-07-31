@@ -62,12 +62,12 @@ export default function BookNow() {
 
         <main>
           {/* Hero Section */}
-          <div className="relative bg-black">
+          <div className="relative h-[300px] sm:h-[400px]">
             <ResponsivePhoto
               src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg"
               alt="Reel Room Booking"
-              className="w-full"
-              imgClassName="w-full h-auto object-contain"
+              className="absolute inset-0 w-full h-full"
+              imgClassName="absolute inset-0 w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"
               layout="hero"
@@ -198,12 +198,12 @@ export default function BookNow() {
             
             <div className="space-y-8 mb-12">
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="relative bg-black">
+                <div className="relative h-64">
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03066-Enhanced-NR.jpg"
                     alt="Film Screenings"
                     className="w-full h-full"
-                    imgClassName="w-full h-auto object-contain"
+                    imgClassName="w-full h-full object-cover"
                     layout="content"
                   />
                 </div>
@@ -216,12 +216,12 @@ export default function BookNow() {
               </div>
               
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="relative bg-black">
+                <div className="relative h-64">
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
                     alt="Reference playback studio rental"
                     className="w-full h-full"
-                    imgClassName="w-full h-auto object-contain"
+                    imgClassName="w-full h-full object-cover"
                     layout="content"
                   />
                 </div>
@@ -234,12 +234,12 @@ export default function BookNow() {
               </div>
               
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="relative bg-black">
+                <div className="relative h-64">
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03167-Enhanced-NR.jpg"
                     alt="Corporate studio rental"
                     className="w-full h-full"
-                    imgClassName="w-full h-auto object-contain"
+                    imgClassName="w-full h-full object-cover"
                     layout="content"
                   />
                 </div>

@@ -336,7 +336,7 @@ export default function Home() {
                           src="/photos/originals/homepage/DSC03066-Enhanced-NR.jpg"
                           alt="Film Release Video Thumbnail"
                           className="absolute inset-0 w-full h-full"
-                          imgClassName="absolute inset-0 w-full h-full object-contain opacity-60"
+                          imgClassName="absolute inset-0 w-full h-full object-cover opacity-60"
                           layout="content"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -421,7 +421,7 @@ export default function Home() {
                           src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
                           alt="Reference playback and client review video thumbnail"
                           className="absolute inset-0 w-full h-full"
-                          imgClassName="absolute inset-0 w-full h-full object-contain opacity-60"
+                          imgClassName="absolute inset-0 w-full h-full object-cover opacity-60"
                           layout="content"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -567,12 +567,12 @@ export default function Home() {
                   <span className="feature-tag">Schedule-driven service</span>
                 </div>
               </div>
-              <div className="relative rounded-lg overflow-hidden bg-black">
+              <div className="relative h-96 rounded-lg overflow-hidden">
                 <ResponsivePhoto
                   src="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg"
                   alt="Reel Room Space"
-                  className="w-full"
-                  imgClassName="w-full h-auto object-contain rounded-lg"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full rounded-lg object-cover"
                   loading="eager"
                   layout="content"
                   style={{ display: 'block' }}
@@ -586,12 +586,12 @@ export default function Home() {
         <div className="py-16 md:py-24 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="relative rounded-lg overflow-hidden bg-black md:order-2">
+              <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
                 <ResponsivePhoto
                   src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg"
                   alt="Reel Room film premiere and screening rental"
-                  className="w-full"
-                  imgClassName="w-full h-auto object-contain rounded-lg"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full rounded-lg object-cover"
                   loading="eager"
                   layout="content"
                   style={{ display: 'block' }}
@@ -640,12 +640,12 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="relative rounded-lg overflow-hidden bg-black">
+              <div className="relative h-96 rounded-lg overflow-hidden">
                 <ResponsivePhoto
                   src="/photos/originals/homepage/DSC03060-Enhanced-NR.jpg"
                   alt="Reel Room studio and corporate production rental"
-                  className="w-full"
-                  imgClassName="w-full h-auto object-contain rounded-lg"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full rounded-lg object-cover"
                   loading="eager"
                   layout="content"
                   style={{ display: 'block' }}
@@ -715,8 +715,8 @@ export default function Home() {
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03222-Enhanced-NR.jpg"
                     alt="Film & Screenings"
-                    className="w-full"
-                    imgClassName="w-full h-auto object-contain"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
                     layout="gallery"
                   />
                 </div>
@@ -730,8 +730,8 @@ export default function Home() {
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03227-Enhanced-NR.jpg"
                     alt="Rental flexibility"
-                    className="w-full"
-                    imgClassName="w-full h-auto object-contain"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
                     layout="gallery"
                   />
                 </div>
@@ -745,8 +745,8 @@ export default function Home() {
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03192-Enhanced-NR-Edit.jpg"
                     alt="Upscale screen room experience"
-                    className="w-full"
-                    imgClassName="w-full h-auto object-contain"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
                     layout="gallery"
                   />
                 </div>
@@ -760,8 +760,8 @@ export default function Home() {
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03131-Enhanced-NR.jpg"
                     alt="Lounge for production use"
-                    className="w-full"
-                    imgClassName="w-full h-auto object-contain"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
                     layout="gallery"
                   />
                 </div>
@@ -775,8 +775,8 @@ export default function Home() {
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03167-Enhanced-NR.jpg"
                     alt="On-site production support"
-                    className="w-full"
-                    imgClassName="w-full h-auto object-contain"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
                     layout="gallery"
                   />
                 </div>
@@ -790,8 +790,8 @@ export default function Home() {
                   <ResponsivePhoto
                     src="/photos/originals/homepage/DSC03064-Enhanced-NR.jpg"
                     alt="Audio Visual Equipment"
-                    className="w-full"
-                    imgClassName="w-full h-auto object-contain"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
                     layout="gallery"
                   />
                 </div>

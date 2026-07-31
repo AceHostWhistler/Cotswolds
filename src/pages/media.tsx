@@ -470,15 +470,18 @@ export default function Media() {
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            aspect-ratio: 1/1;
             position: relative;
           }
           
           .gallery-image {
             width: 100%;
-            height: auto;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            position: static;
+            position: absolute;
+            top: 0;
+            left: 0;
           }
           
           /* Pagination Styles */
@@ -550,11 +553,10 @@ export default function Media() {
           .video-thumbnail {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             position: absolute;
             top: 0;
             left: 0;
-            background: #000;
           }
           
           .video-play-overlay {
@@ -612,10 +614,12 @@ export default function Media() {
             }
             
             .gallery-image {
-              position: static !important;
+              position: absolute !important;
+              top: 0 !important;
+              left: 0 !important;
               width: 100% !important;
-              height: auto !important;
-              object-fit: contain !important;
+              height: 100% !important;
+              object-fit: cover !important;
             }
             
             .video-container {
@@ -632,8 +636,7 @@ export default function Media() {
               left: 0 !important;
               width: 100% !important;
               height: 100% !important;
-              object-fit: contain !important;
-              background: #000 !important;
+              object-fit: cover !important;
             }
             
             .video-play-button {
@@ -656,18 +659,20 @@ export default function Media() {
       
       <main className="pt-20 pb-20 md:pb-0">
         {/* Hero Section */}
-        <div className="relative bg-black overflow-hidden">
-          <ResponsivePhoto
-            src="/photos/originals/homepage/DSC03659-Enhanced-NR.jpg"
-            alt="Reel Room Media"
-            className="w-full"
-            imgClassName="w-full h-auto object-contain brightness-75"
-            loading="eager"
-            layout="hero"
-            style={{ display: 'block' }}
-          />
+        <div className="relative h-[400px] overflow-hidden">
+          <div className="absolute inset-0">
+            <ResponsivePhoto
+              src="/photos/originals/homepage/DSC03659-Enhanced-NR.jpg"
+              alt="Reel Room Media"
+              className="absolute inset-0 w-full h-full"
+              imgClassName="w-full h-full object-cover brightness-75"
+              loading="eager"
+              layout="hero"
+              style={{ display: 'block' }}
+            />
+          </div>
           <div className="absolute inset-0 bg-black bg-opacity-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[12rem] flex items-center py-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
                 <h1 className="text-4xl md:text-5xl font-light page-heading mb-4">Media & FAQs</h1>
                 <p className="text-xl mb-2 section-tagline section-tagline--light">

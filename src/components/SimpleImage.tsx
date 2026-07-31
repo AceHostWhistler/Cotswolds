@@ -21,7 +21,7 @@ export default function SimpleImage({
   style,
   loading = 'lazy',
   decoding = 'async',
-  objectFit = 'contain',
+  objectFit = 'cover',
   layout = 'content',
 }: SimpleImageProps) {
   const [activeSrc, setActiveSrc] = useState(src);
@@ -44,7 +44,7 @@ export default function SimpleImage({
       src={activeSrc}
       alt={alt}
       className={className}
-      imgClassName="w-full h-auto object-contain"
+      imgClassName="w-full h-full"
       loading={loading}
       decoding={decoding}
       layout={layout}

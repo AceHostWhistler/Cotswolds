@@ -40,12 +40,12 @@ export default function BlogIndex() {
         <ReelRoomNavigation />
 
         <main>
-          <div className="relative bg-black">
+          <div className="relative h-[280px] sm:h-[360px]">
             <ResponsivePhoto
               src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg"
               alt="The Reel Room blog"
-              className="w-full"
-              imgClassName="w-full h-auto object-contain"
+              className="absolute inset-0 w-full h-full"
+              imgClassName="absolute inset-0 w-full h-full object-cover"
               loading="eager"
               fetchPriority="high"
               layout="hero"
@@ -76,7 +76,7 @@ export default function BlogIndex() {
                         src={post.heroImage}
                         alt={post.title}
                         className="w-full h-full"
-                        imgClassName="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                        imgClassName="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         layout="content"
                         loading="lazy"
                       />
