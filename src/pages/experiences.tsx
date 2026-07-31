@@ -13,12 +13,9 @@ import SEO from '@/components/SEO';
 import { buildServiceSchema, buildWebPageSchema, SITE_URL } from '@/utils/seo';
 
 export default function Experiences() {
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
   
   useEffect(() => {
-    setIsPageLoaded(true);
-    
     // Detect iOS devices
     const detectIOS = () => {
       const userAgent = navigator.userAgent.toLowerCase();
@@ -36,7 +33,7 @@ export default function Experiences() {
   }, []);
   
   return (
-    <div className={`min-h-screen ${!isPageLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
+    <div className="min-h-screen">
       <SEO
         title="Studio Use &amp; Pricing"
         description="Production and studio rental rates at The Reel Room in Mount Pleasant, Vancouver—film premieres, DCP screenings, shoots, and corporate productions."
@@ -73,6 +70,29 @@ export default function Experiences() {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link
+          rel="preload"
+          as="image"
+          href="/photos/optimized/DSC03081-Enhanced-NR-800.jpg"
+          media="(max-width: 799px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/photos/optimized/DSC03081-Enhanced-NR-1280.jpg"
+          media="(min-width: 800px) and (max-width: 1279px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/photos/optimized/DSC03081-Enhanced-NR-1920.jpg"
+          media="(min-width: 1280px)"
+          fetchPriority="high"
+        />
+        <link rel="preload" as="image" href="/photos/optimized/DSC03066-Enhanced-NR-1280.jpg" />
+        <link rel="preload" as="image" href="/photos/optimized/DSC03110-Enhanced-NR-1280.jpg" />
       </Head>
       
       <ReelRoomNavigation />
@@ -205,7 +225,7 @@ export default function Experiences() {
                     loading="eager"
                     fallbackSrc="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg"
                     objectFit="cover"
-                    style={{ opacity: 1 }}
+                    layout="content"
                   />
                 </div>
               </div>
@@ -222,7 +242,7 @@ export default function Experiences() {
                     loading="eager"
                     fallbackSrc="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg"
                     objectFit="cover"
-                    style={{ opacity: 1 }}
+                    layout="content"
                   />
                 </div>
                 <div>
@@ -294,7 +314,7 @@ export default function Experiences() {
                     loading="eager"
                     fallbackSrc="/photos/originals/homepage/DSC03086-Enhanced-NR.jpg"
                     objectFit="cover"
-                    style={{ opacity: 1 }}
+                    layout="content"
                   />
                 </div>
               </div>
@@ -314,6 +334,7 @@ export default function Experiences() {
                     src="/photos/originals/homepage/DSC03106-Enhanced-NR.jpg"
                     alt="DCP audio-visual options"
                     className="w-full h-full"
+                    layout="content"
                   />
                 </div>
                 <h3 className="text-xl font-light page-heading mb-3">DCP audio-visual enhancements</h3>
@@ -341,13 +362,13 @@ export default function Experiences() {
                 { src: 'DSC03389-Enhanced-NR.jpg', alt: 'Reel Room bar cocktail detail', span: 'col-span-1 row-span-1' },
               ].map((photo) => (
                 <div key={photo.src} className={`${photo.span} aspect-square overflow-hidden rounded-lg`}>
-                  <div className="w-full h-full">
-                    <SimpleImage
-                      src={`/photos/originals/homepage/${photo.src}`}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                  <SimpleImage
+                    src={`/photos/originals/homepage/${photo.src}`}
+                    alt={photo.alt}
+                    className="w-full h-full hover:scale-105 transition-transform duration-500"
+                    objectFit="cover"
+                    layout="gallery"
+                  />
                 </div>
               ))}
             </div>

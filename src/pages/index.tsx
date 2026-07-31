@@ -7,7 +7,6 @@ import Script from 'next/script';
 import SEO from '@/components/SEO';
 import { buildWebPageSchema, buildServiceSchema, SITE_URL } from '@/utils/seo';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
-import SimpleImage from '@/components/SimpleImage';
 import ResponsivePhoto from '@/components/ResponsivePhoto';
 import { optimizedPhotoSrc } from '@/utils/responsivePhotos';
 import { scrollToTop } from '@/utils/scrollUtils';

@@ -3,7 +3,8 @@ export const PHOTO_WIDTHS = [800, 1280, 1920] as const;
 export type PhotoWidth = (typeof PHOTO_WIDTHS)[number];
 
 export function photoBaseNameFromPath(photoPath: string): string {
-  const filename = photoPath.split('/').pop() || photoPath;
+  const withoutQuery = photoPath.split('?')[0].split('#')[0];
+  const filename = withoutQuery.split('/').pop() || withoutQuery;
   return filename.replace(/\.(jpe?g|png|webp)$/i, '');
 }
 

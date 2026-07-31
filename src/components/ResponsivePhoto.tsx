@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   DEFAULT_CONTENT_SIZES,
   DEFAULT_GALLERY_SIZES,
@@ -53,9 +53,19 @@ export default function ResponsivePhoto({
   onLoad,
   onError,
 }: ResponsivePhotoProps) {
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img?.complete && img.naturalWidth > 0) {
+      onLoad?.();
+    }
+  }, [src, onLoad]);
+
   if (!isLocalHomepagePhoto(src)) {
     return (
       <img
+        ref={imgRef}
         src={src}
         alt={alt}
         className={imgClassName}
@@ -63,6 +73,8 @@ export default function ResponsivePhoto({
         fetchPriority={fetchPriority}
         decoding={decoding}
         style={style}
+        onLoad={onLoad}
+        onError={onError}
       />
     );
   }
@@ -81,6 +93,7 @@ export default function ResponsivePhoto({
       />
       <source media="(min-width: 1280px)" srcSet={sources.desktop} sizes={resolvedSizes} />
       <img
+        ref={imgRef}
         src={sources.fallback}
         alt={alt}
         className={imgClassName}
