@@ -32,7 +32,7 @@ export default function Document() {
         <link rel="dns-prefetch" href="https://i.vimeocdn.com" />
         
         {/* Resource hints for critical assets */}
-        <link rel="preload" href="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" as="image" />
+        <link rel="preload" href="/photos/optimized/DSC03060-Enhanced-NR-1280.jpg" as="image" />
         <link rel="preload" href="/favicon-32x32.png" as="image" />
 
         {/* Font display optimization */}

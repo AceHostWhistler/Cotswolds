@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSProperties } from 'react';
+import ResponsivePhoto from '@/components/ResponsivePhoto';
+import { isLocalHomepagePhoto } from '@/utils/responsivePhotos';
 
 interface SimpleImageProps {
   src: string;
@@ -152,11 +154,38 @@ export default function SimpleImage({
   const imageStyles: CSSProperties = {
     objectFit,
     ...getIOSOptimizedStyles(),
-    display: 'block', // Always show the image
-    opacity: isLoaded ? 1 : 0, // Use opacity for fade-in
+    display: 'block',
+    opacity: isLoaded ? 1 : 0,
     transition: 'opacity 300ms ease-in-out',
     ...style
   };
+
+  if (isLocalHomepagePhoto(imgSrc)) {
+    return (
+      <div className={`relative ${className}`} style={{
+        backgroundColor: '#111',
+        overflow: 'hidden',
+      }}>
+        {!isLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-800 z-10">
+            <div className="w-8 h-8 border-2 border-t-brand-gold border-brand-gold/30 rounded-full animate-spin"></div>
+          </div>
+        )}
+        <ResponsivePhoto
+          src={imgSrc}
+          alt={alt}
+          className="w-full h-full"
+          imgClassName={`w-full h-full transition-opacity duration-300`}
+          loading={loading}
+          decoding={decoding}
+          layout="content"
+          style={imageStyles}
+          onLoad={handleLoad}
+          onError={handleError}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className={`relative ${className}`} style={{

@@ -4,6 +4,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
+import ResponsivePhoto from '../components/ResponsivePhoto';
+import { optimizedPhotoSrc } from '@/utils/responsivePhotos';
 import { scrollToTop } from '@/utils/scrollUtils';
 import SEO from '@/components/SEO';
 import { buildFaqPageSchema, buildWebPageSchema, SITE_URL } from '@/utils/seo';
@@ -111,11 +113,13 @@ export default function Media() {
             key={img} 
             className="gallery-item"
           >
-            <img 
-              src={`/photos/homepage-originals/${img}`} 
+            <ResponsivePhoto
+              src={`/photos/originals/homepage/${img}`}
               alt={`The Reel Room — ${img.replace(/^DSC|\.jpg$/g, '').replace(/-/g, ' ')}`}
-              className="gallery-image"
+              className="w-full h-full"
+              imgClassName="gallery-image"
               loading="lazy"
+              layout="gallery"
             />
           </div>
         ))}
@@ -224,10 +228,12 @@ export default function Media() {
               }}
               className="video-link"
             >
-              <img 
-                src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+              <ResponsivePhoto
+                src="/photos/originals/homepage/DSC03066-Enhanced-NR.jpg"
                 alt="Film Release Video Thumbnail"
                 className="video-thumbnail"
+                imgClassName="video-thumbnail"
+                layout="content"
               />
               <div className="video-play-overlay">
                 <div className="video-play-button">
@@ -303,10 +309,12 @@ export default function Media() {
               }}
               className="video-link"
             >
-              <img 
-                src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+              <ResponsivePhoto
+                src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
                 alt="Reference playback video thumbnail"
                 className="video-thumbnail"
+                imgClassName="video-thumbnail"
+                layout="content"
               />
               <div className="video-play-overlay">
                 <div className="video-play-button">
@@ -464,7 +472,7 @@ export default function Media() {
         title="Media, Gallery &amp; FAQs"
         description="Photo gallery, facility videos, and FAQs for The Reel Room—private screening room and production studio rental in Mount Pleasant, Vancouver, BC."
         canonical={`${SITE_URL}/media`}
-        ogImage="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg"
+        ogImage={optimizedPhotoSrc('DSC03060-Enhanced-NR', 1280)}
         keywords="Reel Room gallery, Vancouver studio photos, private cinema FAQ, DCP screening Vancouver, production studio Mount Pleasant"
         structuredData={[
           buildWebPageSchema({
@@ -689,12 +697,14 @@ export default function Media() {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <div className="absolute inset-0">
-            <img
+            <ResponsivePhoto
               src="/photos/originals/homepage/DSC03659-Enhanced-NR.jpg"
               alt="Reel Room Media"
-              className="w-full h-full object-cover brightness-75"
+              className="absolute inset-0 w-full h-full"
+              imgClassName="w-full h-full object-cover brightness-75"
               loading="eager"
-              style={{display: 'block'}}
+              layout="hero"
+              style={{ display: 'block' }}
             />
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-50">

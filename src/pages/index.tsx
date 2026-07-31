@@ -8,12 +8,14 @@ import SEO from '@/components/SEO';
 import { buildWebPageSchema, buildServiceSchema, SITE_URL } from '@/utils/seo';
 import LazyVimeoPlayer from '@/components/LazyVimeoPlayer';
 import SimpleImage from '@/components/SimpleImage';
+import ResponsivePhoto from '@/components/ResponsivePhoto';
+import { optimizedPhotoSrc } from '@/utils/responsivePhotos';
 import { scrollToTop } from '@/utils/scrollUtils';
 import CalendlyPopupLink from '@/components/CalendlyPopupLink';
 
 const HERO_VIDEO_DESKTOP = '/videos/hero-video-compressed.mp4';
 const HERO_VIDEO_MOBILE = '/videos/hero-video-mobile.mp4';
-const HERO_VIDEO_POSTER = '/photos/homepage-originals/DSC03060-Enhanced-NR.jpg';
+const HERO_VIDEO_POSTER = optimizedPhotoSrc('DSC03060-Enhanced-NR', 1280);
 
 function getHeroVideoSrc(): string {
   if (typeof window === 'undefined') return HERO_VIDEO_MOBILE;
@@ -331,10 +333,12 @@ export default function Home() {
                   <div className="rounded-md overflow-hidden border border-brand-gold relative" style={{ paddingBottom: "56.25%" }}>
                     <div className="absolute inset-0 flex items-center justify-center bg-black">
                       <div className="relative w-full h-full">
-                        <img 
-                          src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+                        <ResponsivePhoto
+                          src="/photos/originals/homepage/DSC03066-Enhanced-NR.jpg"
                           alt="Film Release Video Thumbnail"
-                          className="absolute inset-0 w-full h-full object-cover opacity-60"
+                          className="absolute inset-0 w-full h-full"
+                          imgClassName="absolute inset-0 w-full h-full object-cover opacity-60"
+                          layout="content"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <button 
@@ -414,10 +418,12 @@ export default function Home() {
                   <div className="rounded-md overflow-hidden border border-brand-gold relative" style={{ paddingBottom: "56.25%" }}>
                     <div className="absolute inset-0 flex items-center justify-center bg-black">
                       <div className="relative w-full h-full">
-                        <img 
-                          src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+                        <ResponsivePhoto
+                          src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
                           alt="Reference playback and client review video thumbnail"
-                          className="absolute inset-0 w-full h-full object-cover opacity-60"
+                          className="absolute inset-0 w-full h-full"
+                          imgClassName="absolute inset-0 w-full h-full object-cover opacity-60"
+                          layout="content"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <button 
@@ -563,11 +569,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
-                <img 
-                  src="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg" 
-                  alt="Reel Room Space" 
-                  className="w-full h-full rounded-lg object-cover"
+                <ResponsivePhoto
+                  src="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg"
+                  alt="Reel Room Space"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full rounded-lg object-cover"
                   loading="eager"
+                  layout="content"
                   style={{ display: 'block' }}
                 />
               </div>
@@ -580,11 +588,13 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="relative h-96 rounded-lg overflow-hidden md:order-2">
-                <img 
-                  src="/photos/homepage-originals/DSC03264-Enhanced-NR.jpg" 
-                  alt="Reel Room film premiere and screening rental" 
-                  className="w-full h-full rounded-lg object-cover"
+                <ResponsivePhoto
+                  src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg"
+                  alt="Reel Room film premiere and screening rental"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full rounded-lg object-cover"
                   loading="eager"
+                  layout="content"
                   style={{ display: 'block' }}
                 />
               </div>
@@ -632,11 +642,13 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative h-96 rounded-lg overflow-hidden">
-                <img 
-                  src="/photos/homepage-originals/DSC03060-Enhanced-NR.jpg" 
-                  alt="Reel Room studio and corporate production rental" 
-                  className="w-full h-full rounded-lg object-cover"
+                <ResponsivePhoto
+                  src="/photos/originals/homepage/DSC03060-Enhanced-NR.jpg"
+                  alt="Reel Room studio and corporate production rental"
+                  className="w-full h-full"
+                  imgClassName="w-full h-full rounded-lg object-cover"
                   loading="eager"
+                  layout="content"
                   style={{ display: 'block' }}
                 />
               </div>
@@ -701,10 +713,12 @@ export default function Home() {
               {/* Item 1 */}
               <div className="inclusion-card">
                 <div className="inclusion-card__img">
-                  <img 
-                    src="/photos/homepage-originals/DSC03222-Enhanced-NR.jpg" 
-                    alt="Film & Screenings" 
-                    className="w-full h-full object-cover"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03222-Enhanced-NR.jpg"
+                    alt="Film & Screenings"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="gallery"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font text-center">Film & Screenings</h3>
@@ -714,10 +728,12 @@ export default function Home() {
               {/* Item 2 */}
               <div className="inclusion-card">
                 <div className="inclusion-card__img">
-                  <img 
-                    src="/photos/homepage-originals/DSC03227-Enhanced-NR.jpg" 
-                    alt="Rental flexibility" 
-                    className="w-full h-full object-cover"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03227-Enhanced-NR.jpg"
+                    alt="Rental flexibility"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="gallery"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font text-center">Rental flexibility</h3>
@@ -727,10 +743,12 @@ export default function Home() {
               {/* Item 3 */}
               <div className="inclusion-card">
                 <div className="inclusion-card__img">
-                  <img 
-                    src="/photos/homepage-originals/DSC03192-Enhanced-NR-Edit.jpg" 
-                    alt="Upscale screen room experience" 
-                    className="w-full h-full object-cover"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03192-Enhanced-NR-Edit.jpg"
+                    alt="Upscale screen room experience"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="gallery"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font text-center">Upscale Screen Room Experience</h3>
@@ -740,10 +758,12 @@ export default function Home() {
               {/* Item 4 */}
               <div className="inclusion-card">
                 <div className="inclusion-card__img">
-                  <img 
-                    src="/photos/homepage-originals/DSC03131-Enhanced-NR.jpg" 
-                    alt="Lounge for production use" 
-                    className="w-full h-full object-cover"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03131-Enhanced-NR.jpg"
+                    alt="Lounge for production use"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="gallery"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font text-center">Lounge (production use)</h3>
@@ -753,10 +773,12 @@ export default function Home() {
               {/* Item 5 */}
               <div className="inclusion-card">
                 <div className="inclusion-card__img">
-                  <img 
-                    src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg" 
-                    alt="On-site production support" 
-                    className="w-full h-full object-cover"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03167-Enhanced-NR.jpg"
+                    alt="On-site production support"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="gallery"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font text-center">On-site coordination</h3>
@@ -766,10 +788,12 @@ export default function Home() {
               {/* Item 6 */}
               <div className="inclusion-card">
                 <div className="inclusion-card__img">
-                  <img 
-                    src="/photos/homepage-originals/DSC03064-Enhanced-NR.jpg" 
-                    alt="Audio Visual Equipment" 
-                    className="w-full h-full object-cover"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03064-Enhanced-NR.jpg"
+                    alt="Audio Visual Equipment"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="gallery"
                   />
                 </div>
                 <h3 className="text-xl font-medium heading-font text-center">Audio Visual Equipment</h3>

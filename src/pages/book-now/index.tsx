@@ -5,6 +5,7 @@ import ReelRoomNavigation from "@/components/ReelRoomNavigation";
 import ReelRoomFooter from "@/components/ReelRoomFooter";
 import { scrollToTop } from "@/utils/scrollUtils";
 import CalendlyPopupLink from "@/components/CalendlyPopupLink";
+import ResponsivePhoto from "@/components/ResponsivePhoto";
 import SEO from "@/components/SEO";
 import { buildWebPageSchema, SITE_URL } from "@/utils/seo";
 
@@ -62,28 +63,15 @@ export default function BookNow() {
         <main>
           {/* Hero Section */}
           <div className="relative h-[300px] sm:h-[400px]">
-            <picture>
-              <source
-                media="(max-width: 799px)"
-                srcSet="/photos/optimized/DSC03264-Enhanced-NR-800.jpg"
-              />
-              <source
-                media="(min-width: 800px) and (max-width: 1279px)"
-                srcSet="/photos/optimized/DSC03264-Enhanced-NR-1280.jpg"
-              />
-              <source
-                media="(min-width: 1280px)"
-                srcSet="/photos/optimized/DSC03264-Enhanced-NR-1920.jpg"
-              />
-              <img
-                src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg"
-                alt="Reel Room Booking"
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="eager"
-                fetchPriority="high"
-                sizes="100vw"
-              />
-            </picture>
+            <ResponsivePhoto
+              src="/photos/originals/homepage/DSC03264-Enhanced-NR.jpg"
+              alt="Reel Room Booking"
+              className="absolute inset-0 w-full h-full"
+              imgClassName="absolute inset-0 w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+              layout="hero"
+            />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <div className="text-center max-w-4xl px-4">
                 <h1 className="text-4xl font-light page-heading text-white mb-4">
@@ -211,10 +199,12 @@ export default function BookNow() {
             <div className="space-y-8 mb-12">
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="relative h-64">
-                  <img
-                    src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03066-Enhanced-NR.jpg"
                     alt="Film Screenings"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="content"
                   />
                 </div>
                 <div className="p-6">
@@ -227,10 +217,12 @@ export default function BookNow() {
               
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="relative h-64">
-                  <img
-                    src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
                     alt="Reference playback studio rental"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="content"
                   />
                 </div>
                 <div className="p-6">
@@ -243,10 +235,12 @@ export default function BookNow() {
               
               <div className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="relative h-64">
-                  <img
-                    src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg"
+                  <ResponsivePhoto
+                    src="/photos/originals/homepage/DSC03167-Enhanced-NR.jpg"
                     alt="Corporate studio rental"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full"
+                    imgClassName="w-full h-full object-cover"
+                    layout="content"
                   />
                 </div>
                 <div className="p-6">

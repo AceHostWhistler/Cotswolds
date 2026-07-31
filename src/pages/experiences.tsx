@@ -5,6 +5,7 @@ import Link from 'next/link';
 import ReelRoomNavigation from '../components/ReelRoomNavigation';
 import ReelRoomFooter from '../components/ReelRoomFooter';
 import SimpleImage from '../components/SimpleImage';
+import ResponsivePhoto from '../components/ResponsivePhoto';
 import LazyVimeoPlayer from '../components/LazyVimeoPlayer';
 import { scrollToTop } from '@/utils/scrollUtils';
 import CalendlyPopupLink from '@/components/CalendlyPopupLink';
@@ -81,29 +82,15 @@ export default function Experiences() {
       <main className="pt-20 pb-20 md:pb-0">
         {/* Hero Section */}
         <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
-          <picture>
-            <source
-              media="(max-width: 799px)"
-              srcSet="/photos/optimized/DSC03081-Enhanced-NR-800.jpg"
-            />
-            <source
-              media="(min-width: 800px) and (max-width: 1279px)"
-              srcSet="/photos/optimized/DSC03081-Enhanced-NR-1280.jpg"
-            />
-            <source
-              media="(min-width: 1280px)"
-              srcSet="/photos/optimized/DSC03081-Enhanced-NR-1920.jpg"
-            />
-            <img
-              src="/photos/originals/homepage/DSC03081-Enhanced-NR.jpg"
-              alt="The Reel Room studio use and pricing"
-              className="absolute inset-0 w-full h-full object-cover"
-              loading="eager"
-              fetchPriority="high"
-              sizes="100vw"
-              decoding="async"
-            />
-          </picture>
+          <ResponsivePhoto
+            src="/photos/originals/homepage/DSC03081-Enhanced-NR.jpg"
+            alt="The Reel Room studio use and pricing"
+            className="absolute inset-0 w-full h-full"
+            imgClassName="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            layout="hero"
+          />
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">
@@ -212,11 +199,11 @@ export default function Experiences() {
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
-                    src="/photos/homepage-originals/DSC03066-Enhanced-NR.jpg"
+                    src="/photos/originals/homepage/DSC03066-Enhanced-NR.jpg"
                     alt="DCP and premiere screening rental"
                     className="w-full h-full"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    fallbackSrc="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg"
                     objectFit="cover"
                     style={{ opacity: 1 }}
                   />
@@ -229,11 +216,11 @@ export default function Experiences() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-8">
                 <div className="relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
-                    src="/photos/homepage-originals/DSC03110-Enhanced-NR.jpg"
+                    src="/photos/originals/homepage/DSC03110-Enhanced-NR.jpg"
                     alt="Reference playback and studio rental"
                     className="w-full h-full"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03125-Enhanced-NR.jpg"
+                    fallbackSrc="/photos/originals/homepage/DSC03125-Enhanced-NR.jpg"
                     objectFit="cover"
                     style={{ opacity: 1 }}
                   />
@@ -301,11 +288,11 @@ export default function Experiences() {
                 </div>
                 <div className="order-1 md:order-2 relative h-96 rounded-lg overflow-hidden">
                   <SimpleImage
-                    src="/photos/homepage-originals/DSC03167-Enhanced-NR.jpg"
+                    src="/photos/originals/homepage/DSC03167-Enhanced-NR.jpg"
                     alt="Corporate studio rental"
                     className="w-full h-full"
                     loading="eager"
-                    fallbackSrc="/photos/homepage-originals/DSC03086-Enhanced-NR.jpg"
+                    fallbackSrc="/photos/originals/homepage/DSC03086-Enhanced-NR.jpg"
                     objectFit="cover"
                     style={{ opacity: 1 }}
                   />
@@ -324,7 +311,7 @@ export default function Experiences() {
               <div className="bg-gray-50 p-8 rounded-lg shadow-md">
                 <div className="h-48 mb-6 rounded overflow-hidden">
                   <SimpleImage
-                    src="/photos/homepage-originals/DSC03106-Enhanced-NR.jpg"
+                    src="/photos/originals/homepage/DSC03106-Enhanced-NR.jpg"
                     alt="DCP audio-visual options"
                     className="w-full h-full"
                   />
@@ -356,7 +343,7 @@ export default function Experiences() {
                 <div key={photo.src} className={`${photo.span} aspect-square overflow-hidden rounded-lg`}>
                   <div className="w-full h-full">
                     <SimpleImage
-                      src={`/photos/homepage-originals/${photo.src}`}
+                      src={`/photos/originals/homepage/${photo.src}`}
                       alt={photo.alt}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
