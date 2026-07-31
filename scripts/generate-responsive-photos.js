@@ -2,7 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const SOURCE_DIR = 'public/photos/originals/homepage';
+const SOURCE_DIRS = [
+  'public/photos/originals/homepage',
+  'public/photos/gallery/elle-wedding',
+];
 const OUTPUT_DIR = 'public/photos/optimized';
 
 const VARIANTS = [
@@ -41,24 +44,31 @@ async function generateVariants(sourcePath) {
 }
 
 async function main() {
-  if (!fs.existsSync(SOURCE_DIR)) {
-    console.error(`Source directory not found: ${SOURCE_DIR}`);
-    process.exit(1);
-  }
-
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
-  const sources = fs
-    .readdirSync(SOURCE_DIR)
-    .filter((file) => /\.(jpe?g)$/i.test(file))
-    .map((file) => path.join(SOURCE_DIR, file))
-    .sort();
+  let allSources = [];
 
-  console.log(`Generating responsive photos for ${sources.length} source images...`);
+  for (const sourceDir of SOURCE_DIRS) {
+    if (!fs.existsSync(sourceDir)) {
+      console.warn(`Skipping missing directory: ${sourceDir}`);
+      continue;
+    }
+
+    const sources = fs
+      .readdirSync(sourceDir)
+      .filter((file) => /\.(jpe?g)$/i.test(file))
+      .map((file) => path.join(sourceDir, file));
+
+    allSources = allSources.concat(sources);
+  }
+
+  allSources.sort();
+
+  console.log(`Generating responsive photos for ${allSources.length} source images...`);
 
   let processed = 0;
 
-  for (const sourcePath of sources) {
+  for (const sourcePath of allSources) {
     try {
       const { baseName, results } = await generateVariants(sourcePath);
       processed += 1;
@@ -68,7 +78,7 @@ async function main() {
     }
   }
 
-  console.log(`\nDone. Generated variants for ${processed}/${sources.length} images.`);
+  console.log(`\nDone. Generated variants for ${processed}/${allSources.length} images.`);
 }
 
 main().catch((error) => {

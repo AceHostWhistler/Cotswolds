@@ -549,7 +549,8 @@ svg {
 picture img[src*="/photos/"],
 img[src*="/photos/optimized/"],
 img[src*="/photos/originals/"],
-img[src*="/photos/homepage-originals/"] {
+img[src*="/photos/homepage-originals/"],
+img[src*="/photos/gallery/"] {
   object-fit: contain !important;
   width: 100%;
   height: auto;

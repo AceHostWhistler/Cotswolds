@@ -9,6 +9,7 @@ import { optimizedPhotoSrc } from '@/utils/responsivePhotos';
 import { scrollToTop } from '@/utils/scrollUtils';
 import SEO from '@/components/SEO';
 import { buildFaqPageSchema, buildWebPageSchema, SITE_URL } from '@/utils/seo';
+import { galleryImages } from '@/utils/galleryImages';
 
 // Type for FAQ sections
 interface FaqItem {
@@ -43,44 +44,7 @@ export default function Media() {
     setOpenFaqIndex(0);
   }, [activeFaqSection]);
   
-  // Curated gallery order — mixed for visual variety (not sequential by filename)
-  const galleryImages = [
-    'DSC03125-Enhanced-NR.jpg',
-    'DSC03081-Enhanced-NR.jpg',
-    'DSC03217-Enhanced-NR.jpg',
-    'DSC03060-Enhanced-NR.jpg',
-    'DSC03101-Enhanced-NR.jpg',
-    'DSC03222-Enhanced-NR.jpg',
-    'DSC03106-Enhanced-NR.jpg',
-    'DSC03070-Enhanced-NR.jpg',
-    'DSC03138-Enhanced-NR.jpg',
-    'DSC03223-Enhanced-NR.jpg',
-    'DSC03078-Enhanced-NR.jpg',
-    'DSC03166-Enhanced-NR.jpg',
-    'DSC03110-Enhanced-NR.jpg',
-    'DSC03192-Enhanced-NR-Edit.jpg',
-    'DSC03092-Enhanced-NR.jpg',
-    'DSC03159-Enhanced-NR.jpg',
-    'DSC03061-Enhanced-NR.jpg',
-    'DSC03172-Enhanced-NR.jpg',
-    'DSC03086-Enhanced-NR.jpg',
-    'DSC03199-Enhanced-NR.jpg',
-    'DSC03063-Enhanced-NR.jpg',
-    'DSC03113-Enhanced-NR.jpg',
-    'DSC03095-Enhanced-NR.jpg',
-    'DSC03127-Enhanced-NR.jpg',
-    'DSC03167-Enhanced-NR.jpg',
-    'DSC03064-Enhanced-NR.jpg',
-    'DSC03131-Enhanced-NR.jpg',
-    'DSC03096-Enhanced-NR.jpg',
-    'DSC03073-Enhanced-NR.jpg',
-    'DSC03104-Enhanced-NR.jpg',
-    'DSC03088-Enhanced-NR.jpg',
-    'DSC03097-Enhanced-NR.jpg',
-    'DSC03066-Enhanced-NR.jpg',
-    'DSC03102-Enhanced-NR.jpg',
-    'DSC03099-Enhanced-NR.jpg',
-  ];
+  // Curated gallery — studio and event photos interleaved (see galleryImages.ts)
   
   // Calculate current images to display
   const indexOfLastImage = currentPage * imagesPerPage;
@@ -108,14 +72,14 @@ export default function Media() {
       
       {/* Simple Gallery Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {currentImages.map((img) => (
+        {currentImages.map((image) => (
           <div 
-            key={img} 
+            key={image.src} 
             className="gallery-item"
           >
             <ResponsivePhoto
-              src={`/photos/originals/homepage/${img}`}
-              alt={`The Reel Room — ${img.replace(/^DSC|\.jpg$/g, '').replace(/-/g, ' ')}`}
+              src={image.src}
+              alt={image.alt}
               className="w-full h-full"
               imgClassName="gallery-image"
               loading="lazy"

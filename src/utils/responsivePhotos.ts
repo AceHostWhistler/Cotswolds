@@ -11,7 +11,8 @@ export function photoBaseNameFromPath(photoPath: string): string {
 export function isLocalHomepagePhoto(photoPath: string): boolean {
   return (
     photoPath.includes('/photos/homepage-originals/') ||
-    photoPath.includes('/photos/originals/homepage/')
+    photoPath.includes('/photos/originals/homepage/') ||
+    photoPath.includes('/photos/gallery/')
   );
 }
 
