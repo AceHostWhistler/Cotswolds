@@ -127,7 +127,7 @@ export default function Home() {
                     id="hero-video"
                     key={heroVideoSrc ?? 'poster-only'}
                     src={heroVideoSrc ?? undefined}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover"
                     autoPlay
                     muted
                     loop
@@ -153,10 +153,11 @@ export default function Home() {
                       if (img) img.style.display = 'block';
                     }}
                     style={{ 
-                      objectFit: 'contain',
+                      objectFit: 'cover',
                       objectPosition: 'center center',
                       width: '100%',
                       height: '100%',
+                      transform: 'scale(1.2)',
                       zIndex: 2
                     }}
                   />
@@ -165,12 +166,13 @@ export default function Home() {
                   <img 
                     src={HERO_VIDEO_POSTER} 
                     alt="Reel Room Background" 
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-cover"
                     style={{ 
-                      objectFit: 'contain',
+                      objectFit: 'cover',
                       objectPosition: 'center center',
                       width: '100%',
                       height: '100%',
+                      transform: 'scale(1.2)',
                       zIndex: 1,
                       display: 'none'
                     }}
