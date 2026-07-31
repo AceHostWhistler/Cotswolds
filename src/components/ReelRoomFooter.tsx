@@ -51,6 +51,11 @@ const ReelRoomFooter: React.FC = () => {
                   Media & FAQs
                 </Link>
               </li>
+              <li>
+                <Link href="/blog" className="body-font text-gray-400 hover:text-brand-gold transition-colors block py-3 sm:py-2">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -107,6 +112,9 @@ const ReelRoomFooter: React.FC = () => {
             &copy; {new Date().getFullYear()} Reel Room. All rights reserved.
           </p>
           <div className="mt-4 flex flex-wrap justify-center gap-4">
+            <Link href="/blog" className="body-font text-gray-500 text-xs sm:text-sm hover:text-brand-gold transition-colors py-2 px-3">
+              Blog
+            </Link>
             <Link href="/privacy" className="body-font text-gray-500 text-xs sm:text-sm hover:text-brand-gold transition-colors py-2 px-3">
               Privacy Policy
             </Link>

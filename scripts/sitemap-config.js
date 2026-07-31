@@ -3,11 +3,22 @@ const path = require('path');
 
 const SITE_URL = 'https://www.reelroom.ca';
 
+const BLOG_SLUGS = [
+  'dcp-screening-rental-vancouver-reel-room',
+  'reference-playback-private-screening-room-vancouver',
+];
+
 const SITEMAP_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/experiences', priority: '0.9', changefreq: 'weekly' },
   { path: '/book-now', priority: '0.9', changefreq: 'weekly' },
   { path: '/media', priority: '0.8', changefreq: 'weekly' },
+  { path: '/blog', priority: '0.7', changefreq: 'weekly' },
+  ...BLOG_SLUGS.map((slug) => ({
+    path: `/blog/${slug}`,
+    priority: '0.6',
+    changefreq: 'monthly',
+  })),
   { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
   { path: '/terms', priority: '0.3', changefreq: 'yearly' },
 ];
@@ -37,6 +48,7 @@ function writeSitemapFile(outputPath) {
 module.exports = {
   SITE_URL,
   SITEMAP_PAGES,
+  BLOG_SLUGS,
   generateSitemapXml,
   writeSitemapFile,
   OUTPUT_PATH: path.join(process.cwd(), 'public', 'sitemap.xml'),

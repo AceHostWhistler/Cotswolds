@@ -145,6 +145,45 @@ export function buildWebPageSchema(options: {
   };
 }
 
+export function buildArticleSchema(options: {
+  headline: string;
+  description: string;
+  url: string;
+  image: string;
+  datePublished: string;
+}) {
+  const absoluteImage = options.image.startsWith('http')
+    ? options.image
+    : `${SITE_URL}${options.image}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: options.headline,
+    description: options.description,
+    url: options.url,
+    image: absoluteImage,
+    datePublished: options.datePublished,
+    author: {
+      '@type': 'Organization',
+      name: BUSINESS.name,
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: BUSINESS.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/favicons/Logo%20Reel%20Room.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': options.url,
+    },
+  };
+}
+
 export type StructuredData = Record<string, unknown> | Record<string, unknown>[];
 
 export function normalizeStructuredData(
