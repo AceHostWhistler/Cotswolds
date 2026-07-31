@@ -3,7 +3,6 @@ import ReelRoomNavigation from "@/components/ReelRoomNavigation";
 import ReelRoomFooter from "@/components/ReelRoomFooter";
 import SEO from "@/components/SEO";
 import { SITE_URL } from "@/utils/seo";
-import Link from "next/link";
 
 export default function Privacy() {
   return (
@@ -202,11 +201,9 @@ export default function Privacy() {
             features or functions on our website.
           </p>
           <p className="mb-4">
-            For more information about the cookies we use, please see our{" "}
-            <Link href="/cookies" className="text-blue-600 hover:underline">
-              Cookie Policy
-            </Link>
-            .
+            We use essential cookies to keep the site working, and analytics
+            cookies (such as Vercel Analytics) to understand how visitors use
+            the site. We do not use advertising or third-party tracking cookies.
           </p>
         </section>
 
