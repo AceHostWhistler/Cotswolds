@@ -107,7 +107,7 @@ export default function Experiences() {
               src="/photos/originals/homepage/DSC03081-Enhanced-NR.jpg"
               alt="The Reel Room studio use and pricing"
               className="absolute inset-0 w-full h-full"
-              imgClassName="w-full h-full object-cover"
+              imgClassName="w-full h-full object-cover object-[center_58%]"
               loading="eager"
               fetchPriority="high"
               layout="hero"
