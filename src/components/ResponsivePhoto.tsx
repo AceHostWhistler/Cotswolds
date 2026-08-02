@@ -82,6 +82,7 @@ export default function ResponsivePhoto({
   const baseName = photoBaseNameFromPath(src);
   const sources = responsivePhotoSources(baseName);
   const resolvedSizes = sizes ?? getDefaultSizes(layout);
+  const imgSrc = layout === 'hero' ? sources.desktop : sources.fallback;
 
   return (
     <picture className={className}>
@@ -94,7 +95,7 @@ export default function ResponsivePhoto({
       <source media="(min-width: 1280px)" srcSet={sources.desktop} sizes={resolvedSizes} />
       <img
         ref={imgRef}
-        src={sources.fallback}
+        src={imgSrc}
         alt={alt}
         className={imgClassName}
         loading={loading}

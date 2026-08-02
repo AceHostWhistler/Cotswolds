@@ -101,16 +101,18 @@ export default function Experiences() {
       
       <main className="pt-20 pb-20 md:pb-0">
         {/* Hero Section */}
-        <div className="relative h-[300px] sm:h-[400px] overflow-hidden">
-          <ResponsivePhoto
-            src="/photos/originals/homepage/DSC03081-Enhanced-NR.jpg"
-            alt="The Reel Room studio use and pricing"
-            className="absolute inset-0 w-full h-full"
-            imgClassName="absolute inset-0 w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-            layout="hero"
-          />
+        <div className="relative h-[34rem] overflow-hidden">
+          <div className="absolute inset-0">
+            <ResponsivePhoto
+              src="/photos/originals/homepage/DSC03081-Enhanced-NR.jpg"
+              alt="The Reel Room studio use and pricing"
+              className="absolute inset-0 w-full h-full"
+              imgClassName="w-full h-full object-cover"
+              loading="eager"
+              fetchPriority="high"
+              layout="hero"
+            />
+          </div>
           <div className="absolute inset-0 bg-black bg-opacity-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
               <div className="text-white max-w-2xl">

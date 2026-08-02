@@ -436,7 +436,7 @@ export default function Media() {
         title="Media, Gallery &amp; FAQs"
         description="Photo gallery, facility videos, and FAQs for The Reel Room—private screening room and production studio rental in Mount Pleasant, Vancouver, BC."
         canonical={`${SITE_URL}/media`}
-        ogImage={optimizedPhotoSrc('DSC03113-Enhanced-NR', 1280)}
+        ogImage={optimizedPhotoSrc('DSC03113-Enhanced-NR', 1920)}
         keywords="Reel Room gallery, Vancouver studio photos, private cinema FAQ, DCP screening Vancouver, production studio Mount Pleasant"
         structuredData={[
           buildWebPageSchema({
@@ -450,6 +450,27 @@ export default function Media() {
       />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link
+          rel="preload"
+          as="image"
+          href={optimizedPhotoSrc('DSC03113-Enhanced-NR', 800)}
+          media="(max-width: 799px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href={optimizedPhotoSrc('DSC03113-Enhanced-NR', 1280)}
+          media="(min-width: 800px) and (max-width: 1279px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href={optimizedPhotoSrc('DSC03113-Enhanced-NR', 1920)}
+          media="(min-width: 1280px)"
+          fetchPriority="high"
+        />
         <style>{`
           /* Basic reset for iOS */
           * {
@@ -665,8 +686,9 @@ export default function Media() {
               src="/photos/originals/homepage/DSC03113-Enhanced-NR.jpg"
               alt="Reel Room Media"
               className="absolute inset-0 w-full h-full"
-              imgClassName="w-full h-full object-cover brightness-75"
+              imgClassName="w-full h-full object-cover"
               loading="eager"
+              fetchPriority="high"
               layout="hero"
               style={{ display: 'block' }}
             />
