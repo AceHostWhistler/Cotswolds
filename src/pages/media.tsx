@@ -436,7 +436,7 @@ export default function Media() {
         title="Media, Gallery &amp; FAQs"
         description="Photo gallery, facility videos, and FAQs for The Reel Room—private screening room and production studio rental in Mount Pleasant, Vancouver, BC."
         canonical={`${SITE_URL}/media`}
-        ogImage={optimizedPhotoSrc('DSC03060-Enhanced-NR', 1280)}
+        ogImage={optimizedPhotoSrc('DSC03097-Enhanced-NR', 1280)}
         keywords="Reel Room gallery, Vancouver studio photos, private cinema FAQ, DCP screening Vancouver, production studio Mount Pleasant"
         structuredData={[
           buildWebPageSchema({
@@ -662,7 +662,7 @@ export default function Media() {
         <div className="relative h-[400px] overflow-hidden">
           <div className="absolute inset-0">
             <ResponsivePhoto
-              src="/photos/originals/homepage/DSC03659-Enhanced-NR.jpg"
+              src="/photos/originals/homepage/DSC03097-Enhanced-NR.jpg"
               alt="Reel Room Media"
               className="absolute inset-0 w-full h-full"
               imgClassName="w-full h-full object-cover brightness-75"
